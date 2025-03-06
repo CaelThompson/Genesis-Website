@@ -4,17 +4,29 @@ import Container from "../global/Container.astro";
 ---
 
 <Container>
-    <div class=" bg-black my-48 rounded-xl relative z-20 overflow-hidden group">
-        <img class=" h-full w-full absolute rounded-lg  object-cover blur-sm opacity-10 " src="/img/bulk.JPG " alt="">
-        <div class="relative mx-auto max-w-7xl py-24 sm:py-32 lg:px-8 lg:py-24">
-          <div class="pl-6 pr-6 md:mr-auto md:w-2/3 md:pl-16 ">
-            <h2 class="text-base font-normal leading-7 text-green-200">Lorem ipsum dolor sit.</h2>
-            <p class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Lorem ipsum dolor sit.</p>
-            <p class="mt-6 text-base leading-7 text-gray-300">Possimus minima nisi deserunt debitis nihil culpa cum non nemo voluptates soluta incidunt magnam, dolore, maiores vero dolores placeat sed molestiae repellat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus minima nisi deserunt debitis nihil culpa cum non nemo voluptates soluta incidunt magnam, dolore, maiores vero dolores placeat sed molestiae repellat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus minima nisi deserunt debitis nihil culpa cum non nemo voluptates soluta incidunt magnam, dolore, maiores vero dolores placeat sed molestiae repellat.</p>
-          </div>
-        </div>
-        <div class="absolute right-0 lg:top-16 md:top-32 z-0 hidden md:block">
-            <img src="/img/bulk.svg" class="h-[550px]" alt="">
+  <div class="bg-black my-48 rounded-xl relative z-20 overflow-hidden group">
+      <!-- Background Image with Blur Effect -->
+      <img class="h-full w-full absolute rounded-lg object-cover blur-sm opacity-10" src="/img/bulk.JPG" alt="">
+
+      <div class="relative mx-auto max-w-7xl py-24 sm:py-32 lg:px-8 lg:py-24">
+          <div class="pl-6 pr-6 md:mr-auto md:w-2/3 md:pl-16">
+              <h2 class="text-base font-medium leading-7 text-green-300 tracking-wide uppercase">Strategic Manufacturing Solutions</h2>
+              <p class="mt-4 text-4xl font-bold tracking-tight text-gray-100 sm:text-5xl leading-tight">
+                  Precision Engineering. Global Reliability.
+              </p>
+              <p class="mt-6 text-lg leading-8 text-gray-300">
+                  Genesis Company is a premier Tier 2 OEM supplier, delivering mission-critical, precision-engineered solutions that redefine industry standards.  
+                  <br><br>
+                  With a global network of design and manufacturing facilities, we empower aerospace, defense, automotive, and industrial manufacturers with cutting-edge production capabilities, ensuring seamless supply chain integration and optimized efficiency.
+                  <br><br>
+                  Our expertise in high-performance component manufacturing enables businesses to scale operations, maintain competitive advantage, and meet evolving market demands with absolute confidence.
+              </p>
           </div>
       </div>
+
+      <!-- Industry-Related Image on the Right -->
+      <div class="absolute right-0 lg:top-16 md:top-32 z-0 hidden md:block">
+          <img src="/img/bulk.svg" class="h-[550px]" alt="Industry Graphic">
+      </div>
+  </div>
 </Container>
