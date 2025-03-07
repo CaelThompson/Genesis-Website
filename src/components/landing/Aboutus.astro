@@ -1,3 +1,7 @@
+---
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
+---
+
 <!-- About Us section -->
 <section class="mt-32 bg-main">
     <div class="max-w-6xl py-16 mx-auto">
@@ -5,7 +9,7 @@
             <!-- About Image -->
             <div class="flex justify-center pb-6 md:pb-0 delay-[300ms] duration-[600ms] taos:translate-x-[-200px] taos:opacity-0"
                 data-taos-offset="400">
-                <img src="/img/logo1.png" class="h-[200px] md:h-[230px]" alt="Genesis Logo">
+                <img src="/img/gen-logo2.png" class="h-[200px] md:h-[230px]" alt="Genesis Logo">
             </div>
             
             <!-- About Content -->
@@ -32,10 +36,12 @@
                 
                 <!-- Call to Action -->
                 <div>
+                    <a href=`${basePath}product`>
                     <button id="button" type="submit"
                         class="inline-flex items-center gap-2 text-black text-sm font-semibold shadow to-gray-200 from-white hover:to-smoke duration-200 bg-gradient-to-b rounded-full px-6 py-2">
                         Explore Innovation
                     </button>
+                    </a>
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 ---
 import Container from "../global/Container.astro";
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
 ---
 
 <Container>
@@ -39,12 +40,14 @@ import Container from "../global/Container.astro";
 
                 <!-- CTA Buttons -->
                 <div class="flex flex-row gap-4 items-center justify-center md:justify-start">
-                    <a href="#_" class="relative inline-flex items-center justify-center px-5 py-3 text-sm font-semibold shadow transition duration-300 ease-out rounded-full group bg-green-700 text-white hover:bg-green-800">
+                    <a href=`${basePath}about` class="relative inline-flex items-center justify-center px-5 py-3 text-sm font-semibold shadow transition duration-300 ease-out rounded-full group bg-green-700 text-white hover:bg-green-800">
                         Learn More
                     </a>
+                    <a href=`${basePath}product`>
                     <button class="inline-flex group items-center gap-2 shadow ring-inset text-green-700 ring-2 ring-green-700 hover:bg-green-100 backdrop-blur rounded-full text-sm font-semibold px-3 py-2.5">
                         Explore Our Solutions
                     </button>
+                    </a>
                 </div>
             </div>
 
