@@ -1,3 +1,7 @@
+---
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
+---
+
 <!-- About Us section -->
 <section class="mt-32 bg-gray-800">
     <div class="max-w-6xl py-16 mx-auto">
@@ -32,10 +36,12 @@
                 
                 <!-- Call to Action -->
                 <div>
+                    <a href=`${basePath}product`>
                     <button id="button" type="submit"
                         class="inline-flex items-center gap-2 text-black text-sm font-semibold shadow to-gray-200 from-white hover:to-smoke duration-200 bg-gradient-to-b rounded-full px-6 py-2">
                         Explore Innovation
                     </button>
+                    </a>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 ---
 import Container from "./Container.astro";
-
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
 ---
 
 <footer class="bg-gray-100">
@@ -12,27 +12,22 @@ import Container from "./Container.astro";
             <div>
                 <ul>
                     <li class="flex flex-col md:flex-row gap-6 text-center">
-                        <a href="/about" class="text-sm text-zinc-800 hover:text-black duration-500 font-medium hover:underline">About Us</a>
-                        <a href="#" class="text-sm text-zinc-800 hover:text-black duration-500 font-medium hover:underline">Our Certificates</a>
-                        <a href="contact" class="text-sm text-zinc-800 hover:text-black duration-500 font-medium hover:underline">Contact Us</a>
-                        <a href="#" class="text-sm text-zinc-800 hover:text-black duration-500 font-medium hover:underline">Bulk Orders</a>
-                        <!-- <a href="#" class="text-sm text-zinc-800 hover:text-black duration-500 font-medium hover:underline">Example Text</a> -->
+                        <a href=`${basePath}about` class="text-sm text-zinc-800 hover:text-black duration-500 font-medium hover:underline">About Us</a>
+                        <a href=`${basePath}about#leadership` class="text-sm text-zinc-800 hover:text-black duration-500 font-medium hover:underline">Leadership</a>
+                        <a href=`${basePath}contact` class="text-sm text-zinc-800 hover:text-black duration-500 font-medium hover:underline">Contact Us</a>
                     </li>
                 </ul>
             </div>
             <div class="">
                 <div class="flex gap-4 cursor-pointer">
-                    <a href="" target="_blank"><i class="text-gray-600 opacity-70 text-xl duration-300 fa-brands fa-facebook hover:opacity-100"></i></a>
-                    <a href="" target="_blank"><i class="text-gray-600 opacity-70 text-xl duration-300 fa-brands fa-instagram hhover:opacity-100"></i></a>
-                    <a href="" target="_blank"><i class="text-gray-600 opacity-70 text-xl duration-300 fa-brands fa-whatsapp hover:opacity-100"></i></a>
-                    <a href="" target="_blank"><i class="text-gray-600 opacity-70 text-xl duration-300 fa-brands fa-linkedin hover:opacity-100"></i></a>
+                    <a href="https://www.linkedin.com/groups/12994241/" target="_blank"><i class="text-gray-600 opacity-70 text-xl duration-300 fa-brands fa-linkedin hover:opacity-100"></i></a>
                 </div>
             </div>
         </div>
         <!-- Copyright text -->
         <div class="flex pt-6">
              <div class="border-t border-zinc-300  w-full">
-                <p class="pt-4 pb-4 text-sm font-normal text-center text-zinc-800">Copyright &copy; Relan. Developed by Vootex Team</p>
+                <p class="pt-4 pb-4 text-sm font-normal text-center text-zinc-800">Copyright &copy; Genesis. Developed by AMS G&D</p>
             </div>
         </div>
     </Container>
