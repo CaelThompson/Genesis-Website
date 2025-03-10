@@ -1,12 +1,12 @@
 ---
 import Container from "../global/Container.astro";
-
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
 ---
 
 <Container>
   <div class="bg-gray-800 my-48 rounded-xl relative z-20 overflow-hidden group">
       <!-- Background Image with Blur Effect -->
-      <img class="h-full w-full absolute rounded-lg object-cover blur-sm opacity-10" src="bulk.jpg" alt="">
+      <img class="h-full w-full absolute rounded-lg object-cover blur-sm opacity-10" src=`${basePath}bulk.jpg` alt="">
 
       <div class="relative mx-auto max-w-7xl py-24 sm:py-32 lg:px-8 lg:py-24">
           <div class="pl-6 pr-6 md:mr-auto md:w-2/3 md:pl-16">
@@ -26,7 +26,7 @@ import Container from "../global/Container.astro";
 
       <!-- Industry-Related Image on the Right -->
       <div class="absolute right-0 lg:top-16 md:top-32 z-0 hidden md:block">
-          <img src="/img/bulk.svg" class="h-[550px]" alt="Industry Graphic">
+          <img src=`${basePath}img/bulk.svg` class="h-[550px]" alt="Industry Graphic">
       </div>
   </div>
 </Container>

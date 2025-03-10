@@ -1,6 +1,6 @@
 ---
 import Container from "../global/Container.astro";
-
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
 ---
 <!-- Why Genesis Section -->
 <Container>
@@ -11,7 +11,7 @@ import Container from "../global/Container.astro";
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-10 pt-16">
             <div class="flex flex-col gap-6 justify-center shadow-sm hover:shadow-md border border-gray-200 hover:border-gray-300 bg-gray-50 items-center text-center rounded-lg px-10 py-12">
                 <div>
-                    <img width="150" height="94" src="spped.png" alt="delivery-scooter"/>            
+                    <img width="150" height="94" src=`${basePath}spped.png` alt="delivery-scooter"/>            
                 </div>
                 <div class="space-y-4">
                     <h3 class="text-black font-semibold text-lg">Speed & Reliability</h3>
@@ -22,7 +22,7 @@ import Container from "../global/Container.astro";
             </div>
             <div class="flex flex-col gap-6 justify-center shadow-sm hover:shadow-md border border-gray-200 hover:border-gray-300 bg-gray-50 items-center text-center rounded-lg px-10 py-12">
                 <div>
-                    <img width="150" height="94" src="manufacturing.png" alt="palm-tree--v1"/>            
+                    <img width="150" height="94" src=`${basePath}manufacturing.png` alt="palm-tree--v1"/>            
                 </div>
                 <div class="space-y-4">
                     <h3 class="text-black font-semibold text-lg">Global Manufacturing</h3>
@@ -33,7 +33,7 @@ import Container from "../global/Container.astro";
             </div>
             <div class="flex flex-col gap-6 justify-center shadow-sm hover:shadow-md border border-gray-200 hover:border-gray-300 bg-gray-50 items-center text-center rounded-lg px-10 py-12">
                 <div>
-                    <img width="150" height="84" src="medal.png" alt="medal icon" class="opacity-40"/>            
+                    <img width="150" height="84" src=`${basePath}medal.png` alt="medal icon" class="opacity-40"/>            
                 </div>
                 <div class="space-y-4">
                     <h3 class="text-black font-semibold text-lg">Certified Excellence</h3>

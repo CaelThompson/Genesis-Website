@@ -1,5 +1,5 @@
 ---
-
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
 ---
 
 
@@ -9,7 +9,7 @@
         <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
           <div class="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-gray-100 ring-1 ring-gray-900/10 lg:w-1/2">
             <div class="absolute inset-0 h-full w-full stroke-gray-200 bg-zinc-50" aria-hidden="true">
-              <img src="/img/dt-ct2.png" class="opacity-30" alt="">
+              <img src=`${basePath}img/dt-ct2.png` class="opacity-30" alt="">
             </div>
           </div>
           <h2 class="text-3xl font-bold tracking-tight text-gray-900">Contact Us</h2>

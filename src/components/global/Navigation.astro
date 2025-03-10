@@ -7,8 +7,8 @@ const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
     <nav class="">
         <div x-data="{ open: false }" class="flex flex-col   mx-auto md:items-center md:justify-between md:flex-row ">
             <div class="p-4 flex flex-row items-center justify-between">
-                <a href="/">
-                    <img src="/img/gen-logo2.png" alt="relan logo" class="w-20 cursor-pointer">
+                <a href=`${basePath}`>
+                    <img src=`${basePath}/img/gen-logo2.png` alt="relan logo" class="w-20 cursor-pointer">
                 </a>
                 <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
                     <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
@@ -28,9 +28,7 @@ const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
             </div>
             <div class="hidden md:block">
                 <a href=`${basePath}contact`>
-                <button class="to-main inline-flex gap-2 items-center from-green-700 hover:to-green-700 duration-200 shadow bg-gradient-to-b rounded-full  text-white py-2 px-4">Contact Us<span>
-                    </span>
-                </button>
+                <button class="to-main inline-flex gap-2 items-center from-green-700 hover:to-green-700 duration-200 shadow bg-gradient-to-b rounded-full  text-white py-2 px-4">Contact Us</button>
                 </a>
             </div>
         </div>
