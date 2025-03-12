@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ArticleLink from "../components/landing/BlogPage/ArticleLink.astro";
+import { articles } from "../components/landing/BlogPage/articleStorage.js";
+---
+
+<BaseLayout>
+    {articles.map((article) => (
+        <ArticleLink 
+          title={article.title} 
+          description={article.description} 
+          image={article.image} 
+          url={`/blog/${article.slug}`},
+          date={article.date}
+        />
+      ))}
+</BaseLayout>
