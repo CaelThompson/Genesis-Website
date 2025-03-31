@@ -1,0 +1,112 @@
+---
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
+---
+
+<style>
+    .unique-boxes-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+    .unique-box {
+        width: 50px;
+        height: 50px;
+        background-color: #007bff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+        cursor: pointer;
+        border-radius: 10px;
+        border: 2px solid #c93939;
+    }
+    .unique-box button {
+        width: 100%;
+        height: 100%;
+        background: none;
+        border: none;
+        color: inherit;
+        font: inherit;
+        cursor: pointer;
+        border-radius: inherit;
+    }
+    .flex-container {
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+        align-items: center;
+        justify-content: center;
+    }
+    .flex-container a, .flex-container button {
+        text-decoration: none;
+    }
+    .learn-more {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px 15px;
+        font-size: 14px;
+        font-weight: 600;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease-out;
+        border-radius: 50px;
+        background-color: #28a745;
+        color: white;
+    }
+    .learn-more:hover {
+        background-color: #218838;
+    }
+    .explore-solutions {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: 2px solid #28a745;
+        color: #28a745;
+        background-color: transparent;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+    .explore-solutions:hover {
+        background-color: #e9f5e9;
+    }
+</style>
+
+<body>
+    <div class="unique-boxes-container" id="boxesContainer"></div>
+    <div class="flex-container">
+        <a href=`${basePath}about` class="learn-more">Learn More</a>
+        <a href=`${basePath}product`>
+            <button class="explore-solutions">Explore Our Solutions</button>
+        </a>
+    </div>
+</body>
+
+<script>
+    const boxesContainer = document.getElementById('boxesContainer');
+    const boxNames = ['test', 'test2', 'Done', 'Done2', 'Genesis'];
+    const boxLinks = [
+        'https://example.com/test',
+        'https://example.com/test2',
+        'https://example.com/done',
+        'https://example.com/done2',
+        'https://example.com/genesis'
+    ];
+
+    function addBox(name, link) {
+        const box = document.createElement('div');
+        box.className = 'unique-box';
+        const button = document.createElement('button');
+        button.textContent = name;
+        button.onclick = () => window.location.href = link;
+        box.appendChild(button);
+        boxesContainer.appendChild(box);
+    }
+
+    // Create boxes with specified names and links
+    boxNames.forEach((name, index) => addBox(name, boxLinks[index]));
+</script>

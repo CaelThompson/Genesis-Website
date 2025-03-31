@@ -1,0 +1,55 @@
+---
+import Container from "../global/Container.astro";
+import SearchBar from '../MadeForProject/SearchBar.astro';
+import Articles from '../MadeForProject/TrendingArt.astro';
+import Titles from '../MadeForProject/TrendingMid.astro';
+
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
+
+---
+<style>
+body {
+  background: url('path/to/your/background-image.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.rowSe {
+  display: flex;
+  justify-content: space-evenly; /* Distributes items evenly */
+  background-color: whitesmoke;
+  border: 2px solid #ccc; /* Adds a border wrap */
+  padding: 10px; /* Adds padding inside the border */
+  border-radius: 10px; /* Optional: Adds rounded corners */
+}
+
+
+.rowSe > * {
+  flex: 1;
+  margin: 0; /* No extra space around items */
+}
+</style>
+
+<Container>
+    <section>
+        <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-10">
+            <SearchBar />
+        </div>
+    </section>
+
+    <section class="rowSe">
+        <div>
+            <Articles />
+        </div>
+        <div>
+            <Titles />
+        </div>
+        <div>
+            Stock
+        </div>
+    </section>
+
+
+</Container>
+
+
+
