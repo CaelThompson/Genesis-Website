@@ -1,6 +1,6 @@
-# 🥥 Coconut Oil Manufacturing Website
+# 🌐 Genesis Website - Search Engine and Information Hub
 
-This repository contains the source code for a website developed for a coconut oil manufacturing company. The website is built using Astro.js, Tailwind CSS, and TypeScript.
+This repository contains the source code for the Genesis website and its associated fake search engine. Genesis is a modern and interactive platform designed to serve as a fake search engine and information hub. The website is built using Astro.js, Tailwind CSS, and TypeScript.
 
 ## Project Overview
 
@@ -12,31 +12,18 @@ This repository contains the source code for a website developed for a coconut o
 
 ### Features 🌟
 
-- Informative landing page showcasing the company's products and services.
-- Product pages with detailed information about various coconut oil products.
-- Contact form for users to get in touch with the company.
-- Responsive design for optimal viewing on different devices.
+- **Search Engine**: A powerful search functionality that provides suggestions and filters results based on user input.
+- **Interactive UI**: Hover effects, animations, and responsive design for an engaging user experience.
+- **Dynamic Navigation**: Quick access to key sections like "About," "Products," and "Home."
+- **Customizable Design**: Built with reusable components and modern CSS techniques for easy customization.
+- **Responsive Design**: Optimized for viewing on desktops, tablets, and mobile devices.
 
-## Installation
-
-1. Clone the repository: `git clone https://github.com/DamiduSandipa/Relan.git`
-2. Install dependencies: `npm install`
-3. Run the development server: `npm run dev`
 
 ## Project Status
 
-### Finished ✅
+### Work In Progress
 
-The development of this project has been completed successfully. However, due to unforeseen circumstances, the client couldn't fulfill their financial obligations. In light of this situation, the decision has been made to open source the project. The codebase is available for the community to use, contribute to, and improve upon.
+The development of this project has not been completed.
 
-## Contact
-
-For any inquiries or information about this project, please contact me:
-
-Discord ID - damiya
-
-Feel free to contribute, report issues, or provide feedback. Contributions are always welcome!
-
-**Note:** Please respect the licensing terms and conditions outlined in the LICENSE file.
-
-**Disclaimer:** The decision to open source the project is based on external factors and is beyond the control of the project contributors.
+### Originally Split From
+https://github.com/DamiduSandipa/Marketing-Website
