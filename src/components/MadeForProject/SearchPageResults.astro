@@ -1,6 +1,7 @@
 ---
 
 import LoadItemSearch from "./LoadItemSearch.astro";
+import { searchterms } from "../MadeForProject/searchs.js";
 ---
 
 <style>
@@ -358,129 +359,38 @@ import LoadItemSearch from "./LoadItemSearch.astro";
         background-color: #665151;
     }
 
+    .related-searches {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+          }
+
+          .related-search-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            border: 1px solid #dfe1e5;
+            border-radius: 10rem;
+            background-color: #fff;
+            font-family: "Roboto", sans-serif;
+            font-size: 0.9em;
+            color: var(--gray-i);
+            cursor: pointer;
+            box-shadow: 0 0.2em 7px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.2s ease, background-color 0.2s ease;
+          }
+
+          .related-search-button:hover {
+            box-shadow: 0 0.2em 7px rgba(0, 0, 0, 0.17), 0 -0.05em 6px rgba(0, 0, 0, 0.1);
+            background-color: var(--hover-bg);
+          }
+
     
 
       </style>
-
-<html lang="en">
-    
-  <head>
-    <meta name="description" content="Page description" />
-    <meta name="theme-color" content="#000" />
-    <title>Google Search Results Page</title>
-
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <header>
-      <div class="top-header">
-        <div class="top-header__left-sec">
-          <span class="material-icons-outlined menu-bar-icon"> menu </span>
-          <a href="/" id="google-logo" title="Go to Google Home">
-            <img
-              src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
-              alt=""
-            />
-          </a>
-          <div class="search-container">
-            <div class="search-container__left-sec">
-              <span class="material-icons search-container__left-sec--srch-icon"></span>
-              <input
-                type="search"
-                name="search"
-                id="inp--searchbox"
-                autocomplete="on"
-                placeholder="Search..."
-                oninput="showSuggestions(this.value)"
-              />
-            </div>
-          
-            <div class="search-container__right-sec">
-              <button class="material-icons" id='searchbutton' onclick="executeSearch()">search</button>
-            </div>
-          </div>
-        </div>
-
-        <div id="autocompleteList" class="autocomplete-list"></div>
-
-        <div class="top-header__right-sec">
-          <div class="top-header__right-sec--apps">
-            <svg class="gb_We" focusable="false" viewBox="0 0 24 24">
-              <path
-                d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"
-              ></path>
-            </svg>
-          </div>
-
-          <div class="top-header__right-sec--user-acc">
-            <img src="htttps://lh3.googleusercontent.com/ogw/ADGmqu_wdWJPIUjYUsJmXS6LT_Nxgzb34iCho1mrNsbH=s83-c-mo" alt="YES" />
-          </div>
-        </div>
-      </div>
-      <div class="bottom-header">
-        <nav>
-          <div class="bottom-header__left-sec">
-            <ul>
-              <li class="active-page">
-                <a href="#"><span class="material-icons">search</span>All</a>
-              </li>
-              <li>
-                <a href="404">
-                  <span class="material-icons-outlined"> article </span>
-                  News</a
-                >
-              </li>
-              <li>
-                <a href="404">
-                  <span class="material-icons-outlined"> book </span>
-                  Books</a
-                >
-              </li>
-              <li>
-                <a href="404">
-                  <span class="material-icons-outlined"> smart_display </span>
-                  Videos</a
-                >
-              </li>
-              <li>
-                <a href="404">
-                  <span class="material-icons-outlined"> image </span>
-                  Images</a
-                >
-              </li>
-
-            </ul>
-          </div>
-
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <div class="main-container">
-        <div class="search-delay">
-          About 1,000,000 results (0.513 seconds)
-        </div>
-
-
-        <LoadItemSearch />
-
-      </div>
-
-
-    </main>
-
-
-
-  <script>
+ <script>
     import { parseKeywords } from '../MadeForProject/searchfilter.js';
     import { searchterms } from '../MadeForProject/searchs.js';
         const items = searchterms;
@@ -600,10 +510,154 @@ import LoadItemSearch from "./LoadItemSearch.astro";
             showSuggestions(event.target.value);
         });
 
-        
+        document.addEventListener('DOMContentLoaded', () => {
+            const relatedSearchButtons = document.querySelectorAll('.related-search-button');
+            relatedSearchButtons.forEach(button => {
+              button.addEventListener('click', () => {
+          const term = button.getAttribute('data-term');
+          const searchInput = document.getElementById('inp--searchbox');
+          if (searchInput instanceof HTMLInputElement) {
+            searchInput.value = term;  // Set the term as the search query
+          }
+          executeSearch();  // Execute the search after setting the value
+              });
+            });
+          });
 
 
   </script>
+<html lang="en">
+    
+  <head>
+    <meta name="description" content="Page description" />
+    <meta name="theme-color" content="#000" />
+    <title>Google Search Results Page</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="top-header">
+        <div class="top-header__left-sec">
+          <span class="material-icons-outlined menu-bar-icon"> menu </span>
+          <a href="/" id="google-logo" title="Go to Google Home">
+            <img
+              src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
+              alt=""
+            />
+          </a>
+          <div class="search-container">
+            <div class="search-container__left-sec">
+              <span class="material-icons search-container__left-sec--srch-icon"></span>
+              <input
+                type="search"
+                name="search"
+                id="inp--searchbox"
+                autocomplete="on"
+                placeholder="Search..."
+                oninput="showSuggestions(this.value)"
+              />
+            </div>
+          
+            <div class="search-container__right-sec">
+              <button class="material-icons" id='searchbutton' onclick="executeSearch()">search</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="autocompleteList" class="autocomplete-list"></div>
+
+        <div class="top-header__right-sec">
+          <div class="top-header__right-sec--apps">
+            <svg class="gb_We" focusable="false" viewBox="0 0 24 24">
+              <path
+                d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"
+              ></path>
+            </svg>
+          </div>
+
+          <div class="top-header__right-sec--user-acc">
+            <img src="htttps://lh3.googleusercontent.com/ogw/ADGmqu_wdWJPIUjYUsJmXS6LT_Nxgzb34iCho1mrNsbH=s83-c-mo" alt="YES" />
+          </div>
+        </div>
+      </div>
+      <div class="bottom-header">
+        <nav>
+          <div class="bottom-header__left-sec">
+            <ul>
+              <li class="active-page">
+                <a href="#"><span class="material-icons">search</span>All</a>
+              </li>
+              <li>
+                <a href="404">
+                  <span class="material-icons-outlined"> article </span>
+                  News</a
+                >
+              </li>
+              <li>
+                <a href="404">
+                  <span class="material-icons-outlined"> book </span>
+                  Books</a
+                >
+              </li>
+              <li>
+                <a href="404">
+                  <span class="material-icons-outlined"> smart_display </span>
+                  Videos</a
+                >
+              </li>
+              <li>
+                <a href="404">
+                  <span class="material-icons-outlined"> image </span>
+                  Images</a
+                >
+              </li>
+
+            </ul>
+          </div>
+
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="main-container">
+        <div class="search-delay">
+          About 1,000,000 results (0.513 seconds)
+        </div>
+
+
+        <LoadItemSearch />
+
+        Related searches from google search results
+
+        <div class="related-searches">
+          {searchterms.sort(() => 0.5 - Math.random()).slice(0, 8).map((term) => (
+            <button 
+              class="related-search-button" 
+              data-term={term}  // Store the term in a data attribute
+            >
+              {term}
+            </button>
+          ))}
+        </div>
+
+      </div>
+
+
+    </main>
+
+
+
+ 
 
 </body>
 </html>
