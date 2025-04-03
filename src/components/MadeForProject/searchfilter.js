@@ -5,7 +5,22 @@ export function parseKeywords(inputString, keywords) {
 
     // Define a mapping of correct keywords to their misspellings
     const keywordMap = {
-        news: ["neews", "newes", "neus", "newz", "noews", "nwes", "new"],
+        news: [
+            "neews", "newes", "neus", "newz", "noews", "nwes", "new", 
+            "vanguard", "vngaurd", "vauguard", "vangard", "vangaurd", "vanguar", "vauguard", 
+            "vaugnard", "vagard", "vander", "vagurad", "vangaurd", "vagurad", 
+            "vanguard journalism", "vanguard jornalisim", "vanguad journalism", "vanguard jorunalism", 
+            "vanguard jornalism", "vanguarde journalism", "vanguar journalism", "vanguard jourlism", 
+            "vanguard journlism", "vanguad jurnlism", "vanguard jornlism", "vanguard jounalism", 
+            "vanguard jouralism", "vanguard journalism", "vanguard jurnalism", "vngaurd journalism", 
+            "vanguard journelism", "vanguard jorunalism", "vanguar journalizm", "vanguard jouranalism", 
+            "vanguard jurnlism", "vanguar jornalism", "vanguard journlizm", "vagurad journalism", 
+            "vagard journalism", "vanguard journamism", "vanguard journlism", "vanguard journisism", 
+            "vanguard jurnalism", "journlism", "jornlism", "journamism", "jurnalism", "jornalism", 
+            "jorunalism", "jorunlism", "jouralism", "jourlism", "jouranalism", "journolism", 
+            "jurnlism", "jurnalisim", "journlizm", "journism", "journlism", "journim", "jurnalm", 
+            "jorumalisim", "jurnolism", "jorunalisim", "journalism"
+        ],        
         genesis: ["genisis", "geneses", "gennesis", "genessis", "jennesis", "genisus"],
         articles: ["articals", "articels", "articls", "artciles", "articlse", "aricles", "article"]
     };
