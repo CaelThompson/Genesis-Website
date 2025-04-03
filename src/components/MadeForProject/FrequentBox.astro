@@ -1,6 +1,9 @@
 ---
-const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
+ const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
 ---
+
+<title>Image Square Buttons</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 <style>
     .unique-boxes-container {
@@ -12,25 +15,25 @@ const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
     .unique-box {
         width: 50px;
         height: 50px;
-        background-color: #007bff;
         display: flex;
         justify-content: center;
         align-items: center;
-        color: black;
         cursor: pointer;
         border-radius: 10px;
-        border: 2px solid #c93939;
+        border: 1px solid #696969;
+        box-shadow: 1px 8px 12px rgba(0, 0, 0, 0.1);
+        overflow: hidden; /* Ensure the image fits within the square */
     }
-    .unique-box button {
-        width: 100%;
-        height: 100%;
-        background: none;
-        border: none;
-        color: inherit;
-        font: inherit;
-        cursor: pointer;
-        border-radius: inherit;
+    .unique-box img {
+        width: 100%; /* Image takes up the full size of the square */
+        height: 100%; /* Image scales to fit the square */
+        object-fit: cover; /* Ensures the image covers the area while maintaining its aspect ratio */
+        transition: transform 0.3s ease; /* Optional: for smooth hover effect */
     }
+    .unique-box:hover img {
+        transform: scale(1.1); /* Optional: zoom in the image on hover */
+    }
+
     .flex-container {
         display: flex;
         flex-direction: row;
@@ -38,9 +41,11 @@ const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
         align-items: center;
         justify-content: center;
     }
+
     .flex-container a, .flex-container button {
         text-decoration: none;
     }
+
     .learn-more {
         display: inline-flex;
         align-items: center;
@@ -57,6 +62,7 @@ const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
     .learn-more:hover {
         background-color: #218838;
     }
+
     .explore-solutions {
         display: inline-flex;
         align-items: center;
@@ -77,37 +83,30 @@ const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
 </style>
 
 <body>
-    <div class="unique-boxes-container" id="boxesContainer"></div>
+    <div class="unique-boxes-container" id="boxesContainer">
+        <!-- Example square image buttons wrapped in anchor tags -->
+        <a href=`${basePath}about` class="unique-box">
+            <img src="https://via.placeholder.com/50" alt="Image 1" />
+        </a>
+        <a href=`${basePath}product` class="unique-box">
+            <img src="https://via.placeholder.com/50" alt="Image 2" />
+        </a>
+        <a href=`${basePath}news` class="unique-box">
+            <img src="https://via.placeholder.com/50" alt="Image 3" />
+        </a>
+    </div>
+
     <div class="flex-container">
         <a href=`${basePath}about` class="learn-more">Learn More</a>
-        <a href=`${basePath}product`>
-        <a href=`${basePath}news`> News </a>
+        <a href=`${basePath}product.html?visibility=show`>
             <button class="explore-solutions">Explore Our Solutions</button>
+        </a>
+        <a href=`${basePath}news`>
+            <button class="explore-solutions">News</button>
         </a>
     </div>
 </body>
 
 <script>
-    const boxesContainer = document.getElementById('boxesContainer');
-    const boxNames = ['test', 'test2', 'Done', 'Done2', 'Genesis'];
-    const boxLinks = [
-        'https://example.com/test',
-        'https://example.com/test2',
-        'https://example.com/done',
-        'https://example.com/done2',
-        'https://example.com/genesis'
-    ];
-
-    function addBox(name, link) {
-        const box = document.createElement('div');
-        box.className = 'unique-box';
-        const button = document.createElement('button');
-        button.textContent = name;
-        button.onclick = () => window.location.href = link;
-        box.appendChild(button);
-        boxesContainer.appendChild(box);
-    }
-
-    // Create boxes with specified names and links
-    boxNames.forEach((name, index) => addBox(name, boxLinks[index]));
+   
 </script>

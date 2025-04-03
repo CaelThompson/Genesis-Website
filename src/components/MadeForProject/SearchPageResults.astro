@@ -1,13 +1,370 @@
 ---
-    const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
+
+import LoadItemSearch from "./LoadItemSearch.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+    /* My Notes =>  */
+    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap");
+    @font-face {
+      font-family: "ps-bold";
+      src: url(../fonts/ps-bold.ttf);
+    }
+    :root {
+      --gray-i: #71757a;
+      --primary-color: #3b6de6; /* Added primary color variable for easy customization */
+      --hover-bg: rgba(200, 200, 200, 0.3);
+    }
+    
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+    
+    html {
+      box-sizing: border-box;
+      font-size: 62.5%;
+      /* 1rem => 10px */
+    }
+    
+    a {
+      color: var(--primary-color);
+      
+    }
+    
+    h3 {
+        text-decoration: underline;
+        font-weight: bold;
+        
+      }
+    
+    body {
+      font-size: 16px;
+      /* Default Font Size => 16px */
+      font-family: "Open Sans", sans-serif;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-x: hidden;
+    }
+    
 
+    
+      .sub-result-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin: 1.5rem 0 !important;
+      }
+    
+      .sub-result-item {
+        font-size: 0.85em;
+        display: block !important;
+        width: 100% !important;
+        margin: 1rem 0 !important;
+        border-top: 0.5px solid #dfe1e5;
+        padding: 1.5rem 0.5rem; /* Increased padding for top/bottom */
+        margin: 0 !important;
+    }
+    
+      .sub-result-item p {
+        display: none !important;
+      }
+    
+      .material-icons-outlined.chevron_right {
+        right: -1.5rem !important;
+      }
+    
+      .sub-result-container__articles {
+        padding-right: 0 !important;
+      }
+    
+      .sub-result-container__article {
+        width: 32% !important;
+      }
+    
+      main {
+        width: 100% !important;
+        padding: 1.2rem 3rem !important;
+      }
+    
+      .arrow-triangle-icon {
+        display: none !important;
+      }
+    
+      .bottom-header nav {
+        width: 100vw !important;
+        margin-left: 1.2rem !important;
+        margin-right: 1.2rem !important;
+      }
+    
+      .top-footer,
+    .bottom-footer {
+        padding-left: 1.2rem !important;
+        padding-right: 1.2rem !important;
+      }
+    
+     
+    
+    
+    header {
+      padding: 2.5rem 2rem 0;
+    }
+    header .top-header {
+      display: flex;
+      justify-content: space-between;
+      height: fit-content;
+    }
+    header .top-header__left-sec {
+      display: flex;
+      align-items: center;
+    }
+    header .top-header__left-sec a {
+      text-decoration: none;
+    }
+    header .top-header__left-sec .menu-bar-icon {
+      display: none;
+      margin-right: 1rem;
+      color: var(--gray-i);
+      padding: 0.5rem;
+    }
+    header .top-header__left-sec #google-logo {
+      display: flex;
+    }
+    header .top-header__left-sec #google-logo img {
+      height: 4rem;
+      width: 50%;
+      object-fit: contain;
+    }
+    header .top-header__left-sec .search-container {
+      width: 45vw;
+      height: 4.6rem;
+      padding: 1rem;
+      padding-left: 2rem;
+      border-radius: 10rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 0.2em 7px rgba(0, 0, 0, 0.17);
+    }
+    header .top-header__left-sec .search-container:hover {
+      box-shadow: 0 0.2em 7px rgba(0, 0, 0, 0.17), 0 -0.05em 6px rgba(0, 0, 0, 0.1);
+    }
+    header .top-header__left-sec .search-container span,
+    header .top-header__left-sec .search-container i {
+      color: var(--gray-i);
+    }
+    header .top-header__left-sec .search-container .search-container__left-sec {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+    header .top-header__left-sec .search-container .search-container__left-sec #inp--searchbox {
+      width: 100%;
+      font-family: "Noto Sans", sans-serif;
+      font-size: 0.95em;
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+    header .top-header__left-sec .search-container .search-container__left-sec #inp--searchbox:focus {
+      outline: none;
+    }
+    header .top-header__left-sec .search-container .search-container__left-sec input[type=search]::-webkit-search-cancel-button {
+      display: none;
+    }
+    header .top-header__left-sec .search-container .search-container__left-sec .search-container__left-sec--srch-icon {
+      display: none;
+      font-size: 1.3em;
+      opacity: 0.8;
+      margin-right: 0.75rem;
+      margin-left: -0.9rem;
+    }
+    header .top-header__left-sec .search-container .search-container__right-sec {
+      display: flex;
+    }
+    header .top-header__left-sec .search-container .search-container__right-sec * {
+      margin: 0 0.25em;
+      cursor: pointer;
+    }
+    header .top-header__left-sec .search-container .search-container__right-sec :first-child {
+      border-right: 0.8px solid #dfe1e5;
+      padding-right: 0.4em;
+      margin-right: 0.25em;
+    }
+    header .top-header__left-sec .search-container .search-container__right-sec :nth-child(2) {
+      color: #d6aa34;
+    }
+    header .top-header__left-sec .search-container .search-container__right-sec :last-child {
+      color: #7198f5;
+    }
+    header .top-header__left-sec .search-container:focus-within .search-container__left-sec--srch-icon {
+      display: block;
+    }
+    header .top-header__right-sec {
+      display: flex;
+      align-items: center;
+    }
+    header .top-header__right-sec .top-header__right-sec--apps {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 100%;
+      margin-right: 1.3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.7rem;
+      fill: #585a5c;
+    }
+    
+    .dots{
+      font-size: 18px !important;
+      color: #606368;
+    }
+    header .top-header__right-sec .top-header__right-sec--user-acc {
+      width: 4rem;
+      height: 4rem;
+      overflow: hidden;
+      border-radius: 100%;
+    }
+    header .top-header__right-sec .top-header__right-sec--user-acc img {
+      width: 100%;
+    }
+    header .top-header__right-sec > :hover {
+      box-shadow: 0 0 0 4px rgba(200, 200, 200, 0.3);
+      cursor: pointer;
+      background-color: rgba(200, 200, 200, 0.3);
+    }
+    header .bottom-header {
+      margin: auto -2rem;
+      margin-top: 2.5rem;
+      border-bottom: 0.5px solid rgba(200, 200, 200, 0.5);
+    }
+    header .bottom-header nav {
+      width: 45vw;
+      margin-left: 12.5vw;
+      display: flex;
+      justify-content: space-between;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    header .bottom-header nav li {
+      list-style-type: none;
+      margin-right: 1em;
+      padding: 0.7rem 0.5rem;
+    }
+    header .bottom-header nav li .material-icons,
+    header .bottom-header nav li .material-icons-outlined {
+      font-size: 18px;
+    }
+    
+    header .bottom-header nav li a {
+      display: flex;
+      color: #606368;
+      text-decoration: none;
+      align-items: center;
+      font-size: 0.9em;
+      justify-content: center;
+    }
+    header .bottom-header nav li a :first-child {
+      margin-right: 0.3em;
+    }
+    header .bottom-header nav .bottom-header__left-sec {
+      margin-right: 5rem;
+    }
+    header .bottom-header nav .bottom-header__left-sec ul {
+      display: flex;
+    }
+    header .bottom-header nav .bottom-header__right-sec ul {
+      display: flex;
+    }
+    header .bottom-header nav .active-page {
+      border-bottom: 4px solid #3b6de6;
+    }
+    
+    main {
+      display: flex;
+      flex-direction: row;
+      width: 85%;
+      max-width: 1920px;
+      font-family: "Roboto", sans-serif;
+      padding: 1rem 5.5vw;
+    }
+    main .right-sidebar {
+      margin: 5rem 0 0 5rem;
+      color: #4e5156;
+      width: 130rem;
+      height: fit-content;
+      border: 0.5px solid #dfe1e5;
+      border-radius: 1rem;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    main .right-sidebar a {
+      color: #2900aa;
+    }
+    main .right-sidebar a:hover {
+      text-decoration: underline;
+    }
+    main .right-sidebar > * {
+      padding: 1.5rem;
+    }
+    main .right-sidebar > *:nth-child(1),
+    main .right-sidebar > *:nth-child(2) {
+      border-bottom: 0.5px solid #dfe1e5;
+    }
+    main .right-sidebar .h2-inline-block {
+      display: inline-block;
+    }
+    main .right-sidebar .h2-inline-block + a {
+      color: #71757a;
+      padding-top: 0.7rem;
+    }
+    .autocomplete-list {
+        position: absolute;
+        
+        left: 50%; /* Centers the list horizontally */
+        transform: translateX(-50%); 
+        top:7%; /* Ensures it appears directly below the input */
+        
+        width: 75%; /* Makes the list align with the width of the input */
+        background-color: #ffffffdc;
+        z-index: 1000;
+        overflow-y: auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+    }
+    .autocomplete-item {
+        padding: 10px;
+        cursor: pointer;
+
+    }
+    .autocomplete-item:hover {
+        background-color: #665151;
+    }
+
+    
+
+      </style>
+
+<html lang="en">
+    
+  <head>
     <meta name="description" content="Page description" />
     <meta name="theme-color" content="#000" />
     <title>Google Search Results Page</title>
@@ -27,7 +384,7 @@
       <div class="top-header">
         <div class="top-header__left-sec">
           <span class="material-icons-outlined menu-bar-icon"> menu </span>
-          <a href=`${basePath}` id="google-logo" title="Go to Google Home">
+          <a href="/" id="google-logo" title="Go to Google Home">
             <img
               src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
               alt=""
@@ -35,26 +392,24 @@
           </a>
           <div class="search-container">
             <div class="search-container__left-sec">
-              <span
-                class="material-icons search-container__left-sec--srch-icon"
-              >
-                search
-              </span>
+              <span class="material-icons search-container__left-sec--srch-icon"></span>
               <input
                 type="search"
                 name="search"
                 id="inp--searchbox"
                 autocomplete="on"
-                value="codewithfaraz"
+                placeholder="Search..."
+                oninput="showSuggestions(this.value)"
               />
             </div>
-
+          
             <div class="search-container__right-sec">
-              <span class="material-icons"> close </span>
-              <span class="material-icons"> search </span>
+              <button class="material-icons" id='searchbutton' onclick="executeSearch()">search</button>
             </div>
           </div>
         </div>
+
+        <div id="autocompleteList" class="autocomplete-list"></div>
 
         <div class="top-header__right-sec">
           <div class="top-header__right-sec--apps">
@@ -114,504 +469,141 @@
         <div class="search-delay">
           About 1,000,000 results (0.513 seconds)
         </div>
-        <div class="result-item">
-          <div class="result-item-link">
-            <a href="#">https://www.codewithfaraz.com</a>
-            <a href="#"><span class="material-icons-outlined dots">
-                more_vert
-            </span></a>
 
-          </div>
-          <h3><a href="#">Code with Faraz - Best Front-End Components and Blogs</a></h3>
-          <p>
-            codewithfaraz is an up-to-date collection of accessible front-end components, blogs and tutorials related to technology, programming and web development.
-          </p>
-          <div class="sub-result-container">
-            <div class="sub-result-item">
-              <h3><a href="#">Components</a></h3>
-              <p>Find an up-to-date collection of accessible front-end components ...</p>
-            </div>
-            <div class="sub-result-item">
-              <h3><a href="#">Blogs</a></h3>
-              <p>
-                Get Latest Blogs related to technology, programming ...
-              </p>
-            </div>
-            <div class="sub-result-item">
-              <h3><a href="#">About</a></h3>
-              <p>
-                This is Faraz Choudhary admin of codewithFaraz.com ...
-              </p>
-            </div>
-            <div class="sub-result-item">
-              <h3><a href="#">Privacy Policy</a></h3>
-              <p>
-                This Privacy Policy applies only to our online activities and is valid for
-                ...
-              </p>
-            </div>
-            <div class="sub-result-item">
-              <h3><a href="#">Contact</a></h3>
-              <p>Lets talk about everything! Whether you have a question ...</p>
-            </div>
-          </div>
-        </div>
-        <div class="result-item">
-          <div class="result-item-link">
-            <a href="#">https://www.codewithfaraz.com › components </a>
-            <a href="#"><span class="material-icons-outlined dots">
-              more_vert
-            </span></a>
-          </div>
-          <h3><a href="#">Latest Front-End Components - codewithFaraz</a></h3>
-          <p>
-            Find an up-to-date collection of accessible front-end components. Components are used to define custom, reusable HTML elements.
-          </p>
-          <hr>
-        </div>
-        <div class="result-item">
-          <div class="result-item-link">
-            <a href="#">https://www.codewithfaraz.com › contact </a>
-            <a href="#"><span class="material-icons-outlined dots">
-              more_vert
-            </span></a>
-          </div>
-          <h3><a href="#">Code with Faraz - Contact Us - codewithFaraz</a></h3>
-          <p>
-            Lets talk about everything! Whether you have a question, want to start a project or simply want to connect.
-          </p>
-          <hr>
-        </div>
-        <div class="result-item">
-          <div class="result-item-link">
-            <a href="#"> https://www.instagram.com › @codewithfaraz.com </a>
-            <a href="#"><span class="material-icons-outlined dots">
-              more_vert
-            </span></a>
-          </div>
-          <h3>
-            <a href="#">codewithfaraz (@codewithfaraz) • Instagram photos and videos</a>
-          </h3>
-          <p>
-            55.5k Followers, 302 Following, 110 Posts - See Instagram photos and
-            videos from <strong>codewithfaraz</strong> (@<strong>codewithfaraz</strong>)
-          </p>
-          <hr>
-        </div>
-        <div class="result-item">
-          <div class="result-item-link">
-            <a href="#">https://www.codewithfaraz.com</a>
-            <a href="#"><span class="material-icons-outlined dots">
-              more_vert
-            </span></a>
-          </div>
-          <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, laudantium sequi cumque voluptatum natus in?.
-          </p>
-          <hr>
-        </div>
-        <div class="result-item">
-          <div class="result-item-link">
-            <a href="#"> https://www.codewithfaraz.com </a>
-            <a href="#"><span class="material-icons-outlined dots">
-              more_vert
-            </span></a>
-          </div>
-          <h3>
-            <a href="#">Lorem ipsum dolor sit amet.</a>
-          </h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, laudantium sequi cumque voluptatum natus in?.
-          </p>
-          <hr>
-        </div>
-        <div class="result-item">
-          <div class="result-item-link">
-            <a href="#"> https://www.codewithfaraz.com › blogs </a>
-            <a href="#"><span class="material-icons-outlined dots">
-              more_vert
-            </span></a>
-          </div>
-          <h3>
-            <a href="#">Lorem ipsum dolor sit amet consectetur.</a>
-          </h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repellat deleniti placeat. Dignissimos similique hic quibusdam reiciendis ipsa! Obcaecati, ea..
-          </p>
-          <hr>
-        </div>
 
- 
+        <LoadItemSearch />
+
       </div>
+
 
     </main>
 
-  </body>
+
+
+  <script>
+    import { parseKeywords } from '../MadeForProject/searchfilter.js';
+    import { searchterms } from '../MadeForProject/searchs.js';
+        const items = searchterms;
+
+        function showSuggestions(query) {
+    const autocompleteList = document.getElementById('autocompleteList');
+    autocompleteList.innerHTML = '';
+
+    if (query.length === 0) {
+        return;
+    }
+
+    console.log('Hello, this is a message from the console!');
+    console.log('this is the query ', query);
+    console.log('this is the items ', items);
+
+    // Filter suggestions based on the query
+    const suggestions = items.filter(item => item.toLowerCase().includes(query.toLowerCase()));
+
+    // Limit the suggestions to 6 results
+    const limitedSuggestions = suggestions.slice(0, 6);
+
+    // Loop through the limited suggestions and display them
+    limitedSuggestions.forEach(suggestion => {
+        const item = document.createElement('div');
+        item.className = 'autocomplete-item';
+        item.textContent = suggestion;
+
+        item.onclick = () => {
+            const searchInput = document.getElementById('inp--searchbox');
+            if (searchInput instanceof HTMLInputElement) {
+                searchInput.value = suggestion;
+            }
+            autocompleteList.innerHTML = ''; // Clear the suggestions after selection
+        };
+
+        autocompleteList.appendChild(item);
+    });
+}
+
+    function executeSearch() {
+            const keywords = ["news", "genesis", "articles"];
+            const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
+            console.log('Ran Search!');
+            
+            const searchInput = document.getElementById('inp--searchbox');
+            
+            // Ensure searchInput is a valid HTMLInputElement
+            if (!(searchInput instanceof HTMLInputElement)) {
+                console.error("Search input is not a valid HTML input element.");
+                return;
+            }
+
+            const query = searchInput.value;
+            
+            // Calling parseKeywords with the value of the input field
+            var keyLog = parseKeywords(query, keywords);
+            console.log('This is the keyLog:', keyLog);
+            
+            // Example: Assuming 'items' is a predefined array or fetched from somewhere
+            const items = ["news", "genesis", "articles"]; // Define or fetch items accordingly
+
+            // Check if the query matches any of the items
+            if (keyLog != '') {
+                switch (true) {
+                    case keyLog.includes("news") && keyLog.includes("genesis") && keyLog.includes("articles"):
+                        // If all items are present
+                        window.location.href = `${basePath}searchresult?section1=show&section2=show`;
+                        break;
+                    case keyLog.includes("news") && keyLog.includes("genesis"):
+                        // If "news" and "genesis" are present
+                        window.location.href = `${basePath}searchresult?section1=show&section2=show`;
+                        break;
+                    case keyLog.includes("news") && keyLog.includes("articles"):
+                        // If "news" and "articles" are present
+                        window.location.href = `${basePath}searchresult?section2=show`;
+                        break;
+                    case keyLog.includes("genesis") && keyLog.includes("articles"):
+                        // If "genesis" and "articles" are present
+                        window.location.href = `${basePath}searchresult?section1=show&section2=show`;
+                        break;
+                    case keyLog.includes("news"):
+                        // If only "news" is present
+                        window.location.href = `${basePath}searchresult?section2=show`;
+                        break;
+                    case keyLog.includes("genesis"):
+                        // If only "genesis" is present
+                        window.location.href = `${basePath}searchresult?section1=show`;
+                        break;
+                    case keyLog.includes("articles"):
+                        // If only "articles" is present
+                        window.location.href = `${basePath}searchresult?section2=show`;
+                        break;
+                    default:
+                        window.location.href = `${basePath}searchresult?section3=show`;
+                        break;
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchButton = document.getElementById('searchbutton');
+            searchButton.addEventListener('click', executeSearch);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Ensure showSuggestions runs when the input is focused
+            document.getElementById('inp--searchbox').addEventListener('focus', (event) => {
+                const target = event.target;
+                if (target instanceof HTMLInputElement) {
+                    showSuggestions(target.value);
+                }
+            });
+        });
+                // Event listener for input changes
+                document.getElementById('inp--searchbox').addEventListener('input', (event) => {
+            showSuggestions(event.target.value);
+        });
+
+        
+
+
+  </script>
+
+</body>
 </html>
-<style>
-/* My Notes =>  */
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap");
-@font-face {
-  font-family: "ps-bold";
-  src: url(../fonts/ps-bold.ttf);
-}
-:root {
-  --gray-i: #71757a;
-  --primary-color: #3b6de6; /* Added primary color variable for easy customization */
-  --hover-bg: rgba(200, 200, 200, 0.3);
-}
-
-* {
-  padding: 0;
-  margin: 0;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-html {
-  box-sizing: border-box;
-  font-size: 62.5%;
-  /* 1rem => 10px */
-}
-
-a {
-  color: var(--primary-color);
-}
-
-h3 {
-    text-decoration: underline;
-    font-weight: bold;
-  }
-
-body {
-  font-size: 16px;
-  /* Default Font Size => 16px */
-  font-family: "Open Sans", sans-serif;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow-x: hidden;
-}
-
-@media only screen and (max-width: 1000px) {
-  .right-sidebar {
-    display: none !important;
-  }
-
-  .sub-result-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    margin: 1.5rem 0 !important;
-  }
-
-  .sub-result-item {
-    font-size: 0.85em;
-    display: block !important;
-    width: 100% !important;
-    margin: 1rem 0 !important;
-    border-top: 0.5px solid #dfe1e5;
-    padding: 1.2rem 0.5rem;
-    margin: 0 !important;
-  }
-  .sub-result-item p {
-    display: none !important;
-  }
-
-  .material-icons-outlined.chevron_right {
-    right: -1.5rem !important;
-  }
-
-  .sub-result-container__articles {
-    padding-right: 0 !important;
-  }
-
-  .sub-result-container__article {
-    width: 32% !important;
-  }
-
-  main {
-    width: 100% !important;
-    padding: 1.2rem 3rem !important;
-  }
-
-  .arrow-triangle-icon {
-    display: none !important;
-  }
-
-  .bottom-header nav {
-    width: 100vw !important;
-    margin-left: 1.2rem !important;
-    margin-right: 1.2rem !important;
-  }
-
-  .top-footer,
-.bottom-footer {
-    padding-left: 1.2rem !important;
-    padding-right: 1.2rem !important;
-  }
-
-  header {
-    position: relative;
-    padding-top: 7.5rem !important;
-  }
-  header nav {
-    overflow-x: scroll !important;
-  }
-  header .menu-bar-icon {
-    display: inline-block !important;
-    position: absolute;
-    top: 2.1rem;
-  }
-  header #google-logo {
-    position: absolute;
-    top: 2rem;
-    left: 56%;
-    transform: translateX(-50%);
-  }
-  header #google-logo img {
-    padding-top: 0.2rem;
-    left: 50%;
-  }
-  header .top-header__right-sec {
-    position: absolute;
-    top: 2rem;
-    right: 1.5rem;
-  }
-  header .search-container {
-    width: 94vw !important;
-  }
-}
-@media only screen and (max-width: 400px) {
-  header .search-container {
-    width: 90vw !important;
-  }
-}
-header {
-  padding: 2.5rem 2rem 0;
-}
-header .top-header {
-  display: flex;
-  justify-content: space-between;
-  height: fit-content;
-}
-header .top-header__left-sec {
-  display: flex;
-  align-items: center;
-}
-header .top-header__left-sec a {
-  text-decoration: none;
-}
-header .top-header__left-sec .menu-bar-icon {
-  display: none;
-  margin-right: 1rem;
-  color: var(--gray-i);
-  padding: 0.5rem;
-}
-header .top-header__left-sec #google-logo {
-  display: flex;
-}
-header .top-header__left-sec #google-logo img {
-  height: 4rem;
-  width: 50%;
-  object-fit: contain;
-}
-header .top-header__left-sec .search-container {
-  width: 45vw;
-  height: 4.6rem;
-  padding: 1rem;
-  padding-left: 2rem;
-  border-radius: 10rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 0.2em 7px rgba(0, 0, 0, 0.17);
-}
-header .top-header__left-sec .search-container:hover {
-  box-shadow: 0 0.2em 7px rgba(0, 0, 0, 0.17), 0 -0.05em 6px rgba(0, 0, 0, 0.1);
-}
-header .top-header__left-sec .search-container span,
-header .top-header__left-sec .search-container i {
-  color: var(--gray-i);
-}
-header .top-header__left-sec .search-container .search-container__left-sec {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-header .top-header__left-sec .search-container .search-container__left-sec #inp--searchbox {
-  width: 100%;
-  font-family: "Noto Sans", sans-serif;
-  font-size: 0.95em;
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-header .top-header__left-sec .search-container .search-container__left-sec #inp--searchbox:focus {
-  outline: none;
-}
-header .top-header__left-sec .search-container .search-container__left-sec input[type=search]::-webkit-search-cancel-button {
-  display: none;
-}
-header .top-header__left-sec .search-container .search-container__left-sec .search-container__left-sec--srch-icon {
-  display: none;
-  font-size: 1.3em;
-  opacity: 0.8;
-  margin-right: 0.75rem;
-  margin-left: -0.9rem;
-}
-header .top-header__left-sec .search-container .search-container__right-sec {
-  display: flex;
-}
-header .top-header__left-sec .search-container .search-container__right-sec * {
-  margin: 0 0.25em;
-  cursor: pointer;
-}
-header .top-header__left-sec .search-container .search-container__right-sec :first-child {
-  border-right: 0.8px solid #dfe1e5;
-  padding-right: 0.4em;
-  margin-right: 0.25em;
-}
-header .top-header__left-sec .search-container .search-container__right-sec :nth-child(2) {
-  color: #d6aa34;
-}
-header .top-header__left-sec .search-container .search-container__right-sec :last-child {
-  color: #7198f5;
-}
-header .top-header__left-sec .search-container:focus-within .search-container__left-sec--srch-icon {
-  display: block;
-}
-header .top-header__right-sec {
-  display: flex;
-  align-items: center;
-}
-header .top-header__right-sec .top-header__right-sec--apps {
-  width: 4rem;
-  height: 4rem;
-  border-radius: 100%;
-  margin-right: 1.3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.7rem;
-  fill: #585a5c;
-}
-
-.dots{
-  font-size: 18px !important;
-  color: #606368;
-}
-header .top-header__right-sec .top-header__right-sec--user-acc {
-  width: 4rem;
-  height: 4rem;
-  overflow: hidden;
-  border-radius: 100%;
-}
-header .top-header__right-sec .top-header__right-sec--user-acc img {
-  width: 100%;
-}
-header .top-header__right-sec > :hover {
-  box-shadow: 0 0 0 4px rgba(200, 200, 200, 0.3);
-  cursor: pointer;
-  background-color: rgba(200, 200, 200, 0.3);
-}
-header .bottom-header {
-  margin: auto -2rem;
-  margin-top: 2.5rem;
-  border-bottom: 0.5px solid rgba(200, 200, 200, 0.5);
-}
-header .bottom-header nav {
-  width: 45vw;
-  margin-left: 12.5vw;
-  display: flex;
-  justify-content: space-between;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-header .bottom-header nav li {
-  list-style-type: none;
-  margin-right: 1em;
-  padding: 0.7rem 0.5rem;
-}
-header .bottom-header nav li .material-icons,
-header .bottom-header nav li .material-icons-outlined {
-  font-size: 18px;
-}
-
-header .bottom-header nav li a {
-  display: flex;
-  color: #606368;
-  text-decoration: none;
-  align-items: center;
-  font-size: 0.9em;
-  justify-content: center;
-}
-header .bottom-header nav li a :first-child {
-  margin-right: 0.3em;
-}
-header .bottom-header nav .bottom-header__left-sec {
-  margin-right: 5rem;
-}
-header .bottom-header nav .bottom-header__left-sec ul {
-  display: flex;
-}
-header .bottom-header nav .bottom-header__right-sec ul {
-  display: flex;
-}
-header .bottom-header nav .active-page {
-  border-bottom: 4px solid #3b6de6;
-}
-
-main {
-  display: flex;
-  flex-direction: row;
-  width: 85%;
-  max-width: 1920px;
-  font-family: "Roboto", sans-serif;
-  padding: 1rem 10vw 3rem 12.5vw;
-}
-main .right-sidebar {
-  margin: 5rem 0 0 5rem;
-  color: #4e5156;
-  width: 130rem;
-  height: fit-content;
-  border: 0.5px solid #dfe1e5;
-  border-radius: 1rem;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-main .right-sidebar a {
-  color: #2900aa;
-}
-main .right-sidebar a:hover {
-  text-decoration: underline;
-}
-main .right-sidebar > * {
-  padding: 1.5rem;
-}
-main .right-sidebar > *:nth-child(1),
-main .right-sidebar > *:nth-child(2) {
-  border-bottom: 0.5px solid #dfe1e5;
-}
-main .right-sidebar .h2-inline-block {
-  display: inline-block;
-}
-main .right-sidebar .h2-inline-block + a {
-  color: #71757a;
-  padding-top: 0.7rem;
-}
-  </style>

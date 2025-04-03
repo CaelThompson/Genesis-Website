@@ -1,15 +1,7 @@
 ---
 import FrequentBox from '../MadeForProject/FrequentBox.astro';
 import { showSuggestions } from '../MadeForProject/autocomplete.js';
-import { executeSearch } from '../MadeForProject/autocomplete.js';
-import { searchterms } from '../MadeForProject/searchs.js'
-const handleFocus = (event) => {
-    const target = event.target;
-    if (target instanceof HTMLInputElement) {
-        showSuggestions(target.value);
-    }
-};
-
+import { parseKeywords } from '../MadeForProject/searchfilter.js';
 
 ---
 <title>Centered Search Bar</title>
@@ -174,52 +166,106 @@ const handleFocus = (event) => {
     -->
     
     <script>
+        import { parseKeywords } from '../MadeForProject/searchfilter.js';
         import { searchterms } from '../MadeForProject/searchs.js';
         const items = searchterms;
 
         function showSuggestions(query) {
-            
-            const autocompleteList = document.getElementById('autocompleteList');
-            autocompleteList.innerHTML = '';
-            if (query.length === 0) {
-                return;
-                
+    const autocompleteList = document.getElementById('autocompleteList');
+    autocompleteList.innerHTML = '';
+
+    if (query.length === 0) {
+        return;
+    }
+
+    console.log('Hello, this is a message from the console!');
+    console.log('this is the query ', query);
+    console.log('this is the items ', items);
+
+    // Filter suggestions based on the query
+    const suggestions = items.filter(item => item.toLowerCase().includes(query.toLowerCase()));
+
+    // Limit the suggestions to 6 results
+    const limitedSuggestions = suggestions.slice(0, 6);
+
+    // Loop through the limited suggestions and display them
+    limitedSuggestions.forEach(suggestion => {
+        const item = document.createElement('div');
+        item.className = 'autocomplete-item';
+        item.textContent = suggestion;
+
+        item.onclick = () => {
+            const searchInput = document.getElementById('inp--searchbox');
+            if (searchInput instanceof HTMLInputElement) {
+                searchInput.value = suggestion;
             }
-            console.log('Hello, this is a message from the console!');
-            console.log('this is the query ', query);
-            console.log('this is the items ', items);
-            const suggestions = items.filter(item => item.toLowerCase().includes(query.toLowerCase()));
-            suggestions.forEach(suggestion => {
-   
-                const item = document.createElement('div');
-                item.className = 'autocomplete-item';
-                item.textContent = suggestion;
-                item.onclick = () => {
-                    const searchInput = document.getElementById('inp--searchbox');
-                    if (searchInput instanceof HTMLInputElement) {
-                        searchInput.value = suggestion;
-                    }
-                    autocompleteList.innerHTML = '';
-                };
-                autocompleteList.appendChild(item);
-            });
-        }
+            autocompleteList.innerHTML = ''; // Clear the suggestions after selection
+        };
+
+        autocompleteList.appendChild(item);
+    });
+}
 
         function executeSearch() {
+            const keywords = ["news", "genesis", "articles"];
             const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
             console.log('Ran Search!');
+            
             const searchInput = document.getElementById('inp--searchbox');
-            window.location.href = `${basePath}searchresult`;
-            if (searchInput instanceof HTMLInputElement) {
-                const query = searchInput.value;
-                // Add your logic here to handle different options based on the search query
-                if (items.includes(query)) {
-                    window.location.href = `${basePath}searchresult`;
-                } else {
-                    alert('No matching option found');
+            
+            // Ensure searchInput is a valid HTMLInputElement
+            if (!(searchInput instanceof HTMLInputElement)) {
+                console.error("Search input is not a valid HTML input element.");
+                return;
+            }
+
+            const query = searchInput.value;
+            
+            // Calling parseKeywords with the value of the input field
+            var keyLog = parseKeywords(query, keywords);
+            console.log('This is the keyLog:', keyLog);
+            
+            // Example: Assuming 'items' is a predefined array or fetched from somewhere
+            const items = ["news", "genesis", "articles"]; // Define or fetch items accordingly
+
+            // Check if the query matches any of the items
+            if (keyLog != '') {
+                switch (true) {
+                    case keyLog.includes("news") && keyLog.includes("genesis") && keyLog.includes("articles"):
+                        // If all items are present
+                        window.location.href = `${basePath}searchresult?section1=show&section2=show`;
+                        break;
+                    case keyLog.includes("news") && keyLog.includes("genesis"):
+                        // If "news" and "genesis" are present
+                        window.location.href = `${basePath}searchresult?section1=show&section2=show`;
+                        break;
+                    case keyLog.includes("news") && keyLog.includes("articles"):
+                        // If "news" and "articles" are present
+                        window.location.href = `${basePath}searchresult?section2=show`;
+                        break;
+                    case keyLog.includes("genesis") && keyLog.includes("articles"):
+                        // If "genesis" and "articles" are present
+                        window.location.href = `${basePath}searchresult?section1=show&section2=show`;
+                        break;
+                    case keyLog.includes("news"):
+                        // If only "news" is present
+                        window.location.href = `${basePath}searchresult?section2=show`;
+                        break;
+                    case keyLog.includes("genesis"):
+                        // If only "genesis" is present
+                        window.location.href = `${basePath}searchresult?section1=show`;
+                        break;
+                    case keyLog.includes("articles"):
+                        // If only "articles" is present
+                        window.location.href = `${basePath}searchresult?section2=show`;
+                        break;
+                    default:
+                    window.location.href = `${basePath}searchresult?section3=show`;
+                        break;
                 }
             }
         }
+
 
 
         document.addEventListener('DOMContentLoaded', () => {
