@@ -1,0 +1,183 @@
+---
+import { posts } from '../Reddit/postData.js';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reddit-Style Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #FF4500;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        .navbar a {
+            padding: 14px 20px;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .post {
+            background-color: white;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .post-title {
+            font-size: 24px;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .post-content {
+            font-size: 16px;
+            color: #444;
+        }
+
+        .comments {
+            margin-top: 20px;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .comment {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .comment-header {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .comment-body {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .post-footer {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Reddit-Style Blog</h1>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <div class="navbar">
+        <a data-tab="all">All</a>
+        <a data-tab="technology">Technology</a>
+        <a data-tab="lifestyle">Lifestyle</a>
+        <a data-tab="music">Music</a>
+        <a data-tab="gaming">Gaming</a>
+    </div>
+
+    <!-- Content -->
+    <div class="container">
+        {posts.length === 0 ? (
+            <p>No posts available. Please check back later.</p>
+        ) : (
+            posts.map(post => (
+                <div class={`tab-content ${post.category} ${post.category === "all" ? "active" : ""}`}>
+                    <div class="post">
+                        <div class="post-header">
+                            <span>Posted by u/{post.username} · {post.time}</span>
+                            <span>{post.upvotes} upvotes</span>
+                        </div>
+                        <div class="post-title">
+                            <h2>
+                                <a href={`/post/${post.id}`}>{post.title}</a>
+                            </h2>
+                        </div>
+                        <div class="post-content">
+                            <p>{post.content}</p>
+                        </div>
+                        <div class="post-footer">
+                            <span>{post.comments.length} Comments</span> | <span>Share</span> | <span>Save</span>
+                        </div>
+                    </div>
+                </div>
+            ))
+        )}
+    </div>
+
+    <script>
+        document.querySelectorAll('.navbar a').forEach(tab => {
+            tab.addEventListener('click', (event) => {
+                event.preventDefault();
+                const tabName = tab.getAttribute('data-tab');
+
+                // Hide all tabs
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Show the selected tab
+                document.querySelectorAll(`.tab-content.${tabName}`).forEach(content => {
+                    content.classList.add('active');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

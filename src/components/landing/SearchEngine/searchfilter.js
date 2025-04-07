@@ -19,13 +19,20 @@ export function parseKeywords(inputString, keywords) {
             "vanguard jurnalism", "journlism", "jornlism", "journamism", "jurnalism", "jornalism", 
             "jorunalism", "jorunlism", "jouralism", "jourlism", "jouranalism", "journolism", 
             "jurnlism", "jurnalisim", "journlizm", "journism", "journlism", "journim", "jurnalm", 
-            "jorumalisim", "jurnolism", "jorunalisim", "journalism"
+            "jorumalisim", "jurnolism", "jorunalisim", "journalism", 'interview', 'interview', 'interveiw', 'intervies', 'intervies', 'intervies', 'press', 'press', 'pres', 'prees'
         ],    
         stock: [
-            "stoks", "stoc", "stoks", "stoks", "stoks", "stokc", "stocck", "finiatlials", "finantials",
-            "finantial", "finantial", "finantail", "finatials", "finatials", "finatials", "finatials", 'money', 'market', 'marcet', 'maret', 'marcet', 'marcet', 'markit'],   
-        genesis: ["genisis", "geneses", "gennesis", "genessis", "jennesis", "genisus"],
-        reddkt: ["redkt", "redkt", "redkt", "redkt", "redkt", "redkt", "redkt", 'blog', 'blog', 'bloog', 'blg', 'bllog', 'bllg', 'form', 'from'],
+            "stock", "market", "stoks", "stoc", "stoks", "stoks", "stoks", "stokc", "stocck", "finiatlials", "finantials",
+            "finantial", "finantial", "finantail", "finatials", "finatials", "finatials", "finatials", 'money', 'market', 'marcet', 'maret', 'marcet', 'marcet', 'markit', 'earnings', 'report', 'growth', 'earnings', 'trends', 'trends', 'trend'],   
+        genesis: ["genesis, genisis", "geneses", "gennesis", "genessis", "jennesis", "genisus"],
+        reddit: [
+            "redkt", "redkt", "redkt", "redkt", "redkt", "redkt", "redkt",
+            "redit", "reddt", "reddti", "reditt", "rddit", "reddi", "rddt",
+            "blog", "blog", "bloog", "blg", "bllog", "bllg", "blgg", "blg",
+            "blgo", "blgog", "blgog", "blgog", "blgog", "blgog", "blgog",
+            "form", "from", "frum", "frm", "fro", "frmo", "fomr"
+        ],
+        
         company: ["comapny", "compnay", "compnay", "comapnies", "comapnies", "comapnies", "comapnies"],
         other: ['games', 'game'],
         articles: ["articals", "articels", "articls", "artciles", "articlse", "aricles", "article"]

@@ -1,7 +1,7 @@
 ---
 
 import LoadItemSearch from "./LoadItemSearch.astro";
-import { searchterms } from "../MadeForProject/searchs.js";
+import { searchterms } from "../SearchEngine/searchs.js";
 ---
 
 <style>
@@ -391,8 +391,8 @@ import { searchterms } from "../MadeForProject/searchs.js";
 
       </style>
  <script>
-    import { parseKeywords } from '../MadeForProject/searchfilter.js';
-    import { searchterms } from '../MadeForProject/searchs.js';
+    import { parseKeywords } from '../SearchEngine/searchfilter.js';
+    import { searchterms } from '../SearchEngine/searchs.js';
         const items = searchterms;
 
         function showSuggestions(query) {
@@ -527,6 +527,9 @@ import { searchterms } from "../MadeForProject/searchs.js";
                   break;
               case keyLog.includes("company"):
                   window.location.href = `${basePath}searchresult?section4=show`;
+                  break;
+              case keyLog.includes("stock"):
+                  window.location.href = `${basePath}searchresult?section3=show`;
                   break;
               case keyLog.includes("other"):
                   window.location.href = `${basePath}searchresult?section6=show`;

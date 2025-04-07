@@ -1,7 +1,7 @@
 ---
-import FrequentBox from '../MadeForProject/FrequentBox.astro';
-import { showSuggestions } from '../MadeForProject/autocomplete.js';
-import { parseKeywords } from '../MadeForProject/searchfilter.js';
+import FrequentBox from '../SearchEngine/FrequentBox.astro';
+import { showSuggestions } from '../landing/SearchEngine/autocomplete.js';
+import { parseKeywords } from '../SearchEngine/searchfilter.js';
 
 ---
 <title>Centered Search Bar</title>
@@ -166,8 +166,8 @@ import { parseKeywords } from '../MadeForProject/searchfilter.js';
     -->
     
     <script>
-        import { parseKeywords } from '../MadeForProject/searchfilter.js';
-        import { searchterms } from '../MadeForProject/searchs.js';
+        import { parseKeywords } from '../SearchEngine/searchfilter.js';
+        import { searchterms } from '../SearchEngine/searchs.js';
         const items = searchterms;
 
         function showSuggestions(query) {
@@ -298,6 +298,9 @@ import { parseKeywords } from '../MadeForProject/searchfilter.js';
                 break;
             case keyLog.includes("genesis"):
                 window.location.href = `${basePath}searchresult?section1=show`;
+                break;
+            case keyLog.includes("stock"):
+                window.location.href = `${basePath}searchresult?section3=show`;
                 break;
             case keyLog.includes("company"):
                 window.location.href = `${basePath}searchresult?section4=show`;

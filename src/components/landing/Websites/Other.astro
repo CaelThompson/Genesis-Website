@@ -1,0 +1,243 @@
+<head>
+    <title>Minesweeper</title>
+    <style>
+        /* General styles for the game */
+        .game-container {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            flex-direction: column;
+        }
+        .minesweeper-board {
+            display: grid;
+            grid-template-columns: repeat(10, 40px);
+            grid-template-rows: repeat(10, 40px);
+            gap: 2px;
+        }
+        .minesweeper-cell {
+            width: 40px;
+            height: 40px;
+            background-color: #d3d3d3;
+            border: 1px solid #653939;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .revealed-cell {
+            background-color: #f9f9f9;
+        }
+        .mine-cell {
+            background-color: red;
+        }
+        .number-cell {
+            color: #000;
+        }
+        .flag-cell {
+            background-color: yellow;
+        }
+        .popup-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 2px solid #888;
+            display: none;
+            z-index: 1000;
+            text-align: center;
+        }
+        .popup-container.active {
+            display: block;
+        }
+        .reset-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="game-container">
+        <div class="minesweeper-board" id="board"></div>
+        <div class="popup-container" id="popup">
+            <p id="popupMessage"></p>
+            <button class="reset-button" id="resetButton">Restart Game</button>
+        </div>
+    </div>
+
+    <script>
+        const rows = 10;
+        const cols = 10;
+        const totalMines = 20;
+        const board = document.getElementById('board');
+        const popup = document.getElementById('popup');
+        const popupMessage = document.getElementById('popupMessage');
+        const resetButton = document.getElementById('resetButton');
+
+        let grid = [];
+        let revealedCount = 0;
+        let flagsCount = 0;
+
+        // Initialize the game board
+        function initializeBoard() {
+            grid = [];
+            revealedCount = 0;
+            flagsCount = 0;
+            board.innerHTML = '';  // Clear previous board
+
+            // Create the grid
+            for (let i = 0; i < rows; i++) {
+                let row = [];
+                for (let j = 0; j < cols; j++) {
+                    let cell = {
+                        revealed: false,
+                        mine: false,
+                        neighborMines: 0,
+                        flagged: false
+                    };
+                    row.push(cell);
+
+                    // Create HTML cell element
+                    const cellDiv = document.createElement('div');
+                    cellDiv.classList.add('minesweeper-cell');
+                    cellDiv.dataset.row = i.toString();
+                    cellDiv.dataset.col = j.toString();
+                    cellDiv.addEventListener('click', () => revealCell(i, j));
+                    cellDiv.addEventListener('contextmenu', (e) => toggleFlag(e, i, j)); // Right-click event
+                    board.appendChild(cellDiv);
+                }
+                grid.push(row);
+            }
+
+            // Place mines randomly
+            let minesPlaced = 0;
+            while (minesPlaced < totalMines) {
+                let row = Math.floor(Math.random() * rows);
+                let col = Math.floor(Math.random() * cols);
+                if (!grid[row][col].mine) {
+                    grid[row][col].mine = true;
+                    minesPlaced++;
+                }
+            }
+
+            // Calculate neighboring mines
+            for (let i = 0; i < rows; i++) {
+                for (let j = 0; j < cols; j++) {
+                    if (!grid[i][j].mine) {
+                        let mineCount = 0;
+                        for (let x = -1; x <= 1; x++) {
+                            for (let y = -1; y <= 1; y++) {
+                                let newRow = i + x;
+                                let newCol = j + y;
+                                if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols) {
+                                    if (grid[newRow][newCol].mine) {
+                                        mineCount++;
+                                    }
+                                }
+                            }
+                        }
+                        grid[i][j].neighborMines = mineCount;
+                    }
+                }
+            }
+        }
+
+        // Reveal a cell
+        function revealCell(row, col) {
+            if (grid[row][col].revealed || grid[row][col].flagged) return;
+
+            let cellDiv = document.querySelector(`[data-row='${row}'][data-col='${col}']`);
+            grid[row][col].revealed = true;
+            cellDiv.classList.add('revealed-cell');
+
+            if (grid[row][col].mine) {
+                cellDiv.classList.add('mine-cell');
+                cellDiv.innerHTML = '💣';
+                showGameOverPopup();
+                return;
+            }
+
+            revealedCount++;
+            if (grid[row][col].neighborMines > 0) {
+                cellDiv.classList.add('number-cell');
+                cellDiv.innerHTML = grid[row][col].neighborMines;
+            }
+
+            // If no neighboring mines, reveal adjacent cells
+            if (grid[row][col].neighborMines === 0) {
+                for (let x = -1; x <= 1; x++) {
+                    for (let y = -1; y <= 1; y++) {
+                        let newRow = row + x;
+                        let newCol = col + y;
+                        if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols) {
+                            if (!grid[newRow][newCol].revealed) {
+                                revealCell(newRow, newCol);
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Check for victory
+            if (revealedCount === rows * cols - totalMines) {
+                showGameWinPopup();
+            }
+        }
+
+        // Show the win popup
+        function showGameWinPopup() {
+            popupMessage.innerHTML = 'You Win!';
+            popup.classList.add('active');
+        }
+
+        // Show the lose popup
+        function showGameOverPopup() {
+            popupMessage.innerHTML = 'You Lose!';
+            popup.classList.add('active');
+        }
+
+        // Toggle flag on right-click
+        function toggleFlag(event, row, col) {
+            event.preventDefault(); // Prevent the context menu from showing
+
+            let cellDiv = document.querySelector(`[data-row='${row}'][data-col='${col}']`);
+            if (grid[row][col].revealed) return; // Can't flag a revealed cell
+
+            if (grid[row][col].flagged) {
+                grid[row][col].flagged = false;
+                flagsCount--;
+                cellDiv.classList.remove('flag-cell');
+                cellDiv.innerHTML = ''; // Remove the flag symbol
+            } else {
+                grid[row][col].flagged = true;
+                flagsCount++;
+                cellDiv.classList.add('flag-cell');
+                cellDiv.innerHTML = '🚩'; // Flag symbol
+            }
+        }
+
+        // Reset the game by adding event listener to the reset button
+        function resetGame() {
+            popup.classList.remove('active');
+            initializeBoard();
+        }
+
+        // Attach reset button event listener
+        resetButton.addEventListener('click', resetGame);
+
+        // Start a new game
+        initializeBoard();
+    </script>
+</body>
