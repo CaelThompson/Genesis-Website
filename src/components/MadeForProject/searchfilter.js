@@ -20,8 +20,14 @@ export function parseKeywords(inputString, keywords) {
             "jorunalism", "jorunlism", "jouralism", "jourlism", "jouranalism", "journolism", 
             "jurnlism", "jurnalisim", "journlizm", "journism", "journlism", "journim", "jurnalm", 
             "jorumalisim", "jurnolism", "jorunalisim", "journalism"
-        ],        
+        ],    
+        stock: [
+            "stoks", "stoc", "stoks", "stoks", "stoks", "stokc", "stocck", "finiatlials", "finantials",
+            "finantial", "finantial", "finantail", "finatials", "finatials", "finatials", "finatials", 'money', 'market', 'marcet', 'maret', 'marcet', 'marcet', 'markit'],   
         genesis: ["genisis", "geneses", "gennesis", "genessis", "jennesis", "genisus"],
+        reddkt: ["redkt", "redkt", "redkt", "redkt", "redkt", "redkt", "redkt", 'blog', 'blog', 'bloog', 'blg', 'bllog', 'bllg', 'form', 'from'],
+        company: ["comapny", "compnay", "compnay", "comapnies", "comapnies", "comapnies", "comapnies"],
+        other: ['games', 'game'],
         articles: ["articals", "articels", "articls", "artciles", "articlse", "aricles", "article"]
     };
 

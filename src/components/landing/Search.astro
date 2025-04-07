@@ -13,45 +13,59 @@ body {
   background-size: cover;
 }
 
+.col {
+    background-color: #ffffff; /* Slightly transparent white background */
+    border: 1px solid #ccc; /* Light gray border */
+    padding: 20px 10px; /* Padding inside the container */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly larger shadow for depth */
+    margin-bottom: 20px; /* Space below each row */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
 .rowSe {
-  display: flex;
-  justify-content: space-evenly; /* Distributes items evenly */
-  background-color: white;
-  border: 2px solid #ccc;
-  padding: 20px 10px; /* 20px for top/bottom, 30px for left/right */
-  border-radius: 24px;
-  background-color: #ffffffd0;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px; /* Adds space at the bottom */
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 8-4 layout: Articles 66%, Titles 33% */
+    gap: 20px; /* Space between columns */
 }
 
 
-.rowSe > * {
-  flex: 1;
-  margin: 0; /* No extra space around items */
-}
 </style>
 
 <Container>
-    <section>
-        <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-10">
-            <SearchBar />
-        </div>
-    </section>
+        <section>
+                <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-10">
+                        <SearchBar />
+                </div>
+        </section>
 
-    <section class="rowSe">
-        <div>
-            <Articles />
-        </div>
-        <div>
-            <Titles />
-        </div>
-        <div>
-            Stock
-        </div>
-    </section>
+        <div class="col">
+        <section class="rowSe">
+                <div>
+                        <Articles />
+                </div>
+                <div>
+                        <Titles />
+                </div>
+                <div>
+                        Stock
+                </div>
+        </section>
 
+        <section class="rowSe">
+            <div>
+                    <Titles />
+            </div>
+            <div>
+                    <Articles />
+            </div>
+            <div>
+                    Stock
+            </div>
+        </section>
+        </div>
 
+        
 </Container>
 
 

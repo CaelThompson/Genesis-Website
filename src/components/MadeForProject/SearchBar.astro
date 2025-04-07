@@ -49,7 +49,7 @@ import { parseKeywords } from '../MadeForProject/searchfilter.js';
         
         left: 50%; /* Centers the list horizontally */
         transform: translateX(-50%); 
-        top: 24%; /* Ensures it appears directly below the input */
+        top: 23.2%; /* Ensures it appears directly below the input */
         
         width: 75%; /* Makes the list align with the width of the input */
         background-color: #ffffffdc;
@@ -207,7 +207,7 @@ import { parseKeywords } from '../MadeForProject/searchfilter.js';
 }
 
         function executeSearch() {
-            const keywords = ["news", "genesis", "articles"];
+            const keywords = ["news", "genesis", "stock", "company", "other", "articles", "reddit"];
             const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
             console.log('Ran Search!');
             
@@ -225,46 +225,100 @@ import { parseKeywords } from '../MadeForProject/searchfilter.js';
             var keyLog = parseKeywords(query, keywords);
             console.log('This is the keyLog:', keyLog);
             
-            // Example: Assuming 'items' is a predefined array or fetched from somewhere
-            const items = ["news", "genesis", "articles"]; // Define or fetch items accordingly
-
-            // Check if the query matches any of the items
             if (keyLog != '') {
-                switch (true) {
-                    case keyLog.includes("news") && keyLog.includes("genesis") && keyLog.includes("articles"):
-                        // If all items are present
-                        window.location.href = `${basePath}searchresult?section1=show&section2=show`;
-                        break;
-                    case keyLog.includes("news") && keyLog.includes("genesis"):
-                        // If "news" and "genesis" are present
-                        window.location.href = `${basePath}searchresult?section1=show&section2=show`;
-                        break;
-                    case keyLog.includes("news") && keyLog.includes("articles"):
-                        // If "news" and "articles" are present
-                        window.location.href = `${basePath}searchresult?section2=show`;
-                        break;
-                    case keyLog.includes("genesis") && keyLog.includes("articles"):
-                        // If "genesis" and "articles" are present
-                        window.location.href = `${basePath}searchresult?section1=show&section2=show`;
-                        break;
-                    case keyLog.includes("news"):
-                        // If only "news" is present
-                        window.location.href = `${basePath}searchresult?section2=show`;
-                        break;
-                    case keyLog.includes("genesis"):
-                        // If only "genesis" is present
-                        window.location.href = `${basePath}searchresult?section1=show`;
-                        break;
-                    case keyLog.includes("articles"):
-                        // If only "articles" is present
-                        window.location.href = `${basePath}searchresult?section2=show`;
-                        break;
-                    default:
-                    window.location.href = `${basePath}searchresult?section3=show`;
-                        break;
-                }
-            }
+        switch (true) {
+            case keyLog.includes("genesis") && (keyLog.includes("news") || keyLog.includes("articles")) && keyLog.includes("stock") && keyLog.includes("company") && keyLog.includes("reddit") && keyLog.includes("other"):
+                window.location.href = `${basePath}searchresult?section1=show&section2=show&section3=show&section4=show&section5=show&section6=show`;
+                break;
+            case keyLog.includes("genesis") && (keyLog.includes("news") || keyLog.includes("articles")) && keyLog.includes("stock") && keyLog.includes("company") && keyLog.includes("reddit"):
+                window.location.href = `${basePath}searchresult?section1=show&section2=show&section3=show&section4=show&section5=show`;
+                break;
+            case keyLog.includes("genesis") && (keyLog.includes("news") || keyLog.includes("articles")) && keyLog.includes("stock") && keyLog.includes("company"):
+                window.location.href = `${basePath}searchresult?section1=show&section2=show&section3=show&section4=show`;
+                break;
+            case keyLog.includes("genesis") && (keyLog.includes("news") || keyLog.includes("articles")) && keyLog.includes("stock"):
+                window.location.href = `${basePath}searchresult?section1=show&section2=show&section3=show`;
+                break;
+            case keyLog.includes("genesis") && (keyLog.includes("news") || keyLog.includes("articles")):
+                window.location.href = `${basePath}searchresult?section1=show&section2=show`;
+                break;
+            case keyLog.includes("genesis") && keyLog.includes("stock"):
+                window.location.href = `${basePath}searchresult?section1=show&section3=show`;
+                break;
+            case keyLog.includes("genesis") && keyLog.includes("company"):
+                window.location.href = `${basePath}searchresult?section1=show&section4=show`;
+                break;
+            case keyLog.includes("genesis") && keyLog.includes("reddit"):
+                window.location.href = `${basePath}searchresult?section1=show&section5=show`;
+                break;
+            case keyLog.includes("genesis") && keyLog.includes("other"):
+                window.location.href = `${basePath}searchresult?section1=show&section6=show`;
+                break;
+            case keyLog.includes("genesis") && (keyLog.includes("news") || keyLog.includes("articles")) && keyLog.includes("reddit"):
+                window.location.href = `${basePath}searchresult?section1=show&section2=show&section5=show`;
+                break;
+            case keyLog.includes("genesis") && keyLog.includes("stock") && keyLog.includes("reddit"):
+                window.location.href = `${basePath}searchresult?section1=show&section3=show&section5=show`;
+                break;
+            case keyLog.includes("genesis") && keyLog.includes("company") && keyLog.includes("reddit"):
+                window.location.href = `${basePath}searchresult?section1=show&section4=show&section5=show`;
+                break;
+            case keyLog.includes("genesis") && keyLog.includes("other") && keyLog.includes("reddit"):
+                window.location.href = `${basePath}searchresult?section1=show&section6=show&section5=show`;
+                break;
+            case keyLog.includes("stock") && keyLog.includes("company") && keyLog.includes("reddit"):
+                window.location.href = `${basePath}searchresult?section3=show&section4=show&section5=show`;
+                break;
+            case keyLog.includes("stock") && keyLog.includes("company") && keyLog.includes("other"):
+                window.location.href = `${basePath}searchresult?section3=show&section4=show&section6=show`;
+                break;
+            case keyLog.includes("stock") && keyLog.includes("company") && (keyLog.includes("news") || keyLog.includes("articles")):
+                window.location.href = `${basePath}searchresult?section3=show&section4=show&section2=show`;
+                break;
+            case keyLog.includes("stock") && keyLog.includes("other") && (keyLog.includes("news") || keyLog.includes("articles")):
+                window.location.href = `${basePath}searchresult?section3=show&section6=show&section2=show`;
+                break;
+            case keyLog.includes("stock") && keyLog.includes("company"):
+                window.location.href = `${basePath}searchresult?section3=show&section4=show`;
+                break;
+            case keyLog.includes("stock") && keyLog.includes("other"):
+                window.location.href = `${basePath}searchresult?section3=show&section6=show`;
+                break;
+            case keyLog.includes("stock") && (keyLog.includes("news") || keyLog.includes("articles")):
+                window.location.href = `${basePath}searchresult?section3=show&section2=show`;
+                break;
+            case keyLog.includes("company") && (keyLog.includes("news") || keyLog.includes("articles")):
+                window.location.href = `${basePath}searchresult?section4=show&section2=show`;
+                break;
+            case keyLog.includes("company") && keyLog.includes("reddit"):
+                window.location.href = `${basePath}searchresult?section4=show&section5=show`;
+                break;
+            case keyLog.includes("company") && keyLog.includes("other"):
+                window.location.href = `${basePath}searchresult?section4=show&section6=show`;
+                break;
+            case keyLog.includes("genesis"):
+                window.location.href = `${basePath}searchresult?section1=show`;
+                break;
+            case keyLog.includes("company"):
+                window.location.href = `${basePath}searchresult?section4=show`;
+                break;
+            case keyLog.includes("other"):
+                window.location.href = `${basePath}searchresult?section6=show`;
+                break;
+            case keyLog.includes("reddit"):
+                window.location.href = `${basePath}searchresult?section5=show`;
+                break;
+            case keyLog.includes("news") || keyLog.includes("articles"):
+                window.location.href = `${basePath}searchresult?section2=show`;
+                break;
+            default:
+                window.location.href = `${basePath}searchresult?section7=show`;
+                break;
         }
+    }
+
+}
+
 
 
 

@@ -411,7 +411,7 @@
     
         </div>
         <h3>
-          <a href="#">Vanguard Journalism</a>
+          <a href="news">Vanguard Journalism</a>
         </h3>
         <p>
           Vanguard Journalism delivers cutting-edge news and in-depth articles on global events, politics, technology, and culture. Stay informed with trusted, unbiased reporting and insightful analysis from our expert team of journalists.
@@ -419,10 +419,9 @@
         <hr>
     </div>  
     <div class="result-item">
-        <div class="result-item-link">
-          <a href="#"> https://www.news2-website.com › blogs </a>
-    
-        </div>
+      <div class="result-item-link">
+        <a href="https://www.google.com" target="_blank"> https://www.news2-website.com › blogs </a>
+      </div>
         <h3>
           <a href="#">Lorem ipsum dolor sit amet consectetur.</a>
         </h3>
@@ -466,17 +465,73 @@
   
 
   <div id="section3" class="hidden-section">
-    <h2>No Search Results Found!</h2>
+    <div class="result-item">
+      <div class="result-item-link">
+        <a href="#"> https://www.stockmarket.com  </a>
+  
+      </div>
+      <h3>
+        <a href="#">Lorem ipsum dolor sit amet consectetur.</a>
+      </h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repellat deleniti placeat. Dignissimos similique hic quibusdam reiciendis ipsa! Obcaecati, ea..
+      </p>
+      <hr>
+    </div>
   </div>
 
   <div id="section4" class="hidden-section">
-    <h2>Section 4</h2>
-    <p>This is the fourth section that can be toggled based on URL parameters.</p>
+    <div class="result-item">
+      <div class="result-item-link">
+        <a href="#"> https://www.company.com  </a>
+  
+      </div>
+      <h3>
+        <a href="#">Lorem ipsum dolor sit amet consectetur.</a>
+      </h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repellat deleniti placeat. Dignissimos similique hic quibusdam reiciendis ipsa! Obcaecati, ea..
+      </p>
+      <hr>
+    </div>
   </div>
 
     <div id="section5" class="hidden-section">
-        <h2>Section 5</h2>
-        <p>This is the fifth section that can be toggled based on URL parameters.</p>
+      <div class="result-item">
+        <div class="result-item-link">
+          <a href="#"> https://www.reddit.com  </a>
+    
+        </div>
+        <h3>
+          <a href="#">Lorem ipsum dolor sit amet consectetur.</a>
+        </h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repellat deleniti placeat. Dignissimos similique hic quibusdam reiciendis ipsa! Obcaecati, ea..
+        </p>
+        <hr>
+      </div>
+    </div>
+
+        <div id="section6" class="hidden-section">
+          <div class="result-item">
+            <div class="result-item-link">
+              <a href="#"> https://www.other.com  </a>
+        
+            </div>
+            <h3>
+              <a href="#">Lorem ipsum dolor sit amet consectetur.</a>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repellat deleniti placeat. Dignissimos similique hic quibusdam reiciendis ipsa! Obcaecati, ea..
+            </p>
+            <hr>
+          </div>
+        </div>
+
+        <div id="section7" class="hidden-section">
+            <p>
+              No Items Found            
+            </p>
         </div>
 
 
@@ -499,12 +554,18 @@
     const section2Visibility = urlParams.get('section2'); // 'show' or 'hide'
     const section3Visibility = urlParams.get('section3'); // 'show' or 'hide'
     const section4Visibility = urlParams.get('section4'); // 'show' or 'hide'
+    const section5Visibility = urlParams.get('section5'); // 'show' or 'hide'
+    const section6Visibility = urlParams.get('section6'); // 'show' or 'hide'
+    const section7Visibility = urlParams.get('section7'); // 'show' or 'hide'
 
     // Apply the visibility logic for each section
     showSection('section1', section1Visibility);
     showSection('section2', section2Visibility);
     showSection('section3', section3Visibility);
     showSection('section4', section4Visibility);
+    showSection('section5', section5Visibility);
+    showSection('section6', section6Visibility);
+    showSection('section7', section7Visibility);
   </script>
 
 </body>
