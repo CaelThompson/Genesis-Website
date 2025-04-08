@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Real-time stock ticker and stock information display.">
+    <meta name="author" content="Your Name">
+    <meta property="og:title" content="Stock Ticker Website">
+    <meta property="og:description" content="Track stock prices in real-time with a stylish ticker.">
+    <meta property="og:image" content="path_to_image.jpg">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <title>Stock Ticker Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .ticker {
+            background-color: #222;
+            color: #fff;
+            padding: 10px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .ticker span {
+            display: inline-block;
+            padding: 0 50px;
+            animation: ticker 10s linear infinite;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .container {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .stock-info {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: calc(33.333% - 20px);
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+        .stock-info:hover {
+            transform: translateY(-10px);
+        }
+        .stock-info h2 {
+            margin: 0;
+            font-size: 1.6em;
+            color: #333;
+        }
+        .stock-info p {
+            margin: 5px 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+        @media screen and (max-width: 768px) {
+            .stock-info {
+                width: calc(50% - 20px);
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .stock-info {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Stock Ticker Website</h1>
+        <p>Track the latest stock prices in real-time</p>
+    </header>
+    <div class="ticker">
+        <span id="stockTicker">Stock A: $100 | Stock B: $200 | Stock C: $300 | Stock D: $400</span>
+    </div>
+    <div class="container">
+        <div class="stock-info" id="stockA">
+            <h2>Stock A</h2>
+            <p id="stockAPrice">Current Price: $100</p>
+            <p id="stockAChange">Change: +2%</p>
+        </div>
+        <div class="stock-info" id="stockB">
+            <h2>Stock B</h2>
+            <p id="stockBPrice">Current Price: $200</p>
+            <p id="stockBChange">Change: -1%</p>
+        </div>
+        <!-- Add more stock-info sections as needed -->
+    </div>
+
+    <script>
+        // Simulating stock data update
+        const stockData = {
+            'Stock A': { price: 100, change: +2 },
+            'Stock B': { price: 200, change: -1 },
+            'Stock C': { price: 300, change: +0.5 },
+            'Stock D': { price: 400, change: -0.2 },
+        };
+
+        // Function to update the stock data
+        function updateStockData() {
+            // Update ticker text
+            document.getElementById('stockTicker').innerText = `Stock A: $${stockData['Stock A'].price} | Stock B: $${stockData['Stock B'].price} | Stock C: $${stockData['Stock C'].price} | Stock D: $${stockData['Stock D'].price}`;
+            
+            // Update stock info
+            document.getElementById('stockAPrice').innerText = `Current Price: $${stockData['Stock A'].price}`;
+            document.getElementById('stockAChange').innerText = `Change: ${stockData['Stock A'].change}%`;
+            document.getElementById('stockBPrice').innerText = `Current Price: $${stockData['Stock B'].price}`;
+            document.getElementById('stockBChange').innerText = `Change: ${stockData['Stock B'].change}%`;
+            // Add more as needed
+        }
+
+        // Simulate data updates every 10 seconds
+        setInterval(function() {
+            // Simulating new random stock data
+            stockData['Stock A'].price += Math.floor(Math.random() * 5) - 2;
+            stockData['Stock B'].price += Math.floor(Math.random() * 5) - 2;
+            updateStockData();
+        }, 10000);
+
+        // Initial update
+        updateStockData();
+    </script>
+</body>
+</html>

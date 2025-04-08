@@ -237,5 +237,29 @@ export const searchterms = [
     'stock market risk assessment',
     'stock market growth stocks',
     'stock market value stocks',
-    'stock market blue-chip stocks'
+    'stock market blue-chip stocks',
+
+'Latest tech innovations blog',
+'Emerging technologies blog',
+'Tech industry trends blog',
+'Tech product reviews blog',
+'Tech startup news blog',
+'Tech gadgets and devices blog',
+'Tech software updates blog',
+'Tech cybersecurity tips blog',
+'Tech AI advancements forum',
+'Tech blockchain technology forum',
+
+'Breaking news updates blog',
+'Global news coverage blog',
+'Political news analysis blog',
+'Economic news trends blog',
+'Entertainment news highlights forum',
+'Sports news summaries forum',
+'Science news discoveries forum',
+'Technology news breakthroughs forum',
+
+'Genesis Company tech innovations blog',
+'Genesis Company new product launches forum'
+
 ];

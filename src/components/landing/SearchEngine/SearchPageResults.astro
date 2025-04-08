@@ -339,9 +339,9 @@ import { searchterms } from "../SearchEngine/searchs.js";
     .autocomplete-list {
         position: absolute;
         
-        left: 50%; /* Centers the list horizontally */
+        left: 56%; /* Centers the list horizontally */
         transform: translateX(-50%); 
-        top:5%; /* Ensures it appears directly below the input */
+        top:9.7%; /* Ensures it appears directly below the input */
         
         width: 75%; /* Makes the list align with the width of the input */
         background-color: #ffffffdc;
@@ -579,6 +579,22 @@ import { searchterms } from "../SearchEngine/searchs.js";
               });
             });
           });
+
+        const searchInput = document.getElementById('inp--searchbox');
+        searchInput.addEventListener('input', (event) => {
+            const inputElement = event.target;
+            const value = inputElement.value;
+            console.log(`You typed: ${value}`);
+            showSuggestions(value);
+        });
+
+        // Add event listener for Enter key
+        searchInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent default form submission behavior
+                executeSearch();
+            }
+        });
 
 
   </script>

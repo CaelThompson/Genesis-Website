@@ -49,7 +49,7 @@ import { parseKeywords } from '../SearchEngine/searchfilter.js';
         
         left: 50%; /* Centers the list horizontally */
         transform: translateX(-50%); 
-        top: 23.2%; /* Ensures it appears directly below the input */
+        top: 22%; /* Ensures it appears directly below the input */
         
         width: 75%; /* Makes the list align with the width of the input */
         background-color: #ffffffdc;
@@ -354,6 +354,23 @@ import { parseKeywords } from '../SearchEngine/searchfilter.js';
         // Event listener for input changes
         document.getElementById('inp--searchbox').addEventListener('input', (event) => {
             showSuggestions(event.target.value);
+        });
+
+        
+        const searchInput = document.getElementById('inp--searchbox');
+        searchInput.addEventListener('input', (event) => {
+            const inputElement = event.target;
+            const value = inputElement.value;
+            console.log(`You typed: ${value}`);
+            showSuggestions(value);
+        });
+
+        // Add event listener for Enter key
+        searchInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent default form submission behavior
+                executeSearch();
+            }
         });
 
 

@@ -9,7 +9,7 @@
     .unique-boxes-container {
         display: flex;
         flex-wrap: wrap;
-        gap: 30px;
+        gap: 100px;
         justify-content: center;
         margin-top: 20px; /* Adjust this value to increase or decrease the space */
     }
@@ -49,7 +49,9 @@
     color: white; /* Text color */
     font-weight: bold; /* Makes the text bold */
     text-shadow: 1px 1px 2px black, 0 0 25px rgb(93, 93, 233), 0 0 5px darkblue; /* Optional: Adds a shadow to improve visibility */
-    }
+    word-wrap: break-word; /* Ensures long text wraps */
+    
+}
 
     .flex-container {
         display: flex;
@@ -76,16 +78,28 @@
         </div>
         <div class="box-wrapper">
             <a href=`${basePath}news` class="unique-box">
-                <img src="https://via.placeholder.com/50" alt="Image 2" />
+                <img src="img/modern logo for Vanguard Journal with less busy center and shield with gold pen and the words Vangua.jpeg" alt="Image 2" />
             </a>
             <div class="box-text">Vanguard Journal</div>
 
         </div>
         <div class="box-wrapper">
             <a href=`${basePath}home` class="unique-box">
-                <img src="https://via.placeholder.com/50" alt="Image 3" />
+                <img src={`${basePath}img/gen-logo2.png`} alt="relan logo" />
             </a>
             <div class="box-text">Genesis</div>
+        </div>
+        <div class="box-wrapper">
+            <a href=`${basePath}reddit` class="unique-box">
+                <img src="img/logo for a blog room with a laptop or chat icon, the text Blog Room in bold and clear, and a simplif.jpeg" alt="Image 3" />
+            </a>
+            <div class="box-text">Blog Room</div>
+        </div>
+        <div class="box-wrapper">
+            <a href=`${basePath}stock` class="unique-box">
+                <img src="https://via.placeholder.com/50" alt="Image 3" />
+            </a>
+            <div class="box-text">StockWatch</div>
         </div>
     </div>
 </body>

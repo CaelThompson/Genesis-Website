@@ -8,7 +8,7 @@ import { posts } from '../Reddit/postData.js';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Reddit-Style Blog</title>
+    <title>Blog Room</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,13 +17,25 @@ import { posts } from '../Reddit/postData.js';
             padding: 0;
         }
 
+        h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        }
+
+        header img {
+        height: 50px;
+        margin-right: 20px;
+        }
+
         header {
-            background-color: #FF4500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to right, #add8e6, #87ceeb);
             color: white;
             padding: 20px;
             text-align: center;
         }
-
         .navbar {
             display: flex;
             justify-content: center;
@@ -119,7 +131,8 @@ import { posts } from '../Reddit/postData.js';
 <body>
 
     <header>
-        <h1>Reddit-Style Blog</h1>
+        <img src="/img/logo for a blog room with a laptop or chat icon, the text Blog Room in bold and clear, and a simplif.jpeg" alt="Image 3" />
+        <h1>Blog Room</h1>
     </header>
 
     <!-- Navigation Tabs -->

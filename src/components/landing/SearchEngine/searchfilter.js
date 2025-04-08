@@ -30,7 +30,7 @@ export function parseKeywords(inputString, keywords) {
             "redit", "reddt", "reddti", "reditt", "rddit", "reddi", "rddt",
             "blog", "blog", "bloog", "blg", "bllog", "bllg", "blgg", "blg",
             "blgo", "blgog", "blgog", "blgog", "blgog", "blgog", "blgog",
-            "form", "from", "frum", "frm", "fro", "frmo", "fomr"
+            "tech", "form", "from", "frum", "frm", "fro", "frmo", "forum", "fomr"
         ],
         
         company: ["comapny", "compnay", "compnay", "comapnies", "comapnies", "comapnies", "comapnies"],
