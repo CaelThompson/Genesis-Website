@@ -1,0 +1,110 @@
+
+    <title>Interactive Map with Clickable Icons</title>
+
+    <!-- Include Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+    <style>
+        h1 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.7rem;
+            text-align: center;
+            font-weight: 700;
+            color: #333;
+        }
+        #map {
+            width: 100%;
+            height: 500px;
+        }
+
+        .leaflet-popup-content {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .leaflet-popup-content-wrapper {
+            background-color: #f9f9f9;
+        }
+
+        .leaflet-marker-icon {
+            border-radius: 50%;
+            border: 2px solid #007bff;
+        }
+    </style>
+
+    <h1>Genesis Locations</h1>
+    <div id="map"></div>
+
+    <!-- Include Leaflet.js library -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script type="module">
+        // Create the map object and set initial position and zoom level
+        var map = L.map('map').setView([32.577215, -97.243711], 13);  // Coordinates for London, UK
+
+        // Add OpenStreetMap tile layer to the map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Locations and their corresponding popups
+        var locations = [
+            {
+                name: 'Genesis Headquarters – Rendon, TX',
+                coords: [32.577215, -97.243711],  // Latitude and Longitude for Location 1
+                popupText: 'Located in the heart of Texas, the Genesis Company headquarters is a 50,000-square-foot facility housing the executive team, administrative offices, and key operational departments. With over 200 employees, the site serves as the central hub for global coordination, strategy, and business development. It also includes a state-of-the-art innovation lab where prototypes are tested before moving to production. '
+            },
+            {
+                name: 'Design House – Rendon, TX',
+                coords: [32.58321, -97.243921],  // Latitude and Longitude for Location 2
+                popupText: 'The Rendon design house is a high-tech facility where cutting-edge concepts come to life. This 15,000-square-foot space is home to a team of 50 engineers and industrial designers working on next-generation components for aerospace, automotive, and marine applications. The facility boasts 3D modeling suites, rapid prototyping equipment, and collaborative workspaces to foster innovation. '
+            },
+            {
+                name: 'Design House – Denton, TX',
+                coords: [33.214840, -97.133064],  // Latitude and Longitude for Location 3
+                popupText: 'Specializing in advanced materials and lightweight component applications, the Denton design house employs 35 engineers dedicated to optimizing high-performance parts. The 10,000-square-foot facility is equipped with simulation labs, CAD stations, and precision testing capabilities to ensure durability and efficiency across industries. '
+            },
+            {
+                name: 'Design House – Milan, Italy',
+                coords: [45.45862600, 9.18187300],  // Latitude and Longitude for Location 4
+                popupText: 'A hub of creativity and precision, the Milan design house blends traditional craftsmanship with cutting-edge technology. Home to a team of 40 specialists, this 12,000-square-foot facility focuses on aesthetic and functional enhancements for high-performance vehicles, vessels, and aircraft. Advanced CNC milling and material testing equipment ensure designs meet the highest industry standards. '
+            },
+            {
+                name: 'Manufacturing Facility – Berlin, NH',
+                coords: [44.46867, -71.18508],  // Latitude and Longitude for Location 4
+                popupText: 'The Berlin, NH manufacturing site is a 75,000-square-foot facility specializing in precision machining and composite material production. With a workforce of 150 technicians, machinists, and quality assurance experts, the plant produces specialized components for Genesis’ most demanding clients. The facility includes five-axis CNC machines, automated assembly lines, and a quality control lab for stringent part inspections.'
+            },
+            {
+                name: 'Manufacturing Facility – Gien, France',
+                coords: [47.6933200, 2.6309400],  // Latitude and Longitude for Location 4
+                popupText: 'Nestled in the Loire Valley, the Gien facility is a 60,000-square-foot plant focused on advanced metal forming and structural assembly. The site employs 120 highly trained fabricators and engineers who work with aluminum, titanium, and carbon fiber composites. Equipped with robotic welding stations and high-precision laser cutting tools, the Gien plant ensures Genesis components meet rigorous industry standards.'
+            },
+            {
+                name: 'Manufacturing Facility – Xi’An, China',
+                coords: [34.25833000, 108.9286100],  // Latitude and Longitude for Location 4
+                popupText: 'The Xi’An manufacturing site is one of Genesis largest facilities, covering 100,000 square feet and employing over 200 personnel. It was one of the first manufacturing plants for the company, opening in 2004. This high-output plant specializes in electronic component integration and composite part manufacturing. It houses cleanrooms for delicate systems assembly, robotic automation systems, and an in-house testing center for structural integrity validation.'
+            },
+            {
+                name: 'Manufacturing Facility – Livorno, Italy',
+                coords: [43.02398480, 10.66471010],  // Latitude and Longitude for Location 4
+                popupText: 'With a legacy of craftsmanship and precision, the Livorno facility focuses on small-batch, high-customization components. The 50,000-square-foot plant employs 80 technicians skilled in hand-finishing techniques and additive manufacturing. The site is equipped with next-generation 3D printers and multi-axis machining centers to meet the unique demands of Genesis’ bespoke projects across industries.'
+            },
+            {
+                name: 'Manufacturing Facility – Silverton, CO',
+                coords: [37.811268, -107.668343],  // Latitude and Longitude for Location 4
+                popupText: 'The most recently developed of Genesis sites, the Silverton facility is a 40,000-square-foot plant located in the Rocky Mountains. Employing 60 specialists, the site is dedicated to experimental materials research and low-volume, high-precision parts production. Due to its isolated location, the facility is highly automated, featuring AI-driven machining systems and drone-based logistics for material transport.'
+            },
+        ];
+
+        // Loop through the locations array and add markers with popups
+        locations.forEach(function(location) {
+            var marker = L.marker(location.coords).addTo(map);
+
+            marker.bindPopup(`
+                <b>${location.name}</b><br>
+                ${location.popupText}
+            `);
+        });
+
+    </script>
+

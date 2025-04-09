@@ -3,6 +3,8 @@ import Container from "../../global/Container.astro";
 import SearchBar from '../SearchEngine/SearchBar.astro';
 import Articles from '../SearchEngine/TrendingArt.astro';
 import Titles from '../SearchEngine/TrendingMid.astro';
+import Apps from '../SearchEngine/Apps.astro';
+
 
 const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
 
@@ -29,6 +31,13 @@ body {
     gap: 20px; /* Space between columns */
 }
 
+.rowSe2 {
+        display: grid;
+        grid-template-columns: 1fr 2fr; /* 8-4 layout: Articles 66%, Titles 33% */
+        gap: 20px; /* Space between columns */
+        margin-top: 20px; /* Add space above the section */
+}
+
 
 </style>
 
@@ -47,14 +56,17 @@ body {
                         <div>
                                 <Titles />
                         </div>
-                        <div>
-                                Stock
-                        </div>
                 </section>
 
-                <section>
+                <section class="rowSe2">
+                        <div>
+                                <Apps />
+                        </div>
 
-                        ALL EXTRA STUFF
+                        <div>
+                                <Articles />
+                                stock (needs to be built)
+                        </div>
 
                 </section>
 
