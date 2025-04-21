@@ -53,7 +53,7 @@ export const posts = [
           "time": "12 hours ago",
           "content": "The potential for VR gaming is huge, especially with improvements in graphics and motion tracking. It's definitely an exciting time to be a gamer."
         }
-      ]
+      ],
     },
     
     {
@@ -95,7 +95,7 @@ export const posts = [
           "time": "6 hours ago",
           "content": "Indie games remind me of the early days of gaming when creativity and innovation were at the forefront. It's great to see that spirit alive and well."
         }
-      ]
+      ],
     },
     
     {

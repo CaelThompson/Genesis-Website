@@ -1,4 +1,101 @@
-[
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<style>
+
+ body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+ }
+ .container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+ }
+
+ h1 {
+        text-align: center;
+        color: #007bff;
+ }
+ .buttons {
+    text-align: center;
+    margin-bottom: 20px;
+ }
+ .buttons button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+ }
+ .buttons button:hover {
+ background-color: #0056b3;
+ }
+ canvas {
+ width: 100%;
+ height: 400px;
+ }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Favorite Stock</h1>
+        <canvas id="stockChart"></canvas>
+        <div class="buttons">
+            <button onclick="updateChart('all')">All Time</button>
+            <button onclick="updateChart('year')">Last Year</button>
+            <button onclick="updateChart('month')">Last Month</button>
+        </div>
+
+        <div id="stockInfo">
+            <h2>Daily Stats</h2>
+            <p id="stockDetails">
+            <strong>Low:</strong> $<span id="low"></span><br>
+            <strong>High:</strong> $<span id="high"></span><br>
+            <strong>Volume:</strong> <span id="volume"></span><br>
+            <strong>Price:</strong> $<span id="price"></span>
+            </p>
+        </div>
+
+        <div id="stockYearInfo">
+            <h2>52 Week Stats</h2>
+            <p id="stockDetails52Week">
+            <strong>52 Week Low:</strong> $<span id="low52Week"></span><br>
+            <strong>52 Week High:</strong> $<span id="high52Week"></span><br>
+            <strong>52 Week Volume:</strong> <span id="volume52Week"></span><br>
+            <strong>52 Week Price:</strong> $<span id="price52Week"></span>
+            </p>
+        </div>
+
+        <div id="stockInfoAllTime">
+            <h2>All Time Stats</h2>
+            <p id="stockDetailsAllTime">
+            <strong>All Time Low:</strong> $<span id="lowAllTime"></span><br>
+            <strong>All Time High:</strong> $<span id="highAllTime"></span><br>
+            <strong>All Time Volume:</strong> <span id="volumeAllTime"></span><br>
+            <strong>All Time Price:</strong> $<span id="priceAllTime"></span>
+            </p>
+        </div>
+
+
+    </div>
+
+    <script>
+        let stockData = [
     {
       "Date": "1/2/2003",
       "Price": 11.69766998,
@@ -44655,4 +44752,112 @@
       "Open": 157.3500061,
       "Volume": 10113600
     }
-  ]
+  ];
+
+
+  const latestStock = stockData[stockData.length - 1];
+            document.getElementById('low').textContent = latestStock.Low;
+            document.getElementById('high').textContent = latestStock.High;
+            document.getElementById('volume').textContent = latestStock.Volume;
+            document.getElementById('price').textContent = latestStock.Price;
+
+            
+        function initializeChart() {
+            const ctx = document.getElementById('stockChart').getContext('2d');
+            window.stockChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: stockData.map(data => data.Date),
+                datasets: [{
+                label: 'Genesis Stock Price',
+                data: stockData.map(data => data.Price),
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                fill: true,
+                tension: 0.1,
+                pointRadius: 2,
+                pointHoverRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
+                },
+                tooltip: {
+                    callbacks: {
+                    label: function(context) {
+                        return `Price: $${context.raw.toFixed(2)}`;
+                    }
+                    }
+                }
+                },
+                scales: {
+                x: {
+                    title: {
+                    display: true,
+                    text: 'Date'
+                    },
+                    ticks: {
+                    maxTicksLimit: 10,
+                    callback: function(value, index, ticks) {
+                        return this.getLabelForValue(value).split('/').slice(0, 2).join('/');
+                    }
+                    }
+                },
+                y: {
+                    title: {
+                    display: true,
+                    text: 'Price ($)'
+                    },
+                    beginAtZero: false
+                }
+                }
+            }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeChart();
+        });
+
+        window.updateChart = function(view) {
+            if (!window.stockChart) {
+                console.error('Chart is not initialized');
+                return;
+            }
+
+            let filteredData;
+            const now = new Date();
+            const oneYearAgo = new Date(now.setFullYear(now.getFullYear() - 1));
+            const oneMonthAgo = new Date(now.setMonth(now.getMonth() - 1));
+
+            if (view === 'year') {
+                filteredData = stockData.filter(data => new Date(data.Date) >= oneYearAgo);
+            } else if (view === 'month') {
+                filteredData = stockData.filter(data => new Date(data.Date) >= oneMonthAgo);
+            } else {
+                filteredData = stockData;
+            }
+
+            window.stockChart.data.labels = filteredData.map(data => data.Date);
+            window.stockChart.data.datasets[0].data = filteredData.map(data => data.Price);
+            window.stockChart.update();
+        }
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') {
+                console.log('Tab is active');
+                // You can add additional logic here if needed
+            } else {
+                console.log('Tab is inactive');
+                // You can add additional logic here if needed
+            }
+        });
+
+    </script>
+</body>
+</html>
+

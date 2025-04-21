@@ -12,19 +12,27 @@ import { posts } from '../Reddit/postData.js';
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
+            background: linear-gradient(15deg, #e10000, #333); /* Black gradient for depth */
+
+            margin: 0;
+            padding: 0;
+        }
+
+        .bodyup {
+            font-family: Arial, sans-serif;
+            background-color: #333;
             margin: 0;
             padding: 0;
         }
 
         h1 {
-        font-size: 2.5rem;
-        font-weight: bold;
+            font-size: 2.5rem;
+            font-weight: bold;
         }
 
         header img {
-        height: 50px;
-        margin-right: 20px;
+            height: 50px;
+            margin-right: 20px;
         }
 
         header {
@@ -36,6 +44,7 @@ import { posts } from '../Reddit/postData.js';
             padding: 20px;
             text-align: center;
         }
+
         .navbar {
             display: flex;
             justify-content: center;
@@ -56,7 +65,6 @@ import { posts } from '../Reddit/postData.js';
         }
 
         .container {
-            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -126,71 +134,187 @@ import { posts } from '../Reddit/postData.js';
             display: block;
         }
 
+        /* Custom Layouts */
+        .tab-content.technology .post {
+            background-color: #e8f5e9; /* Greenish background for tech posts */
+        }
+
+        .tab-content.lifestyle .post {
+            background-color: #fff3e0; /* Soft orange for lifestyle posts */
+        }
+
+        .tab-content.music .post {
+            background-color: #f3e5f5; /* Light purple for music posts */
+        }
+
+        .tab-content.gaming .post {
+            background-color: #f1f8e9; /* Light green for gaming posts */
+        }
+
+        /* Description Styles */
+        .tab-description {
+            background-color: #ddd;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .tab-description {
+            background-color: #333; /* Black background for striking contrast */
+            padding: 20px; /* Increased padding for better spacing */
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #fff; /* White text for high contrast */
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.5); /* Soft white glow */
+            border-left: 5px solid #fff; /* White left border for emphasis */
+            font-style: normal; /* Normal text style for a clean look */
+        }
+        .tab-title-card {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 5px;
+            color: #fff; /* White text for contrast */
+            text-align: center;
+            font-size: 200px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.2); /* Subtle white shadow */
+        }
     </style>
 </head>
+
+<div id="title-card" class="tab-title-card"></div>
 <body>
-
-    <header>
-        <img src="/img/logo for a blog room with a laptop or chat icon, the text Blog Room in bold and clear, and a simplif.jpeg" alt="Image 3" />
-        <h1>Blog Room</h1>
-    </header>
-
-    <!-- Navigation Tabs -->
-    <div class="navbar">
-        <a data-tab="all">All</a>
-        <a data-tab="technology">Technology</a>
-        <a data-tab="lifestyle">Lifestyle</a>
-        <a data-tab="music">Music</a>
-        <a data-tab="gaming">Gaming</a>
-    </div>
-
     <!-- Content -->
-    <div class="container">
-        {posts.length === 0 ? (
-            <p>No posts available. Please check back later.</p>
-        ) : (
-            posts.map(post => (
-                <div class={`tab-content ${post.category} ${post.category === "all" ? "active" : ""}`}>
-                    <div class="post">
-                        <div class="post-header">
-                            <span>Posted by u/{post.username} · {post.time}</span>
-                            <span>{post.upvotes} upvotes</span>
-                        </div>
-                        <div class="post-title">
-                            <h2>
-                                <a href={`/post/${post.id}`}>{post.title}</a>
-                            </h2>
-                        </div>
-                        <div class="post-content">
-                            <p>{post.content}</p>
-                        </div>
-                        <div class="post-footer">
-                            <span>{post.comments.length} Comments</span> | <span>Share</span> | <span>Save</span>
+    <div class="bodyup">
+        <div class="container">
+            <div id="description" class="tab-description">
+                <!-- Dynamic descriptions will be injected here based on active tab -->
+            </div>
+
+            <div id="top-image" class="tab-description"></div>
+
+            {posts.length === 0 ? (
+                <p>No posts available. Please check back later.</p>
+            ) : (
+                posts.map(post => (
+                    <div class={`tab-content ${post.category} ${post.category === "all" ? "active" : ""}`}>
+                        <div class="post">
+                            <div class="post-header">
+                                <span>Posted by u/{post.username} · {post.time}</span>
+                                <span>{post.upvotes} upvotes</span>
+                            </div>
+                            <div class="post-title">
+                                <h2>
+                                    <a href={`/post/${post.id}`}>{post.title}</a>
+                                </h2>
+                            </div>
+                            <div class="post-content">
+                                <p>{post.content}</p>
+                            </div>
+                            <div class="post-footer">
+                                <span>{post.comments.length} Comments</span> | <span>Share</span> | <span>Save</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            ))
-        )}
+                ))
+            )}
+        </div>
     </div>
-
     <script>
         document.querySelectorAll('.navbar a').forEach(tab => {
             tab.addEventListener('click', (event) => {
                 event.preventDefault();
                 const tabName = tab.getAttribute('data-tab');
-
+    
                 // Hide all tabs
                 document.querySelectorAll('.tab-content').forEach(content => {
                     content.classList.remove('active');
                 });
-
+    
                 // Show the selected tab
                 document.querySelectorAll(`.tab-content.${tabName}`).forEach(content => {
                     content.classList.add('active');
                 });
+    
+                // Update title card
+                const titleCard = document.getElementById('title-card');
+                switch (tabName) {
+                    case 'all':
+                        titleCard.innerHTML = "All Posts";
+                        break;
+                    case 'technology':
+                        titleCard.innerHTML = "Technology";
+                        break;
+                    case 'lifestyle':
+                        titleCard.innerHTML = "Lifestyle";
+                        break;
+                    case 'music':
+                        titleCard.innerHTML = "Music";
+                        break;
+                    case 'gaming':
+                        titleCard.innerHTML = "Gaming";
+                        break;
+                    default:
+                        titleCard.innerHTML = "";
+                }
+    
+                // Set the description
+                const description = document.getElementById('description');
+                switch (tabName) {
+                    case 'all':
+                        description.innerHTML = "Welcome to the blog! Here you'll find a variety of posts across different categories.";
+                        break;
+                    case 'technology':
+                        description.innerHTML = "Stay up to date with the latest advancements in technology, from gadgets to software.";
+                        break;
+                    case 'lifestyle':
+                        description.innerHTML = "Explore posts about living a balanced and fulfilling life, from wellness to daily tips.";
+                        break;
+                    case 'music':
+                        description.innerHTML = "Dive into the world of music, with discussions about artists, albums, and the latest tracks.";
+                        break;
+                    case 'gaming':
+                        description.innerHTML = "Join the gaming community to discuss the latest games, strategies, and news in the gaming world.";
+                        break;
+                    default:
+                        description.innerHTML = "";
+                }
+    
+                // Set the top image
+                const topImage = document.getElementById('top-image');
+                switch (tabName) {
+                    case 'all':
+                        topImage.innerHTML = '<img src="/img/blogroom.jpeg" alt="A collage representing various blog categories" />';
+                        break;
+                    case 'technology':
+                        topImage.innerHTML = '<img src="/img/technology.jpg" alt="A futuristic image representing technology" />';
+                        break;
+                    case 'lifestyle':
+                        topImage.innerHTML = '<img src="/img/lifestyle.jpg" alt="An image representing a balanced lifestyle" />';
+                        break;
+                    case 'music':
+                        topImage.innerHTML = '<img src="/img/music.jpg" alt="An image of musical notes and instruments" />';
+                        break;
+                    case 'gaming':
+                        topImage.innerHTML = '<img src="/img/gaming.jpg" alt="An image of a gaming console and accessories" />';
+                        break;
+                    default:
+                        topImage.innerHTML = '';
+                }
             });
         });
+    
+        // Automatically simulate click on "All" tab when the page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.navbar a[data-tab="all"]')?.click();
+        });
     </script>
+    
 
 </body>
 </html>

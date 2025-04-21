@@ -19,7 +19,7 @@
     }
     :root {
       --gray-i: #71757a;
-      --primary-color: #3b6de6; /* Added primary color variable for easy customization */
+      --primary-color: #82c7ff; /* Added primary color variable for easy customization */
       --hover-bg: rgba(200, 200, 200, 0.3);
     }
     
@@ -41,11 +41,23 @@
     }
     
     a {
-      color: var(--primary-color);
+      color: var(--white-i);
       
     }
-    
+
+    /* Make the actual hyperlink under the title white */
+    .result-item-link a {
+      color: white !important;
+    }
+
+    /* Make the main titles (inside h3 > a) blue */
+    .result-item h3 a {
+      color: #82c7ff !important; /* Or any shade of blue you like */
+    }
+
+
     h3 {
+        color: var(--primary-color);
         text-decoration: underline;
         font-weight: bold;
         
@@ -79,6 +91,7 @@
         border-top: 0.5px solid #dfe1e5;
         padding: 1.5rem 0.5rem; /* Increased padding for top/bottom */
         margin: 0 !important;
+        
     }
     
       .sub-result-item p {
@@ -87,6 +100,21 @@
 
       .result-item-link {
         margin-top: 1em; /* Adds empty space above */
+        
+      }
+
+      .result-item-link {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .link-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
       }
     
       .material-icons-outlined.chevron_right {
@@ -370,6 +398,7 @@
   <div id="section1" class="hidden-section">
     <div class="result-item">
         <div class="result-item-link">
+          <img src="https://via.placeholder.com/32" alt="Logo" class="link-icon" />
           <a href="/home">https://www.genesis&company.com</a>
 
         </div>
@@ -407,6 +436,8 @@
   <div id="section2" class="hidden-section">
     <div class="result-item">
         <div class="result-item-link">
+          <img src="img/modern logo for Vanguard Journal with less busy center and shield with gold pen and the words Vangua.jpeg" alt="Logo" class="link-icon" />
+
           <a href="news"> https://www.vanguard-journalism.com › articles </a>
     
         </div>
@@ -416,10 +447,12 @@
         <p>
           Vanguard Journalism delivers cutting-edge news and in-depth articles on global events, politics, technology, and culture. Stay informed with trusted, unbiased reporting and insightful analysis from our expert team of journalists.
         </p>
-        <hr>
+        <div class="mb-12"></div>
     </div>  
     <div class="result-item">
       <div class="result-item-link">
+        <img src="https://via.placeholder.com/32" alt="Logo" class="link-icon" />
+
         <a href="https://www.google.com" target="_blank"> https://www.news2-website.com › blogs </a>
       </div>
         <h3>
@@ -428,10 +461,11 @@
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repellat deleniti placeat. Dignissimos similique hic quibusdam reiciendis ipsa! Obcaecati, ea..
         </p>
-        <hr>
+        <div class="mb-12"></div>
     </div>
     <div class="result-item">
       <div class="result-item-link">
+        <img src="https://via.placeholder.com/32" alt="Logo" class="link-icon" />
         <a href="#"> https://www.news3-website.com </a>
   
       </div>
@@ -441,10 +475,12 @@
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repellat deleniti placeat. Dignissimos similique hic quibusdam reiciendis ipsa! Obcaecati, ea..
       </p>
-      <hr>
+      <div class="mb-12"></div>
   </div>
   <div class="result-item">
     <div class="result-item-link">
+      <img src="https://via.placeholder.com/32" alt="Logo" class="link-icon" />
+
       <a href="#"> https://www.news4-website.com  </a>
 
     </div>
@@ -454,7 +490,7 @@
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repellat deleniti placeat. Dignissimos similique hic quibusdam reiciendis ipsa! Obcaecati, ea..
     </p>
-    <hr>
+    <div class="mb-12"></div>
 </div>
 
 
@@ -467,6 +503,7 @@
   <div id="section3" class="hidden-section">
     <div class="result-item">
       <div class="result-item-link">
+        <img src="https://via.placeholder.com/32" alt="Logo" class="link-icon" />
         <a href="#"> https://www.stockmarket.com › genesis </a>
   
       </div>
@@ -476,11 +513,13 @@
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repellat deleniti placeat. Dignissimos similique hic quibusdam reiciendis ipsa! Obcaecati, ea..
       </p>
-      <hr>
+      <div class="mb-12"></div>
     </div>
  
     <div class="result-item">
       <div class="result-item-link">
+        <img src="https://via.placeholder.com/32" alt="Logo" class="link-icon" />
+
         <a href="stock"> https://www.stockmarket.com  </a>
   
       </div>
@@ -490,13 +529,15 @@
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repellat deleniti placeat. Dignissimos similique hic quibusdam reiciendis ipsa! Obcaecati, ea..
       </p>
-      <hr>
+      <div class="mb-12"></div>
     </div>
   </div>
 
   <div id="section4" class="hidden-section">
     <div class="result-item">
       <div class="result-item-link">
+        <img src="https://via.placeholder.com/32" alt="Logo" class="link-icon" />
+
         <a href="https://www.google.com" target="_blank"> https://www.company.com  </a>
   
       </div>
@@ -506,11 +547,13 @@
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repellat deleniti placeat. Dignissimos similique hic quibusdam reiciendis ipsa! Obcaecati, ea..
       </p>
-      <hr>
+      <div class="mb-12"></div>
     </div>
 
     <div class="result-item">
       <div class="result-item-link">
+        <img src="https://via.placeholder.com/32" alt="Logo" class="link-icon" />
+
         <a href="#"> https://www.company.com  </a>
   
       </div>
@@ -520,11 +563,13 @@
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repellat deleniti placeat. Dignissimos similique hic quibusdam reiciendis ipsa! Obcaecati, ea..
       </p>
-      <hr>
+      <div class="mb-12"></div>
     </div>
 
     <div class="result-item">
       <div class="result-item-link">
+        <img src="https://via.placeholder.com/32" alt="Logo" class="link-icon" />
+
         <a href="#"> https://www.company.com  </a>
   
       </div>
@@ -534,11 +579,13 @@
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repellat deleniti placeat. Dignissimos similique hic quibusdam reiciendis ipsa! Obcaecati, ea..
       </p>
-      <hr>
+      <div class="mb-12"></div>
     </div>
 
     <div class="result-item">
       <div class="result-item-link">
+        <img src="https://via.placeholder.com/32" alt="Logo" class="link-icon" />
+
         <a href="#"> https://www.company.com  </a>
   
       </div>
@@ -548,11 +595,13 @@
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repellat deleniti placeat. Dignissimos similique hic quibusdam reiciendis ipsa! Obcaecati, ea..
       </p>
-      <hr>
+      <div class="mb-12"></div>
     </div>
 
     <div class="result-item">
       <div class="result-item-link">
+        <img src="https://via.placeholder.com/32" alt="Logo" class="link-icon" />
+
         <a href="#"> https://www.company.com  </a>
   
       </div>
@@ -562,11 +611,13 @@
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repellat deleniti placeat. Dignissimos similique hic quibusdam reiciendis ipsa! Obcaecati, ea..
       </p>
-      <hr>
+      <div class="mb-12"></div>
     </div>
 
     <div class="result-item">
       <div class="result-item-link">
+        <img src="https://via.placeholder.com/32" alt="Logo" class="link-icon" />
+
         <a href="#"> https://www.company.com  </a>
   
       </div>
@@ -576,7 +627,7 @@
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repellat deleniti placeat. Dignissimos similique hic quibusdam reiciendis ipsa! Obcaecati, ea..
       </p>
-      <hr>
+      <div class="mb-12"></div>
     </div>
 
   </div>
@@ -584,6 +635,8 @@
     <div id="section5" class="hidden-section">
       <div class="result-item">
         <div class="result-item-link">
+          <img src="https://via.placeholder.com/32" alt="Logo" class="link-icon" />
+
           <a href="reddit"> https://www.blog-room.com  </a>
     
         </div>
@@ -593,13 +646,15 @@
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repellat deleniti placeat. Dignissimos similique hic quibusdam reiciendis ipsa! Obcaecati, ea..
         </p>
-        <hr>
+        <div class="mb-12"></div>
       </div>
     </div>
 
         <div id="section6" class="hidden-section">
           <div class="result-item">
             <div class="result-item-link">
+              <img src="https://via.placeholder.com/32" alt="Logo" class="link-icon" />
+
               <a href="other"> https://www.game.com  </a>
         
             </div>
@@ -609,7 +664,7 @@
             <p>
               Take 5 and play some Minesweeper! A classic game of logic and deduction. The goal is to clear a minefield without detonating any mines. Click on the squares to reveal them, and use the numbers to deduce where the mines are located. Good luck!
             </p>
-            <hr>
+            <div class="mb-12"></div>
           </div>
         </div>
 

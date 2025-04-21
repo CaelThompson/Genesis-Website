@@ -5,61 +5,63 @@ import { searchterms } from "../SearchEngine/searchs.js";
 ---
 
 <style>
-    /* My Notes =>  */
-    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
-    @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
-    @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-    @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap");
-    @font-face {
-      font-family: "ps-bold";
-      src: url(../fonts/ps-bold.ttf);
-    }
-    :root {
-      --gray-i: #71757a;
-      --primary-color: #3b6de6; /* Added primary color variable for easy customization */
-      --hover-bg: rgba(200, 200, 200, 0.3);
-    }
-    
-    * {
-      padding: 0;
-      margin: 0;
-    }
-    
-    *,
-    *::before,
-    *::after {
-      box-sizing: inherit;
-    }
-    
-    html {
-      box-sizing: border-box;
-      font-size: 62.5%;
-      /* 1rem => 10px */
-    }
-    
-    a {
-      color: var(--primary-color);
-      
-    }
-    
-    h3 {
-        text-decoration: underline;
-        font-weight: bold;
-        
-      }
-    
-    body {
-      font-size: 16px;
-      /* Default Font Size => 16px */
-      font-family: "Open Sans", sans-serif;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      overflow-x: hidden;
-    }
+  /* My Notes =>  */
+  @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap");
+  @font-face {
+    font-family: "ps-bold";
+    src: url(../fonts/ps-bold.ttf);
+  }
+  :root {
+    --gray-i: #71757a;
+    --white-i: #ffffff;
+    --primary-color: #82c7ff; /* Added primary color variable for easy customization */
+    --hover-bg: rgba(200, 200, 200, 0.3);
+    --background-color: #1B1A19; /* Blue-gray color */
+  }
+  
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+  html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /* 1rem => 10px */
+  }
+  
+  a {
+    color: var(--white-i);
+  }
+  
+  h3 {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+  
+  body {
+    font-size: 16px;
+    /* Default Font Size => 16px */
+    font-family: "Open Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: hidden;
+    background-color: var(--background-color); /* Set background color */
+  }
+
     
 
     
@@ -159,6 +161,7 @@ import { searchterms } from "../SearchEngine/searchs.js";
       justify-content: space-between;
       align-items: center;
       box-shadow: 0 0.2em 7px rgba(0, 0, 0, 0.17);
+      background-color: #484644;
     }
     header .top-header__left-sec .search-container:hover {
       box-shadow: 0 0.2em 7px rgba(0, 0, 0, 0.17), 0 -0.05em 6px rgba(0, 0, 0, 0.1);
@@ -173,6 +176,7 @@ import { searchterms } from "../SearchEngine/searchs.js";
       align-items: center;
       width: 100%;
       height: 100%;
+      
     }
     header .top-header__left-sec .search-container .search-container__left-sec #inp--searchbox {
       width: 100%;
@@ -203,9 +207,7 @@ import { searchterms } from "../SearchEngine/searchs.js";
       cursor: pointer;
     }
     header .top-header__left-sec .search-container .search-container__right-sec :first-child {
-      border-right: 0.8px solid #dfe1e5;
-      padding-right: 0.4em;
-      margin-right: 0.25em;
+      color: #585a5c;
     }
     header .top-header__left-sec .search-container .search-container__right-sec :nth-child(2) {
       color: #d6aa34;
@@ -267,6 +269,7 @@ import { searchterms } from "../SearchEngine/searchs.js";
       list-style-type: none;
       margin-right: 1em;
       padding: 0.7rem 0.5rem;
+      
     }
     header .bottom-header nav li .material-icons,
     header .bottom-header nav li .material-icons-outlined {
@@ -294,7 +297,7 @@ import { searchterms } from "../SearchEngine/searchs.js";
       display: flex;
     }
     header .bottom-header nav .active-page {
-      border-bottom: 4px solid #3b6de6;
+      border-bottom: 4px solid #82c7ff;
     }
     
     main {
@@ -304,6 +307,7 @@ import { searchterms } from "../SearchEngine/searchs.js";
       max-width: 1920px;
       font-family: "Roboto", sans-serif;
       padding: 1rem 5.5vw;
+      color: var(--white-i);
     }
     main .right-sidebar {
       margin: 5rem 0 0 5rem;
@@ -336,23 +340,29 @@ import { searchterms } from "../SearchEngine/searchs.js";
       color: #71757a;
       padding-top: 0.7rem;
     }
-    .autocomplete-list {
-        position: absolute;
-        
-        left: 56%; /* Centers the list horizontally */
-        transform: translateX(-50%); 
-        top:9.7%; /* Ensures it appears directly below the input */
-        
-        width: 75%; /* Makes the list align with the width of the input */
-        background-color: #ffffffdc;
-        z-index: 1000;
-        overflow-y: auto;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 4px;
+    .search-container__left-sec {
+      position: relative;
+      width: 100%;
     }
+
+    .autocomplete-list {
+      position: absolute;
+      top: 100%; /* Puts it directly below the input */
+      left: 0;
+      width: 100%;
+      background-color: #484644;
+      color: white;
+      z-index: 1000;
+      max-height: 250px;
+      overflow-y: auto;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 0 0 8px 8px;
+    }
+    
     .autocomplete-item {
         padding: 10px;
         cursor: pointer;
+        color: white !important;
 
     }
     .autocomplete-item:hover {
@@ -373,10 +383,10 @@ import { searchterms } from "../SearchEngine/searchs.js";
             padding: 1rem 2rem;
             border: 1px solid #dfe1e5;
             border-radius: 10rem;
-            background-color: #fff;
+            background-color: #545250  ;
             font-family: "Roboto", sans-serif;
             font-size: 0.9em;
-            color: var(--gray-i);
+            color: var(--white-i);
             cursor: pointer;
             box-shadow: 0 0.2em 7px rgba(0, 0, 0, 0.1);
             transition: box-shadow 0.2s ease, background-color 0.2s ease;
@@ -636,13 +646,15 @@ import { searchterms } from "../SearchEngine/searchs.js";
                 autocomplete="on"
                 placeholder="Search..."
                 oninput="showSuggestions(this.value)"
+                style="background-color:#484644; color: white;"
               />
+              <div id="autocompleteList" class="autocomplete-list"></div>
             </div>
-          
             <div class="search-container__right-sec">
               <button class="material-icons" id='searchbutton' onclick="executeSearch()">search</button>
             </div>
           </div>
+          
         </div>
 
         <div id="autocompleteList" class="autocomplete-list"></div>
@@ -654,10 +666,6 @@ import { searchterms } from "../SearchEngine/searchs.js";
                 d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"
               ></path>
             </svg>
-          </div>
-
-          <div class="top-header__right-sec--user-acc">
-            <img src="htttps://lh3.googleusercontent.com/ogw/ADGmqu_wdWJPIUjYUsJmXS6LT_Nxgzb34iCho1mrNsbH=s83-c-mo" alt="YES" />
           </div>
         </div>
       </div>

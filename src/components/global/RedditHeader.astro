@@ -1,15 +1,28 @@
-<header>
-    <img src="/img/logo for a blog room with a laptop or chat icon, the text Blog Room in bold and clear, and a simplif.jpeg" alt="Image 3" />
-    <h1>Blog Room</h1>
-</header>
 
+
+<link
+rel="stylesheet"
+href="https://fonts.googleapis.com/icon?family=Material+Icons"
+/>
+<div class="mb-12"></div>
 <!-- Navigation Tabs -->
+<div class="auth-section">
+    <button class="subscribe-button">SUBSCRIBE</button>
+    <span class="material-icons">person</span> <span class="sign-in-text">SIGN IN</span>
+</div>
+
 <div class="navbar">
+    <h3> Blog Room </h3>
+    <h2> / </h2>
     <a href="/reddit" data-tab="all">All</a>
-    <a href="/reddit/" data-tab="technology">Technology</a>
-    <a href="/reddit/" data-tab="lifestyle">Lifestyle</a>
-    <a href="/reddit/" data-tab="music">Music</a>
-    <a href="/reddit/" data-tab="gaming">Gaming</a>
+    <h2> / </h2>
+    <a href="/reddit" data-tab="technology">Technology</a>
+    <h2> / </h2>
+    <a href="/reddit" data-tab="lifestyle">Lifestyle</a>
+    <h2> / </h2>
+    <a href="/reddit" data-tab="music">Music</a>
+    <h2> / </h2>
+    <a href="/reddit" data-tab="gaming">Gaming</a>
 </div>
 
 <style>
@@ -32,11 +45,15 @@
         margin-right: 20px;
     }
 
-    .navbar {
-        display: flex;
-        justify-content: center;
-        background-color: #333;
-    }
+        .navbar {
+                    justify-content: flex-end;
+                    display: flex;
+                    align-items: center;
+                    margin-left: auto; /* Push the navbar to the right */
+                    border-bottom: 2px solid white; /* Keep the line */
+                    width: fit-content; /* Restrict the line to only under the section */
+                    transform: translateX(-30%); /* Move 10% to the left */
+                }
 
     .navbar a {
         padding: 14px 20px;
@@ -46,8 +63,67 @@
         transition: background-color 0.3s;
         cursor: pointer;
     }
+    .navbar h2 {
+        padding: 14px 1px;
+        text-decoration: none;
+        color: white;
+        text-align: center;
+        transition: background-color 0.3s;
+        cursor: pointer;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    .navbar h3 {
+        padding: 14px 20px;
+        text-decoration: none;
+        color: white;
+        text-align: center;
+        transition: background-color 0.3s;
+        cursor: pointer;
+        font-weight: bold;
+        font-style: italic;
+    }
+    
 
     .navbar a:hover {
         background-color: #575757;
     }
+    .auth-section {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-right: 10%;
+    }
+
+    .subscribe-button {
+        background-color: #868686;
+        color: white;
+        border: none;
+        padding: 1px 4px;
+        font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 2px;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+            font-family: Arial, sans-serif;
+            }
+
+            .subscribe-button:hover {
+            background-color: #555555;
+            }
+            .sign-in-text {
+            font-size: 1rem;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: capitalize;
+            font-family: Arial, sans-serif;
+            }
+
+            .sign-in-text:hover {
+            color: #000;
+            }
+
 </style>

@@ -2,6 +2,7 @@
 import Container from "../../global/Container.astro";
 import SearchBar from '../SearchEngine/SearchBar.astro';
 import Articles from '../SearchEngine/TrendingArt.astro';
+import Stock from '../SearchEngine/TrendingStock.astro';
 import Titles from '../SearchEngine/TrendingMid.astro';
 import Apps from '../SearchEngine/Apps.astro';
 
@@ -9,6 +10,9 @@ import Apps from '../SearchEngine/Apps.astro';
 const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
 
 ---
+
+<title>Google</title>
+
 <style>
 body {
   background: url('https://i.pinimg.com/originals/cf/a1/bb/cfa1bb7ec782fc1820b2b1b07dc00710.jpg') no-repeat center center fixed;
@@ -64,8 +68,8 @@ body {
                         </div>
 
                         <div>
-                                <Articles />
-                                stock (needs to be built)
+                                
+                                <Stock />
                         </div>
 
                 </section>
