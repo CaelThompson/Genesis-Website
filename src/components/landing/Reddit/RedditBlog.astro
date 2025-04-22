@@ -134,23 +134,6 @@ import { posts } from '../Reddit/postData.js';
             display: block;
         }
 
-        /* Custom Layouts */
-        .tab-content.technology .post {
-            background-color: #e8f5e9; /* Greenish background for tech posts */
-        }
-
-        .tab-content.lifestyle .post {
-            background-color: #fff3e0; /* Soft orange for lifestyle posts */
-        }
-
-        .tab-content.music .post {
-            background-color: #f3e5f5; /* Light purple for music posts */
-        }
-
-        .tab-content.gaming .post {
-            background-color: #f1f8e9; /* Light green for gaming posts */
-        }
-
         /* Description Styles */
         .tab-description {
             background-color: #ddd;
@@ -217,7 +200,7 @@ import { posts } from '../Reddit/postData.js';
                                 <p>{post.content}</p>
                             </div>
                             <div class="post-footer">
-                                <span>{post.comments.length} Comments</span> | <span>Share</span> | <span>Save</span>
+                                <span>{post.comments.length} Comments</span>
                             </div>
                         </div>
                     </div>
@@ -226,6 +209,12 @@ import { posts } from '../Reddit/postData.js';
         </div>
     </div>
     <script>
+
+        
+
+
+
+
         document.querySelectorAll('.navbar a').forEach(tab => {
             tab.addEventListener('click', (event) => {
                 event.preventDefault();

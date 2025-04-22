@@ -1,5 +1,5 @@
 ---
-import Demo from './StockDemo.astro';
+import Demo from './stockdemo.astro';
 import Graph from './stockgraph.astro';
 ---
 <!DOCTYPE html>
@@ -131,19 +131,6 @@ import Graph from './stockgraph.astro';
                 return `<span class="${changeClass}">${stock.name}: $${stock.price} (${stock.change}%)</span>`;
             }).join(' | ');
 
-            // Update stock info cards
-            container.innerHTML = '';
-            stockData.forEach(stock => {
-            const stockDiv = document.createElement('div');
-            stockDiv.className = 'stock-info';
-            const changeClass = stock.change >= 0 ? 'positive' : 'negative';
-            stockDiv.innerHTML = `
-                <h2>${stock.name}</h2>
-                <p>Current Price: $${stock.price}</p>
-                <p class="${changeClass}">Change: ${stock.change}%</p>
-            `;
-            container.appendChild(stockDiv);
-            });
         }
 
         // Simulate data updates every 10 seconds
