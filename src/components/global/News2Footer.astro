@@ -1,0 +1,20 @@
+---
+import Container from "./Container.astro";
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
+---
+
+<footer class="bg-gray-50">
+    <Container>
+        <div class="flex flex-col justify-center items-center py-8 md:py-10 gap-6 text-center">
+            <div>
+            <p class="text-sm">Benvenuto a Madrigal International Times!</p>
+            </div>
+        </div>
+        <!-- Copyright text -->
+        <div class="flex">
+             <div class="border-t border-zinc-300  w-full">
+                <p class="pt-4 pb-4 text-sm font-normal text-center text-zinc-800">Copyright &copy; I Fratelli Pollo</p>
+            </div>
+        </div>
+    </Container>
+</footer>

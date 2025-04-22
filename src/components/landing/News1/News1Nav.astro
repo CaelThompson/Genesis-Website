@@ -1,0 +1,194 @@
+---
+import Container from "../../global/NewsContainer.astro";
+import {articles} from "./Article1Storage.js";
+---
+
+<style>
+    .heading{
+        background-color:#001f3d;
+        padding: 0px;
+        color:aliceblue;
+        font-size: 2rem;
+        font-weight: 600;
+        text-transform:uppercase;
+        display:flex;
+        align-items:center;
+        font-family: 'Georgia';
+        position: fixed;
+        width: 100%;
+        left: 0;
+        top: 0;
+        z-index: 10;
+    }
+    
+    .logo{
+        width: 50px;
+        height: auto;
+        margin-right: 30px;
+        margin-left:30px;
+    }
+
+    .article-row-container{
+        background-color:#001f3d;
+        position: fixed;
+        width: 100%;
+       
+        
+    }
+    .article-row{
+        display: flex;
+        flex: 2;
+        text-transform: capitalize;
+    }
+    .article-row li {
+        flex: 1;
+        text-align:center;
+        font-size:16px;
+        font-weight: normal;
+        justify-content: center;
+        border-top: 2px solid aliceblue;
+        padding-top: 5px;
+        &:not(:last-child) {
+            border-right: 2px solid aliceblue;
+        }
+    }
+
+</style>
+<Container>
+    <!-- Responsive Navigation Bar -->
+    <nav class="flex flex-col mx-auto md:items-center md:justify-between md:flex-row p-4">
+      <div class="flex flex-row items-center justify-between w-full">
+          <!-- Logo -->
+          <!-- Mobile Menu Button -->
+           <!--
+          <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+              <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                  <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                  <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+          </button>
+      -->
+      </div>
+    </nav>
+  
+    <!-- Main Heading Section -->
+    <div class="heading" style="display: flex; align-items: center; justify-content: space-between; flex-direction: row;">
+        <h1 class="text-3xl font-semibold" style="margin: 20px 50px;">The Vanguard Journal</h1>
+      
+        <!--Menu button -->
+        <div style="display: flex; flex-direction: column; gap: 5px; margin-right: 50px; position: relative;" onclick="toggleMenu()">
+            <span style="width: 25px; height: 3px; background-color: aliceblue;"></span>
+            <span style="width: 25px; height: 3px; background-color: aliceblue;"></span>
+            <span style="width: 25px; height: 3px; background-color: aliceblue;"></span>
+            <ul id="dropdown-menu" style="position: absolute; top: 80px; right: -50px; background-color: #6f90b3; color: aliceblue; list-style: none; padding-top: 5px; padding-bottom: 5px; border: 1px solid aliceblue; border-radius: 5px; transform: translateX(100%); width: 33vw; text-transform: capitalize; transition: transform 0.3s ease-in-out;">
+                <style>
+                    #dropdown-menu li:hover {
+                        background-color: #001f3d;
+                        color: #ffffff;
+                        cursor: pointer;
+                    }
+                    #dropdown-menu li a {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        text-decoration: none;
+                        color: inherit;
+                    }
+                </style>
+                <li style="padding: 5px 10px; cursor: pointer; font-size: 14px;" onclick="window.location.href='/news'">
+                    <a href="/news1" style="color: inherit;">Home</a>
+                </li>
+                <li style="padding: 5px 10px; cursor: pointer; font-size: 14px;" onclick="window.location.href='/articles'">
+                    <a href="/articles" style="color: inherit;">Articles</a>
+                </li>
+                <li style="padding: 5px 10px; cursor: pointer; font-size: 14px;" onclick="window.location.href='/interviews'">
+                    <a href="/interviews" style="color: inherit;">Interviews</a>
+                </li>
+                <li style="padding: 5px 10px; cursor: default; font-size: 14px; height: 100vh; pointer-events: none;"></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Article Row Section -->
+    <div class="heading" style="margin-top: 70px;">
+        <ul class="article-row text-lg" style="margin-top: 5px; margin-bottom:5px;">
+            <li class="flex-1 text-center">
+                <a href="/news1" class="text-white hover:underline">
+                    Home
+                </a>
+            </li>
+            <li class="flex-1 text-center">
+                <a href="/article1" class="text-white hover:underline">
+                    Articles
+                </a>
+            </li>
+            <li class="flex-1 text-center">
+                <a href="/interview1" class="text-white hover:underline">
+                    Interviews
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <!-- Article Row Section --><!-- 
+        <div class="heading" style="margin-top: 70px;">
+            <hr style="border: 1px solid aliceblue;">
+            <ul class="article-row text-lg" style="margin-top: 5px; margin-bottom:5px;">
+            {articles.map((article) => (
+            <li class="flex-1 text-center">
+            <a href={`/news1/${article.slug}`} class="text-white hover:underline">
+                {article.slug.replace(/-/g, ' ')}
+            </a>
+            </li>
+            ))}
+            </ul>
+        </div>
+        
+-->
+
+      <script>
+        let menuVisible = false;
+    
+        function toggleMenu(): void {
+            const menu = document.getElementById('dropdown-menu');
+            menuVisible = !menuVisible;
+            menu.style.transform = menuVisible ? 'translateX(0)' : 'translateX(100%)';
+        }
+    
+        // Extend the Window interface to include toggleMenu
+        declare global {
+            interface Window {
+                toggleMenu: () => void;
+            }
+        }
+        window.toggleMenu = toggleMenu;
+        
+        // Deprecated
+        function navigateTo(option: 'articles' | 'interviews' | 'home'): void {
+            if (option === 'articles') {
+            window.location.href = '/articles';
+            } else if (option === 'interviews') {
+            window.location.href = '/interviews';
+            } else if (option === 'home') {
+            window.location.href = '/news';
+            }
+        }
+
+        // Add a line separator between options in the dropdown menu
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        if (dropdownMenu) {
+            const options = dropdownMenu.querySelectorAll('li');
+            options.forEach((option, index) => {
+            if (index < options.length - 1) {
+                const separator = document.createElement('hr');
+                separator.style.border = '1px solid aliceblue';
+                separator.style.margin = '5px 0';
+                option.after(separator);
+            }
+            });
+        }
+        
+    </script>
+  
+  
+  </Container>
+  

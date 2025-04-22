@@ -1,0 +1,83 @@
+---
+import Container from "../../global/NewsContainer.astro";
+import { interviews } from "./Interview3Storage.js";
+const { title, description, image, url, date, type } = Astro.props;
+import NewsNav from "../News3/News3Nav.astro";
+
+const processedInterviews = interviews
+  .map(interview => ({
+    ...interview,
+    url: `/interview2/${interview.slug}`, // Derive 'url' from 'slug'
+    type: interview.type || "default" // Add a default 'type' if missing
+  }))
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); // Sort by most recent first
+---
+
+
+<style>
+  .article-box-horizontal {
+    display: flex;
+    align-items: flex-start;
+    background-color: #f4f4f4;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 97%;
+    box-sizing: border-box;
+    position: relative;
+    height: auto;
+  }
+
+  .article-image-horizontal {
+    flex: 0 0 400px;
+    height: 150px;
+    border-radius: 8px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    background-size: cover;
+    background-position: center;
+    margin-right: 20px;
+  }
+
+  .article-text-horizontal {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+
+  .article-date-horizontal {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #555;
+  }
+</style>
+
+<Container>
+  <NewsNav/>
+  <div class="ml-10 mt-10">
+    <h1 class="text-3xl font-bold text-gray-900 mb-5">Exclusive Interviews</h1>
+  </div>
+  <div class="articles-container" style="justify-content: flex-start;"></div>
+  {processedInterviews.map(({ title, description, image, url, date }) => (
+    <a href={url} class="article-box-horizontal">
+      <div
+        class="article-image-horizontal"
+        style={`background-image: url('${image}'); `}
+      ></div>
+      <div class="article-text-horizontal" style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 20px;">
+        <div style="flex: 1; margin-right: 20px;">
+          <h2 class="text-[20px]">{title}</h2>
+          <p style="margin-bottom: 10px;">{description}</p>
+        </div>
+        <time datetime={date} class="article-date-horizontal" style="flex: 0 0 150px; text-align: right; margin-right: 20px;">
+          {new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </time>
+      </div>
+    </a>
+  ))}
+</div> 
+</Container>
