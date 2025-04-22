@@ -1,0 +1,107 @@
+---
+import Container from "../../../components/global/NewsContainer.astro";
+import { interviews } from "./../News1/Interview1Storage.js";
+const { title, description, image, url, date, type } = Astro.props;
+
+const processedInterviews = interviews.map(interview => ({
+  ...interview,
+  url: `/interview1/${interview.slug}`, // Derive 'url' from 'slug'
+  type: interview.type || "default", // Add a default 'type' if missing
+  formattedDate: new Date(interview.date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }) // Format the date
+}));
+---
+
+<style>
+  .interview-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+
+
+  .interview-image {
+    flex: 2;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    padding-top: 30%;
+  }
+  
+  .article-box:hover .article-text {
+    background-color: #e0e0e0;
+  }
+
+
+  
+  .interview-box{
+    background-color: #494951;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: calc(30%); /* Adjust width for 3 boxes per row */
+    box-sizing: border-box;
+    position: relative; /* Enable positioning for child elements */
+  }
+
+  .interview-text{
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: white;
+  
+  }
+
+  
+  .interview-date{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .interview-box:hover .interview-text {
+    background-color: #333350;
+    border-radius: 8px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+</style>
+
+<Container>
+  <div class="ml-10" style="margin-top: 50px;">
+    <h1 class="text-3xl font-bold text-gray-900">All Interviews</h1>
+  </div>
+  <div class="interview-container" style="justify-content: flex-start;">
+    {processedInterviews.map(({ title, description, image, url, formattedDate }) => (
+      <a href={url} class="interview-box">
+        <div
+          class="interview-image"
+          style={`background-image: url('${image}');`}
+        ></div>
+        <div class="interview-date">{formattedDate}</div>
+        <div class="interview-text">
+          <h2 class="text-[20px]">{title}</h2>
+          <p>{description}</p>
+        </div>
+      </a>
+    ))}
+  </div>
+  <div style="margin-bottom: 20px;"></div> 
+</Container>

@@ -1,0 +1,352 @@
+---
+import BaseLayout from '../../../layouts/News3Layout.astro'; 
+---
+<BaseLayout>
+  <a href="/news3" class="inline-block mb-4 text-green-700 hover:underline" style="margin-top:150px; margin-left: 60px;">
+    &#8592; Giddy on Back to the Ranch
+  </a>
+  
+
+  <div>
+    <h1 style="text-align: center; font-family: 'Courier New', monospace; margin-top: 50px; font-size: 300%; font-weight:600;">
+      Cactus Dodge 
+    </h1>
+    <p style="margin: 50px; margin-left:620px; margin-right: 620px; margin-top: 10px;">
+        Welcome lost traveler! It seems you have stumbled across a hidden page by following the white rabbit. In this game, you must dodge the cacti and tumbleweeds while trying to get the highest score possible. The game is simple: use the space bar to jump over the obstacles. The longer you survive, the faster they come at you! This game is quite challenging, however, if you can reach a score of 200, a suprise awaits you.
+    </p>
+  </div>
+
+
+  <canvas id="gameCanvas" width="800" height="400" style="display: block; margin: 30px auto; border: 4px solid #4b2e14; cursor: default;"></canvas>
+
+  <script type="module">
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let player = { x: 50, y: canvas.height - 120, width: 80, height: 60, speed: 5, velocityY: 0, jumping: false, jumpCount: 0 };
+    let obstacles = [];
+    let tumbleweeds = [];
+    let score = 0;
+    let gameOver = false;
+    let gameStarted = false; // Track if game has started
+    let cactusSpawnRate = 0.02;
+    let cactusHeightVary = false;
+    let jumpHeight = -20;
+    let gameTime = 0;
+    let lastTime = Date.now();
+    let lastCactusX = 0;
+
+    const playerImage = new Image();
+    playerImage.src = "/Img/News3Img/cowboy.png";
+
+    function drawBackground() {
+      ctx.fillStyle = "#87CEEB";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#FFFFFF";
+      ctx.fillRect(100, 50, 100, 50);
+      ctx.fillRect(300, 80, 120, 60);
+      ctx.fillRect(500, 40, 140, 70);
+
+      ctx.fillStyle = "#8B4513";
+      ctx.fillRect(0, canvas.height - 60, canvas.width, 60);
+    }
+
+    function drawPath() {
+      ctx.strokeStyle = "#8B4513";
+      ctx.lineWidth = 5;
+      ctx.beginPath();
+      ctx.moveTo(0, canvas.height - 60);
+      ctx.lineTo(canvas.width, canvas.height - 60);
+      ctx.stroke();
+    }
+
+    function drawPlayer() {
+      if (!gameOver && gameStarted) {
+        ctx.drawImage(playerImage, player.x, player.y, player.width, player.height);
+      }
+    }
+
+    function drawCacti() {
+      ctx.fillStyle = "#228B22";
+      obstacles.forEach(cactus => {
+        ctx.fillRect(cactus.x, cactus.y, cactus.width, cactus.height);
+      });
+    }
+
+    function drawTumbleweeds() {
+      ctx.fillStyle = "#D2B48C";
+      tumbleweeds.forEach(tumbleweed => {
+        ctx.beginPath();
+        ctx.arc(tumbleweed.x, tumbleweed.y, tumbleweed.size, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    }
+
+    function movePlayer() {
+      window.addEventListener("keydown", (e) => {
+        if (e.key === " " && player.jumpCount < 3) {
+          player.velocityY = jumpHeight;
+          player.jumping = true;
+          player.jumpCount++;
+        }
+      });
+    }
+
+    function updatePlayer() {
+      player.y += player.velocityY;
+
+      if (player.y <= 0) {
+        player.y = 0;
+        player.velocityY = 0;
+      }
+
+      if (player.y >= canvas.height - 120) {
+        player.y = canvas.height - 120;
+        player.jumping = false;
+        player.jumpCount = 0;
+      } else {
+        player.velocityY += 0.8;
+      }
+    }
+
+    function createCactus() {
+      const minSpacing = 200;
+
+      if (gameTime > 120) cactusHeightVary = true;
+
+      if (Math.random() < cactusSpawnRate) {
+        const lastCactus = obstacles[obstacles.length - 1];
+        const distanceFromLast = lastCactus ? canvas.width - lastCactus.x : minSpacing;
+
+        if (distanceFromLast >= minSpacing) {
+          const cactusHeight = cactusHeightVary ? Math.random() * 40 + 20 : 40;
+          const cactusY = canvas.height - cactusHeight - 60;
+
+          obstacles.push({
+            x: canvas.width,
+            y: cactusY,
+            width: 30,
+            height: cactusHeight,
+            speed: 3 + gameTime * 0.02
+          });
+
+          lastCactusX = canvas.width;
+        }
+      }
+    }
+
+    function createTumbleweed() {
+      if (score > 10 && Math.random() < 0.01) {
+        const tumbleweedSize = Math.random() * 20 + 20;
+        tumbleweeds.push({
+          x: canvas.width,
+          y: Math.random() * canvas.height / 2,
+          size: tumbleweedSize,
+          speed: 2 + gameTime * 0.015
+        });
+      }
+    }
+
+    function updateObstacles() {
+      obstacles.forEach((cactus, index) => {
+        cactus.x -= cactus.speed;
+
+        if (
+          player.x < cactus.x + cactus.width &&
+          player.x + 60 > cactus.x &&
+          player.y < cactus.y + cactus.height &&
+          player.y + 60 > cactus.y
+        ) {
+          gameOver = true;
+          endGame();
+        }
+
+        if (cactus.x + cactus.width < 0) {
+          obstacles.splice(index, 1);
+          score++;
+        }
+      });
+    }
+
+    function updateTumbleweeds() {
+      tumbleweeds.forEach((tumbleweed, index) => {
+        tumbleweed.x -= tumbleweed.speed;
+
+        if (
+          player.x < tumbleweed.x + tumbleweed.size &&
+          player.x + 60 > tumbleweed.x &&
+          player.y < tumbleweed.y + tumbleweed.size &&
+          player.y + 60 > tumbleweed.y
+        ) {
+          gameOver = true;
+          endGame();
+        }
+
+        if (tumbleweed.x + tumbleweed.size < 0) {
+          tumbleweeds.splice(index, 1);
+          score++;
+        }
+      });
+    }
+
+    function endGame() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawBackground();
+
+      ctx.fillStyle = "#000";
+      ctx.font = "28px Courier New";
+      const gameOverText = "Game Over! Final Score: " + score;
+      const gameOverTextWidth = ctx.measureText(gameOverText).width;
+      ctx.fillText(gameOverText, (canvas.width - gameOverTextWidth) / 2, canvas.height / 2 - 30);
+
+      ctx.font = "20px Courier New";
+      const restartText = "Click the button below to restart.";
+      const restartTextWidth = ctx.measureText(restartText).width;
+      ctx.fillText(restartText, (canvas.width - restartTextWidth) / 2, canvas.height / 2);
+
+      const buttonX = canvas.width / 2 - 80;
+      const buttonY = canvas.height / 2 + 30;
+      const buttonWidth = 160;
+      const buttonHeight = 40;
+
+      ctx.fillStyle = "#fff";
+      ctx.fillRect(buttonX, buttonY, buttonWidth, buttonHeight);
+      ctx.strokeStyle = "#000";
+      ctx.strokeRect(buttonX, buttonY, buttonWidth, buttonHeight);
+      ctx.fillStyle = "#000";
+      ctx.font = "20px Courier New";
+      const buttonText = "Restart Game";
+      const buttonTextWidth = ctx.measureText(buttonText).width;
+      ctx.fillText(buttonText, canvas.width / 2 - buttonTextWidth / 2, buttonY + 28);
+    }
+
+    function showStartScreen() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#87CEEB";  // Add color to the background for the start screen
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#000";
+      ctx.font = "36px Courier New";
+      const startText = "Click to Start!";
+      const startTextWidth = ctx.measureText(startText).width;
+      ctx.fillText(startText, (canvas.width - startTextWidth) / 2, canvas.height / 2);
+
+      const buttonX = canvas.width / 2 - 80;
+      const buttonY = canvas.height / 2 + 40;
+      const buttonWidth = 160;
+      const buttonHeight = 40;
+
+      ctx.fillStyle = "#fff";
+      ctx.fillRect(buttonX, buttonY, buttonWidth, buttonHeight);
+      ctx.strokeStyle = "#000";
+      ctx.strokeRect(buttonX, buttonY, buttonWidth, buttonHeight);
+      ctx.fillStyle = "#000";
+      ctx.font = "20px Courier New";
+      const buttonText = "Start Game";
+      const buttonTextWidth = ctx.measureText(buttonText).width;
+      ctx.fillText(buttonText, canvas.width / 2 - buttonTextWidth / 2, buttonY + 28);
+    }
+
+    canvas.addEventListener("click", function (e) {
+      if (!gameStarted) {
+        gameStarted = true; // Start the game
+        gameLoop();
+        return;
+      }
+
+      if (gameOver) {
+        const rect = canvas.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const clickY = e.clientY - rect.top;
+
+        const buttonX = canvas.width / 2 - 80;
+        const buttonY = canvas.height / 2 + 30;
+        const buttonWidth = 160;
+        const buttonHeight = 40;
+
+        if (
+          clickX >= buttonX &&
+          clickX <= buttonX + buttonWidth &&
+          clickY >= buttonY &&
+          clickY <= buttonY + buttonHeight
+        ) {
+          restartGame();
+        }
+      }
+    });
+
+    function restartGame() {
+      player = { x: 50, y: canvas.height - 120, width: 80, height: 60, speed: 5, velocityY: 0, jumping: false, jumpCount: 0 };
+      obstacles = [];
+      tumbleweeds = [];
+      score = 0;
+      cactusSpawnRate = 0.02;
+      cactusHeightVary = false;
+      gameOver = false;
+      gameTime = 0;
+      lastTime = Date.now();
+      gameLoop();
+    }
+
+    function gameLoop() {
+      if (!gameStarted) {
+        showStartScreen();
+        return;
+      }
+
+      if (gameOver) return;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawBackground();
+      drawPath();
+      drawPlayer();
+      drawCacti();
+      drawTumbleweeds();
+
+      createCactus();
+      createTumbleweed();
+
+      updatePlayer();
+      updateObstacles();
+      updateTumbleweeds();
+
+      const currentTime = Date.now();
+      gameTime = (currentTime - lastTime) / 1000;
+
+      if (gameTime > 60) cactusSpawnRate = 0.05;
+      if (gameTime > 120) cactusSpawnRate = 0.1;
+
+      requestAnimationFrame(gameLoop);
+    }
+
+    movePlayer();
+    gameLoop();
+
+    // Mouse cursor change logic
+    canvas.addEventListener("mousemove", function (e) {
+      const rect = canvas.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+
+      const startButtonX = canvas.width / 2 - 80;
+      const startButtonY = canvas.height / 2 + 40;
+      const buttonWidth = 160;
+      const buttonHeight = 40;
+
+      // Only check cursor change if the game hasn't started or if it's over (i.e., the buttons are visible)
+      if (!gameStarted || gameOver) {
+        if (mouseX >= startButtonX && mouseX <= startButtonX + buttonWidth && mouseY >= startButtonY && mouseY <= startButtonY + buttonHeight) {
+          canvas.style.cursor = "pointer"; // Change cursor to pointer when over the button
+        } else if (gameOver && mouseX >= startButtonX && mouseX <= startButtonX + buttonWidth && mouseY >= startButtonY + 30 && mouseY <= startButtonY + 30 + buttonHeight) {
+          canvas.style.cursor = "pointer"; // Change cursor to pointer when over the restart button
+        } else {
+          canvas.style.cursor = "default"; // Reset to default cursor when not over any button
+        }
+      } else {
+        // Reset cursor to default if the game is active
+        canvas.style.cursor = "default";
+      }
+    });
+  </script>
+</BaseLayout>

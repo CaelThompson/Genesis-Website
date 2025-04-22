@@ -1,0 +1,80 @@
+<head>
+    <title>2x2 Square Image Buttons</title>
+    <style>
+        /* Container for the image grid */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 50%); /* Create a 2 by 2 grid with 50% width for each */
+            grid-template-rows: repeat(2, 50%); /* Make sure rows are also 50% height */
+            grid-gap: 10px; /* Remove gap between images */
+            height: 50vh; /* Make the container take up the full height of the viewport */
+            border-radius: 12px; /* Rounded corners */
+        }
+
+        /* Individual image button styling */
+        .image-button {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%; /* Ensure the button takes up 100% of its container width */
+            height: 100%; /* Ensure the button takes up 100% of its container height */
+        }
+
+        .image-button img {
+            width: 100%; /* Make the image fill the container's width */
+            height: 100%; /* Make the image fill the container's height */
+            object-fit: cover; /* Ensure the image covers the area without distorting */
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover effect for image buttons */
+        .image-button:hover img {
+            transform: scale(1.05); /* Slightly zoom in on hover */
+        }
+
+        .image-button:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Container for the 2x2 grid of image buttons -->
+    <div class="image-grid">
+        <!-- Image Button 1 -->
+        <a href={`news1`}>
+            <div class="image-button">
+            <img src="img/modern logo for Vanguard Journal with less busy center and shield with gold pen and the words Vangua.jpeg" alt="Image 1" />
+            </div>
+        </a>
+
+        <!-- Image Button 2 -->
+        <div class="image-button" onclick="handleClick(2)">
+            <img src="https://via.placeholder.com/500x500?text=Image+2" alt="Image 2">
+        </div>
+
+        <!-- Image Button 3 -->
+        <div class="image-button" onclick="handleClick(3)">
+            <img src="https://via.placeholder.com/500x500?text=Image+3" alt="Image 3">
+        </div>
+
+        <!-- Image Button 4 -->
+        <a href={`reddit`}>
+            <div class="image-button">
+                <img src="img/logo for a blog room with a laptop or chat icon, the text Blog Room in bold and clear, and a simplif.jpeg" alt="Image 4">
+            </div>
+        </a>
+    </div>
+
+    <script>
+        // Function to handle the click event for each image button
+        function handleClick(imageNumber) {
+            alert('You clicked on Image ' + imageNumber);
+            // You can replace the alert with any custom functionality, such as navigating to a new page
+            // window.location.href = 'https://example.com';
+        }
+    </script>
+
+</body>
+

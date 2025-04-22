@@ -1,0 +1,170 @@
+<style>
+    .slider {
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 15px;
+        margin: auto;
+    }
+
+    .slide {
+        display: none;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        text-align: center;
+    }
+
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+
+    .slide.active {
+        display: block;
+    }
+
+    .slide-text {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        padding: 20px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        text-align: left;
+    }
+
+    /* Larger title */
+    .slide-text .mtext {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 10px; /* Space between title and description */
+    }
+
+    /* Smaller description */
+    .slide-text .smtext {
+        font-size: 16px;
+    }
+
+    .dots {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 5px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+        background-color: #ccc;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .dot.active {
+        background-color: #007bff;
+    }
+
+    .nav-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .nav-button.left {
+        left: 10px;
+    }
+
+    .nav-button.right {
+        right: 10px;
+    }
+</style>
+
+<div class="slider" id="slider">
+    <div class="slide active">
+        <img src="img/ArticleImages/article1.webp" alt="Slide 1">
+        <div class="slide-text">
+            <div class="mtext">This is Slide 1</div>
+            <div class="smtext">Description of Slide 1</div>
+        </div>
+    </div>
+    <div class="slide">
+        <img src="https://via.placeholder.com/800x250?text=Slide+2" alt="Slide 2">
+        <div class="slide-text">
+            <div class="mtext">This is Slide 2</div>
+            <div class="smtext">Description of Slide 2</div>
+        </div>
+    </div>
+    <div class="slide">
+        <img src="https://via.placeholder.com/800x250?text=Slide+3" alt="Slide 3">
+        <div class="slide-text">
+            <div class="mtext">This is Slide 3</div>
+            <div class="smtext">Description of Slide 3</div>
+        </div>
+    </div>
+    <div class="slide">
+        <img src="https://via.placeholder.com/800x250?text=Slide+4" alt="Slide 4">
+        <div class="slide-text">
+            <div class="mtext">This is Slide 4</div>
+            <div class="smtext">Description of Slide 4</div>
+        </div>
+    </div>
+    <div class="slide">
+        <img src="https://via.placeholder.com/800x250?text=Slide+5" alt="Slide 5">
+        <div class="slide-text">
+            <div class="mtext">This is Slide 5</div>
+            <div class="smtext">Description of Slide 5</div>
+        </div>
+    </div>
+    <button class="nav-button left" onclick="prevSlide()">&#8249;</button>
+    <button class="nav-button right" onclick="nextSlide()">&#8250;</button>
+    <div class="dots" id="dots">
+        <div class="dot active" onclick="showSlide(0)"></div>
+        <div class="dot" onclick="showSlide(1)"></div>
+        <div class="dot" onclick="showSlide(2)"></div>
+        <div class="dot" onclick="showSlide(3)"></div>
+        <div class="dot" onclick="showSlide(4)"></div>
+    </div>
+</div>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const leftArrow = document.querySelector('.nav-button.left');
+    const rightArrow = document.querySelector('.nav-button.right');
+
+    function showSlide(index) {
+        slides[currentSlide].classList.remove('active');
+        dots[currentSlide].classList.remove('active');
+        currentSlide = index;
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
+    }
+
+    function nextSlide() {
+        showSlide((currentSlide + 1) % slides.length);
+    }
+
+    function prevSlide() {
+        showSlide((currentSlide - 1 + slides.length) % slides.length);
+    }
+
+    // Add event listeners for the arrow buttons
+    leftArrow.addEventListener('click', prevSlide);
+    rightArrow.addEventListener('click', nextSlide);
+
+    setInterval(nextSlide, 10000);
+</script>

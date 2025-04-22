@@ -1,0 +1,21 @@
+---
+import Container from "../../global/NewsContainer.astro";
+import {articles} from "../../landing/NewsPage/News1Storage.js";
+import NewsNav from "../../landing/NewsPage/NewsNavigation.astro";
+
+import NewsLink from "../../landing/NewsPage/NewsLink.astro";
+---
+<style>
+  .trending-articles {
+    margin-top: 40px; /* Adjust margin to ensure space between article row and trending articles */
+    padding: 10px;
+}
+</style>
+<!-- Home Page of News Outlet -->
+<Container>
+  <NewsNav/>
+    <!-- Trending Articles text -->
+    <div class="mt-12 px-6 trending-articles">
+        <h1 class="text-2xl font-bold text-gray-900">Trending Articles</h1>
+    </div>
+</Container>

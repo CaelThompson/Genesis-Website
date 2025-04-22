@@ -1,0 +1,83 @@
+---
+import Container from "../../global/Container.astro";
+import SearchBar from '../SearchEngine/SearchBar.astro';
+import Articles from '../SearchEngine/TrendingArt.astro';
+import Stock from '../SearchEngine/TrendingStock.astro';
+import Titles from '../SearchEngine/TrendingMid.astro';
+import Apps from '../SearchEngine/Apps.astro';
+
+
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
+
+---
+
+<title>Google</title>
+
+<style>
+body {
+  background: url('https://i.pinimg.com/originals/cf/a1/bb/cfa1bb7ec782fc1820b2b1b07dc00710.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.col {
+    background-color: #ffffff; /* Slightly transparent white background */
+    border: 1px solid #ccc; /* Light gray border */
+    padding: 20px 10px; /* Padding inside the container */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly larger shadow for depth */
+    margin-bottom: 20px; /* Space below each row */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.rowSe {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 8-4 layout: Articles 66%, Titles 33% */
+    gap: 20px; /* Space between columns */
+}
+
+.rowSe2 {
+        display: grid;
+        grid-template-columns: 1fr 2fr; /* 8-4 layout: Articles 66%, Titles 33% */
+        gap: 20px; /* Space between columns */
+        margin-top: 20px; /* Add space above the section */
+}
+
+
+</style>
+
+<Container>
+        <section>
+                <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-10">
+                        <SearchBar />
+                </div>
+        </section>
+
+        <div class="col">
+                <section class="rowSe">
+                        <div>
+                                <Articles />
+                        </div>
+                        <div>
+                                <Titles />
+                        </div>
+                </section>
+
+                <section class="rowSe2">
+                        <div>
+                                <Apps />
+                        </div>
+
+                        <div>
+                                
+                                <Stock />
+                        </div>
+
+                </section>
+
+        </div>
+
+        
+</Container>
+
+
+

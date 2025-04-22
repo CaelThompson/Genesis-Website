@@ -1,17 +1,9 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/landing/Hero.astro"
-import Features from "../components/landing/Features.astro"
-import Aboutus from "../components/landing/Aboutus.astro"
-import Bulk from "../components/landing/Bulk.astro"
-import Blog from "../components/landing/Blog.astro";
+import SearchLayout from "../layouts/SearchLayout.astro";
+import Search from "../components/landing/SearchEngine/Search.astro"
 import '../styles/global.css'
 ---
+<SearchLayout>
+    <Search />
+</SearchLayout>
 
-<BaseLayout>
-    <Hero />
-    <Features />
-    <Aboutus />
-    <Blog />
-    <Bulk />
-</BaseLayout>

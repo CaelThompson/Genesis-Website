@@ -1,14 +1,15 @@
 ---
-const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
+import Maps from './Map.astro';
 ---
 
+<title>About Genesis</title>
 
 <div class="bg-white py-24 sm:py-32">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="mx-auto grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none lg:grid-cols-2">
       <div class="lg:pr-4 mb-20">
         <div class="relative overflow-hidden rounded-3xl bg-gray-900 lg:h-[600px] px-6 pb-9 pt-64 shadow-2xl sm:px-12 lg:max-w-lg lg:px-8 lg:pb-8 xl:px-10 xl:pb-10">
-          <img class="absolute inset-0 h-full w-full object-cover" src=`${basePath}img/innovative_shop_floor.JPG` alt=""/>
+          <img class="absolute inset-0 h-full w-full object-cover" src=`img/innovative_shop_floor.JPG` alt=""/>
         </div>
       </div>
       <div>
@@ -28,50 +29,26 @@ const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
   
   <!-- Aerospace Industry Section -->
   <div class="mb-10">
-    <img src=`${basePath}img/aerospace3_original.png` alt="Aerospace Manufacturing" class="rounded-lg shadow hover:opacity-90 mx-auto"/>
+    <img src=`img/aerospace3_original.png` alt="Aerospace Manufacturing" class="rounded-lg shadow hover:opacity-90 mx-auto"/>
     <p class="mt-4 text-center text-2xl font-bold">Aerospace Manufacturing</p>
     <p class="mt-2">Genesis plays a pivotal role in aerospace manufacturing by delivering high-quality, reliable solutions that align with the stringent demands of the sector. Our emphasis on deep customer engagement allows us to develop bespoke solutions that effectively address unique industry challenges, from design complexity to operational reliability. We continuously refine our processes to increase sustainability and minimize environmental impacts, staying aligned with global standards. By focusing on innovative technologies and trends, we empower our aerospace clients to reach new heights of efficiency and performance.
   </div>
 
   <!-- Automotive Industry Section -->
   <div class="mb-10">
-    <img src=`${basePath}img/manufacturing_car.jpeg` alt="Automotive Industry Manufacturing" class="rounded-lg shadow hover:opacity-90 mx-auto"/>
+    <img src=`img/manufacturing_car.jpeg` alt="Automotive Industry Manufacturing" class="rounded-lg shadow hover:opacity-90 mx-auto"/>
     <p class="mt-4 text-center text-2xl font-bold">Automotive Industry Manufacturing</p>
-    <p class="mt-2">"In the dynamic automotive industry, Genesis thrives on building lasting customer relationships through exceptional service and understanding client needs. We are dedicated to driving innovation in automotive manufacturing by visualizing and integrating new industry trends into our product development. Our solutions aim to answer critical customer challenges, enhance the efficiency of vehicles, and reduce environmental impact. By focusing on sustainable practices, we ensure that our approach not only meets today’s needs but also anticipates future trends, promoting long-term success in a rapidly evolving sector.
+    <p class="mt-2">In the dynamic automotive industry, Genesis thrives on building lasting customer relationships through exceptional service and understanding client needs. We are dedicated to driving innovation in automotive manufacturing by visualizing and integrating new industry trends into our product development. Our solutions aim to answer critical customer challenges, enhance the efficiency of vehicles, and reduce environmental impact. By focusing on sustainable practices, we ensure that our approach not only meets today’s needs but also anticipates future trends, promoting long-term success in a rapidly evolving sector.
   </div>
 
   <!-- Medical Device Manufacturing Section -->
   <div class="mb-10">
-    <img src=`${basePath}img/ventilator.JPG` alt="Medical Device Manufacturing" class="rounded-lg shadow hover:opacity-90 mx-auto"/>
+    <img src=`img/ventilator.JPG` alt="Medical Device Manufacturing" class="rounded-lg shadow hover:opacity-90 mx-auto"/>
     <p class="mt-4 text-center text-2xl font-bold">Medical Device Manufacturing</p>
     <p class="mt-2">At Genesis, we are at the forefront of innovating medical device manufacturing. By focusing on accelerating product development, we help healthcare providers access advanced medical tools swiftly. Our approach involves close collaboration with clients to understand and respond to the challenges medical professionals face today. This includes a commitment to increasing the sustainability of our manufacturing processes and contributing to a healthier environment while ensuring the utmost safety and reliability of our devices. Our proactive trend analysis helps us anticipate shifts in healthcare needs, enabling us to adapt swiftly to the evolving market.
   </div>
+  
+  <Maps />
+
 </div>
 
-    <div class="mt-32 mx-auto max-w-7xl px-6 lg:px-8" id="leadership">
-      <div class="text-center">
-        <h2 class="text-3xl font-semibold tracking-tight text-gray-900 mb-8">Our Leadership Team</h2>
-      </div>
-      <div class="space-y-10">
-        <!-- Alan Michaels - CEO -->
-        <div class="text-center">
-          <img src=`${basePath}img/brent.jpg` alt="Alan Michaels" class="mx-auto rounded-full w-48 h-48 object-cover"/>
-          <h3 class="text-2xl font-bold text-gray-800 mt-4">Alan Michaels - CEO</h3>
-          <p class="mt-2 text-gray-700">Alan Michaels is a graduate of MIT, where he studied Mechanical Engineering. An expert in aerospace technology, Alan directed crucial engineering projects before joining Genesis. His strategic vision and passion for marrying engineering with emerging tech have driven significant growth and innovation at Genesis, solidifying our market leadership.</p>
-        </div>
-        
-        <!-- Brian Matthews - CFO -->
-        <div class="text-center">
-          <img src=`${basePath}img/ian.jpg` alt="Brian Matthews" class="mx-auto rounded-full w-48 h-48 object-cover"/>
-          <h3 class="text-2xl font-bold text-gray-800 mt-4">Brian Matthews - CFO</h3>
-          <p class="mt-2 text-gray-700">Brian Matthews, with a finance background from the University of Illinois, brings extensive experience from working at a top competitor. As CFO, he has restructured Genesis's financial operations to enhance profitability and sustainability, playing a crucial role in strengthening our global competitive stance and capital management.</p>
-        </div>
-        
-        <!-- Elizabeth Redding - CTO -->
-        <div class="text-center">
-          <img src=`${basePath}img/caroline.jpg` alt="Elizabeth Redding" class="mx-auto rounded-full w-48 h-48 object-cover"/>
-          <h3 class="text-2xl font-bold text-gray-800 mt-4">Elizabeth Redding - CTO</h3>
-          <p class="mt-2 text-gray-700">Elizabeth Redding holds a degree in Computer Science from Stanford University. Her career began in Silicon Valley, developing innovative software solutions. At Genesis, she has led the adoption of advanced computational tools that enhance our design and manufacturing processes, establishing us as technology leaders in our industry.</p>
-        </div>
-      </div>
-    </div>

@@ -1,0 +1,28 @@
+---
+import Container from "./Container.astro";
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
+---
+
+<footer class="bg-gray-50">
+    <Container>
+        <div class="flex items-center justify-between px-6 py-8 md:py-10">
+            <p class="text-sm text-center w-full">Howdy Partner, and Welcome to the Lone Star Outlet</p>
+            <a href=`${basePath}game` class="ml-4">
+              <img
+                src="/Img/News3Img/rabbit.png"
+                alt="Rabbit"
+                style="width: 70px; height: auto;"
+              />
+            </a>
+          </div>
+     
+          <!-- Copyright text -->
+          <div class="border-t border-zinc-300 w-full">
+            <p class="pt-4 pb-4 text-sm font-normal text-center text-zinc-800">
+              Copyright &copy; Rattlesnake Bandits
+            </p>
+          </div>
+          
+          
+    </Container>
+</footer>
