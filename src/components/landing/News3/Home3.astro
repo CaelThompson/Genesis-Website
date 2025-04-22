@@ -1,0 +1,177 @@
+---
+import { articles as originalArticles } from "./Article3Storage.js";
+import { interviews as originalInterviews } from "./Interview3Storage.js";
+import Container from "../../global/NewsContainer.astro";
+import NewsNav from "../News3/News3Nav.astro";
+
+// Map articles to include 'url' and 'type' properties
+const articles = originalArticles.map(article => ({
+  ...article,
+  url: `/article2/${article.slug}`, // Derive 'url' from 'slug'
+  type: article.type || "default" // Add a default 'type' if missing
+}));
+
+// Map interviews to include 'url' and 'type' properties
+const interviews = originalInterviews.map(interview => ({
+  ...interview,
+  url: `/interview2/${interview.slug}`, // Derive 'url' from 'slug'
+  type: interview.type || "default" // Add a default 'type' if missing
+}));
+
+// Function to get a unique random item (article or interview)
+let displayedItems = new Set();
+function getUniqueRandomItem() {
+  const allItems = [...articles, ...interviews];
+  if (displayedItems.size === allItems.length) {
+    // Reset the set if all items have been displayed
+    displayedItems.clear();
+  }
+
+  let randomItem;
+  do {
+    randomItem = allItems[Math.floor(Math.random() * allItems.length)];
+  } while (displayedItems.has(randomItem));
+
+  displayedItems.add(randomItem);
+  return randomItem;
+}
+---
+
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 0 100px; /* Large margins on both sides */
+    
+  }
+
+  .grid-item {
+    background-color: transparent; /* Remove background color */
+    margin: 15px;
+    margin-bottom: 0px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    position: relative; /* Added for positioning the date */
+    height: 100%;
+  }
+
+  .grid-item-image {
+    flex: 1;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    padding-top: 20%;
+    
+  }
+
+  .grid-item-text {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: #f4f4f4; /* Default background color */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .grid-item:hover .grid-item-text {
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+
+  .grid-item-date {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+</style>
+
+<Container>
+  <NewsNav/>
+  <!-- Trending Articles text -->
+  <div>
+    <div class="flex justify-between items-center px-5 mx-5 mt-10">
+      <h1 class="text-3xl font-bold text-gray-900 ml-24">Highlights</h1>
+      
+    </div>
+  </div>
+
+  <!-- Article Box -->
+  <div class="grid-container">
+    {Array.from({ length: 1 }).map(() => {
+      const { title, description, image, url, date } = getUniqueRandomItem();
+      return (
+        <a href={url} class="grid-item" style="grid-column: span 3;">
+          <div class="grid-item">
+            <div
+              class="grid-item-image group"
+              style={`background-image: url('${image}');`}
+            ></div>
+            <time datetime={date} class="grid-item-date">
+              {new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+            </time>
+            <div class="grid-item-text">
+              <h2 class="text-[20px]">{title}</h2>
+              <p>{description}</p>
+            </div>
+          </div>
+        </a>
+      );
+    })}
+
+    {Array.from({ length: 1 }).map(() => {
+      const { title, description, image, url, date } = getUniqueRandomItem();
+      return (
+        <a href={url} class="grid-item" style="grid-column: span 2; grid-row: span 2;">
+          <div class="grid-item">
+            <div
+              class="grid-item-image group"
+              style={`background-image: url('${image}');`}
+            ></div>
+            <time datetime={date} class="grid-item-date">
+              {new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+            </time>
+            <div class="grid-item-text">
+              <h2 class="text-[20px]">{title}</h2>
+              <p>{description}</p>
+            </div>
+          </div>
+        </a>
+      );
+    })}
+
+{Array.from({ length: 5 }).map(() => {
+  const { title, description, image, url, date } = getUniqueRandomItem();
+  return (
+    <a href={url} class="grid-item">
+      <div class="grid-item">
+        <div
+          class="grid-item-image group"
+          style={`background-image: url('${image}');`}
+        ></div>
+        <time datetime={date} class="grid-item-date">
+          {new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+        </time>
+        <div class="grid-item-text">
+          <h2 class="text-[20px]">{title}</h2>
+          <p>{description}</p>
+        </div>
+      </div>
+    </a>
+  );
+})}
+  </div>
+
+  <div style="margin-bottom: 80px;"></div>
+</Container>

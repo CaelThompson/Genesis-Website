@@ -1,7 +1,7 @@
 ---
 import BaseHead from "../../components/BaseHead.astro";
-import { articles } from "../../components/landing/NewsPage/News1Storage.js";
-import NewsNav from "../../components/landing/NewsNavigation.astro";
+import { articles } from "../../components/landing/News2/Article2Storage.js";
+import NewsNav from "../../components/landing/News2/News2Nav.astro";
 
 
 const { slug } = Astro.params;
@@ -21,11 +21,14 @@ const formattedContent = article.content
   <title>{article.title} - Genesis Blog</title>
 </head>
 <NewsNav />
-<article class="max-w-6xl mx-auto p-6">
-  <a href="/news" class="inline-block mb-4 text-green-700 hover:underline">← Back to Home Page</a>
+<article class="max-w-6xl mx-auto p-6 pt-28" style="margin-top: -70px;">
+  <a href="/news2" class="inline-block mb-4 text-green-700 hover:underline">← Back to The Hub</a>
 
   <h1 class="text-3xl font-bold text-gray-900 dark:text-white">{article.title}</h1>
-  <p class="text-gray-600 dark:text-gray-400 mt-2">{article.date}</p>
+  <div class="flex justify-between text-gray-600 dark:text-gray-400 mt-2">
+    <p>{article.author}</p>
+    <p>{article.date}</p>
+  </div>
   <img src={article.image} alt={article.title} class="w-full rounded-lg mt-4" />
 
   <!-- Render formatted HTML content -->

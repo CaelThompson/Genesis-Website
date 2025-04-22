@@ -1,0 +1,179 @@
+---
+import Container from "../../global/NewsContainer.astro";
+---
+
+<style>
+    .heading{
+        background-color:#aa7e17;
+        background-image: url('/Img/News3Img/oldpaper.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-blend-mode:multiply;
+        padding: 0px;
+        color:aliceblue;
+        font-size: 2rem;
+        font-weight:600;
+        text-transform:uppercase;
+        display:flex;
+        align-items:center;
+        font-family:'Copperplate Gothic Light', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        position: fixed;
+        width: 100%;
+        left: 0;
+        top: 0;
+        z-index: 10;
+    }
+    
+    .logo{
+        width: 50px;
+        height: auto;
+        margin-right: 30px;
+        margin-left:30px;
+    }
+
+    .article-row{
+        text-transform: capitalize;
+    }
+    .article-row li {
+        margin-right:80px;
+        margin-left:80px;
+        font-size:16px;
+        font-weight: normal;
+        justify-content: center;
+        padding-top: 5px;
+    }
+    @keyframes tilt {
+    0%   { transform: rotate(0deg); }
+    25%  { transform: rotate(5deg); }
+    50%  { transform: rotate(-5deg); }
+    75%  { transform: rotate(5deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  .tilt-on-hover:hover {
+    animation: tilt 0.4s ease-in-out;
+  }
+</style>
+<Container>
+    <!-- Responsive Navigation Bar -->
+    <nav class="flex flex-col mx-auto md:items-center md:justify-between md:flex-row p-4">
+      <div class="flex flex-row items-center justify-between w-full">
+          <!-- Logo -->
+          <!-- Mobile Menu Button -->
+      </div>
+    </nav>
+  
+    <!-- Main Heading Section -->
+    <div class="heading" style="display:flex; flex-direction: row; padding: 20px 50px; ">
+        <div style="flex: 1; text-align: center;">
+            <h1 class="text-5xl font-semibold">Lone</h1>
+            <h1 class="text-5xl font-semibold">Star</h1>
+            <h1 class="text-5xl font-semibold">Outlet</h1>
+        </div>
+        <!-- Article Row Section -->
+        <!--<ul class="article-row text-lg" style="flex: 2; display:flex; margin: 0; padding: 0; list-style: none;">
+            <li class="text-center">
+                <a href="/news2" class="text-white hover:underline">
+                    The Hub
+                </a>
+            </li>
+            <li class="text-center">
+                <a href="/article2" class="text-white hover:underline">
+                    Features
+                </a>
+            </li>
+            <li class="text-center">
+                <a href="/interview2" class="text-white hover:underline">
+                    Spotlights
+                </a>
+            </li>
+            <li class="text-center">
+                <a href="/aboutus2" class="text-white hover:underline">
+                    About Us
+                </a>
+            </li>
+        </ul>
+    -->
+        <!--Menu button -->
+        <div style="display: flex; flex-direction: column; gap: 5px; position: relative;" onclick="toggleMenu()">
+            <div>
+                <img src="/Img/News3Img/cowboyhat.png" class= "tilt-on-hover" style="width: 200px;">
+            </div>
+            <ul id="dropdown-menu" style="position: absolute; top: 140px; right: -50px; background-color: #74461e; color: aliceblue; list-style: none; padding-top: 5px; padding-bottom: 5px; border: 1px solid aliceblue; border-radius: 5px; transform: translateY(-200px); width: 100vw; text-transform: capitalize; transition: transform 0.3s ease-in-out, opacity 0.4s ease-in-out; opacity: 100; display: none;">
+                <style>
+                    #dropdown-menu li:hover {
+                        background-color: #3f2916;
+                        color: #ffffff;
+                        cursor: pointer;
+                    }
+                    #dropdown-menu li a {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        text-decoration: none;
+                        color: inherit;
+                    }
+                </style>
+                <li style="padding: 5px 30px; cursor: pointer; font-size: 14px;" onclick="window.location.href='/news3'">
+                    <a href="/news3" style="color: inherit;">The Ranch</a>
+                </li>
+                <li style="padding: 5px 30px; cursor: pointer; font-size: 14px;" onclick="window.location.href='/article3'">
+                    <a href="/article3" style="color: inherit;">Trail Talk</a>
+                </li>
+                <li style="padding: 5px 30px; cursor: pointer; font-size: 14px;" onclick="window.location.href='/interview3'">
+                    <a href="/interview3" style="color: inherit;">Frontier Voices</a>
+                </li>
+                <li style="padding: 5px 30px; cursor: pointer; font-size: 14px;" onclick="window.location.href='/aboutus3'">
+                    <a href="/aboutus3" style="color: inherit;">Behind the Barn Door</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        let menuVisible = false;
+    
+        function toggleMenu(): void {
+            const menu = document.getElementById('dropdown-menu');
+            menuVisible = !menuVisible;
+            if (menu) {
+                menu.style.display = 'block';
+                menu.style.opacity = menuVisible ? '1' : '0';
+                menu.style.transform = menuVisible ? 'translateY(0)' : 'translateY(-200px)';
+            }
+        }
+    
+        // Extend the Window interface to include toggleMenu
+        declare global {
+            interface Window {
+                toggleMenu: () => void;
+            }
+        }
+        window.toggleMenu = toggleMenu;
+        
+        // Deprecated
+        function navigateTo(option: 'articles' | 'interviews' | 'home'): void {
+            if (option === 'articles') {
+            window.location.href = '/articles';
+            } else if (option === 'interviews') {
+            window.location.href = '/interviews';
+            } else if (option === 'home') {
+            window.location.href = '/news';
+            }
+        }
+
+        // Add a line separator between options in the dropdown menu
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        if (dropdownMenu) {
+            const options = dropdownMenu.querySelectorAll('li');
+            options.forEach((option, index) => {
+            if (index < options.length - 1) {
+                const separator = document.createElement('hr');
+                separator.style.border = '1px solid aliceblue';
+                separator.style.margin = '5px 0';
+                option.after(separator);
+            }
+            });
+        }
+        
+    </script>

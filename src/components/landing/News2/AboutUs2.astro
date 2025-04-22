@@ -1,0 +1,119 @@
+---
+import Container from "../../global/NewsContainer.astro";
+import NewsNav from "../News2/News2Nav.astro";
+
+// Fake reporters data
+const reporters = [
+  { name: "Alex Johnson", image: "../../../../Img/News2Img/AboutUs/reporter7.jpg", title: "Senior Correspondent" },
+  { name: "Steven Gomez", image: "../../../../Img/News2Img/AboutUs/reporter4.jpg", title: "Investigative Journalist" },
+  { name: "John Carter", image: "../../../../Img/News2Img/AboutUs/reporter5.jpg", title: "Political Analyst" },
+  { name: "Sophie Müller", image: "../../../../Img/News2Img/AboutUs/reporter2.jpg", title: "Culture Reporter" },
+  { name: "Gale Boetticher", image: "../../../../Img/News2Img/AboutUs/reporter6.jpg", title: "Engineering Science Reporter" },
+  { name: "Andrea Cantillo", image: "../../../../Img/News2Img/AboutUs/reporter3.jpg", title: "International Correspondent" },
+];
+---
+
+<style>
+  .mission-statement {
+    text-align: left; 
+    margin: 0px 100px; 
+    font-size: 1.2em;
+    line-height: 1.6;
+  }
+
+  .mission-statement p {
+    text-indent: 2em; 
+  }
+
+  .location-section, .reporters-section {
+    margin: 40px 100px; 
+  }
+
+  .location-image {
+    width: 100%;
+    height: 600px;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: #555;
+  }
+
+  .reporters-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .reporter-card {
+    text-align: center;
+  }
+
+  .reporter-image {
+    width: 400px; 
+    height: 400px; 
+    background-color: #e0e0e0;
+    margin-bottom: 10px;
+    border-radius: 50%; 
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+  }
+
+  h2 {
+    font-size: 2em; 
+    font-weight: bold; 
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 1.5em; 
+    font-weight: bold; 
+  }
+
+  .reporter-title {
+    font-size: 1em;
+    color: #777;
+  }
+</style>
+
+<Container>
+  <NewsNav/>
+
+  <!-- Mission Statement -->
+  <div class="mission-statement">
+    <h2>Our Mission</h2>
+    <p style="margin-bottom: 1rem;">
+      We are a globally recognized news outlet based in the heart of Florence, Italy. Our mission is to deliver comprehensive and unbiased news coverage from every corner of the world. With a commitment to journalistic integrity and excellence, we strive to keep our audience informed about the most significant events and stories that shape our global community. Our dedicated team of reporters and editors work tirelessly to bring you the latest news, insightful analysis, and in-depth features, ensuring you stay connected with the world around you.
+    </p>
+    <p style="margin-bottom: 1rem;">
+      At our core, we believe in the power of information to transform lives and societies. We are driven by a passion for storytelling and a dedication to uncovering the truth. Our diverse team of journalists, hailing from various backgrounds and cultures, brings a wealth of perspectives to our coverage, enriching our content and broadening our horizons. We are committed to upholding the highest standards of journalism, providing our readers with accurate, timely, and thought-provoking news that fosters understanding and dialogue.
+    </p>
+    <p style="margin-bottom: 1rem;">
+      As an international news outlet, we are uniquely positioned to offer a global perspective on the issues that matter most. From breaking news to in-depth investigations, we cover a wide range of topics, including politics, economics, culture, science, and technology. Our goal is to be your trusted source for news, offering a window into the world and helping you navigate the complexities of our ever-changing landscape. Join us on this journey as we strive to inform, inspire, and connect people across the globe.
+    </p>
+  </div>
+
+  <!-- Location Section -->
+  <div class="location-section">
+    <h2>Located in Florence, Italy</h2>
+    <div class="location-image">
+      <img src="../../../../Img/News2Img/AboutUs/florence.jpg" alt="Florence, Italy" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
+    </div>
+  </div>
+
+  <!-- Meet the Reporters Section -->
+  <div class="reporters-section">
+    <h2 style="margin-bottom: 75px;">Meet the Reporters</h2>
+    <div class="reporters-grid">
+      {reporters.map(reporter => (
+        <div class="reporter-card" style="margin-bottom: 100px;">
+          <div class="reporter-image" style={`background-image: url('${reporter.image}');`}></div>
+          <h3>{reporter.name}</h3>
+          <p class="reporter-title">{reporter.title}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</Container>
