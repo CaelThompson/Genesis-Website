@@ -1,0 +1,93 @@
+---
+import Container from "../../global/NewsContainer.astro";
+import {articles} from "./../News1/Article1Storage.js";
+const { title, description, image, url, date, type } = Astro.props;
+
+const processedArticles = articles
+  .map(article => ({
+    ...article,
+    url: `/article1/${article.slug}`, // Derive 'url' from 'slug'
+    type: article.type || "default" // Add a default 'type' if missing
+  }))
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); // Sort by most recent first
+---
+
+<style>
+  .articles-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .article-box {
+    background-color: #f4f4f4;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: calc(30%); /* Adjust width for 3 boxes per row */
+    box-sizing: border-box;
+    position: relative; /* Add relative positioning for absolute children */
+  }
+
+  .article-image {
+    flex: 2;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    padding-top: 30%;
+  }
+
+  .article-text {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+
+  .article-box:hover .article-text {
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+
+  .article-date {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+</style>
+<Container>
+  <div class="ml-10">
+      <h1 class="text-3xl font-bold text-gray-900">All Articles</h1>
+  </div>
+  <div class="articles-container" style="justify-content: flex-start;">
+    {processedArticles.map(({ title, description, image, url, date }) => (
+      <a href={url} class="article-box">
+        <div
+          class="article-image"
+          style={`background-image: url('${image}');`}
+        ></div>
+        <time datetime={date} class="article-date">
+          {new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </time>
+        <div class="article-text">
+          <h2 class="text-[20px]">{title}</h2>
+          <p>{description}</p>
+        </div>
+      </a>
+    ))}
+  </div>
+  <div style="margin-bottom: 20px;"></div> 
+</Container>
