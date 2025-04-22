@@ -1,0 +1,114 @@
+<style>
+    /* Main Page Styling */
+    .trending-page {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7fb;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        border-radius: 15px;
+        min-height: 100vh;
+    }
+
+    /* Header Styling */
+    .trending-header {
+        background-color: #ffffff;
+        color: #333;
+        padding: 30px 20px;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        border-bottom: 2px solid #eeeeee;
+    }
+
+    .trending-header h1 {
+        font-size: 36px;
+        margin: 0;
+        font-weight: 700;
+        color: #333;
+    }
+
+    /* Container for Trending Topics */
+    .titiles-container {
+        max-width: 100%;
+        margin: 0 auto;
+        display: grid;
+        gap: 10px;
+        padding: 20px;
+        justify-items: center;
+    }
+
+    /* Individual Topic Styling */
+    .trending-topic {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .trending-topic:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    .trending-topic h2 {
+        font-size: 20px;
+        font-weight: 600;
+        color: #007bff;
+        margin: 0;
+        padding-bottom: 10px;
+    }
+
+    .trending-topic p {
+        font-size: 14px;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    /* Responsive Design for Smaller Screens */
+    @media (max-width: 768px) {
+        .trending-header h1 {
+            font-size: 28px;
+        }
+        .trending-topic h2 {
+            font-size: 18px;
+        }
+        .trending-topic p {
+            font-size: 14px;
+        }
+    }
+
+</style>
+
+<body class="trending-page">
+    <div class="trending-header">
+        <h1>Trending Topics</h1>
+    </div>
+
+    <div class="titiles-container">
+        <div class="trending-topic">
+            <h2>Topic 1</h2>
+            <p>Description of topic 1...</p>
+        </div>
+        <div class="trending-topic">
+            <h2>Topic 2</h2>
+            <p>Description of topic 2...</p>
+        </div>
+        <div class="trending-topic">
+            <h2>Topic 3</h2>
+            <p>Description of topic 3...</p>
+        </div>
+        <div class="trending-topic">
+            <h2>Topic 4</h2>
+            <p>Description of topic 4...</p>
+        </div>
+        <div class="trending-topic">
+            <h2>Topic 5</h2>
+            <p>Description of topic 5...</p>
+        </div>
+    </div>
+</body>

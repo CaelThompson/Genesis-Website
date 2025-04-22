@@ -1,0 +1,146 @@
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background: #f5f5f5;
+    }
+  
+    .stepCM-wizard {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      flex-wrap: wrap;
+    }
+  
+    .stepCM {
+      position: relative;
+      width: 180px;
+      height: 80px;
+      clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
+      background: rgb(195, 195, 195);
+      margin-left: -30px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+  
+    .stepCM:not(:last-child)::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -1px;
+      width: 100px;
+      height: 100%;
+      background: rgb(131, 131, 131);
+      z-index: -1;
+      clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 70% 100%, 95% 50%, 70% 0);
+    }
+  
+    .stepCM:first-child {
+      margin-left: 0;
+    }
+  
+    .stepCM:hover {
+      transform: scaleY(1.05);
+    }
+  
+    .stepCM span {
+      position: relative;
+      z-index: 10;
+      color: white;
+      font-weight: 800;
+      font-size: 14px;
+      line-height: 1.4;
+      word-wrap: break-word;
+      max-width: 100px;
+      text-shadow: -1px -1px 2px rgba(0, 0, 0, 0.8), 1px -1px 2px rgba(0, 0, 0, 0.8), -1px 1px 2px rgba(0, 0, 0, 0.8), 1px 1px 2px rgba(0, 0, 0, 0.8);
+    }
+  
+    .active {
+      background: #3498db !important;
+    }
+
+        /* Z-index stacking for triangle shapes only */
+    .stepCM:nth-child(1) { z-index: 7; }
+    .stepCM:nth-child(2) { z-index: 6; }
+    .stepCM:nth-child(3) { z-index: 5; }
+    .stepCM:nth-child(4) { z-index: 4; }
+    .stepCM:nth-child(5) { z-index: 3; }
+    .stepCM:nth-child(6) { z-index: 2; }
+    .stepCM:nth-child(7) { z-index: 1; }
+    
+    .role-info {
+      margin-top: 40px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      background: #ffffff;
+      border: 2px solid #3498db;
+      padding: 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      color: #333;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+  
+    .role-info h3 {
+      margin-top: 0;
+      color: #3498db;
+    }
+</style>
+  
+<body>
+  <div id="finance-page">
+    <div class="stepCM-wizard">
+      <div class="stepCM active" data-role="Financial Analyst"><span>Financial Analyst</span></div>
+      <div class="stepCM" data-role="Senior Financial Analyst"><span>Senior Financial Analyst</span></div>
+      <div class="stepCM" data-role="Finance Manager"><span>Finance Manager</span></div>
+      <div class="stepCM" data-role="Senior Finance Manager"><span>Senior Finance Manager</span></div>
+      <div class="stepCM" data-role="Director of Finance"><span>Director of Finance</span></div>
+      <div class="stepCM" data-role="VP of Finance"><span>VP of Finance</span></div>
+    </div>
+  
+    <div class="role-info" id="roleInfo">
+      <h3>Financial Analyst</h3>
+      <p>Supports financial planning, analyzes data and trends, assists in budget preparation, and provides insights to inform decision-making.</p>
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const financePage = document.querySelector('#finance-page');
+      if (!financePage) return;
+  
+      const rolesCM = {
+        "Financial Analyst": "Supports financial planning, analyzes data and trends, assists in budget preparation, and provides insights to inform decision-making.",
+        "Senior Financial Analyst": "Leads financial analysis projects, mentors analysts, advises management on investment opportunities, and enhances reporting processes.",
+        "Finance Manager": "Oversees financial operations, manages budgeting and forecasting activities, and ensures proper financial controls and compliance.",
+        "Senior Finance Manager": "Directs complex financial strategies, informs executive decision-making, and enhances corporate financial performance.",
+        "Director of Finance": "Manages corporate finance initiatives, oversees strategic financial planning, maximizes resource allocation, and aligns finance with business goals.",
+        "VP of Finance": "Leads corporate finance strategy, orchestrates company-wide financial operations, advises the executive team, and oversees risk management."
+      };
+  
+      const stepsCM = financePage.querySelectorAll('.stepCM');
+      const roleInfoCM = financePage.querySelector('#roleInfo');
+  
+      stepsCM.forEach(stepCM => {
+        stepCM.addEventListener('click', () => {
+          stepsCM.forEach(s => s.classList.remove('active'));
+          stepCM.classList.add('active');
+  
+          const title = stepCM.getAttribute('data-role');
+          const description = rolesCM[title];
+  
+          roleInfoCM.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
+        });
+      });
+    });
+  </script>
+</body>

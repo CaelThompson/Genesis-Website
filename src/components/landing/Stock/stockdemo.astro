@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        .container22 {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .stock-info {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: calc(33.333% - 20px);
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+        .stock-info:hover {
+            transform: translateY(-10px);
+        }
+        .stock-info h2 {
+            margin: 0;
+            font-size: 1.6em;
+            color: #333;
+        }
+        .stock-info p {
+            margin: 5px 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+        .stock-info .positive {
+            color: green;
+        }
+        .stock-info .negative {
+            color: red;
+        }
+        @media screen and (max-width: 768px) {
+            .stock-info {
+                width: calc(50% - 20px);
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .stock-info {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+    <div class="container22" id="stockContainer">
+        <!-- Stock info will be dynamically inserted here -->
+    </div>
+
+    <script>
+        // Simulating stock data update
+        const stockData = [
+            { name: 'Stock A', price: 100, change: +2 },
+            { name: 'Stock B', price: 200, change: -1 },
+            { name: 'Stock C', price: 300, change: +0.5 },
+            { name: 'Stock D', price: 400, change: -0.2 },
+        ];
+
+        // Function to update the stock data
+        function updateStockData() {
+            const ticker = document.getElementById('stockTicker');
+            const container = document.getElementById('stockContainer');
+
+            // Update ticker text
+            ticker.innerHTML = stockData.map(stock => {
+                const changeClass = stock.change >= 0 ? 'positive' : 'negative';
+                return `<span class="${changeClass}">${stock.name}: $${stock.price} (${stock.change}%)</span>`;
+            }).join(' | ');
+
+            // Update stock info cards
+            container.innerHTML = '';
+            stockData.forEach(stock => {
+            const stockDiv = document.createElement('div');
+            stockDiv.className = 'stock-info';
+            const changeClass = stock.change >= 0 ? 'positive' : 'negative';
+            stockDiv.innerHTML = `
+                <h2>${stock.name}</h2>
+                <p>Current Price: $${stock.price}</p>
+                <p class="${changeClass}">Change: ${stock.change}%</p>
+            `;
+            container.appendChild(stockDiv);
+            });
+        }
+
+        // Simulate data updates every 10 seconds
+        setInterval(function() {
+            // Simulating new random stock data
+            stockData.forEach(stock => {
+                stock.price += Math.floor(Math.random() * 5) - 2;
+                stock.change = parseFloat((Math.random() * 2 - 1).toFixed(2)); // Random change between -1% and +1%
+            });
+            updateStockData();
+        }, 10000);
+
+        // Initial update
+        updateStockData();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateStockData();
+        });
+
+        
+    </script>
+</html>

@@ -1,0 +1,119 @@
+---
+ const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
+---
+
+<title>Image Square Buttons</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<style>
+    .unique-boxes-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 100px;
+        justify-content: center;
+        margin-top: 20px; /* Adjust this value to increase or decrease the space */
+    }
+    .unique-box {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 10px;
+        border: 1px solid #696969;
+        box-shadow: 1px 8px 12px rgba(0, 0, 0, 0.1);
+        background-color: white;
+        overflow: hidden; /* Ensure the image fits within the square */
+    }
+    .unique-box img {
+        width: 100%; /* Image takes up the full size of the square */
+        height: 100%; /* Image scales to fit the square */
+        object-fit: cover; /* Ensures the image covers the area while maintaining its aspect ratio */
+        transition: transform 0.3s ease; /* Optional: for smooth hover effect */
+    }
+    .unique-box:hover img {
+        transform: scale(1.1); /* Optional: zoom in the image on hover */
+    }
+
+    .box-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .box-text {
+    margin-top: 8px;
+    font-size: 14px;
+    color: white; /* Text color */
+    font-weight: bold; /* Makes the text bold */
+    text-shadow: 1px 1px 2px black, 0 0 25px rgb(93, 93, 233), 0 0 5px darkblue; /* Optional: Adds a shadow to improve visibility */
+    word-wrap: break-word; /* Ensures long text wraps */
+    
+}
+
+    .flex-container {
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .flex-container a, .flex-container button {
+        text-decoration: none;
+    }
+
+</style>
+
+<body>
+    <div class="unique-boxes-container" id="boxesContainer">
+        <!-- Example square image buttons wrapped in anchor tags -->
+        <div class="box-wrapper">
+            <a href=`${basePath}about` class="unique-box">
+                <img src="https://via.placeholder.com/50" alt="Image 1" />
+            </a>
+            <div class="box-text">About</div>
+        </div>
+        <div class="box-wrapper">
+            <a href=`${basePath}news1` class="unique-box">
+                <img src="img/modern logo for Vanguard Journal with less busy center and shield with gold pen and the words Vangua.jpeg" alt="Image 2" />
+            </a>
+            <div class="box-text">Vanguard Journal</div>
+
+        </div>
+        <div class="box-wrapper">
+            <a href=`${basePath}home` class="unique-box">
+                <img src={`${basePath}img/gen-logo2.png`} alt="relan logo" />
+            </a>
+            <div class="box-text">Genesis</div>
+        </div>
+        <div class="box-wrapper">
+            <a href=`${basePath}reddit` class="unique-box">
+                <img src="img/logo for a blog room with a laptop or chat icon, the text Blog Room in bold and clear, and a simplif.jpeg" alt="Image 3" />
+            </a>
+            <div class="box-text">Blog Room</div>
+        </div>
+        <div class="box-wrapper">
+            <a href=`${basePath}stock` class="unique-box">
+                <img src="https://via.placeholder.com/50" alt="Image 3" />
+            </a>
+            <div class="box-text">StockWatch</div>
+            <a href=`${basePath}news2` class="unique-box">
+                <img src="/Img/News2Img/madrigalLogo2.png" alt="Image 3" />
+            </a>
+            <div class="box-text">Madrigal</div>
+        </div>
+        <div class="box-wrapper">
+            <a href=`${basePath}news3` class="unique-box">
+                <img src="https://via.placeholder.com/50" alt="Image 3" />
+            </a>
+            <div class="box-text">Lone Star Outlet</div>
+        </div>
+    </div>
+</body>
+
+<script>
+   
+</script>
