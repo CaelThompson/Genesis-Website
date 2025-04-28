@@ -1,0 +1,212 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockMarket.CO</title>
+    <style>
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .ticker {
+            background-color: #111;
+            color: #0f0;
+            padding: 10px;
+            overflow: hidden;
+            white-space: nowrap;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.2em;
+            border-top: 2px solid grey;
+            border-bottom: 2px solid grey;
+        }
+        .ticker span {
+            display: inline-block;
+            padding: 0 10px;
+            animation: ticker 20s linear infinite; /* Adjusted speed */
+            animation-delay: -25s; /* Start the animation sooner */
+        }
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .container22 {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .stock-info {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: calc(33.333% - 20px);
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+        .stock-info:hover {
+            transform: translateY(-10px);
+        }
+        .stock-info h2 {
+            margin: 0;
+            font-size: 1.6em;
+            color: #333;
+        }
+        .stock-info p {
+            margin: 5px 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+        .stock-info .positive {
+            color: green;
+        }
+        .stock-info .negative {
+            color: red;
+        }
+        @media screen and (max-width: 768px) {
+            .stock-info {
+                width: calc(50% - 20px);
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .stock-info {
+                width: 100%;
+            }
+        }
+
+    .navbar {
+        justify-content: flex-end;
+        display: flex;
+        align-items: center;
+        margin-left: auto; /* Push the navbar to the right */
+        margin-right: 10%; /* Offset the navbar to the left by 10% */
+        background-color: #333; /* Ensure background is #333 */
+    }
+
+    .navbarbackground {
+        background-color: #333; /* Ensure background is #333 */
+    }
+
+    .navbar a {
+        padding: 14px 20px;
+        text-decoration: none;
+        color: rgb(0, 172, 46);;
+        text-align: center;
+        transition: background-color 0.3s;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .navbar h2 {
+        padding: 14px 1px;
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        transition: background-color 0.3s;
+        cursor: pointer;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    .navbar h3 {
+        padding: 14px 20px;
+        text-decoration: none;
+        color: rgb(0, 172, 46);
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        font-weight: bold;
+        font-style: italic;
+        font-size: 1.5em;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        letter-spacing: 1px;
+        margin-left: 10%; /* Push the navbar to the right */
+        margin-right: auto; /* Offset the navbar to the left by 10% */
+    }
+
+    .navbar h3:hover {
+        color: rgb(0, 255, 100);
+        transform: scale(1.1);
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+    }
+
+    .navbar a:hover {
+        color: rgb(0, 255, 100);
+        transform: scale(1.1);
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+    }
+
+    .navbar a:hover {
+        background-color: #575757;
+    }
+
+    
+
+    
+    </style>
+</head>
+    <div class="ticker">
+        <span id="stockTicker">Loading stock data...</span>
+    </div>
+    <div class ="navbarbackground">
+        <div class="navbar">
+            <h3><span style="color: white;">Stock</span>Watch</h3>
+            <a href="/stockfront"><span style="color: white;">Home</span></a>
+            <h2> / </h2>
+            <a href="/stock"><span style="color: white;">Our</span>Watch</a>
+            <h2> / </h2>
+            <a href="404"><span style="color: white;">Trending Stocks</span></a>
+        </div>
+    </div>
+
+    <script>
+        // Simulating stock data update
+
+        const stockDataHead = [
+            { name: 'Apple Inc (AAPL)', price: 196.94, change: +(Math.random() * 2).toFixed(2) },
+            { name: 'Amazon.com Inc (AMZN)', price: 172.63, change: -(Math.random() * 2).toFixed(2) },
+            { name: 'Microsoft Corp (MSFT)', price: 289.67, change: -(Math.random() * 2).toFixed(2) },
+            { name: 'Alphabet Inc Class A (GOOGL)', price: 118.94, change: +(Math.random() * 2).toFixed(2) },
+            { name: 'Meta Platforms Inc (META)', price: 220.74, change: -(Math.random() * 2).toFixed(2) },
+            { name: 'Alibaba Group Holding Ltd (BABA)', price: 108.87, change: +(Math.random() * 2).toFixed(2) },
+            { name: 'Carnival Corp (CCL)', price: 17.99, change: -(Math.random() * 2).toFixed(2) },
+            { name: 'Ford Motor Co (F)', price: 9.63, change: +(Math.random() * 2).toFixed(2) },
+            { name: 'Procter & Gamble (PG)', price: 152.34, change: -(Math.random() * 2).toFixed(2) }
+        ];
+
+
+        // Function to update the stock data
+        function updateStockData() {
+            const ticker = document.getElementById('stockTicker');
+            const container = document.getElementById('stockContainer');
+
+            // Update ticker text
+            ticker.innerHTML = stockDataHead.map(stock => {
+                const changeClass = stock.change >= 0 ? 'positive' : 'negative';
+                return `<span class="${changeClass}">${stock.name}: $${stock.price} (${stock.change}%)</span>`;
+            }).join(' | ');
+
+        }
+
+        // Simulate data updates every 10 seconds
+        setInterval(function() {
+            // Simulating new random stock data
+            stockDataHead.forEach(stock => {
+                stock.price += Math.floor(Math.random() * 5) - 2;
+                stock.change = parseFloat((Math.random() * 2 - 1).toFixed(2)); // Random change between -1% and +1%
+            });
+            updateStockData();
+        }, 10000);
+
+        // Initial update
+        updateStockData();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateStockData();
+        });
+
+        
+    </script>

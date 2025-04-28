@@ -1,100 +1,250 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Graph</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Graph</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f4f4f9;
+          color: #333;
+      }
+      .container {
+          width: 80%;
+          display: flex;
+          margin: auto;
+          padding: 20px;
+          background-color: #fff;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          border-radius: 8px;
+      }
+      h1 {
+          text-align: center;
+          color: #007bff;
+      }
+      h2 {
+          color: #333;
+          font-size: 1.5em;
+      }
+      .layout {
+          display: flex;
+          align-items: center;
+      }
+      .buttons {
+          display: flex;
+          flex-direction: column;
+          margin-right: 20px;
+      }
+      .buttons button {
+          margin-bottom: 10px;
+          padding: 10px 20px;
+          font-size: 16px;
+          color: white;
+          background-color: rgb(0, 172, 46);
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background-color 0.3s ease, transform 0.1s ease;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
 
+      .buttons button:hover:not(.active) {
+          background-color: rgb(0, 150, 40);
+          transform: translateY(-1px);
+      }
 
-<style>
+      .buttons button.active {
+          background-color: #ccc;
+          color: #333;
+          cursor: default;
+          box-shadow: none;
+      }
+      canvas {
+          flex-grow: 1;
+          width: 100%;
+          height: 400px;
+          display: block;
+      }
+      .stock-data-separator {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 30px auto 0 auto;
+    padding-top: 10px;
+    margin: 30px auto 10px auto; /* bottom margin set to 10px */
+    max-width: 90%;  /* keeps it within margins */
+    width: 100%;
+    justify-content: center;
+}
 
- body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
- }
- .container {
-    width: 80%;
-    margin: auto;
+.stock-data-separator > div {
+    flex: 1 1 30%;
+    background-color: #ffffff;
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
- }
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
- h1 {
-        text-align: center;
-        color: #007bff;
- }
- .buttons {
-    text-align: center;
-    margin-bottom: 20px;
- }
- .buttons button {
-    margin-right: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
- }
- .buttons button:hover {
- background-color: #0056b3;
- }
- canvas {
- width: 100%;
- height: 400px;
- }
+.stock-data-separator > div:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
 
-    </style>
+.stock-data-separator h2 {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    color: rgb(0, 172, 46);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.stock-data-separator p {
+    margin: 0;
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #333;
+}
+
+.stock-data-separator strong {
+    color: #555;
+}
+
+      .left-column {
+          width: 25%;
+          color: white;
+          padding: 20px;
+      }
+      .right-column {
+          width: 75%;
+          background-color: #ecf0f1;
+          padding: 20px;
+      }
+      .stockname {
+          font-size: 2em;
+          font-weight: bold;
+          color: black;
+          text-align: left;
+          border-bottom: 2px solid black;
+      }
+      .stockprice {
+          font-size: 1.5em;
+          color: black;
+          text-align: right;
+          font-weight: bold;
+      }
+      .change-container {
+    font-size: 0.7em;
+    margin-top: 4px;
+    font-weight: bold;
+
+    text-align: right;
+    gap: 4px;
+    transition: color 0.3s ease;
+}
+
+      .percentage-change {
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 5px;
+    }
+    .percentage-positive {
+        color: green;
+    }
+    .percentage-negative {
+        color: red;
+    }
+
+    @keyframes fadeFlash {
+    0% { opacity: 1; }
+    50% { opacity: 0.2; }
+    100% { opacity: 1; }
+}
+
+.toggle-chart-btn {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 20px; /* Padding around text */
+    text-align: center; /* Centered text */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-bottom: 20px; /* Space below the button */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.toggle-chart-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.toggle-chart-btn:focus {
+    outline: none; /* Remove outline on focus */
+}
+
+.flash {
+    animation: fadeFlash 0.5s ease;
+}
+
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Favorite Stock</h1>
-        <canvas id="stockChart"></canvas>
-        <div class="buttons">
-            <button onclick="updateChart('all')">All Time</button>
-            <button onclick="updateChart('year')">Last Year</button>
-            <button onclick="updateChart('month')">Last Month</button>
+
+<div class="container">
+   <div class="left-column">
+       <div class="stockname">Genesis Inc.</div>
+       <div class="stockprice">$<span id="stockprice"></span>
+        <div id="changeContainer" class="change-container">
+          <span id="changeIcon"></span>
+          <span id="changeAmount"></span>
+          (<span id="percentageChange"></span>)
         </div>
+      </div>
+       <div class="buttons">
+           <button onclick="updateChart('all')">All Time</button>
+           <button onclick="updateChart('year')">Last Year</button>
+           <button onclick="updateChart('month')">Last Month</button>
+       </div>
+   </div>
+   <div class="right-column">
+    <button id="toggleChartView" class="toggle-chart-btn">Switch to Volume Chart</button>
+       <canvas id="stockChart"></canvas>
+       <canvas id="volumeChart"></canvas>
+   </div>
+</div>
 
-        <div id="stockInfo">
-            <h2>Daily Stats</h2>
-            <p id="stockDetails">
-            <strong>Low:</strong> $<span id="low"></span><br>
-            <strong>High:</strong> $<span id="high"></span><br>
-            <strong>Volume:</strong> <span id="volume"></span><br>
-            <strong>Price:</strong> $<span id="price"></span>
-            </p>
-        </div>
+<div class="stock-data-separator">
+   <div id="stockInfo">
+       <h2>Daily Stats</h2>
+       <p>
+           <strong>Low:</strong> $<span id="low"></span><br>
+           <strong>High:</strong> $<span id="high"></span><br>
+           <strong>Volume:</strong> <span id="volume"></span><br>
+           <strong>Price:</strong> $<span id="price"></span>
+       </p>
+   </div>
 
-        <div id="stockYearInfo">
-            <h2>52 Week Stats</h2>
-            <p id="stockDetails52Week">
-            <strong>52 Week Low:</strong> $<span id="low52Week"></span><br>
-            <strong>52 Week High:</strong> $<span id="high52Week"></span><br>
-            <strong>52 Week Volume:</strong> <span id="volume52Week"></span><br>
-            <strong>52 Week Price:</strong> $<span id="price52Week"></span>
-            </p>
-        </div>
+   <div id="stockYearInfo">
+       <h2>52 Week Stats</h2>
+       <p>
+           <strong>52 Week Low:</strong> $<span id="low52Week"></span><br>
+           <strong>52 Week High:</strong> $<span id="high52Week"></span><br>
+           <strong>52 Week Average Volume:</strong> <span id="avgVolume52Week"></span><br>
+           <strong>52 Week Average Price:</strong> $<span id="avgPrice52Week"></span>
+       </p>
+   </div>
 
-        <div id="stockInfoAllTime">
-            <h2>All Time Stats</h2>
-            <p id="stockDetailsAllTime">
-            <strong>All Time Low:</strong> $<span id="lowAllTime"></span><br>
-            <strong>All Time High:</strong> $<span id="highAllTime"></span><br>
-            <strong>All Time Volume:</strong> <span id="volumeAllTime"></span><br>
-            <strong>All Time Price:</strong> $<span id="priceAllTime"></span>
-            </p>
-        </div>
+   <div id="stockInfoAllTime">
+       <h2>All Time Stats</h2>
+       <p>
+           <strong>All Time Low:</strong> $<span id="lowAllTime"></span><br>
+           <strong>All Time High:</strong> $<span id="highAllTime"></span><br>
+           <strong>All Time Average Volume:</strong> <span id="avgVolumeAllTime"></span><br>
+           <strong>All Time Average Price:</strong> $<span id="avgPriceAllTime"></span>
+       </p>
+   </div>
+</div>
 
-
-    </div>
-
-    <script>
+<script>
         let stockData = [
     {
       "Date": "1/2/2003",
@@ -44754,110 +44904,372 @@
     }
   ];
 
+  function updateStatsSections() {
+    if (!stockData || stockData.length === 0) return;
 
-  const latestStock = stockData[stockData.length - 1];
-            document.getElementById('low').textContent = latestStock.Low;
-            document.getElementById('high').textContent = latestStock.High;
-            document.getElementById('volume').textContent = latestStock.Volume;
-            document.getElementById('price').textContent = latestStock.Price;
+    // Convert all dates and get latest date
+    const parsedData = stockData.map(stock => ({
+        ...stock,
+        parsedDate: new Date(
+            ...stock.Date.split('/').map((v, i) => i === 2 ? 2000 + +v : +v - (i === 0 ? 1 : 0)) // MM/DD/YY -> Date
+        )
+    }));
 
-            
-        function initializeChart() {
-            const ctx = document.getElementById('stockChart').getContext('2d');
-            window.stockChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: stockData.map(data => data.Date),
-                datasets: [{
-                label: 'Genesis Stock Price',
-                data: stockData.map(data => data.Price),
-                borderColor: 'rgba(75, 192, 192, 1)',
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                fill: true,
-                tension: 0.1,
-                pointRadius: 2,
-                pointHoverRadius: 4
-                }]
+    const latestDate = parsedData[parsedData.length - 1].parsedDate;
+    const oneYearAgo = new Date(latestDate);
+    oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+
+    const data52Week = parsedData.filter(stock => stock.parsedDate >= oneYearAgo);
+    const dataAllTime = parsedData;
+
+    function calculateStats(data) {
+        const low = Math.min(...data.map(s => s.Low));
+        const high = Math.max(...data.map(s => s.High));
+        const totalVolume = data.reduce((sum, s) => sum + s.Volume, 0);
+        const latestPrice = data[data.length - 1]?.Price || 0;
+        return { low, high, totalVolume, latestPrice };
+    }
+
+    const stats52 = calculateStats(data52Week);
+    const statsAll = calculateStats(dataAllTime);
+
+    // 52 Week Stats
+    document.getElementById('low52Week').textContent = stats52.low.toFixed(2);
+    document.getElementById('high52Week').textContent = stats52.high.toFixed(2);
+
+    // All Time Stats
+    document.getElementById('lowAllTime').textContent = statsAll.low.toFixed(2);
+    document.getElementById('highAllTime').textContent = statsAll.high.toFixed(2);
+}
+
+function updateAverages() {
+    if (!stockData || stockData.length === 0) return;
+
+    const parsedData = stockData.map(stock => ({
+        ...stock,
+        parsedDate: new Date(stock.Date)
+    }));
+
+    // Get the latest date in the dataset
+    const latestDate = parsedData.reduce((latest, current) =>
+        current.parsedDate > latest ? current.parsedDate : latest,
+        parsedData[0].parsedDate
+    );
+
+    const oneYearAgo = new Date(latestDate);
+    oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+
+    const data52Week = parsedData.filter(stock => stock.parsedDate >= oneYearAgo);
+    const dataAllTime = parsedData;
+
+    function calcAverages(data) {
+        const avgPrice = data.reduce((sum, s) => sum + s.Price, 0) / data.length;
+        const avgVolume = data.reduce((sum, s) => sum + s.Volume, 0) / data.length;
+        return { avgPrice, avgVolume };
+    }
+
+    const avgYear = calcAverages(data52Week);
+    const avgAll = calcAverages(dataAllTime);
+
+    // Inject into DOM (you need to add these spans in your HTML)
+    document.getElementById('avgPrice52Week').textContent = avgYear.avgPrice.toFixed(2);
+    document.getElementById('avgVolume52Week').textContent = Math.round(avgYear.avgVolume).toLocaleString();
+    document.getElementById('avgPriceAllTime').textContent = avgAll.avgPrice.toFixed(2);
+    document.getElementById('avgVolumeAllTime').textContent = Math.round(avgAll.avgVolume).toLocaleString();
+}
+
+
+    function updateStockDetails() {
+        const latestStock = stockData[stockData.length - 1];
+        const previousStock = stockData[stockData.length - 2] || latestStock;
+
+        const priceChange = latestStock.Price - previousStock.Price;
+        const percentageChange = (priceChange / previousStock.Price) * 100;
+
+        document.getElementById('low').textContent = latestStock.Low;
+        document.getElementById('high').textContent = latestStock.High;
+        document.getElementById('volume').textContent = latestStock.Volume;
+        document.getElementById('price').textContent = latestStock.Price;
+        document.getElementById('stockprice').textContent = latestStock.Price.toFixed(2);
+
+        const changeIcon = document.getElementById('changeIcon');
+        const changeAmount = document.getElementById('changeAmount');
+        const percentageSpan = document.getElementById('percentageChange');
+        const container = document.getElementById('changeContainer');
+
+        if (priceChange >= 0) {
+            changeIcon.textContent = '▲';
+            container.className = 'change-container percentage-positive flash';
+        } else {
+            changeIcon.textContent = '▼';
+            container.className = 'change-container percentage-negative flash';
+        }
+
+        changeAmount.textContent = `${priceChange >= 0 ? '+' : ''}${priceChange.toFixed(2)}`;
+        percentageSpan.textContent = `${percentageChange >= 0 ? '+' : ''}${percentageChange.toFixed(2)}%`;
+
+        setTimeout(() => {
+            container.classList.remove('flash');
+        }, 500);
+    }
+
+    function initializeChart() {
+        const stockctx = document.getElementById('stockChart').getContext('2d');
+        
+        const volumeCtx = document.getElementById('volumeChart').getContext('2d');
+
+        window.stockChart = new Chart(stockctx, {
+    type: 'line',
+    data: {
+        labels: stockData.map(data => data.Date),
+        datasets: [{
+            label: '', // Remove the title label from the legend
+            data: stockData.map(data => data.Price),
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            fill: true,
+            tension: 0.1,
+            pointRadius: 2,
+            pointHoverRadius: 4
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: false, // Hide the legend completely
             },
-            options: {
-                responsive: true,
-                plugins: {
-                legend: {
-                    display: true,
-                    position: 'top'
-                },
-                tooltip: {
-                    callbacks: {
-                    label: function(context) {
+            tooltip: {
+                callbacks: {
+                    label: function (context) {
                         return `Price: $${context.raw.toFixed(2)}`;
                     }
-                    }
                 }
-                },
-                scales: {
-                x: {
-                    title: {
+            }
+        },
+        scales: {
+            x: {
+                title: {
                     display: true,
                     text: 'Date'
-                    },
-                    ticks: {
+                },
+                ticks: {
                     maxTicksLimit: 10,
-                    callback: function(value, index, ticks) {
+                    callback: function (value, index, ticks) {
                         return this.getLabelForValue(value).split('/').slice(0, 2).join('/');
                     }
-                    }
-                },
-                y: {
-                    title: {
+                }
+            },
+            y: {
+                title: {
                     display: true,
                     text: 'Price ($)'
-                    },
-                    beginAtZero: false
-                }
+                },
+                beginAtZero: false
+            }
+        }
+    }
+});
+
+// Volume Chart - Remove "Genesis Volume" from legend
+window.volumeChart = new Chart(volumeCtx, {
+    type: 'bar',
+    data: {
+        labels: stockData.map(data => data.Date),
+        datasets: [{
+            label: '', // Remove the title label from the legend
+            data: stockData.map(data => data.Volume),
+            backgroundColor: 'rgba(153, 102, 255, 0.4)',
+            borderColor: 'rgba(153, 102, 255, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: false, // Hide the legend completely
+            },
+            tooltip: {
+                callbacks: {
+                    label: function (context) {
+                        return `Volume: ${context.raw.toLocaleString()}`;
+                    }
                 }
             }
+        },
+        scales: {
+            x: {
+                title: {
+                    display: true,
+                    text: 'Date'
+                },
+                ticks: {
+                    maxTicksLimit: 10,
+                    callback: function (value) {
+                        return this.getLabelForValue(value).split('/').slice(0, 2).join('/');
+                    }
+                }
+            },
+            y: {
+                title: {
+                    display: true,
+                    text: 'Volume'
+                },
+                beginAtZero: true,
+                ticks: {
+                    callback: function (value) {
+                        return value >= 1000000
+                            ? `${(value / 1000000).toFixed(1)}M`
+                            : value >= 1000
+                            ? `${(value / 1000).toFixed(0)}K`
+                            : value;
+                    }
+                }
+            }
+        }
+    }
+});    
+  
+document.getElementById('volumeChart').style.display = 'none';
+        
+    }
+
+    document.getElementById('toggleChartView').addEventListener('click', () => {
+    const stockCanvas = document.getElementById('stockChart');
+    const volumeCanvas = document.getElementById('volumeChart');
+
+    const isStockVisible = stockCanvas.style.display !== 'none';
+
+    if (isStockVisible) {
+        stockCanvas.style.display = 'none';
+        volumeCanvas.style.display = 'block';
+        document.getElementById('toggleChartView').textContent = 'Show Stock Chart';
+    } else {
+        stockCanvas.style.display = 'block';
+        volumeCanvas.style.display = 'none';
+        document.getElementById('toggleChartView').textContent = 'Show Volume Chart';
+    }
+});
+
+    const originalStockData = [...stockData];
+
+    function updateChart(view) {
+    if (!window.stockChart || !window.volumeChart) return;
+
+    // Reset stockData to original before filtering
+    stockData = [...originalStockData];
+
+    // Update button active state
+    const buttons = document.querySelectorAll('.buttons button');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    const activeButton = [...buttons].find(btn => btn.textContent.toLowerCase().includes(view));
+    if (activeButton) activeButton.classList.add('active');
+
+    let filteredData;
+    console.log('Filtering data for view:', view);
+
+    if (view === 'all time') {
+        filteredData = originalStockData;
+    } else {
+        const latestDateStr = originalStockData[originalStockData.length - 1].Date;
+        const [month, day, year] = latestDateStr.split('/').map(Number);
+        const latestDate = new Date(year < 100 ? 2000 + year : year, month - 1, day);
+
+        let comparisonDate;
+        if (view.includes('year')) {
+            comparisonDate = new Date(latestDate);
+            comparisonDate.setFullYear(latestDate.getFullYear() - 1);
+        } else if (view.includes('month')) {
+            comparisonDate = new Date(latestDate);
+            comparisonDate.setMonth(latestDate.getMonth() - 1);
+        }
+
+        filteredData = originalStockData.filter(data => {
+            const [m, d, y] = data.Date.split('/').map(Number);
+            const date = new Date(y < 100 ? 2000 + y : y, m - 1, d);
+            return date >= comparisonDate;
+        });
+    }
+
+    // Update Stock Chart
+    window.stockChart.data.labels = filteredData.map(data => data.Date);
+    window.stockChart.data.datasets[0].data = filteredData.map(data => data.Price);
+    window.stockChart.update();
+
+    // Update Volume Chart
+    window.volumeChart.data.labels = filteredData.map(data => data.Date);
+    window.volumeChart.data.datasets[0].data = filteredData.map(data => data.Volume);
+    window.volumeChart.update();
+
+    console.log(`Updated charts for: ${view}`);
+}
+
+
+
+
+
+    // Separate event listeners
+    document.addEventListener('DOMContentLoaded', () => {
+        initializeChart();
+        updateStockDetails();
+        updateStatsSections();
+        updateAverages();
+        updateChart('month'); // Default chart
+        setInterval(updateStockDataSimulated, 10000); // every 10 seconds
+
+
+        document.getElementById('volumeChart').style.display = 'none';
+
+const toggleBtn = document.getElementById('toggleChartView');
+toggleBtn.addEventListener('click', () => {
+    const stockCanvas = document.getElementById('stockChart');
+    const volumeCanvas = document.getElementById('volumeChart');
+
+    const showingStock = stockCanvas.style.display !== 'none';
+
+    if (showingStock) {
+        stockCanvas.style.display = 'none';
+        volumeCanvas.style.display = 'block';
+        toggleBtn.textContent = 'Show Stock Chart';
+    } else {
+        stockCanvas.style.display = 'block';
+        volumeCanvas.style.display = 'none';
+        toggleBtn.textContent = 'Show Volume Chart';
+    }
+});
+
+document.getElementById('toggleChartView').addEventListener('click', () => {
+    const stockCanvas = document.getElementById('stockChart');
+    const volumeCanvas = document.getElementById('volumeChart');
+
+    const isStockVisible = stockCanvas.style.display !== 'none';
+
+    if (isStockVisible) {
+        stockCanvas.style.display = 'none';
+        volumeCanvas.style.display = 'block';
+        document.getElementById('toggleChartView').textContent = 'Show Stock Chart';
+    } else {
+        stockCanvas.style.display = 'block';
+        volumeCanvas.style.display = 'none';
+        document.getElementById('toggleChartView').textContent = 'Show Volume Chart';
+    }
+});
+        
+    });
+
+    // ✅ Hook up button listeners to chart update
+    document.addEventListener('DOMContentLoaded', () => {
+        const buttons = document.querySelectorAll('.buttons button');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const view = button.textContent.toLowerCase();
+                updateChart(view);
             });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            initializeChart();
         });
+    });
+</script>
 
-        window.updateChart = function(view) {
-            if (!window.stockChart) {
-                console.error('Chart is not initialized');
-                return;
-            }
-
-            let filteredData;
-            const now = new Date();
-            const oneYearAgo = new Date(now.setFullYear(now.getFullYear() - 1));
-            const oneMonthAgo = new Date(now.setMonth(now.getMonth() - 1));
-
-            if (view === 'year') {
-                filteredData = stockData.filter(data => new Date(data.Date) >= oneYearAgo);
-            } else if (view === 'month') {
-                filteredData = stockData.filter(data => new Date(data.Date) >= oneMonthAgo);
-            } else {
-                filteredData = stockData;
-            }
-
-            window.stockChart.data.labels = filteredData.map(data => data.Date);
-            window.stockChart.data.datasets[0].data = filteredData.map(data => data.Price);
-            window.stockChart.update();
-        }
-
-        document.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'visible') {
-                console.log('Tab is active');
-                // You can add additional logic here if needed
-            } else {
-                console.log('Tab is inactive');
-                // You can add additional logic here if needed
-            }
-        });
-
-    </script>
 </body>
-</html>
+
 

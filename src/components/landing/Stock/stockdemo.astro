@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
 
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+            color: #333;
+            font-weight: bold;
+        }
         .container22 {
             padding: 20px;
             display: flex;
@@ -53,10 +58,15 @@
     </style>
 </head>
 
+<div>
+    <h1>Our Top <span style="color: rgb(0, 172, 46);">Watches</span></h1>
+</div>
     <div class="container22" id="stockContainer">
         <!-- Stock info will be dynamically inserted here -->
     </div>
-
+    <div>
+        <h1>The Weekly <span style="color: rgb(0, 172, 46);">Watch</span></h1>
+    </div>
     <script>
         // Simulating stock data update
         const stockData = [
@@ -64,31 +74,50 @@
             { name: 'Stock B', price: 200, change: -1 },
             { name: 'Stock C', price: 300, change: +0.5 },
             { name: 'Stock D', price: 400, change: -0.2 },
+            { name: 'Stock A', price: 100, change: +2 },
+            { name: 'Stock B', price: 200, change: -1 },
+            { name: 'Stock C', price: 300, change: +0.5 },
+            { name: 'Stock D', price: 400, change: -0.2 },
+            { name: 'Stock C', price: 300, change: +0.5 },
+            { name: 'Stock C', price: 300, change: +0.5 },
+            { name: 'Stock D', price: 400, change: -0.2 },
+            { name: 'Stock D', price: 400, change: -0.2 },
         ];
 
         // Function to update the stock data
         function updateStockData() {
-            const ticker = document.getElementById('stockTicker');
             const container = document.getElementById('stockContainer');
 
-            // Update ticker text
-            ticker.innerHTML = stockData.map(stock => {
-                const changeClass = stock.change >= 0 ? 'positive' : 'negative';
-                return `<span class="${changeClass}">${stock.name}: $${stock.price} (${stock.change}%)</span>`;
-            }).join(' | ');
-
-            // Update stock info cards
+            // Clear existing stock info cards
             container.innerHTML = '';
+
+            // Create and style stock info cards
             stockData.forEach(stock => {
-            const stockDiv = document.createElement('div');
-            stockDiv.className = 'stock-info';
-            const changeClass = stock.change >= 0 ? 'positive' : 'negative';
-            stockDiv.innerHTML = `
-                <h2>${stock.name}</h2>
-                <p>Current Price: $${stock.price}</p>
-                <p class="${changeClass}">Change: ${stock.change}%</p>
-            `;
-            container.appendChild(stockDiv);
+                const stockDiv = document.createElement('div');
+                stockDiv.className = 'stock-info';
+                stockDiv.style.margin = '20px';
+                stockDiv.style.borderRadius = '16px'; // Modern rounded corners
+                stockDiv.style.border = '1px solid #e0e0e0'; // Subtle border
+                stockDiv.style.backgroundColor = '#f9f9f9'; // Light background
+                stockDiv.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)'; // Soft shadow
+                stockDiv.style.transition = 'box-shadow 0.3s ease'; // Smooth hover effect without movement
+                stockDiv.style.padding = '10px'; // Increased padding for more spacing
+                stockDiv.style.minHeight = '150px'; // Set a minimum height to prevent movement
+
+                // Add hover effect
+                stockDiv.onmouseover = () => {
+                    stockDiv.style.boxShadow = '0 8px 12px rgba(0, 0, 0, 0.2)';
+                };
+                stockDiv.onmouseout = () => {
+                    stockDiv.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+                };
+
+                stockDiv.innerHTML = `
+                    <h2 style="margin: 0; font-size: 1.8em; color: #333; font-weight: bold;">${stock.name}</h2>
+                    <p style="margin: 15px 0; font-size: 1.4em; color: #555;">Current Price: <span style="font-weight: bold;">$${stock.price}</span></p>
+                    <p style="margin: 15px 0; font-size: 1.4em; color: ${stock.change >= 0 ? '#4caf50' : '#f44336'}; font-weight: bold;">Change: ${stock.change}%</p>
+                `;
+                container.appendChild(stockDiv);
             });
         }
 
@@ -111,4 +140,4 @@
 
         
     </script>
-</html>
+

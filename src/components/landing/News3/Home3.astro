@@ -7,14 +7,14 @@ import NewsNav from "../News3/News3Nav.astro";
 // Map articles to include 'url' and 'type' properties
 const articles = originalArticles.map(article => ({
   ...article,
-  url: `/article2/${article.slug}`, // Derive 'url' from 'slug'
+  url: `/article3/${article.slug}`, // Derive 'url' from 'slug'
   type: article.type || "default" // Add a default 'type' if missing
 }));
 
 // Map interviews to include 'url' and 'type' properties
 const interviews = originalInterviews.map(interview => ({
   ...interview,
-  url: `/interview2/${interview.slug}`, // Derive 'url' from 'slug'
+  url: `/interview3/${interview.slug}`, // Derive 'url' from 'slug'
   type: interview.type || "default" // Add a default 'type' if missing
 }));
 
@@ -76,6 +76,8 @@ function getUniqueRandomItem() {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: #f4f4f4; /* Default background color */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
   }
 
   .grid-item:hover .grid-item-text {
@@ -102,7 +104,9 @@ function getUniqueRandomItem() {
   <!-- Trending Articles text -->
   <div>
     <div class="flex justify-between items-center px-5 mx-5 mt-10">
-      <h1 class="text-3xl font-bold text-gray-900 ml-24">Highlights</h1>
+      <h1 class="text-3xl font-bold text-gray-900 ml-24">The Hottest Headlines This Side of the Rio Grande
+
+      </h1>
       
     </div>
   </div>

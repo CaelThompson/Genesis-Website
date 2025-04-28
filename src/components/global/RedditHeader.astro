@@ -30,6 +30,7 @@ href="https://fonts.googleapis.com/icon?family=Material+Icons"
         font-size: 2.5rem;
         font-weight: bold;
     }
+
     header {
         display: flex;
         align-items: center;
@@ -44,15 +45,24 @@ href="https://fonts.googleapis.com/icon?family=Material+Icons"
         margin-right: 20px;
     }
 
-        .navbar {
-                    justify-content: flex-end;
-                    display: flex;
-                    align-items: center;
-                    margin-left: auto; /* Push the navbar to the right */
-                    border-bottom: 2px solid white; /* Keep the line */
-                    width: fit-content; /* Restrict the line to only under the section */
-                    transform: translateX(-30%); /* Move 10% to the left */
-                }
+    .navbar {
+        justify-content: flex-end;
+        display: flex;
+        align-items: center;
+        margin-left: auto; /* Push the navbar to the right */
+        border-bottom: 2px solid white; /* Keep the line */
+        width: fit-content; /* Restrict the line to only under the section */
+        transform: translateX(-30%); /* Move 10% to the left */
+    }
+
+    .navbar .material-icons {
+        color: white; /* Set the default color of the person icon to white */
+    }
+
+    .navbar .material-icons:hover {
+        color: white; /* Ensure the person icon remains white when hovered */
+    }
+    
 
     .navbar a {
         padding: 14px 20px;
@@ -61,7 +71,11 @@ href="https://fonts.googleapis.com/icon?family=Material+Icons"
         text-align: center;
         transition: background-color 0.3s;
         cursor: pointer;
+        font-weight: bold;
+
+        font-style: normal;
     }
+
     .navbar h2 {
         padding: 14px 1px;
         text-decoration: none;
@@ -83,11 +97,29 @@ href="https://fonts.googleapis.com/icon?family=Material+Icons"
         font-weight: bold;
         font-style: italic;
     }
-    
 
     .navbar a:hover {
         background-color: #575757;
+        font-weight: bold;
+        color: yellow; /* Yellow text on hover */
     }
+
+    .navbar h2:hover {
+        background-color: #575757;
+        font-weight: bold;
+        color: yellow; /* Yellow text on hover */
+    }
+
+    .navbar h3:hover {
+        background-color: #575757;
+        font-weight: bold;
+        color: yellow; /* Yellow text on hover */
+    }
+
+    .navbar .material-icons:hover {
+        color: white; /* Change the person icon to white on hover */
+    }
+
     .auth-section {
         display: flex;
         justify-content: flex-end;
@@ -101,30 +133,30 @@ href="https://fonts.googleapis.com/icon?family=Material+Icons"
         border: none;
         padding: 1px 4px;
         font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 2px;
-            margin-right: 10px;
-            transition: background-color 0.3s;
-            font-family: Arial, sans-serif;
-            }
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 2px;
+        margin-right: 10px;
+        transition: background-color 0.3s;
+        font-family: Arial, sans-serif;
+    }
 
-            .subscribe-button:hover {
-            background-color: #555555;
-            }
-            .sign-in-text {
-            font-size: 1rem;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            text-transform: capitalize;
-            font-family: Arial, sans-serif;
-            }
+    .subscribe-button:hover {
+        background-color: #555555;
+    }
 
-            .sign-in-text:hover {
-            color: #000;
-            }
+    .sign-in-text {
+        font-size: 1rem;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        text-transform: capitalize;
+        font-family: Arial, sans-serif;
+    }
 
+    .sign-in-text:hover {
+        color: #000;
+    }
 </style>
 
 <script>

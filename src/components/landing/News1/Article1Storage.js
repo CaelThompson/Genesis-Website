@@ -4,7 +4,7 @@ export const articles = [
   {
     title: "Genesis Company Partners with Leading EV Manufacturers for Sustainable Vehicle Development",
     description: "Genesis Company collaborates with major electric vehicle manufacturers to develop cutting-edge, sustainable vehicle solutions, focusing on battery efficiency and eco-friendly powertrains.",
-    image: `${basePath}img/auotomotive2_original.png`,
+    image: `${basePath}public/img/News1Img/Articles/article19.jpg`,
     slug: "genesis-partners-with-ev-manufacturers",
     date: "8/12/2021",
     author: "Rachel Green, Automotive Industry Analyst",
@@ -31,7 +31,7 @@ export const articles = [
   {
     title: "Genesis Attempts to Resolve Silverton Facility Inefficiencies with AI",
     description: "Genesis Company introduces AI-driven predictive maintenance technology to improve machinery reliability, reduce downtime, and increase overall operational efficiency in manufacturing plants.",
-    image: `${basePath}img/dt-ct2.png`,
+    image: `${basePath}public/img/News1Img/Articles/article16.jpeg`,
     slug: "genesis-ai-predictive-maintenance",
     date: "3/17/2025",
     author: "James Wallace, AI Technology Journalist",
@@ -59,7 +59,7 @@ export const articles = [
   {
     title: "Genesis Pioneers Next-Generation Automation Technology for Smart Factories",
     description: "Genesis Company introduces next-generation automation technology that improves factory productivity, supports lean manufacturing practices, and enhances real-time production monitoring for smarter operations.",
-    image: `${basePath}img/automotive7_original.jpg`,
+    image: `${basePath}public/img/News1Img/Articles/article17.jpg`,
     slug: "genesis-next-generation-automation-technology",
     date: "4/29/2022",
     author: "Olivia Turner, Manufacturing Technology Specialist",
@@ -85,7 +85,7 @@ export const articles = [
   {
     title: "Genesis Unveils Advanced Robotics Solutions for Precision Manufacturing",
     description: "Genesis Company introduces cutting-edge robotics solutions designed to enhance precision, speed, and scalability in manufacturing processes, offering greater flexibility and accuracy in production lines.",
-    image: `${basePath}img/Add_mfg.jpg`,
+    image: `${basePath}public/img/News1Img/Articles/article18.jpg`,
     slug: "genesis-advanced-robotics-solutions",
     date: "11/2/2021",
     author: "Sophie Bennett, Robotics and Automation Expert",
@@ -118,7 +118,7 @@ export const articles = [
   {
     title: "Genesis Leads the Way in Green Manufacturing with Sustainable Practices",
     description: "Genesis Company takes a bold step toward sustainability by integrating eco-friendly practices into its manufacturing processes, setting a new industry standard for green production in aerospace, automotive, and heavy equipment sectors.",
-    image: `${basePath}img/us-dic-cs-AdobeStock-851417525_original.jpeg`,
+    image: `${basePath}public/img/News1Img/Articles/article101.jpg`,
     slug: "genesis-leads-green-manufacturing-sustainable-practices",
     date: "4/12/2017",
     author: "Clara Edwards, Environmental Impact Analyst",
@@ -141,7 +141,7 @@ export const articles = [
   {
     title: "Genesis Scores Big with FADEC Systems for Next-Generation Defense Aircraft",
     description: "Genesis Company debuts a groundbreaking hybrid engine for aircraft, blending traditional fuel systems with electric power to reduce emissions and improve fuel efficiency, pushing the boundaries of sustainable aviation.",
-    image: `${basePath}img/aerospace3_original.png`,
+    image: `${basePath}public/img/News1Img/Articles/article102.png`,
     slug: "genesis-unveils-hybrid-aircraft-engine-technology",
     date: "October 21, 2014",
     author: "Oliver Park, Aerospace Innovation Expert",
@@ -174,7 +174,7 @@ export const articles = [
   {
     title: "Genesis Strengthens Cybersecurity Measures in Manufacturing Operations",
     description: "In response to rising cybersecurity threats, Genesis Company has significantly upgraded its cybersecurity infrastructure to protect sensitive manufacturing data and intellectual property from cyberattacks.",
-    image: `${basePath}img/solution-domain-11-bom-2560x1440_original.jpeg`,
+    image: `${basePath}public/img/News1Img/Articles/article15.jpg`,
     slug: "genesis-strengthens-cybersecurity-manufacturing-operations",
     date: "7/6/2022",
     author: "Jason Harris, Cybersecurity Expert",
@@ -195,7 +195,7 @@ export const articles = [
   {
     title: "Genesis to Improve Trusted Xi'an Facility with IoT Integration",
     description: "By integrating Internet of Things (IoT) technology into its manufacturing processes, Genesis Company is transforming its operations, creating smarter, more efficient systems that optimize production schedules and improve product quality.",
-    image: `${basePath}img/SFS-Nordics-Adobe-254487400-production-industry-tillverkningsindustri_original.jpeg`,
+    image: `${basePath}public/img/News1Img/Articles/article14.jpg`,
     slug: "genesis-paves-way-smart-manufacturing-iot-integration",
     date: "January 15, 2024",
     author: "Susan Zhang, Industrial Technology Specialist",
@@ -220,7 +220,7 @@ export const articles = [
 {
   title: "Genesis Unveils Revolutionary Manufacturing Facility in Silverton, CO",
   description: "Genesis opens a 40,000 sq. ft. facility in Silverton, CO, featuring advanced FANUC and Yaskawa robotics for precision aerospace manufacturing and sustainable innovation.",
-  image: `${basePath}img/mfg-contact.webp`,
+  image: `${basePath}public/img/News1Img/Articles/article12.jpg`,
   slug: "genesis-unveils-revolutionary-manufacturing-facility-silverton-co",
   date: "November 14, 2024",
   author: "David R. Sinclair, Industry Insights Analyst",
