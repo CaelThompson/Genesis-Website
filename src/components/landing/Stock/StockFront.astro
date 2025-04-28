@@ -1,0 +1,109 @@
+<style>
+    .containerss {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+    .main-article {
+        background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            height: 100%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .left-column {
+        flex: 4;
+        background-color: #f0f0f0;
+        padding: 20px;
+        margin-left: 10%; /* Move 10% to the right */
+    }
+
+    .right-column {
+        flex: 1;
+        background-color: #f0f0f0;
+        padding: 20px;
+        overflow-y: auto;
+        margin-right: 10%; /* Leave 10% space to the right */
+    }
+
+    .article {
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 10px;
+        background-color: #fff;
+    }
+
+    .article img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .article h2 {
+        font-size: 1.2rem;
+        margin: 10px 0;
+    }
+
+    .article p {
+        font-size: 0.9rem;
+        color: #555;
+    }
+
+    @keyframes flash {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0; transform: scale(15); }
+            100% { opacity: 1; transform: scale(15); }
+            }
+</style>
+
+<div class="containerss">
+    <div class="left-column">
+        <div style="top: 10px; left: 10px; color: rgb(231, 0, 0); padding: 5px 10px; border-radius: 4px; font-size: 1rem; font-weight: bold;">
+            <span style="animation: flash 1s infinite;">•</span> StockWatch Live
+        </div>
+        <a href="/stockfront/stockwatcharticlemain" style="text-decoration: none; color: inherit;">
+            <div class="main-article">
+            <h1 style="font-size: 2rem; margin-top: 20px; font-weight: bold;">BIG Article TitleBIG Article TitlBIG Article TitlBIG Article TitlBIG Article TitlBIG Article TitlBIG Article Titl</h1>
+            <p>This column takes up 3/4 of the width.</p>
+            <div style="position: relative; margin-top: 20px;">
+                <img src="img/news article image with a stock.jpeg" alt="Large Article Image" style="width: 100%; height: auto; border-radius: 8px;">
+            </div>
+            </div>
+        </a>
+    </div>
+    <div class="right-column">
+        <h1 style="text-align: center; font-size: 1.2rem; margin-bottom: 10px; font-weight: bold;">Trending Articles</h1>
+        <div class="article">
+            <a href="/StockWatchArtileMain">
+                <img src="/path/to/image1.jpg" alt="Article 1 Image">
+                <h2>Article 1 Title</h2>
+                <p>Description for Article 1.</p>
+            </a>
+        </div>
+        <div class="article">
+            <a href="/path/to/article2">
+                <img src="/path/to/image2.jpg" alt="Article 2 Image">
+                <h2>Article 2 Title</h2>
+                <p>Description for Article 2.</p>
+            </a>
+        </div>
+        <div class="article">
+            <a href="/path/to/dow-graph">
+                <img src="/path/to/dow-graph.jpg" alt="Dow Graph Last Month">
+                <h2>Dow Graph - Last Month</h2>
+                <p>View the Dow Jones performance over the last month.</p>
+            </a>
+        </div>
+        <div class="article">
+            <a href="/path/to/article4">
+                <img src="/path/to/image4.jpg" alt="Article 4 Image">
+                <h2>Article 4 Title</h2>
+                <p>Description for Article 4.</p>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,19 +1,19 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/global/Footer.astro";
-import Navigation from "../components/global/Navigation.astro";
+import StockHeader from "../components/global/StockHeader.astro";
+import StockFooter from "../components/global/StockFooter.astro";
 
 ---
 
 <html lang="en">
   <head>
-	<BaseHead/>
+    <BaseHead/>
   </head>
 
   <body class="bg-white" style="font-family: 'Outfit', sans-serif;">
-    <Navigation/>
+    <StockHeader/>
     <slot/>
-    <Footer/>
+    <StockFooter/>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
   </body>
 </html>
