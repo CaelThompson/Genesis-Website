@@ -1,0 +1,38 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import { interviews } from "../../components/landing/News3/Interview3Storage.js";
+import NewsNav from "../../components/landing/News3/News3Nav.astro";
+import BaseLayout from"../../layouts/News3Layout.astro";
+
+
+const { slug } = Astro.params;
+const interview = interviews.find((a) => a.slug === slug);
+
+if (!interview) {
+  throw new Error("Interview not found");
+}
+
+// Convert newlines and markdown-like formatting into proper HTML (if needed)
+const formattedContent = interview.content
+  .replace(/—/g, "&mdash;"); // Fix em-dashes
+---
+<BaseLayout>
+    <head>
+    <BaseHead />
+        <title>{interview.title} - Genesis Blog</title>
+    </head>
+    <NewsNav />
+        <article class="max-w-6xl mx-auto p-6 pt-44" style="margin-top: -40px;">
+        <a href="/news3" class="inline-block mb-4 text-brown-700 hover:underline">← Back to The Ranch</a>
+
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-white">{interview.title}</h1>
+        <div class="flex justify-between text-gray-600 dark:text-gray-400 mt-2">
+            <p>{interview.author}</p>
+            <p>{interview.date}</p>
+        </div>
+        <img src={interview.image} alt={interview.title} class="w-full rounded-lg mt-4" />
+        
+        <!-- Render formatted HTML content -->
+        <div class="mt-8 text-xl text-black-700 prose dark:prose-invert mb-[20vh]" set:html={formattedContent}></div>
+        </article>
+</BaseLayout>

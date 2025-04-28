@@ -4,12 +4,12 @@ import NewsNav from "../News3/News3Nav.astro";
 
 // Fake reporters data
 const reporters = [
-  { name: "Alex Johnson", image: "../../../../Img/News2Img/AboutUs/reporter1.jpg", title: "Senior Correspondent" },
-  { name: "Steven Gomez", image: "../../../../Img/News2Img/AboutUs/reporter4.jpg", title: "Investigative Journalist" },
-  { name: "John Carter", image: "../../../../Img/News2Img/AboutUs/reporter5.jpg", title: "Political Analyst" },
-  { name: "Sophie Müller", image: "../../../../Img/News2Img/AboutUs/reporter2.jpg", title: "Culture Reporter" },
-  { name: "Gale Boetticher", image: "../../../../Img/News2Img/AboutUs/reporter6.jpg", title: "Engineering Science Reporter" },
-  { name: "Andrea Cantillo", image: "../../../../Img/News2Img/AboutUs/reporter3.jpg", title: "International Correspondent" },
+  {name: "Beau McAllister",image: "../../../../public/Img/News3Img/AboutUs/reporter31.jpg",title: "Lead Field Correspondent – Texas Affairs"},
+  {name: "Ricky Del Toro",image: "../../../../public/Img/News3Img/AboutUs/reporter37.jpg",title: "Senior Truth Tracker – Investigations & Crime"},
+  {name: "Travis Boone",image: "../../../../public/Img/News3Img/AboutUs/reporter34.jpg",title: "Lone Star Politics Specialist"},
+  {name: "Cali Gwen",image: "../../../../public/Img/News3Img/AboutUs/reporter35.jpg",title: "Arts & Roots Culture Reporter"},
+  {name: "AJ Ward",image: "../../../../public/Img/News3Img/AboutUs/reporter32.jpg",title: "Science & Tech on the Range Reporter"},
+  {name: "Marisol Reyes",image: "../../../../public/Img/News3Img/AboutUs/reporter36.jpg",title: "Borderlands & Global Affairs Correspondent"}
 ];
 ---
 
@@ -28,17 +28,45 @@ const reporters = [
   .location-section, .reporters-section {
     margin: 40px 100px; 
   }
+  .location-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .location-image {
-    width: 100%;
-    height: 600px;
-    background-color: #e0e0e0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5em;
-    color: #555;
-  }
+.location-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.location-text {
+  flex: 1;
+  max-width: 60%;
+}
+
+.location-text h2 {
+  margin-bottom: 16px;
+}
+
+.location-text p {
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.location-image {
+  flex: 1;
+  max-width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.location-image img {
+  max-width: 100%;
+  height: auto;
+}
 
   .reporters-grid {
     display: grid;
@@ -80,10 +108,10 @@ const reporters = [
 
 <Container>
   <NewsNav/>
-
+<div>
   <!-- Mission Statement -->
   <div class="mission-statement" style="margin-top:25px;">
-    <h2>Our Mission</h2>
+    <h2>Our Vision</h2>
     <p style="margin-bottom: 1rem;">
       We are a globally recognized news outlet based in the heart of Florence, Italy. Our mission is to deliver comprehensive and unbiased news coverage from every corner of the world. With a commitment to journalistic integrity and excellence, we strive to keep our audience informed about the most significant events and stories that shape our global community. Our dedicated team of reporters and editors work tirelessly to bring you the latest news, insightful analysis, and in-depth features, ensuring you stay connected with the world around you.
     </p>
@@ -95,17 +123,10 @@ const reporters = [
     </p>
   </div>
 
-  <!-- Location Section -->
-  <div class="location-section">
-    <h2>Located in Florence, Italy</h2>
-    <div class="location-image">
-      <img src="../../../../Img/News2Img/AboutUs/florence.jpg" alt="Florence, Italy" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
-    </div>
-  </div>
-
   <!-- Meet the Reporters Section -->
   <div class="reporters-section">
-    <h2 style="margin-bottom: 75px;">Meet the Reporters</h2>
+    <h2 style="margin-bottom: 75px;">Your Boots-on-the-Ground Reporters
+    </h2>
     <div class="reporters-grid">
       {reporters.map(reporter => (
         <div class="reporter-card" style="margin-bottom: 100px;">
@@ -116,4 +137,27 @@ const reporters = [
       ))}
     </div>
   </div>
+
+  <!-- Location Section -->
+  <div class="location-section">
+    <div class="location-content">
+      <div class="location-text">
+        <h2 style="margin-bottom: 2rem;">Proudly Based in Houston, Texas</h2>
+        <p style="margin-bottom: 1rem;">
+          Our headquarters in Houston, Texas, serves as the heart and soul of our operations — a place where stories come to life and a passionate team of journalists, editors, and creatives work around the clock to bring you news that matters. Being based in Texas isn’t just a logistical choice; it’s a reflection of our identity. The Lone Star State, with its rich traditions, independent spirit, and diverse communities, inspires everything we do.
+        </p>
+        <p style="margin-bottom: 1rem;">
+          We’re proud to call Houston our home — a dynamic city that mirrors the global reach of our reporting while grounding us in the values of hard work, resilience, and authenticity. From the bustling energy of downtown to the deep cultural roots found in every neighborhood, Houston fuels our commitment to telling real stories with depth and heart.
+        </p>
+        <p style="margin-bottom: 1rem;">
+          Texas isn’t just where we’re located — it’s part of who we are. Its boldness, grit, and pride are woven into the fabric of our newsroom. Whether we’re covering international events, national issues, or stories unfolding right here in our own backyard, we carry that unmistakable Texas spirit into everything we publish. And that’s something we’ll always be proud of.
+        </p>
+      </div>
+      <div class="location-image">
+        <img src="../../../../public/Img/News3Img/AboutUs/texas.png" alt="Texas Map" />
+      </div>
+    </div>
+  </div>
+</div>
+  
 </Container>

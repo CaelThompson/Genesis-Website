@@ -4,7 +4,7 @@ export const interviews = [
   {
     title: "TEST 1",
     description: "Genesis Company collaborates with major electric vehicle manufacturers to develop cutting-edge, sustainable vehicle solutions, focusing on battery efficiency and eco-friendly powertrains.",
-    image: `${basePath}img/auotomotive2_original.png`,
+    image: `${basePath}`,
     slug: "genesis-partners-with-ev-manufacturers",
     date: "8/12/2021",
     author: "Rachel Green, Automotive Industry Analyst",
@@ -32,7 +32,7 @@ export const interviews = [
     {
       title: "TEST 2",
       description: "Genesis Company collaborates with major electric vehicle manufacturers to develop cutting-edge, sustainable vehicle solutions, focusing on battery efficiency and eco-friendly powertrains.",
-      image: `${basePath}img/auotomotive2_original.png`,
+      image: `${basePath}`,
       slug: "genesis-partners-with-ev-manufacturers",
       date: "8/12/2021",
       author: "Rachel Green, Automotive Industry Analyst",
@@ -58,7 +58,7 @@ export const interviews = [
     }, {
         title: "TEST 3",
         description: "Genesis Company collaborates with major electric vehicle manufacturers to develop cutting-edge, sustainable vehicle solutions, focusing on battery efficiency and eco-friendly powertrains.",
-        image: `${basePath}img/auotomotive2_original.png`,
+        image: `${basePath}`,
         slug: "genesis-partners-with-ev-manufacturers",
         date: "8/12/2021",
         author: "Rachel Green, Automotive Industry Analyst",
@@ -85,7 +85,7 @@ export const interviews = [
       {
     title: "TEST 4",
     description: "Genesis Company collaborates with major electric vehicle manufacturers to develop cutting-edge, sustainable vehicle solutions, focusing on battery efficiency and eco-friendly powertrains.",
-    image: `${basePath}img/auotomotive2_original.png`,
+    image: `${basePath}`,
     slug: "genesis-partners-with-ev-manufacturers",
     date: "8/12/2021",
     author: "Rachel Green, Automotive Industry Analyst",
