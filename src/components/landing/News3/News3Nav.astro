@@ -94,7 +94,43 @@ import Container from "../../global/NewsContainer.astro";
             </li>
         </ul>
     -->
-        <!--Menu button -->
+
+     <!--Menu button -->
+     <div style="display: flex; flex-direction: column; gap: 5px; position: relative;" onclick="toggleMenu()">
+        <div>
+            <img src="/Img/News3Img/cowboyhat.png" class= "tilt-on-hover" style="width: 200px;">
+        </div>
+            <ul id="dropdown-menu" style="position: absolute; top: 140px; right: -50px; background-color: #74461e; color: aliceblue; list-style: none; padding-top: 5px; padding-bottom: 5px; border: 1px solid aliceblue; border-radius: 5px; transform: translateX(100%); width: 33vw; text-transform: capitalize; transition: transform 0.3s ease-in-out;">
+                <style>
+                    #dropdown-menu li:hover {
+                        background-color: #3f2916;
+                        color: #ffffff;
+                        cursor: pointer;
+                    }
+                    #dropdown-menu li a {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        text-decoration: none;
+                        color: inherit;
+                    }
+                </style>
+                <li style="padding: 5px 10px; cursor: pointer; font-size: 14px;" onclick="window.location.href='/news3'">
+                    <a href="/news3" style="color: inherit;">The Ranch</a>
+                </li>
+                <li style="padding: 5px 10px; cursor: pointer; font-size: 14px;" onclick="window.location.href='/article3'">
+                    <a href="/article3" style="color: inherit;">Trail Talk</a>
+                </li>
+                <li style="padding: 5px 10px; cursor: pointer; font-size: 14px;" onclick="window.location.href='/interview3'">
+                    <a href="/interview3" style="color: inherit;">Frontier Voices</a>
+                <li style="padding: 5px 10px; cursor: pointer; font-size: 14px;" onclick="window.location.href='/aboutus3'">
+                    <a href="/aboutus3" style="color: inherit;">Behind the Barn Door</a>
+                </li>
+                <li style="padding: 5px 10px; cursor: default; font-size: 14px; height: 100vh; pointer-events: none;"></li>
+            </ul>
+        </div>
+    </div>
+        <!--Menu button --> <!--
         <div style="display: flex; flex-direction: column; gap: 5px; position: relative;" onclick="toggleMenu()">
             <div>
                 <img src="/Img/News3Img/cowboyhat.png" class= "tilt-on-hover" style="width: 200px;">
@@ -129,9 +165,9 @@ import Container from "../../global/NewsContainer.astro";
             </ul>
         </div>
     </div>
-
+-->
     <script>
-        let menuVisible = false;
+     /*  let menuVisible = false;
     
         function toggleMenu(): void {
             const menu = document.getElementById('dropdown-menu');
@@ -142,7 +178,14 @@ import Container from "../../global/NewsContainer.astro";
                 menu.style.transform = menuVisible ? 'translateY(0)' : 'translateY(-200px)';
             }
         }
+    */
+    let menuVisible = false;
     
+    function toggleMenu(): void {
+        const menu = document.getElementById('dropdown-menu');
+        menuVisible = !menuVisible;
+        menu.style.transform = menuVisible ? 'translateX(0)' : 'translateX(100%)';
+    }
         // Extend the Window interface to include toggleMenu
         declare global {
             interface Window {
