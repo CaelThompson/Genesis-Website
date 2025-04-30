@@ -21,8 +21,14 @@
  border-radius: 8px;
  }
  h1 {
- text-align: center;
- color: #007bff;
+        padding: 2px;
+      text-decoration: none;
+        color: rgb(0, 172, 46);;
+        text-align: center;
+        transition: background-color 0.3s;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 2.5em;
  }
  .buttons {
  text-align: center;
@@ -45,31 +51,51 @@
  width: 100%;
  height: 400px;
  }
+ 
+ h2 {
+ font-family: 'Arial', sans-serif;
+ font-size: 24px;
+ color: #2E86C1;
+ text-align: center;
+ }
+ p {
+ font-family: 'Arial', sans-serif;
+ font-size: 16px;
+ color: #34495E;
+ text-align: center;
+ margin-bottom: 20px;
+ }
+ 
+  .styled-stock {
+ padding: 2px;
+ text-decoration: none;
+ color: white;
+ text-align: center;
+ transition: background-color 0.3s;
+ cursor: pointer;
+ font-weight: bold;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Black outline */
+
+ }
+
+
 
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Favorite Stock</h1>
-        <canvas id="stockChart"></canvas>
-        <div class="buttons">
-            <button onclick="updateChart('all')">All Time</button>
-            <button onclick="updateChart('year')">Last Year</button>
-            <button onclick="updateChart('month')">Last Month</button>
-        </div>
+  <div class="container">
+    <a href="stock" class="styled-link">
+        <h1><span class="styled-stock">Stock</span>Watch</h1>
+    </a>
+    <a href="stock" class="styled-link">
+        <h2>Discover the Top 12 Stocks to Invest in Right Now!</h2>
+    </a>
+    <a href="stock" class="styled-link">
+        <p>Stay ahead of the market with our expert picks and top watchlist for this week. These stocks are trending and have shown significant performance, making them excellent investment opportunities:</p>
+    </a>
 
-        <div id="stockInfo">
-            <h2>Daily Stats</h2>
-            <p id="stockDetails">
-            <strong>Low:</strong> $<span id="low"></span><br>
-            <strong>High:</strong> $<span id="high"></span><br>
-            <strong>Volume:</strong> <span id="volume"></span><br>
-            <strong>Price:</strong> $<span id="price"></span>
-            </p>
-        </div>
-
-
-    </div>
+    <canvas id="stockChart"></canvas>
+</div>
     <script>
         let stockData = [
     {
@@ -44732,106 +44758,100 @@
 
 
   const latestStock = stockData[stockData.length - 1];
-            document.getElementById('low').textContent = latestStock.Low;
-            document.getElementById('high').textContent = latestStock.High;
-            document.getElementById('volume').textContent = latestStock.Volume;
-            document.getElementById('price').textContent = latestStock.Price;
 
-            
-        function initializeChart() {
-            const ctx = document.getElementById('stockChart').getContext('2d');
-            window.stockChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: stockData.map(data => data.Date),
-                datasets: [{
+// Removed the text content and icons
+// document.getElementById('low').textContent = latestStock.Low;
+// document.getElementById('high').textContent = latestStock.High;
+// document.getElementById('volume').textContent = latestStock.Volume;
+// document.getElementById('price').textContent = latestStock.Price;
+
+function initializeChart() {
+    const ctx = document.getElementById('stockChart').getContext('2d');
+    window.stockChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [],  // No labels (no dates displayed)
+            datasets: [{
                 label: 'Genesis Stock Price',
                 data: stockData.map(data => data.Price),
                 borderColor: 'rgba(75, 192, 192, 1)',
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                fill: true,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',  // Background color removed
+                fill: true,  // No fill for the area under the line
                 tension: 0.1,
-                pointRadius: 2,
-                pointHoverRadius: 4
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
+                pointRadius: 0,  // Remove data points from the graph
+                pointHoverRadius: 0  // Remove hover effect
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
                 legend: {
-                    display: true,
-                    position: 'top'
+                    display: false,  // Remove the legend
                 },
                 tooltip: {
-                    callbacks: {
-                    label: function(context) {
-                        return `Price: $${context.raw.toFixed(2)}`;
-                    }
-                    }
+                    enabled: false  // Disable tooltip
                 }
-                },
-                scales: {
+            },
+            scales: {
                 x: {
                     title: {
-                    display: true,
-                    text: 'Date'
+                        display: false,  // Remove x-axis title
+                    },
+                    grid: {
+                        display: false  // Remove grid lines in the background
                     },
                     ticks: {
-                    maxTicksLimit: 10,
-                    callback: function(value, index, ticks) {
-                        return this.getLabelForValue(value).split('/').slice(0, 2).join('/');
-                    }
+                        display: false,  // Hide x-axis ticks
                     }
                 },
                 y: {
                     title: {
-                    display: true,
-                    text: 'Price ($)'
+                        display: false,  // Remove y-axis title
                     },
-                    beginAtZero: false
+                    beginAtZero: false,
+                    grid: {
+                        display: false  // Remove grid lines in the background
+                    },
+                    ticks: {
+                        display: false  // Hide y-axis ticks
+                    }
                 }
+            },
+            elements: {
+                line: {
+                    borderWidth: 2  // Set the line width
                 }
             }
-            });
         }
+    });
+}
 
-        document.addEventListener('DOMContentLoaded', () => {
-            initializeChart();
-        });
+document.addEventListener('DOMContentLoaded', () => {
+    // Filter data for the last month on page load
+    initializeChart();
+    window.updateChart('year');
+});
 
-        window.updateChart = function(view) {
-            if (!window.stockChart) {
-                console.error('Chart is not initialized');
-                return;
-            }
+window.updateChart = function(view) {
+    if (!window.stockChart) {
+        console.error('Chart is not initialized');
+        return;
+    }
 
-            let filteredData;
-            const now = new Date();
-            const oneYearAgo = new Date(now.setFullYear(now.getFullYear() - 1));
-            const oneMonthAgo = new Date(now.setMonth(now.getMonth() - 1));
+    let filteredData;
+    const now = new Date();
+    const oneMonthAgo = new Date(now.setMonth(now.getMonth() - 1));
 
-            if (view === 'year') {
-                filteredData = stockData.filter(data => new Date(data.Date) >= oneYearAgo);
-            } else if (view === 'month') {
-                filteredData = stockData.filter(data => new Date(data.Date) >= oneMonthAgo);
-            } else {
-                filteredData = stockData;
-            }
+    if (view === 'month') {
+        filteredData = stockData.filter(data => new Date(data.Date) >= oneMonthAgo);
+    } else {
+        filteredData = stockData;  // Default to all data if no specific view
+    }
 
-            window.stockChart.data.labels = filteredData.map(data => data.Date);
-            window.stockChart.data.datasets[0].data = filteredData.map(data => data.Price);
-            window.stockChart.update();
-        }
-
-        document.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'visible') {
-                console.log('Tab is active');
-                // You can add additional logic here if needed
-            } else {
-                console.log('Tab is inactive');
-                // You can add additional logic here if needed
-            }
-        });
+    window.stockChart.data.labels = filteredData.map(data => data.Date);
+    window.stockChart.data.datasets[0].data = filteredData.map(data => data.Price);
+    window.stockChart.update();
+}
 
     </script>
 </body>
