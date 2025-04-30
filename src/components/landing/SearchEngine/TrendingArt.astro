@@ -1,3 +1,6 @@
+---
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
+---
 <style>
     .slider {
         position: relative;
@@ -94,39 +97,50 @@
 
 <div class="slider" id="slider">
     <div class="slide active">
-        <img src="img/ArticleImages/article1.webp" alt="Slide 1">
+        <a href="/article1/genesis-ai-predictive-maintenance">
+            <img src=`${basePath}public/img/News1Img/Articles/article16.jpeg` alt="Slide 1">
+            <div class="slide-text">
+                <div class="mtext">Genesis Attempts to Resolve Silverton Facility Inefficiencies with AI</div>
+                <div class="smtext">By: Vanguard Journal</div>
+            </div>
+        </a>
+    </div>
+</a>
+    <div class="slide">
+        <a href="/article2/mystery-livestock-illness-farmers-panic">
+        <img src=`${basePath}public/img/News2Img/Articles/AIarticle21.jpg` alt="Slide 2">
         <div class="slide-text">
-            <div class="mtext">This is Slide 1</div>
-            <div class="smtext">Description of Slide 1</div>
+            <div class="mtext">Mysterious Livestock Illness Baffles Farmers, Scientists Investigating</div>
+            <div class="smtext">By: Madrigal International Times</div>
         </div>
+        </a>
     </div>
     <div class="slide">
-        <img src="https://via.placeholder.com/800x250?text=Slide+2" alt="Slide 2">
+        <a href="/article3/vertical-farm-tower-urban-sustainability">
+        <img src=`${basePath}public/img/News3Img/Articles/AIarticle31.jpg` alt="Slide 5">
         <div class="slide-text">
-            <div class="mtext">This is Slide 2</div>
-            <div class="smtext">Description of Slide 2</div>
+            <div class="mtext">Revolutionary Vertical Farm Tower Promises to Transform Urban Agriculture</div>
+            <div class="smtext">By: Lone Star</div>
         </div>
+        </a>
     </div>
     <div class="slide">
-        <img src="https://via.placeholder.com/800x250?text=Slide+3" alt="Slide 3">
+        <a href="/financial/Genesis-Earnings-Call-2024">
+        <img src=`${basePath}public/img/Stock/financial2.jpg` alt="Slide 4">
         <div class="slide-text">
-            <div class="mtext">This is Slide 3</div>
-            <div class="smtext">Description of Slide 3</div>
+            <div class="mtext">Financial Earnings Call 2024 Interview</div>
+            <div class="smtext">By: StockWatch</div>
         </div>
+        </a>
     </div>
     <div class="slide">
-        <img src="https://via.placeholder.com/800x250?text=Slide+4" alt="Slide 4">
+        <a href="/article1/inkforge-mill-art-space-revamp">
+        <img src=`${basePath}public/img/Stock/financial2.jpg` alt="Slide 4">
         <div class="slide-text">
-            <div class="mtext">This is Slide 4</div>
-            <div class="smtext">Description of Slide 4</div>
+            <div class="mtext">Local Artist Collective 'Inkforge' Transforms Abandoned Mill into Cultural Hub</div>
+            <div class="smtext">By: Vanguard</div>
         </div>
-    </div>
-    <div class="slide">
-        <img src="https://via.placeholder.com/800x250?text=Slide+5" alt="Slide 5">
-        <div class="slide-text">
-            <div class="mtext">This is Slide 5</div>
-            <div class="smtext">Description of Slide 5</div>
-        </div>
+        </a>
     </div>
     <button class="nav-button left" onclick="prevSlide()">&#8249;</button>
     <button class="nav-button right" onclick="nextSlide()">&#8250;</button>
