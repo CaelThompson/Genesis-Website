@@ -55,6 +55,45 @@
                 width: 100%;
             }
         }
+
+                /* Modal styles */
+                #stockModal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        #stockModal .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        #closeModal {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #closeModal:hover {
+            color: #000;
+        }
+
+        
     </style>
 </head>
 
@@ -67,22 +106,44 @@
     <div>
         <h1>The Weekly <span style="color: rgb(0, 172, 46);">Watch</span></h1>
     </div>
+
+    <div id="stockModal">
+        <div class="modal-content">
+            <span id="closeModal">&times;</span>
+            <h2 id="modalStockName"></h2>
+            <p id="modalPrice"></p>
+            <p id="modalChange"></p>
+            <p id="modalVolume"></p>     
+            <p id="modalChange30d"></p> 
+        </div>
+    </div>
+
     <script>
         // Simulating stock data update
+
         const stockData = [
-            { name: 'Stock A', price: 100, change: +2 },
-            { name: 'Stock B', price: 200, change: -1 },
-            { name: 'Stock C', price: 300, change: +0.5 },
-            { name: 'Stock D', price: 400, change: -0.2 },
-            { name: 'Stock A', price: 100, change: +2 },
-            { name: 'Stock B', price: 200, change: -1 },
-            { name: 'Stock C', price: 300, change: +0.5 },
-            { name: 'Stock D', price: 400, change: -0.2 },
-            { name: 'Stock C', price: 300, change: +0.5 },
-            { name: 'Stock C', price: 300, change: +0.5 },
-            { name: 'Stock D', price: 400, change: -0.2 },
-            { name: 'Stock D', price: 400, change: -0.2 },
-        ];
+ { name: 'NVDA', fullName: 'Nvidia Corp', price: 121.29, change: +1.5, volume: 1540000, change30d: +12.5 },
+ { name: 'AAPL', fullName: 'Apple Inc', price: 175.60, change: +0.8, volume: 980000, change30d: +5.8 },
+ { name: 'AMZN', fullName: 'Amazon.com Inc', price: 172.63, change: +2.1, volume: 2210000, change30d: +7.4 },
+ { name: 'TSLA', fullName: 'Tesla Inc', price: 210.50, change: -0.5, volume: 1150000, change30d: +1.1 },
+ { name: 'MSFT', fullName: 'Microsoft Corp', price: 310.20, change: +1.2, volume: 2000000, change30d: +8.3 },
+ { name: 'GOOGL', fullName: 'Alphabet Inc', price: 118.94, change: +0.9, volume: 1800000, change30d: +6.7 },
+ { name: 'META', fullName: 'Meta Platforms Inc', price: 220.74, change: +1.0, volume: 1600000, change30d: +4.5 },
+ { name: 'PLTR', fullName: 'Palantir Technologies Inc', price: 15.80, change: +3.4, volume: 1400000, change30d: +10.2 },
+ { name: 'AVGO', fullName: 'Broadcom Inc', price: 650.30, change: +2.5, volume: 1200000, change30d: +9.1 },
+ { name: 'CEG', fullName: 'Constellation Energy Corp', price: 85.60, change: +1.7, volume: 1000000, change30d: +3.8 },
+ { name: 'MRVL', fullName: 'Marvell Technology Inc', price: 60.40, change: +0.6, volume: 900000, change30d: +2.9 },
+ { name: 'CRM', fullName: 'Salesforce Inc', price: 210.90, change: +1.3, volume: 800000, change30d: +5.2 }
+];
+
+
+        const modal = document.getElementById('stockModal');
+        const closeModal = document.getElementById('closeModal');
+        const modalStockName = document.getElementById('modalStockName');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalChange = document.getElementById('modalChange');
+        const modalVolume = document.getElementById('modalVolume');
+        const modalChange30d = document.getElementById('modalChange30d');
 
         // Function to update the stock data
         function updateStockData() {
@@ -117,7 +178,39 @@
                     <p style="margin: 15px 0; font-size: 1.4em; color: #555;">Current Price: <span style="font-weight: bold;">$${stock.price}</span></p>
                     <p style="margin: 15px 0; font-size: 1.4em; color: ${stock.change >= 0 ? '#4caf50' : '#f44336'}; font-weight: bold;">Change: ${stock.change}%</p>
                 `;
+
+                stockDiv.onclick = () => {
+
+                    modalStockName.textContent = `${stock.fullName} (${stock.name})`;
+                    modalStockName.style.fontSize = '1.8em';
+                    modalStockName.style.fontWeight = 'bold';
+                    modalStockName.style.color = '#222';
+                    modalStockName.style.marginBottom = '10px';
+
+                    modalPrice.textContent = `Current Price: $${stock.price}`;
+                    modalPrice.style.fontSize = '1.4em';
+                    modalPrice.style.color = '#555';
+                    modalPrice.style.marginBottom = '5px';
+
+                    modalChange.textContent = `Daily Change: ${stock.change}%`;
+                    modalChange.style.fontSize = '1.4em';
+                    modalChange.style.fontWeight = 'bold';
+                    modalChange.style.color = stock.change >= 0 ? '#4caf50' : '#f44336';
+
+                    modalVolume.textContent = `Trading Volume: ${stock.volume.toLocaleString()} shares`;
+                    modalVolume.style.fontSize = '1.3em';
+                    modalVolume.style.color = '#666';
+
+                    modalChange30d.textContent = `30-Day Change: ${stock.change30d}%`;
+                    modalChange30d.style.fontSize = '1.3em';
+                    modalChange30d.style.fontWeight = 'bold';
+                    modalChange30d.style.color = stock.change30d >= 0 ? '#4caf50' : '#f44336';
+
+                    modal.style.display = 'block';
+                };
+
                 container.appendChild(stockDiv);
+
             });
         }
 
@@ -137,6 +230,16 @@
         document.addEventListener('DOMContentLoaded', () => {
             updateStockData();
         });
+
+        closeModal.onclick = () => {
+        modal.style.display = 'none';
+        };
+
+        window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+        };
 
         
     </script>

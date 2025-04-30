@@ -185,6 +185,74 @@
     animation: fadeFlash 0.5s ease;
 }
 
+.stock-data-bar-container {
+  margin-top: auto; /* Pushes it to bottom */
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.bar-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.stock-data-bar {
+  flex-grow: 1;
+  height: 20px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 0, 0, 0.1) 0%,     /* light red */
+    rgba(255, 0, 0, 0.1) 20%,
+    #e0e0e0 20%,
+    #e0e0e0 80%,
+    rgba(0, 255, 0, 0.1) 80%,    /* light green */
+    rgba(0, 255, 0, 0.1) 100%
+  );
+  position: relative;
+  margin: 0 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.range-label {
+  position: absolute;
+  color: #333;
+  font-size: 12px;
+  font-weight: bold;
+  pointer-events: none;
+  
+}
+
+.bar-label {
+  font-size: 12px;
+  color: #555;
+  width: 60px;
+  text-align: center;
+  
+}
+
+.bar-label.left {
+  text-align: left;
+}
+
+.bar-label.right {
+  text-align: right;
+}
+
+.price-line {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background-color: #000;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+
   </style>
 </head>
 <body>
@@ -204,6 +272,39 @@
            <button onclick="updateChart('year')">Last Year</button>
            <button onclick="updateChart('month')">Last Month</button>
        </div>
+
+       <div class="stock-data-bar-container">
+        <!-- Daily -->
+        <div class="bar-wrapper">
+          <span class="bar-label left" id="dailyLowLabel"></span>
+          <div class="stock-data-bar">
+            <span class="range-label">Daily Range</span>
+            <div class="price-line" id="dailyPriceLine"></div>
+          </div>
+          <span class="bar-label right" id="dailyHighLabel"></span>
+        </div>
+      
+        <!-- Yearly -->
+        <div class="bar-wrapper">
+          <span class="bar-label left" id="yearlyLowLabel"></span>
+          <div class="stock-data-bar">
+            <span class="range-label">Yearly Range</span>
+            <div class="price-line" id="yearlyPriceLine"></div>
+          </div>
+          <span class="bar-label right" id="yearlyHighLabel"></span>
+        </div>
+      
+        <!-- All-Time -->
+        <div class="bar-wrapper">
+          <span class="bar-label left" id="allTimeLowLabel"></span>
+          <div class="stock-data-bar">
+            <span class="range-label">All-Time Range</span>
+            <div class="price-line" id="allTimePriceLine"></div>
+          </div>
+          <span class="bar-label right" id="allTimeHighLabel"></span>
+        </div>
+      </div>      
+       
    </div>
    <div class="right-column">
     <button id="toggleChartView" class="toggle-chart-btn">Switch to Volume Chart</button>
@@ -44896,51 +44997,14 @@
     },
     {
       "Date": "3/10/2025",
-      "Price": 154.9799957,
-      "High": 159.2599945,
-      "Low": 152.6100006,
+      "Price": 155.9799957,
+      "High": 165.2599945,
+      "Low": 151.6100006,
       "Open": 157.3500061,
       "Volume": 10113600
-    }
+    },
   ];
 
-  function updateStatsSections() {
-    if (!stockData || stockData.length === 0) return;
-
-    // Convert all dates and get latest date
-    const parsedData = stockData.map(stock => ({
-        ...stock,
-        parsedDate: new Date(
-            ...stock.Date.split('/').map((v, i) => i === 2 ? 2000 + +v : +v - (i === 0 ? 1 : 0)) // MM/DD/YY -> Date
-        )
-    }));
-
-    const latestDate = parsedData[parsedData.length - 1].parsedDate;
-    const oneYearAgo = new Date(latestDate);
-    oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
-
-    const data52Week = parsedData.filter(stock => stock.parsedDate >= oneYearAgo);
-    const dataAllTime = parsedData;
-
-    function calculateStats(data) {
-        const low = Math.min(...data.map(s => s.Low));
-        const high = Math.max(...data.map(s => s.High));
-        const totalVolume = data.reduce((sum, s) => sum + s.Volume, 0);
-        const latestPrice = data[data.length - 1]?.Price || 0;
-        return { low, high, totalVolume, latestPrice };
-    }
-
-    const stats52 = calculateStats(data52Week);
-    const statsAll = calculateStats(dataAllTime);
-
-    // 52 Week Stats
-    document.getElementById('low52Week').textContent = stats52.low.toFixed(2);
-    document.getElementById('high52Week').textContent = stats52.high.toFixed(2);
-
-    // All Time Stats
-    document.getElementById('lowAllTime').textContent = statsAll.low.toFixed(2);
-    document.getElementById('highAllTime').textContent = statsAll.high.toFixed(2);
-}
 
 function updateAverages() {
     if (!stockData || stockData.length === 0) return;
@@ -44978,9 +45042,50 @@ function updateAverages() {
     document.getElementById('avgVolumeAllTime').textContent = Math.round(avgAll.avgVolume).toLocaleString();
 }
 
+function updateStockPriceBar() {
+  if (!stockData || stockData.length === 0) return;
+
+  const latestStock = stockData[stockData.length - 1];
+
+  const dailyLow = latestStock.Low;
+  const dailyHigh = latestStock.High;
+
+  const oneYearAgo = new Date(latestStock.Date);
+  oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+  const yearlyData = stockData.filter(stock => new Date(stock.Date) >= oneYearAgo);
+  const yearlyLow = Math.min(...yearlyData.map(stock => stock.Low));
+  const yearlyHigh = Math.max(...yearlyData.map(stock => stock.High));
+
+  const allTimeLow = Math.min(...stockData.map(stock => stock.Low));
+  const allTimeHigh = Math.max(...stockData.map(stock => stock.High));
+
+  const dailyPct = ((latestStock.Price - dailyLow) / (dailyHigh - dailyLow)) * 100;
+  const yearlyPct = ((latestStock.Price - yearlyLow) / (yearlyHigh - yearlyLow)) * 100;
+  const allTimePct = ((latestStock.Price - allTimeLow) / (allTimeHigh - allTimeLow)) * 100;
+
+  document.getElementById('dailyPriceLine').style.left = `${dailyPct}%`;
+  document.getElementById('yearlyPriceLine').style.left = `${yearlyPct}%`;
+  document.getElementById('allTimePriceLine').style.left = `${allTimePct}%`;
+
+  // Set label text
+  document.getElementById('dailyLowLabel').textContent = `$${dailyLow.toFixed(2)}`;
+  document.getElementById('dailyHighLabel').textContent = `$${dailyHigh.toFixed(2)}`;
+
+  document.getElementById('yearlyLowLabel').textContent = `$${yearlyLow.toFixed(2)}`;
+  document.getElementById('yearlyHighLabel').textContent = `$${yearlyHigh.toFixed(2)}`;
+
+  document.getElementById('allTimeLowLabel').textContent = `$${allTimeLow.toFixed(2)}`;
+  document.getElementById('allTimeHighLabel').textContent = `$${allTimeHigh.toFixed(2)}`;
+}
+
+updateStockPriceBar();
 
     function updateStockDetails() {
+        
+        simulateNewStockData();      // Add new fake data point
+
         const latestStock = stockData[stockData.length - 1];
+        
         const previousStock = stockData[stockData.length - 2] || latestStock;
 
         const priceChange = latestStock.Price - previousStock.Price;
@@ -45011,6 +45116,7 @@ function updateAverages() {
         setTimeout(() => {
             container.classList.remove('flash');
         }, 500);
+        updateStockPriceBar(); // Update the price bar after updating stock details
     }
 
     function initializeChart() {
@@ -45130,6 +45236,10 @@ window.volumeChart = new Chart(volumeCtx, {
         }
     }
 });    
+
+
+
+
   
 document.getElementById('volumeChart').style.display = 'none';
         
@@ -45151,6 +45261,59 @@ document.getElementById('volumeChart').style.display = 'none';
         document.getElementById('toggleChartView').textContent = 'Show Volume Chart';
     }
 });
+
+function updateStatsSections() {
+    if (!stockData || stockData.length === 0) return;
+
+    // Convert all dates and get latest date
+    const parsedData = stockData.map(stock => ({
+        ...stock,
+        parsedDate: new Date(
+            ...stock.Date.split('/').map((v, i) => i === 2 ? 2000 + +v : +v - (i === 0 ? 1 : 0)) // MM/DD/YY -> Date
+        )
+    }));
+
+    const latestDate = parsedData[parsedData.length - 1].parsedDate;
+    const oneYearAgo = new Date(latestDate);
+    oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+
+
+    function calculateStats(data) {
+        const low = Math.min(...data.map(s => s.Low));
+        const high = Math.max(...data.map(s => s.High));
+        const totalVolume = data.reduce((sum, s) => sum + s.Volume, 0);
+        const latestPrice = data[data.length - 1]?.Price || 0;
+        return { low, high, totalVolume, latestPrice };
+    }
+
+    function get52WeekData(stockData) {
+        const parsedData = stockData.map(stock => ({
+            ...stock,
+            parsedDate: new Date(stock.Date)
+        }));
+
+        const latestDate = parsedData[parsedData.length - 1].parsedDate;
+        const oneYearAgo = new Date(latestDate);
+        oneYearAgo.setFullYear(latestDate.getFullYear() - 1);
+
+        return parsedData.filter(stock => stock.parsedDate >= oneYearAgo);
+    }
+
+    // Use like this:
+    const data52Week = get52WeekData(stockData);
+    const dataAllTime = [...stockData];
+
+    const stats52 = calculateStats(data52Week);
+    const statsAll = calculateStats(dataAllTime);
+
+    // 52 Week Stats
+    document.getElementById('low52Week').textContent = stats52.low.toFixed(2);
+    document.getElementById('high52Week').textContent = stats52.high.toFixed(2);
+
+    // All Time Stats
+    document.getElementById('lowAllTime').textContent = statsAll.low.toFixed(2);
+    document.getElementById('highAllTime').textContent = statsAll.high.toFixed(2);
+}
 
     const originalStockData = [...stockData];
 
@@ -45206,7 +45369,25 @@ document.getElementById('volumeChart').style.display = 'none';
 }
 
 
+const basePrice = stockData[stockData.length - 1].Price;
 
+function simulateNewStockData() {
+    const last = stockData[stockData.length - 1];
+    const maxDeviation = 0.023;
+
+    // Clamp the new price within ±5% of basePrice
+    const minPrice = basePrice * (1 - maxDeviation);
+    const maxPrice = basePrice * (1 + maxDeviation);
+
+    // Generate a new price within that range
+    const deviation = (Math.random() * 2 - 1) * maxDeviation;
+    let newPrice = basePrice * (1 + deviation);
+
+    // Clamp it just in case
+    newPrice = Math.max(minPrice, Math.min(maxPrice, newPrice));
+
+    last.Price = parseFloat(newPrice.toFixed(2));
+}
 
 
     // Separate event listeners
@@ -45216,7 +45397,7 @@ document.getElementById('volumeChart').style.display = 'none';
         updateStatsSections();
         updateAverages();
         updateChart('month'); // Default chart
-        setInterval(updateStockDataSimulated, 10000); // every 10 seconds
+        setInterval(updateStockDetails, 10000); // every 10 seconds
 
 
         document.getElementById('volumeChart').style.display = 'none';

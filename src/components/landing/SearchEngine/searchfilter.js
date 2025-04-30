@@ -6,21 +6,9 @@ export function parseKeywords(inputString, keywords) {
     // Define a mapping of correct keywords to their misspellings
     const keywordMap = {
         news: [
-            "neews", "newes", "neus", "newz", "noews", "nwes", "new", 
-            "vanguard", "vngaurd", "vauguard", "vangard", "vangaurd", "vanguar", "vauguard", 
-            "vaugnard", "vagard", "vander", "vagurad", "vangaurd", "vagurad", 
-            "vanguard journalism", "vanguard jornalisim", "vanguad journalism", "vanguard jorunalism", 
-            "vanguard jornalism", "vanguarde journalism", "vanguar journalism", "vanguard jourlism", 
-            "vanguard journlism", "vanguad jurnlism", "vanguard jornlism", "vanguard jounalism", 
-            "vanguard jouralism", "vanguard journalism", "vanguard jurnalism", "vngaurd journalism", 
-            "vanguard journelism", "vanguard jorunalism", "vanguar journalizm", "vanguard jouranalism", 
-            "vanguard jurnlism", "vanguar jornalism", "vanguard journlizm", "vagurad journalism", 
-            "vagard journalism", "vanguard journamism", "vanguard journlism", "vanguard journisism", 
-            "vanguard jurnalism", "journlism", "jornlism", "journamism", "jurnalism", "jornalism", 
-            "jorunalism", "jorunlism", "jouralism", "jourlism", "jouranalism", "journolism", 
-            "jurnlism", "jurnalisim", "journlizm", "journism", "journlism", "journim", "jurnalm", 
-            "jorumalisim", "jurnolism", "jorunalisim", "journalism", 'interview', 'interview', 'interveiw', 'intervies', 'intervies', 'intervies', 'press', 'press', 'pres', 'prees'
-        ],    
+            "neews", "newes", "neus", "newz", "noews", "nwes", "new",
+            "interview", "interveiw", "intervies", "press", "pres", "prees"
+        ],  
         stock: [
             "stock", "market", "stoks", "stoc", "stoks", "stoks", "stoks", "stokc", "stocck", "finiatlials", "finantials",
             "finantial", "finantial", "finantail", "finatials", "finatials", "finatials", "finatials", 'money', 'market', 'marcet', 'maret', 'marcet', 'marcet', 'markit', 'earnings', 'report', 'growth', 'earnings', 'trends', 'trends', 'trend'],   
@@ -35,7 +23,17 @@ export function parseKeywords(inputString, keywords) {
         
         company: ["comapny", "compnay", "compnay", "comapnies", "comapnies", "comapnies", "comapnies"],
         other: ['games', 'game'],
-        articles: ["articals", "articels", "articls", "artciles", "articlse", "aricles", "article"]
+        articles: ["articals", "articels", "articls", "artciles", "articlse", "aricles", "article"],
+        star: ["star", "starr", "lone", "lone", "starr", "outlet", "star", "starr", "star", "starr"],
+        
+        madrigal: [
+            "madrigal", "italy", "madri", 'ital', "madgrigal", "madrigall", "madgrigall", "madrigel", "madrigel", "madrigel", "madgrigel", 
+            "madrigel", "madgrigel", "madrigel", "madgrigel", "madrigel", "madgrigel", "madrigel", "madgrigel", 
+            "madrigel", "madgrigel", "madrigel", "madgrigel", "madrigel", "madgrigel", "madrigel", "madgrigel", 
+            "madrigel"
+            ],
+    
+        vanguard: ['van', 'vangur', 'guard', 'vanguard', 'vanguad', 'vauguard', 'vangard', 'vanguard', 'vanguad', 'vauguard', 'vangard', 'vanguard', 'vanguad', 'vauguard', 'vangard']
     };
 
     // Normalize the input string
@@ -58,6 +56,6 @@ export function parseKeywords(inputString, keywords) {
 }
 
 // Example usage
-const input = "This is a sample string to test keyword parsing with genisis and articels.";
-const keywords = ["news", "genesis", "articles"];
-console.log(parseKeywords(input, keywords));
+//const input = "This is a sample string to test keyword parsing with genisis and articels.";
+//const keywords = ["news", "genesis", "articles"];
+//console.log(parseKeywords(input, keywords));
