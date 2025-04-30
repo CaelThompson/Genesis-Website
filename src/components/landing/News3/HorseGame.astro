@@ -1,8 +1,13 @@
 ---
 import BaseLayout from '../../../layouts/News3Layout.astro'; 
 ---
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lone Star Outlet</title>
+  </head>
 <BaseLayout>
-  <a href="/news3" class="inline-block mb-4 text-green-700 hover:underline" style="margin-top:150px; margin-left: 60px;">
+  <a href="/news3" class="inline-block mb-4 text-brown-700 hover:underline" style="margin-top:150px; margin-left: 60px;">
     &#8592; Giddy on Back to the Ranch
   </a>
   
@@ -12,7 +17,7 @@ import BaseLayout from '../../../layouts/News3Layout.astro';
       Cactus Dodge 
     </h1>
     <p style="margin: 50px; margin-left:620px; margin-right: 620px; margin-top: 10px;">
-        Welcome lost traveler! It seems you have stumbled across a hidden page by following the white rabbit. In this game, you must dodge the cacti and tumbleweeds while trying to get the highest score possible. The game is simple: use the space bar to jump over the obstacles. The longer you survive, the faster they come at you! This game is quite challenging, however, if you can reach a score of 200, a suprise awaits you.
+        Welcome lost traveler! It seems you have stumbled across a hidden page by following the white rabbit. In this game, you must dodge the cacti and tumbleweeds while trying to get the highest score possible. The game is simple: use the space bar to jump over the obstacles. The longer you survive, the faster they come at you! This game is quite challenging, however, if you can reach a score of 100, a suprise awaits you.
     </p>
   </div>
 
@@ -31,7 +36,7 @@ import BaseLayout from '../../../layouts/News3Layout.astro';
     let gameStarted = false; // Track if game has started
     let cactusSpawnRate = 0.02;
     let cactusHeightVary = false;
-    let jumpHeight = -20;
+    let jumpHeight = -10;
     let gameTime = 0;
     let lastTime = Date.now();
     let lastCactusX = 0;
@@ -83,6 +88,12 @@ import BaseLayout from '../../../layouts/News3Layout.astro';
       });
     }
 
+    function drawScore() {
+  ctx.fillStyle = "#000";
+  ctx.font = "20px Courier New";
+  ctx.fillText("Score: " + score, 20, 30);
+}
+
     function movePlayer() {
       window.addEventListener("keydown", (e) => {
         if (e.key === " " && player.jumpCount < 3) {
@@ -94,21 +105,22 @@ import BaseLayout from '../../../layouts/News3Layout.astro';
     }
 
     function updatePlayer() {
-      player.y += player.velocityY;
+  player.y += player.velocityY;
 
-      if (player.y <= 0) {
-        player.y = 0;
-        player.velocityY = 0;
-      }
+  if (player.y <= 0) {
+    player.y = 0;
+    player.velocityY = 0;
+  }
 
-      if (player.y >= canvas.height - 120) {
-        player.y = canvas.height - 120;
-        player.jumping = false;
-        player.jumpCount = 0;
-      } else {
-        player.velocityY += 0.8;
-      }
-    }
+  if (player.y >= canvas.height - 120) {
+    player.y = canvas.height - 120;
+    player.jumping = false;
+    player.jumpCount = 0;
+  } else {
+    player.velocityY += 0.4; // reduced gravity for longer airtime
+  }
+}
+
 
     function createCactus() {
       const minSpacing = 200;
@@ -249,76 +261,102 @@ import BaseLayout from '../../../layouts/News3Layout.astro';
     }
 
     canvas.addEventListener("click", function (e) {
-      if (!gameStarted) {
-        gameStarted = true; // Start the game
-        gameLoop();
-        return;
-      }
+  if (!gameStarted) {
+    gameStarted = true; // Start the game
+    gameLoop();
+    return;
+  }
 
-      if (gameOver) {
-        const rect = canvas.getBoundingClientRect();
-        const clickX = e.clientX - rect.left;
-        const clickY = e.clientY - rect.top;
+  if (gameOver) {
+    const rect = canvas.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const clickY = e.clientY - rect.top;
 
-        const buttonX = canvas.width / 2 - 80;
-        const buttonY = canvas.height / 2 + 30;
-        const buttonWidth = 160;
-        const buttonHeight = 40;
+    const buttonX = canvas.width / 2 - 80;
+    const buttonY = canvas.height / 2 + 40;
+    const buttonWidth = 160;
+    const buttonHeight = 40;
 
-        if (
-          clickX >= buttonX &&
-          clickX <= buttonX + buttonWidth &&
-          clickY >= buttonY &&
-          clickY <= buttonY + buttonHeight
-        ) {
-          restartGame();
-        }
-      }
-    });
-
-    function restartGame() {
-      player = { x: 50, y: canvas.height - 120, width: 80, height: 60, speed: 5, velocityY: 0, jumping: false, jumpCount: 0 };
-      obstacles = [];
-      tumbleweeds = [];
-      score = 0;
-      cactusSpawnRate = 0.02;
-      cactusHeightVary = false;
-      gameOver = false;
-      gameTime = 0;
-      lastTime = Date.now();
-      gameLoop();
+    // Check if the restart button (or click area) is clicked
+    if (
+      clickX >= buttonX &&
+      clickX <= buttonX + buttonWidth &&
+      clickY >= buttonY &&
+      clickY <= buttonY + buttonHeight
+    ) {
+      restartGame();
     }
+  }
+});
 
-    function gameLoop() {
-      if (!gameStarted) {
-        showStartScreen();
-        return;
-      }
 
-      if (gameOver) return;
+function restartGame() {
+  player = { x: 50, y: canvas.height - 120, width: 80, height: 60, speed: 5, velocityY: 0, jumping: false, jumpCount: 0 };
+  obstacles = [];
+  tumbleweeds = [];
+  score = 0;
+  cactusSpawnRate = 0.02;
+  cactusHeightVary = false;
+  gameOver = false;
+  gameTime = 0;
+  lastTime = Date.now();
+  gameLoop();
+}
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      drawBackground();
-      drawPath();
-      drawPlayer();
-      drawCacti();
-      drawTumbleweeds();
+   function gameLoop() {
+  if (!gameStarted) {
+    showStartScreen();
+    return;
+  }
 
-      createCactus();
-      createTumbleweed();
+  if (gameOver) return;
 
-      updatePlayer();
-      updateObstacles();
-      updateTumbleweeds();
+  // Check if score reaches 100 and stop the game
+  if (score >= 100) {
+    gameOver = true;
+    showPrizeMessage();  // Show the prize message
+    return;
+  }
 
-      const currentTime = Date.now();
-      gameTime = (currentTime - lastTime) / 1000;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawBackground();
+  drawPath();
+  drawPlayer();
+  drawCacti();
+  drawTumbleweeds();
+  drawScore();
 
-      if (gameTime > 60) cactusSpawnRate = 0.05;
-      if (gameTime > 120) cactusSpawnRate = 0.1;
+  createCactus();
+  createTumbleweed();
 
-      requestAnimationFrame(gameLoop);
-    }
+  updatePlayer();
+  updateObstacles();
+  updateTumbleweeds();
+
+  const currentTime = Date.now();
+  gameTime = (currentTime - lastTime) / 1000;
+
+  if (gameTime > 60) cactusSpawnRate = 0.05;
+  if (gameTime > 120) cactusSpawnRate = 0.1;
+
+  requestAnimationFrame(gameLoop);
+}
+
+function showPrizeMessage() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawBackground();
+
+  ctx.fillStyle = "#000";
+  ctx.font = "28px Courier New";
+  const prizeMessage = "The prize is... You are now the rabbit king and behold the ultimate power of the universe!";
+  const prizeMessageWidth = ctx.measureText(prizeMessage).width;
+  ctx.fillText(prizeMessage, (canvas.width - prizeMessageWidth) / 2, canvas.height / 2 - 30);
+
+  const restartText = "Click to Restart.";
+  const restartTextWidth = ctx.measureText(restartText).width;
+  ctx.fillText(restartText, (canvas.width - restartTextWidth) / 2, canvas.height / 2 + 40);
+}
+
 
     movePlayer();
     gameLoop();
