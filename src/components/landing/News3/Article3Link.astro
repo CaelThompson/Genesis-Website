@@ -11,7 +11,11 @@ const processedArticles = articles
   }))
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); // Sort by most recent first
 ---
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lone Star Outlet</title>
+  </head>
 <style>
   .articles-container {
     display: flex;
@@ -25,7 +29,7 @@ const processedArticles = articles
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  background-color: #f4f4f4;
+  background-color: rgb(94, 40, 14);
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 48%;
@@ -33,6 +37,7 @@ const processedArticles = articles
   text-decoration: none;
   color: inherit;
   transition: transform 0.2s ease;
+  
 }
 
 .article-box-horizontal:hover {
@@ -54,6 +59,7 @@ const processedArticles = articles
   flex-direction: column;
   padding: 20px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #f3f1eb;
 }
 
 
@@ -74,6 +80,7 @@ const processedArticles = articles
     color: #555;
     margin-top: auto;
     text-align: right;
+    color: #f3f1eb;
   }
 
   @media (max-width: 768px) {

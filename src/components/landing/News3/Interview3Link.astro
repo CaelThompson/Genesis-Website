@@ -11,7 +11,11 @@ const processedArticles = interviews
   }))
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); // Sort by most recent first
 ---
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lone Star Outlet</title>
+  </head>
 <style>
   .articles-container {
     display: flex;
@@ -25,7 +29,7 @@ const processedArticles = interviews
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  background-color: #f4f4f4;
+  background-color: rgb(94, 40, 14);
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 48%;
@@ -54,6 +58,7 @@ const processedArticles = interviews
   flex-direction: column;
   padding: 20px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #f3f1eb;
 }
 
 
@@ -71,7 +76,7 @@ const processedArticles = interviews
   .article-date-horizontal {
     font-size: 12px;
     font-weight: bold;
-    color: #555;
+    color: #f3f1eb;
     margin-top: auto;
     text-align: right;
   }

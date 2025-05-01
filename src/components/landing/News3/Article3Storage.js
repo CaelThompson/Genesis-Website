@@ -4,7 +4,7 @@ export const articles = [
   {
     title: "Genesis Plans for Expansion: Enriching Rendon's Future",
     description: "Genesis Company announces plans for potential expansions at its Texas headquarters, aiming to enhance innovation labs, integrate green spaces, and engage local youth in STEM disciplines.",
-    image: `${basePath}img/genesis_expansion_rendon.jpg`,
+    image: `${basePath}public/img/News3Img/Articles/article37.jpg`,
     slug: "genesis-plans-for-expansion-rendon",
     date: "10/07/2019",
     author: "Lone Star News",
@@ -29,7 +29,7 @@ export const articles = [
 {
   title: "Challenges on the Horizon: Genesis Faces Economic Strains with Community Hope",
   description: "Genesis faces rising inflation and supply chain disruptions that threaten its operations. The community hopes for resilience and solutions to safeguard local jobs.",
-  image: `${basePath}img/genesis_economic_strain_rendon.jpg`,
+  image: `${basePath}public/img/News3Img/Articles/article34.png`,
   slug: "genesis-faces-economic-strains-rendon",
   date: "08/18/2023",
   author: "Lone Star News",
@@ -52,7 +52,7 @@ export const articles = [
 , {
   title: "Genesis Faces Data Management Challenges: Delays and Quality Concerns",
   description: "Genesis Company confronts data management issues at its Texas facilities, leading to product delays and quality concerns, requiring strategic solutions to maintain operational excellence.",
-  image: `${basePath}img/genesis_data_management_issues.jpg`,
+  image: `${basePath}public/img/News3Img/Articles/article33.jpg`,
   slug: "genesis-data-management-challenges-texas",
   date: "11/18/2024",
   author: "Lone Star News",
@@ -79,7 +79,7 @@ export const articles = [
 {
   title: "Navigating Turbulent Waters: Genesis's Future in Rendon Amid Economic Challenges",
   description: "Genesis Company faces deepening financial struggles in 2025, raising concerns about potential downsizing and its impact on the Rendon community, which heavily depends on the company’s presence.",
-  image: `${basePath}img/genesis_rendon_challenges.jpg`,
+  image: `${basePath}public/img/News3Img/Articles/article32.jpg`,
   slug: "genesis-future-in-rendon-economic-challenges",
   date: "2/26/2025",
   author: "Lone Star News",
@@ -104,7 +104,7 @@ export const articles = [
 {
   title: "Building Green: Genesis's Positive Impact on the Rendon Community",
   description: "Genesis Company reinforces its role as a community pillar in Rendon, Texas, through eco-conscious facility upgrades and support for local sustainability initiatives.",
-  image: `${basePath}img/genesis_green_initiatives.jpg`,
+  image: `${basePath}public/img/News3Img/Articles/article31.jpg`,
   slug: "genesis-green-impact-rendon-community",
   date: "6/10/2025",
   author: "Lone Star News",
@@ -123,7 +123,7 @@ export const articles = [
 {
   title: "Engineering Excellence: Genesis Bridges Academia and Industry",
   description: "Genesis Company pioneers an internship initiative that connects local university students with real-world engineering challenges, reinforcing its commitment to education and innovation.",
-  image: `${basePath}img/genesis_academia_industry_bridge.jpg`,
+  image: `${basePath}public/img/News3Img/Articles/article311.jpg`,
   slug: "genesis-academia-industry-internships",
   date: "6/14/2007",
   author: "Lone Star News",
@@ -144,7 +144,7 @@ export const articles = [
 {
   title: "Genesis Employees Empower Local Education Through Engineering Courses",
   description: "Genesis Company launches a volunteer program where engineers teach local students about engineering concepts, sparking interest in STEM and strengthening ties with the Rendon community.",
-  image: `${basePath}img/genesis_education_outreach.jpg`,
+  image: `${basePath}public/img/News3Img/Articles/article310.jpg`,
   slug: "genesis-empowers-local-education",
   date: "4/30/2013",
   author: "Lone Star News",
@@ -168,7 +168,7 @@ export const articles = [
 {
   title: "Genesis Rises to the Challenge: Supporting COVID-19 Relief with Innovative Ventilator Components",
   description: "Genesis Company pivots operations to produce critical ventilator components, playing a key role in the global COVID-19 relief effort and showcasing its engineering excellence and commitment to societal well-being.",
-  image: `${basePath}img/genesis_covid_ventilators.jpg`,
+  image: `${basePath}public/img/News3Img/Articles/article36.jpg`,
   slug: "genesis-covid-relief-ventilator-components",
   date: "12/15/2020",
   author: "Lone Star News",
@@ -191,7 +191,7 @@ export const articles = [
 {
   title: "Genesis Powers Progress: Supplying Essential Components in Texas's Emerging EV Industry",
   description: "Genesis Company supports Texas’s electric vehicle boom with high-precision components, playing a vital role in driving the state’s shift toward sustainable transportation.",
-  image: `${basePath}img/genesis_ev_components.jpg`,
+  image: `${basePath}public/img/News3Img/Articles/article39.jpg`,
   slug: "genesis-supports-texas-ev-growth",
   date: "6/25/2017",
   author: "Lone Star News",
@@ -215,7 +215,7 @@ export const articles = [
 {
   title: "Engineering Excellence: Genesis's Continued Success with Prestigious Internship Programs",
   description: "Genesis Company’s internship programs continue to shape future leaders in engineering, offering hands-on experience and fostering vital connections between academia and industry.",
-  image: `${basePath}img/genesis_internships_2018.jpg`,
+  image: `${basePath}public/img/News3Img/Articles/article38.jpg`,
   slug: "genesis-engineering-internship-success",
   date: "9/12/2018",
   author: "Lone Star News",
@@ -238,7 +238,7 @@ export const articles = [
 {
   title: "Strengthening Community Ties: Genesis’s Continued Commitment to Local Growth",
   description: "Genesis Company reinforces its dedication to Rendon through sustainable initiatives and educational partnerships that fuel regional progress and environmental awareness.",
-  image: `${basePath}img/genesis_community_growth_2021.jpg`,
+  image: `${basePath}public/img/News3Img/Articles/article35.jpg`,
   slug: "genesis-commitment-to-local-growth",
   date: "6/20/2021",
   author: "Lone Star News",
@@ -249,7 +249,89 @@ export const articles = [
   <p style="text-indent: 2rem; margin-bottom: 1rem;">Through strategic partnerships with community organizations and universities, Genesis continues to push for greener solutions and educational growth. This dual focus on sustainability and education underscores Genesis’s relentless pursuit of excellence and its vision to remain a transformative force in Rendon. By engaging with local stakeholders and investing in community infrastructure, Genesis not only contributes to regional economic vitality but also champions sustainable development.</p>
 
   <p style="text-indent: 2rem; margin-bottom: 1rem;">The company's proactive involvement illustrates a comprehensive approach to corporate responsibility, ensuring a brighter, greener future for generations to come and reinforcing its standing as both a business leader and a benevolent community partner in the evolving landscape of Texas industry.</p>`
+},
+{
+  title: "Unprecedented Flooding in Willow Creek Causes Widespread Damage, Residents Struggling to Recover",
+  description: "Record-breaking rainfall leads to catastrophic flooding in Willow Creek, forcing evacuations and prompting urgent response from state and federal agencies.",
+  image: `${basePath}public/img/News3Img/Articles/AIarticle32.jpg`,
+  slug: "willow-creek-floods-record-breaking-disaster",
+  date: "8/2/2023",
+  author: "Lone Star News",
+  content: `<p style="text-indent: 2rem; margin-bottom: 1rem;">What was once a picturesque town nestled along the banks of Willow Creek is now a scene of devastation. After relentless rainfall over the past week, the creek swelled beyond its banks, submerging homes, businesses, and roads. Floodwaters have ravaged much of the area, leaving thousands displaced and causing significant damage to infrastructure.</p>
+
+  <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">A Deluge of Unprecedented Proportions</h2>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">The rainfall that led to the disaster reached levels that meteorologists describe as “once-in-a-century.” Over 12 inches of rain fell in just 72 hours, overwhelming the town's drainage systems and flooding areas that had never seen such destruction before. The National Weather Service issued a flash flood emergency warning for the first time in Willow Creek’s history, as authorities rushed to evacuate residents from the most vulnerable areas.</p>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">“This is beyond anything we could have prepared for,” said Chief Tom Walker of the Willow Creek Fire Department. “We've been fighting to keep up with rescues, but with roads washed out and the creek rising at such a fast rate, it’s been incredibly challenging.”</p>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">Emergency responders are still working tirelessly to locate and evacuate residents from flooded homes. As of today, nearly 3,000 residents have been displaced, with shelters set up at local schools and community centers. Hundreds of homes have been rendered uninhabitable, and the local economy is in turmoil with businesses shuttered and roads impassable.</p>
+
+  <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Community Heroes in the Face of Crisis</h2>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">While much of the town is struggling, stories of heroism have emerged. Local volunteer organizations have been instrumental in rescuing trapped residents, delivering supplies to shelters, and offering aid to those stranded. The Willow Creek Firefighters Auxiliary, a group of volunteers, has been using boats to ferry people to safety, some of whom had been trapped for days.</p>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">“We couldn’t just sit back,” said Rachel Barnes, a longtime local resident and Auxiliary volunteer. “The community needs us, and we need to be there for them.” Barnes and her fellow volunteers have been working around the clock, providing food, water, and emotional support to those who have lost everything.</p>
+
+  <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Devastating Impact on Local Businesses</h2>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">The town’s local economy has taken a significant hit. Several businesses along Main Street have suffered water damage, with stock lost and buildings requiring expensive repairs. Willow Creek's economy is largely driven by tourism, with its scenic views and historical landmarks drawing thousands of visitors every year. With roads destroyed and tourist sites submerged, local shop owners fear they will face a long recovery process.</p>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">“I don’t know how we’re going to bounce back from this,” said Carol Jensen, owner of the Willow Creek Café. “Our restaurant has been here for over 40 years, and now it’s under four feet of water. We’ve lost everything.”</p>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">To help mitigate losses, state officials have promised assistance in the form of emergency grants for affected businesses. However, many worry that rebuilding will take years, and some local businesses may never recover fully. “The flood has completely changed the landscape of our town,” said Mayor Laura Fields. “We’ll rebuild, but it’s going to be a long road ahead.”</p>
+
+  <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">State and Federal Aid Mobilized</h2>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">Governor Angela Harper visited Willow Creek on Monday, announcing the immediate deployment of state disaster response teams. “We will do everything in our power to assist this community during this tragic event,” she said during a press conference. The Governor assured residents that both state and federal resources would be made available to help with recovery, from funding for rebuilding efforts to temporary housing solutions for displaced families.</p>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">In addition, FEMA (Federal Emergency Management Agency) teams are working with local authorities to assess the damage and begin the process of securing federal disaster relief funding. “The response is unprecedented,” said FEMA spokesperson, Michael Chan. “We are expediting all necessary resources to help Willow Creek get back on its feet.”</p>
+
+  <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Looking Ahead: Resilience and Recovery</h2>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">Despite the challenges, the residents of Willow Creek remain hopeful. Neighbors have banded together to clean up debris and help those hardest hit by the disaster. The town’s spirit of resilience has shone through even in the darkest of times, with fundraisers and donation drives already underway to help those in need.</p>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">“We’ve been through tough times before, and we’ll get through this too,” said local pastor, Reverend Mark Thompson. “This community has always come together when it matters most, and we will do it again.”</p>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">As the floodwaters begin to recede, the residents of Willow Creek look to the future. While the damage is immense, the town’s unbreakable spirit and determination will help guide them through the rebuilding process. In the coming weeks, town officials will host town halls to discuss the recovery plans, and local organizations are preparing long-term support for those affected.</p>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">The floodwaters may have ravaged Willow Creek, but the community’s strength has proven that even the most difficult challenges can be overcome together. The road to recovery will be long, but Willow Creek will rise again.</p>`
+},
+{
+  title: "Revolutionary Vertical Farm Tower Promises to Transform Urban Agriculture",
+  description: "A cutting-edge vertical farm tower opens in downtown, offering a sustainable solution to food production in urban areas, while reducing the carbon footprint of traditional farming.",
+  image: `${basePath}public/img/News3Img/Articles/AIarticle31.jpg`,
+  slug: "vertical-farm-tower-urban-sustainability",
+  date: "02/12/2025",
+  author: "Lone Star News",
+  content: `<p style="text-indent: 2rem; margin-bottom: 1rem;">A groundbreaking project in urban farming has taken root in the heart of downtown—literally. The city's first vertical farm tower, built to grow crops in stacked layers inside a repurposed skyscraper, promises to revolutionize the way we think about food production. This state-of-the-art facility uses cutting-edge technology to grow fresh produce on multiple floors, all while minimizing environmental impact and reducing food miles.</p>
+
+  <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Sustainability at Its Core</h2>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">The new vertical farm tower, located in the heart of the city’s business district, is a bold response to the growing demand for sustainable agriculture. With traditional farming taking a toll on land resources and transportation contributing to food’s carbon footprint, this vertical farming model aims to deliver fresh, locally grown produce to urban populations with minimal environmental impact.</p>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">Using hydroponic systems, the farm tower grows crops such as lettuce, tomatoes, herbs, and microgreens in nutrient-rich water solutions rather than soil. LED lights are strategically placed to provide optimal growth conditions, while sensors monitor temperature, humidity, and nutrient levels to ensure maximum efficiency. Water is recycled and filtered, minimizing waste and making the farm tower incredibly water-efficient, using up to 95% less water than traditional farming methods.</p>
+
+  <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">A Model for the Future</h2>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">This vertical farming initiative could be a game-changer for cities around the world. With urban areas rapidly expanding, the demand for food is growing, but the space for traditional farming is shrinking. Vertical farming offers a scalable solution that can be implemented in high-density areas, reducing the need for long-distance transportation and lowering the carbon footprint associated with food delivery.</p>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">“This is an exciting step toward creating a more sustainable, resilient food system in cities,” said Dr. Thomas White, an urban agriculture expert at GreenTech Solutions. “The beauty of vertical farming is that it can operate within cities, close to where the food is needed, and it doesn’t require the vast amounts of land that traditional farming does.”</p>
+
+  <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Addressing Urban Food Insecurity</h2>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">One of the most exciting aspects of the vertical farm tower is its potential to address urban food insecurity. With more than 23 million people in the U.S. living in food deserts, the ability to grow food in cities, close to where people live, could help ensure that fresh produce is available year-round, even in areas that are traditionally underserved by grocery stores.</p>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">Local residents are already seeing the benefits. “It’s amazing to have fresh, organic produce right here in the city,” said Rachel Lopez, a local resident and customer of the farm’s community-supported agriculture (CSA) program. “I can just pick up my weekly vegetables after work, and I know they’re grown sustainably. It’s a huge win for the environment and for our community.”</p>
+
+  <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Looking to the Future</h2>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">The success of the vertical farm tower could pave the way for similar projects in other cities, leading to the creation of an urban agriculture network that could supply fresh produce to millions. As technology advances and costs decrease, it’s likely that vertical farming will become a key part of urban landscapes worldwide, providing a sustainable solution to food production in an increasingly crowded world.</p>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">In the coming years, the team behind the vertical farm tower plans to expand operations, adding more crops and increasing production to meet the growing demand. With the potential to transform the future of food, this vertical farming model is one to watch as cities seek innovative solutions for sustainability.</p>`
 }
+
+
 
 
 

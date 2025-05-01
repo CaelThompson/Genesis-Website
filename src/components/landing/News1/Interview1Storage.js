@@ -76,7 +76,7 @@ export const interviews = [
   {
     title: "Designing the Future of Medical Devices",
     description: "Abby Smith and Mike Jones discuss how Genesis is shaping the future of medical devices with cutting-edge design and technology.",
-    image: `${basePath}img/genesis_medical_devices.png`,
+    image: `${basePath}public/img/News1Img/interviews/interview14.jpg`,
     slug: "genesis-medical-device-design",
     date: "3/20/2024",
     author: "Karen Fox",
@@ -118,7 +118,7 @@ export const interviews = [
   {
     title: "Driving Global Sales and Expanding Market Reach",
     description: "Victor Viola and Brian Matthews share insights into Genesis’s global sales strategies and how they support market expansion and growth.",
-    image: `${basePath}img/genesis_global_sales.png`,
+    image: `${basePath}public/img/News1Img/interviews/interview15.jpg`,
     slug: "genesis-global-sales-expansion",
     date: "2/1/2023",
     author: "Emily Grant",
@@ -148,7 +148,7 @@ export const interviews = [
   {
     title: "Genesis’ Livorno Facility - Pioneering the Future of Aerospace Engineering",
     description: "Alan Michaels and Fred Reed discuss the innovative work being done at Genesis’s Silverton facility to advance aerospace engineering.",
-    image: `${basePath}img/genesis_livorno_facility.png`,
+    image: `${basePath}public/img/News1Img/interviews/interview16.jpg`,
     slug: "genesis-silverton-facility-aerospace",
     date: "12/1/2024",
     author: "Sarah Mitchell",

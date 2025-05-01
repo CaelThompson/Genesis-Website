@@ -205,7 +205,7 @@ import { parseKeywords } from '../SearchEngine/searchfilter.js';
 }
 
         function executeSearch() {
-            const keywords = ["news", "genesis", "stock", "company", "other", "articles", "reddit"];
+            const keywords = ["news", "genesis", "stock", "company", "other", "articles", "reddit", "vanguard", "madrigal", "lone"];
             const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
             console.log('Ran Search!');
             
@@ -311,6 +311,24 @@ import { parseKeywords } from '../SearchEngine/searchfilter.js';
                 break;
             case keyLog.includes("news") || keyLog.includes("articles"):
                 window.location.href = `${basePath}searchresult?section2=show`;
+                break;
+            case keyLog.includes("genesis") && keyLog.includes("vanguard"):
+                window.location.href = `${basePath}searchresult?section1=show&section8=show`;
+                break;
+            case keyLog.includes("genesis") && keyLog.includes("madrigal"):
+                window.location.href = `${basePath}searchresult?section1=show&section9=show`;
+                break;
+            case keyLog.includes("genesis") && keyLog.includes("star"):
+                window.location.href = `${basePath}searchresult?section1=show&section10=show`;
+                break;
+            case keyLog.includes("vanguard"):
+                window.location.href = `${basePath}searchresult?section8=show`;
+                break;
+            case keyLog.includes("madrigal"):
+                window.location.href = `${basePath}searchresult?section9=show`;
+                break;
+            case keyLog.includes("star"):
+                window.location.href = `${basePath}searchresult?section10=show`;
                 break;
             default:
                 window.location.href = `${basePath}searchresult?section7=show`;

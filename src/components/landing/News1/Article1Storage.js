@@ -251,5 +251,60 @@ export const articles = [
 <p style="text-indent: 2rem; margin-bottom: 1rem;">The Silverton plant stands as a testament to Genesis’s unwavering pursuit of excellence in aerospace manufacturing, promising to elevate the company’s offerings and redefine efficiency in an ever-competitive market.</p>
 
 <p style="text-indent: 2rem; margin-bottom: 1rem;">With its strategic deployment of robotics and artisanship in aerospace components, Genesis is poised to navigate the intricate landscape of modern manufacturing, transforming challenges into opportunities and affirming its status as a visionary leader in the industry.</p>`
+},
+{
+  title: "Skyport Unveils Ambitious Expansion Plans Amid Rising Air Travel Demand",
+  description: "Skyport Airport announces a $2.1 billion expansion to meet increasing travel demands, sparking both excitement and concern among locals.",
+  image: `${basePath}public/img/News1Img/Articles/AIarticle12.jpg`,
+  slug: "skyport-expansion-plans-aviation-growth",
+  date: "09/12/2023",
+  author: "Gene Williams, Aviation Industry Analyst",
+  content: `<p style="text-indent: 2rem; margin-bottom: 1rem;">Skyport International, one of the Midwest’s fastest-growing air transit hubs, has announced a bold $2.1 billion expansion project. The plan, set to unfold over the next five years, includes the addition of two state-of-the-art terminals, an automated baggage system, a high-speed transit loop, and a new sustainability-focused cargo wing.</p>
+
+  <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Growth Driven by Demand</h2>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">The expansion follows a 38% increase in passenger volume since 2021, with projections indicating over 27 million travelers will pass through Skyport annually by 2027. The airport, currently operating near capacity, hopes to alleviate congestion and improve traveler experience.</p>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">“This is not just a response to growth — it’s an investment in the future of regional air travel,” said Skyport CEO Tasha Lin at Tuesday’s announcement. “We are building an airport worthy of the next generation.”</p>
+
+  <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Community Response and Environmental Review</h2>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">Community leaders have largely supported the plan, citing job creation and increased tourism revenue. However, local environmental organizations have raised concerns about air quality, light pollution, and increased carbon output from larger operations.</p>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">“This project could be transformative,” said Councilmember Jorge Valdez. “But it must be held to strict environmental accountability.” A formal environmental impact report is due by November, and construction will not begin until early 2024 pending approval.</p>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">Skyport has promised electric vehicle support, a LEED Platinum terminal, and a rooftop greenhouse as part of its green design initiative. Despite some skepticism, public surveys show 62% of residents in favor of the project.</p>`
+},
+{
+  title: "Local Artist Collective 'Inkforge' Transforms Abandoned Mill into Cultural Hub",
+  description: "Inkforge breathes new life into a long-vacant industrial space, creating studios, galleries, and public workshops.",
+  image: `${basePath}public/img/News1Img/Articles/AIarticle11.jpg`,
+  slug: "inkforge-mill-art-space-revamp",
+  date: "12/05/2023",
+  author: "Lila Chen, Arts and Culture Writer",
+  content: `<p style="text-indent: 2rem; margin-bottom: 1rem;">A once-abandoned textile mill on the eastern edge of Milltown has become the unlikely center of a cultural revival, thanks to a grassroots artist collective known as Inkforge. Over the past two years, the collective has painstakingly converted the crumbling brick structure into a multi-use arts and community space — complete with open studios, rotating exhibits, and educational programming.</p>
+
+  <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">From Ruin to Renaissance</h2>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">The mill, originally constructed in 1891 and left derelict since 2004, was slated for demolition until Inkforge proposed an alternative vision: a self-sustaining creative ecosystem. Using a combination of crowdfunding, local grants, and volunteer labor, they restored over 45,000 square feet of space—preserving much of the original brickwork and timber beams.</p>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">“We didn’t want to erase the past,” said co-founder Marissa Phan. “We wanted to layer onto it — make something new without losing what was here.”</p>
+
+  <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Art for Everyone</h2>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">Today, Inkforge is home to more than 20 resident artists working in mediums ranging from sculpture and fiber art to digital design and AI-generated installations. Weekly open studio nights invite the public to engage with the artists, view works in progress, and purchase pieces directly.</p>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">The collective also hosts monthly gallery openings, live mural events, and after-school programs for youth. Community workshops on printmaking, ceramics, and 3D modeling have consistently sold out since summer.</p>
+
+  <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">An Engine for Local Growth</h2>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">The neighborhood around Inkforge is already beginning to change. Small cafés, bike repair shops, and cooperative bookstores have begun to open nearby, drawn by the renewed energy and foot traffic the collective generates. City officials are now considering additional zoning support for creative redevelopment.</p>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">“This isn’t just about art,” said councilmember Priya Leung. “It’s about identity, opportunity, and transformation. Inkforge is a catalyst.”</p>
+
+  <p style="text-indent: 2rem; margin-bottom: 1rem;">Looking ahead, Inkforge plans to partner with nearby colleges for a shared artist-in-residence program, and is in talks to develop a satellite space focused on performance art and theater. “We’re just getting started,” said Phan. “This is the blueprint for what’s possible when art and community move together.”</p>`
 }
+
+
+
   ];

@@ -1,0 +1,37 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import { financials } from "../../components/landing/Stock/FinancialStorage.js";
+import BaseLayout from"../../layouts/StockLayout.astro";
+
+
+const { slug } = Astro.params;
+const financial = financials.find((a) => a.slug === slug);
+
+if (!financial) {
+  throw new Error("Article not found");
+}
+
+// Convert newlines and markdown-like formatting into proper HTML (if needed)
+const formattedContent = financial.content
+  .replace(/—/g, "&mdash;"); // Fix em-dashes
+---
+<BaseLayout>
+    <head>
+    <BaseHead/>
+        <title>{financial.title} - Genesis Blog</title>
+        </head>
+            <div class="bg-white max-w-6xl mx-auto p-6">
+        <article  class="max-w-6xl mx-auto p-6">
+        <a href="/stockfront" class="inline-block mb-4 text-green-700 hover:underline">← Back to Home</a>
+
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-white">{financial.title}</h1>
+        <div class="flex justify-between text-gray-600 dark:text-gray-400 mt-2">
+            <p>{financial.author}</p>
+            <p>{financial.date}</p>
+        </div>
+        <img src={financial.image} alt={financial.title} class="w-full rounded-lg mt-4" />
+
+        <!-- Render formatted HTML content -->
+        <div class="mt-8 text-xl text-black-700 prose dark:prose-invert mb-[20vh]" set:html={formattedContent}></div>
+        </article>
+</BaseLayout>

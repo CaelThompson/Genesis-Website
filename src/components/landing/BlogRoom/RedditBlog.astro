@@ -1,0 +1,321 @@
+---
+import { posts } from './postData.js';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blog Room</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(15deg, #e10000, #333); /* Black gradient for depth */
+    margin: 0;
+    padding: 0;
+}
+
+.bodyup {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2.5rem; /* 2.5 * 16px = 40px */
+    font-weight: bold;
+}
+
+header img {
+    height: 3.125rem; /* 50px */
+    margin-right: 1.25rem; /* 20px */
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #add8e6, #87ceeb);
+    color: white;
+    padding: 1.25rem; /* 20px */
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+}
+
+.navbar a {
+    padding: 0.875rem 1.25rem; /* 14px 20px */
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.navbar a:hover {
+    background-color: #575757;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 1.25rem; /* 20px */
+}
+
+.post {
+    background-color: white;
+    margin-bottom: 1.875rem; /* 30px */
+    border-radius: 0.625rem; /* 10px */
+    padding: 1.25rem; /* 20px */
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* 4px 8px */
+    transition: transform 0.3s ease-in-out;
+}
+
+.post:hover {
+    transform: translateY(-5px); /* Slight hover effect */
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem; /* 16px */
+    color: #888;
+    margin-bottom: 1.25rem; /* 20px */
+}
+
+.post-title {
+    font-size: 2rem; /* 32px */
+    font-weight: 600;
+    color: #333;
+    margin: 1.25rem 0; /* 20px 0 */
+    line-height: 1.3; /* Increased line-height for readability */
+}
+
+.post-content {
+    font-size: 1.125rem; /* 18px */
+    color: #444;
+    line-height: 1.6; /* Improved line-height for readability */
+}
+
+.post-footer {
+    margin-top: 1.25rem; /* 20px */
+    font-size: 1rem; /* 16px */
+    color: #555;
+}
+
+.comments {
+    margin-top: 1.25rem; /* 20px */
+    background-color: #f1f1f1;
+    padding: 1rem; /* 16px */
+    border-radius: 0.625rem; /* 10px */
+}
+
+.comment {
+    background-color: #fff;
+    margin: 1.25rem 0; /* 20px 0 */
+    padding: 1rem; /* 16px */
+    border-radius: 0.625rem; /* 10px */
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05); /* 2px 4px */
+}
+
+.comment-header {
+    font-size: 1rem; /* 16px */
+    color: #888;
+    margin-bottom: 0.75rem; /* 12px */
+}
+
+.comment-body {
+    font-size: 1.125rem; /* 18px */
+    color: #333;
+    line-height: 1.6; /* Improved line-height for readability */
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Description Styles */
+.tab-description {
+    background-color: #ddd;
+    padding: 0.625rem; /* 10px */
+    border-radius: 0.5rem; /* 8px */
+    margin-bottom: 1.25rem; /* 20px */
+    font-size: 1rem; /* 16px */
+    color: #333;
+}
+
+.tab-description {
+    background-color: #333; /* Black background for striking contrast */
+    padding: 1.25rem; /* 20px */
+    border-radius: 0.5rem; /* 8px */
+    margin-bottom: 1.25rem; /* 20px */
+    font-size: 1rem; /* 16px */
+    color: #fff; /* White text for high contrast */
+    box-shadow: 0 0.125rem 0.625rem rgba(255, 255, 255, 0.5); /* 2px 10px */
+    border-left: 0.3125rem solid #fff; /* 5px */
+    font-style: normal;
+}
+
+.tab-title-card {
+    width: 100%;
+    height: 100%;
+    padding: 1.25rem; /* 20px */
+    border-radius: 0.5rem; /* 8px */
+    margin-bottom: 0.3125rem; /* 5px */
+    color: #fff; /* White text for contrast */
+    text-align: center;
+    font-size: 12.5rem; /* 200px */
+    font-weight: bold;
+    box-shadow: 0 0.125rem 0.25rem rgba(255, 255, 255, 0.2); /* 2px 4px */
+}
+
+    </style>
+</head>
+
+<div id="title-card" class="tab-title-card"></div>
+<body>
+    <!-- Content -->
+    <div class="bodyup">
+        <div class="container">
+            <div id="description" class="tab-description">
+                <!-- Dynamic descriptions will be injected here based on active tab -->
+            </div>
+
+            <div id="top-image" class="tab-description"></div>
+
+            {posts.length === 0 ? (
+                <p>No posts available. Please check back later.</p>
+            ) : (
+                posts.map(post => (
+                    <div class={`tab-content ${post.category} ${post.category === "home" ? "active" : ""}`}>
+                        <div class="post">
+                            <div class="post-header">
+                                <span>Posted by u/{post.username} · {post.time}</span>
+                                <span>{post.upvotes} upvotes</span>
+                            </div>
+                            <div class="post-title">
+                                <h2>
+                                    <a href={`/post/${post.id}`}>{post.title}</a>
+                                </h2>
+                            </div>
+                            <div class="post-content">
+                                <p>{post.content}</p>
+                            </div>
+                            <div class="post-footer">
+                                <span>{post.comments.length} Comments</span>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            )}
+        </div>
+    </div>
+    <script>
+
+        
+
+
+
+
+        document.querySelectorAll('.navbar a').forEach(tab => {
+            tab.addEventListener('click', (event) => {
+                event.preventDefault();
+                const tabName = tab.getAttribute('data-tab');
+    
+                // Hide home tabs
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+    
+                // Show the selected tab
+                document.querySelectorAll(`.tab-content.${tabName}`).forEach(content => {
+                    content.classList.add('active');
+                });
+    
+                // Update title card
+                const titleCard = document.getElementById('title-card');
+                switch (tabName) {
+                    case 'home':
+                        titleCard.innerHTML = "Home";
+                        break;
+                    case 'technology':
+                        titleCard.innerHTML = "Technology & Company";
+                        break;
+                    case 'lifestyle':
+                        titleCard.innerHTML = "Lifestyle";
+                        break;
+                    case 'music':
+                        titleCard.innerHTML = "Music";
+                        break;
+                    case 'gaming':
+                        titleCard.innerHTML = "Gaming";
+                        break;
+                    default:
+                        titleCard.innerHTML = "";
+                }
+    
+                // Set the description
+                const description = document.getElementById('description');
+                switch (tabName) {
+                    case 'home':
+                        description.innerHTML = "Welcome to the blog! Here you'll find a variety of posts across different categories.";
+                        break;
+                    case 'technology':
+                        description.innerHTML = "Stay up to date with the latest advancements in technology, from gadgets to software.";
+                        break;
+                    case 'lifestyle':
+                        description.innerHTML = "Explore posts about living a balanced and fulfilling life, from wellness to daily tips.";
+                        break;
+                    case 'music':
+                        description.innerHTML = "Dive into the world of music, with discussions about artists, albums, and the latest tracks.";
+                        break;
+                    case 'gaming':
+                        description.innerHTML = "Join the gaming community to discuss the latest games, strategies, and news in the gaming world.";
+                        break;
+                    default:
+                        description.innerHTML = "";
+                }
+    
+                // Set the top image
+                const topImage = document.getElementById('top-image');
+                switch (tabName) {
+                    case 'home':
+                        topImage.innerHTML = '<img src="/img/blogroom.jpeg" alt="A collage representing various blog categories" />';
+                        break;
+                    case 'technology':
+                        topImage.innerHTML = '<img src="/img/technology.jpg" alt="A futuristic image representing technology" />';
+                        break;
+                    case 'lifestyle':
+                        topImage.innerHTML = '<img src="/img/lifestyle.jpg" alt="An image representing a balanced lifestyle" />';
+                        break;
+                    case 'music':
+                        topImage.innerHTML = '<img src="/img/music.jpg" alt="An image of musical notes and instruments" />';
+                        break;
+                    case 'gaming':
+                        topImage.innerHTML = '<img src="/img/gaming.jpg" alt="An image of a gaming console and accessories" />';
+                        break;
+                    default:
+                        topImage.innerHTML = '';
+                }
+            });
+        });
+    
+        // Automatically simulate click on "home" tab when the page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.navbar a[data-tab="home"]')?.click();
+        });
+    </script>
+    
+
+</body>
+</html>

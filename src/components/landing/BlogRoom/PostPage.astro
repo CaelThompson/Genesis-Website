@@ -1,0 +1,121 @@
+---
+import { posts } from './postData.js';
+
+// Get the post ID from the URL
+const postId = Astro.params.id;
+const post = posts.find((p) => p.id === parseInt(postId));
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{post.title}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(15deg, #e10000, #333); /* Black gradient for depth */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin: 0 auto;
+            padding: 1.25rem; /* 20px */
+        }
+
+        .post {
+            background-color: white;
+            margin-bottom: 1.875rem; /* 30px */
+            border-radius: 0.625rem; /* 10px */
+            padding: 1.25rem; /* 20px */
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* 4px 8px */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .post:hover {
+            transform: translateY(-5px); /* Slight hover effect */
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem; /* 16px */
+            color: #888;
+            margin-bottom: 1.25rem; /* 20px */
+        }
+
+        .post-title {
+            font-size: 2rem; /* 32px */
+            font-weight: 600;
+            color: #333;
+            margin: 1.25rem 0; /* 20px 0 */
+            line-height: 1.3; /* Increased line-height for readability */
+        }
+
+        .post-content {
+            font-size: 1.125rem; /* 18px */
+            color: #444;
+            line-height: 1.6; /* Improved line-height for readability */
+        }
+
+        .comments {
+            margin-top: 1.25rem; /* 20px */
+            background-color: #f1f1f1;
+            padding: 1rem; /* 16px */
+            border-radius: 0.625rem; /* 10px */
+        }
+
+        .comment {
+            background-color: #fff;
+            margin: 1.25rem 0; /* 20px 0 */
+            padding: 1rem; /* 16px */
+            border-radius: 0.625rem; /* 10px */
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05); /* 2px 4px */
+        }
+
+        .comment-header {
+            font-size: 1rem; /* 16px */
+            color: #888;
+            margin-bottom: 0.75rem; /* 12px */
+        }
+
+        .comment-body {
+            font-size: 1.125rem; /* 18px */
+            color: #333;
+            line-height: 1.6; /* Improved line-height for readability */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="post">
+            <div class="post-header">
+                <span>Posted by u/{post.username} · {post.time}</span>
+                <span>{post.upvotes} upvotes</span>
+            </div>
+            <div class="post-title">
+                <h1>{post.title}</h1>
+            </div>
+            <div class="post-content">
+                <p>{post.content}</p>
+            </div>
+        </div>
+
+        <div class="comments">
+            <h2>Comments</h2>
+            {post.comments.map((comment) => (
+                <div class="comment">
+                    <div class="comment-header">
+                        <strong>u/{comment.username}</strong> · {comment.time}
+                    </div>
+                    <div class="comment-body">
+                        {comment.content}
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</body>
+</html>

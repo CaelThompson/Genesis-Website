@@ -12,14 +12,18 @@ const processedArticles = articles
   }))
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); // Sort by most recent first
 ---
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madrigal International Times</title>
+  </head>
 
 <style>
   
   .article-box-horizontal {
     display: flex;
     align-items: flex-start;
-    background-color: #f4f4f4;
+    background-color: rgba(62, 95, 89, 0.8);
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
@@ -29,10 +33,11 @@ const processedArticles = articles
     box-sizing: border-box;
     position: relative;
     height: auto;
+    color: #fff;
   }
 
   .article-box-horizontal:hover {
-    background-color: #d3d3d3; /* Grey color on hover */
+    background-color: #215a47; /* Grey color on hover */
   }
   .article-image-horizontal {
     flex: 0 0 400px;
@@ -56,7 +61,7 @@ const processedArticles = articles
     font-size: 12px;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #555;
+    color: #fff;
   }
 </style>
 

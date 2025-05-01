@@ -36,7 +36,11 @@ function getUniqueRandomItem() {
   return randomItem;
 }
 ---
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lone Star Outlet</title>
+  </head>
 <style>
   .grid-container {
     display: grid;
@@ -68,24 +72,42 @@ function getUniqueRandomItem() {
     
   }
 
+.grid-item2-image {
+    
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    padding-top: 20%;
+    background-color: transparent; /* Remove background color */
+
+    margin-bottom: 0px;
+   
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    position: relative; /* Added for positioning the date */
+    height: 100%;
+    
+  }
   .grid-item-text {
     flex: 1;
     padding: 20px;
     display: flex;
     flex-direction: column;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color: #f4f4f4; /* Default background color */
+    background-color: rgb(94, 40, 14);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
+    color: #f3f1eb;
   }
 
-  .grid-item:hover .grid-item-text {
-    background-color: #e0e0e0;
-    border-radius: 8px;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
+  .grid-item:hover,.grid-item-text, .grid-item2-image:hover {
+    transform: translateY(-3px);
   }
+
+
 
   .grid-item-date {
     position: absolute;
@@ -140,7 +162,7 @@ function getUniqueRandomItem() {
         <a href={url} class="grid-item" style="grid-column: span 2; grid-row: span 2;">
           <div class="grid-item">
             <div
-              class="grid-item-image group"
+              class="grid-item2-image"
               style={`background-image: url('${image}');`}
             ></div>
             <time datetime={date} class="grid-item-date">
