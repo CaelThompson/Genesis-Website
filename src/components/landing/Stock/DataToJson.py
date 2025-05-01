@@ -32,9 +32,10 @@ def convert_file_to_json(file_path, output_file):
     with open(output_file, 'w') as json_file:
         json.dump(json_data, json_file, indent=2)
 
-
-file_path = FILE IN FILE PATH  # Replace with your file path
-output_file = FILE IN FILE PATH  # Replace with your desired output file name
+# Example usage
+file_path = r"C:\Users\z0052r7b\OneDrive - Siemens AG\Documents\DataDocument.txt"  # Replace with your file path  # Replace with your file path
+output_file = r"C:\Users\z0052r7b\OneDrive - Siemens AG\Documents\Output.json"  # Replace with your desired output file name
 convert_file_to_json(file_path, output_file)
 
 print(f"JSON data has been written to {output_file}")
+
