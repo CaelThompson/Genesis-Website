@@ -2,6 +2,7 @@
 import BaseHead from "../../components/BaseHead.astro";
 import { interviews } from "../../components/landing/News1/Interview1Storage.js";
 import NewsNav from "../../components/landing/News1/News1Nav.astro";
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
 
 
 const { slug } = Astro.params;
@@ -22,7 +23,7 @@ const formattedContent = interview.content
 </head>
 <NewsNav />
 <article class="max-w-6xl mx-auto p-6 pt-28" style="margin-top: -70px;">
-  <a href="news1" class="inline-block mb-4 text-blue-700 hover:underline">← Back to Home Page</a>
+  <a href=`${basePath}news1` class="inline-block mb-4 text-blue-700 hover:underline">← Back to Home Page</a>
 
   <h1 class="text-3xl font-bold text-gray-900 dark:text-white">{interview.title}</h1>
   <div class="flex justify-between text-gray-600 dark:text-gray-400 mt-2">

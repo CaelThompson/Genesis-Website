@@ -2,6 +2,7 @@
 import BaseHead from "../../components/BaseHead.astro";
 import { financials } from "../../components/landing/Stock/FinancialStorage.js";
 import BaseLayout from"../../layouts/StockLayout.astro";
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
 
 
 const { slug } = Astro.params;
@@ -22,7 +23,7 @@ const formattedContent = financial.content
         </head>
             <div class="bg-white max-w-6xl mx-auto p-6">
         <article  class="max-w-6xl mx-auto p-6">
-        <a href="stockfront" class="inline-block mb-4 text-green-700 hover:underline">← Back to Home</a>
+        <a href=`${basePath}stockfront` class="inline-block mb-4 text-green-700 hover:underline">← Back to Home</a>
 
         <h1 class="text-3xl font-bold text-gray-900 dark:text-white">{financial.title}</h1>
         <div class="flex justify-between text-gray-600 dark:text-gray-400 mt-2">

@@ -1,6 +1,7 @@
 ---
 import { posts } from '../../components/landing/BlogRoom/postData.js';
 import Header from "../../components/global/RedditHeader.astro";
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
 
 // Get the post ID from the URL
 const postId = Astro.params.id;
