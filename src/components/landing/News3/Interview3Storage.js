@@ -4,7 +4,7 @@ export const interviews = [
   {
     title: "Genesis’s Vision — Engineering the Future of Precision",
     description: "Alan Michaels and Abby Smith share how Genesis leads the way in precision engineering, innovation, and the future of aerospace, defense, and automotive industries.",
-    image: `${basePath}public/Img/News3Img/interviews/interview31.jpg`,
+    image: `${basePath}Img/News3Img/interviews/interview31.jpg`,
     slug: "genesis-vision-engineering-future",
     date: "2/15/2023",
     author: "Cali Gwen, Arts & Roots Culture Reporter",
@@ -56,7 +56,7 @@ export const interviews = [
   {
     title: "Navigating Challenges in Aerospace and Automotive Design",
     description: "Abby Smith and Stew Lewis open up about the pressures and progress in aerospace and automotive innovation, highlighting the impact of limited resources and the promise of cross-industry collaboration.",
-    image: `${basePath}public/img/News3Img/interviews/interview38.jpg`,
+    image: `${basePath}img/News3Img/interviews/interview38.jpg`,
     slug: "aerospace-automotive-design-challenges",
     date: "8/20/2024",
     author: "AJ Ward",
@@ -99,7 +99,7 @@ export const interviews = [
   {
     title: "Sustainability and Green Engineering at Genesis",
     description: "Alan Michaels discusses how Genesis is integrating sustainability into every aspect of its operations, from renewable energy to responsible sourcing, without compromising innovation.",
-    image: `${basePath}public/img/News3Img/interviews/interview35.jpg`,
+    image: `${basePath}img/News3Img/interviews/interview35.jpg`,
     slug: "sustainability-green-engineering",
     date: "1/10/2025",
     author: "Cali Gwen",
@@ -139,7 +139,7 @@ export const interviews = [
   {
     title: "Revolutionizing the Supply Chain with Cutting-Edge Technology",
     description: "Brian Mathews and Stew Lewis discuss how Genesis is leveraging technology, automation, and Texas’s strategic advantages to streamline supply chains and boost sustainability.",
-    image: `${basePath}public/img/News3Img/interviews/interview32.jpg`,
+    image: `${basePath}img/News3Img/interviews/interview32.jpg`,
     slug: "genesis-supply-chain-innovation",
     date: "3/12/2025",
     author: "Travis Boone",
@@ -180,7 +180,7 @@ export const interviews = [
   {
     title: "The Future of Autonomous Vehicles: Engineering for Safety and Efficiency",
     description: "Abby Smith and Alan Michaels explore how Genesis is contributing to the autonomous vehicle revolution, with Texas serving as both a testing ground and manufacturing hub.",
-    image: `${basePath}public/img/News3Img/interviews/interview34.jpg`,
+    image: `${basePath}img/News3Img/interviews/interview34.jpg`,
     slug: "autonomous-vehicles-genesis",
     date: "1/29/2025",
     author: "Beau McAllister",
@@ -230,7 +230,7 @@ export const interviews = [
   {
   title: "Engineering for a Sustainable Future: Green Manufacturing Practices",
   description: "Alan Michaels and Jan Wilcox share how Genesis is embracing renewable energy and sustainable materials, with Texas serving as a pivotal hub for innovation and green manufacturing.",
-  image: `${basePath}public/img/News3Img/interviews/interview37.jpg`,
+  image: `${basePath}img/News3Img/interviews/interview37.jpg`,
   slug: "sustainable-manufacturing-genesis",
   date: "10/7/2024",
   author: "Marisol Reyes",
@@ -280,7 +280,7 @@ export const interviews = [
 {
   title: "The Role of Robotics in Modern Manufacturing",
   description: "Alan Michaels and Stew Lewis explain how Genesis is leveraging robotics to enhance safety, efficiency, and design in manufacturing, while addressing the challenges of integration and planning.",
-  image: `${basePath}public/img/News3Img/interviews/interview36.jpg`,
+  image: `${basePath}img/News3Img/interviews/interview36.jpg`,
   slug: "robotics-in-manufacturing-genesis",
   date: "12/4/2024",
   author: "Beau McAllister",
@@ -332,7 +332,7 @@ export const interviews = [
 {
   title: "Engineering for Space: Pushing the Boundaries of Aerospace Design",
   description: "Alan Michaels and Abby Smith discuss Genesis' contributions to aerospace engineering, highlighting innovations in satellite components, 3D printing, and the future of space technology.",
-  image: `${basePath}public/img/News3Img/interviews/interview33.png`,
+  image: `${basePath}img/News3Img/interviews/interview33.png`,
   slug: "aerospace-design-genesis",
   date: "2/17/2025",
   author: "Ricky Del Toro",

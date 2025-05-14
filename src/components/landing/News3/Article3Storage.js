@@ -4,7 +4,7 @@ export const articles = [
   {
     title: "Genesis Plans for Expansion: Enriching Rendon's Future",
     description: "Genesis Company announces plans for potential expansions at its Texas headquarters, aiming to enhance innovation labs, integrate green spaces, and engage local youth in STEM disciplines.",
-    image: `${basePath}public/img/News3Img/Articles/article37.jpg`,
+    image: `${basePath}img/News3Img/Articles/article37.jpg`,
     slug: "genesis-plans-for-expansion-rendon",
     date: "10/07/2019",
     author: "Lone Star News",
@@ -29,7 +29,7 @@ export const articles = [
 {
   title: "Challenges on the Horizon: Genesis Faces Economic Strains with Community Hope",
   description: "Genesis faces rising inflation and supply chain disruptions that threaten its operations. The community hopes for resilience and solutions to safeguard local jobs.",
-  image: `${basePath}public/img/News3Img/Articles/article34.png`,
+  image: `${basePath}img/News3Img/Articles/article34.png`,
   slug: "genesis-faces-economic-strains-rendon",
   date: "08/18/2023",
   author: "Lone Star News",
@@ -52,7 +52,7 @@ export const articles = [
 , {
   title: "Genesis Faces Data Management Challenges: Delays and Quality Concerns",
   description: "Genesis Company confronts data management issues at its Texas facilities, leading to product delays and quality concerns, requiring strategic solutions to maintain operational excellence.",
-  image: `${basePath}public/img/News3Img/Articles/article33.jpg`,
+  image: `${basePath}img/News3Img/Articles/article33.jpg`,
   slug: "genesis-data-management-challenges-texas",
   date: "11/18/2024",
   author: "Lone Star News",
@@ -79,7 +79,7 @@ export const articles = [
 {
   title: "Navigating Turbulent Waters: Genesis's Future in Rendon Amid Economic Challenges",
   description: "Genesis Company faces deepening financial struggles in 2025, raising concerns about potential downsizing and its impact on the Rendon community, which heavily depends on the company’s presence.",
-  image: `${basePath}public/img/News3Img/Articles/article32.jpg`,
+  image: `${basePath}img/News3Img/Articles/article32.jpg`,
   slug: "genesis-future-in-rendon-economic-challenges",
   date: "2/26/2025",
   author: "Lone Star News",
@@ -104,7 +104,7 @@ export const articles = [
 {
   title: "Building Green: Genesis's Positive Impact on the Rendon Community",
   description: "Genesis Company reinforces its role as a community pillar in Rendon, Texas, through eco-conscious facility upgrades and support for local sustainability initiatives.",
-  image: `${basePath}public/img/News3Img/Articles/article31.jpg`,
+  image: `${basePath}img/News3Img/Articles/article31.jpg`,
   slug: "genesis-green-impact-rendon-community",
   date: "6/10/2025",
   author: "Lone Star News",
@@ -123,7 +123,7 @@ export const articles = [
 {
   title: "Engineering Excellence: Genesis Bridges Academia and Industry",
   description: "Genesis Company pioneers an internship initiative that connects local university students with real-world engineering challenges, reinforcing its commitment to education and innovation.",
-  image: `${basePath}public/img/News3Img/Articles/article311.jpg`,
+  image: `${basePath}img/News3Img/Articles/article311.jpg`,
   slug: "genesis-academia-industry-internships",
   date: "6/14/2007",
   author: "Lone Star News",
@@ -144,7 +144,7 @@ export const articles = [
 {
   title: "Genesis Employees Empower Local Education Through Engineering Courses",
   description: "Genesis Company launches a volunteer program where engineers teach local students about engineering concepts, sparking interest in STEM and strengthening ties with the Rendon community.",
-  image: `${basePath}public/img/News3Img/Articles/article310.jpg`,
+  image: `${basePath}img/News3Img/Articles/article310.jpg`,
   slug: "genesis-empowers-local-education",
   date: "4/30/2013",
   author: "Lone Star News",
@@ -168,7 +168,7 @@ export const articles = [
 {
   title: "Genesis Rises to the Challenge: Supporting COVID-19 Relief with Innovative Ventilator Components",
   description: "Genesis Company pivots operations to produce critical ventilator components, playing a key role in the global COVID-19 relief effort and showcasing its engineering excellence and commitment to societal well-being.",
-  image: `${basePath}public/img/News3Img/Articles/article36.jpg`,
+  image: `${basePath}img/News3Img/Articles/article36.jpg`,
   slug: "genesis-covid-relief-ventilator-components",
   date: "12/15/2020",
   author: "Lone Star News",
@@ -191,7 +191,7 @@ export const articles = [
 {
   title: "Genesis Powers Progress: Supplying Essential Components in Texas's Emerging EV Industry",
   description: "Genesis Company supports Texas’s electric vehicle boom with high-precision components, playing a vital role in driving the state’s shift toward sustainable transportation.",
-  image: `${basePath}public/img/News3Img/Articles/article39.jpg`,
+  image: `${basePath}img/News3Img/Articles/article39.jpg`,
   slug: "genesis-supports-texas-ev-growth",
   date: "6/25/2017",
   author: "Lone Star News",
@@ -215,7 +215,7 @@ export const articles = [
 {
   title: "Engineering Excellence: Genesis's Continued Success with Prestigious Internship Programs",
   description: "Genesis Company’s internship programs continue to shape future leaders in engineering, offering hands-on experience and fostering vital connections between academia and industry.",
-  image: `${basePath}public/img/News3Img/Articles/article38.jpg`,
+  image: `${basePath}img/News3Img/Articles/article38.jpg`,
   slug: "genesis-engineering-internship-success",
   date: "9/12/2018",
   author: "Lone Star News",
@@ -238,7 +238,7 @@ export const articles = [
 {
   title: "Strengthening Community Ties: Genesis’s Continued Commitment to Local Growth",
   description: "Genesis Company reinforces its dedication to Rendon through sustainable initiatives and educational partnerships that fuel regional progress and environmental awareness.",
-  image: `${basePath}public/img/News3Img/Articles/article35.jpg`,
+  image: `${basePath}img/News3Img/Articles/article35.jpg`,
   slug: "genesis-commitment-to-local-growth",
   date: "6/20/2021",
   author: "Lone Star News",
@@ -253,7 +253,7 @@ export const articles = [
 {
   title: "Unprecedented Flooding in Willow Creek Causes Widespread Damage, Residents Struggling to Recover",
   description: "Record-breaking rainfall leads to catastrophic flooding in Willow Creek, forcing evacuations and prompting urgent response from state and federal agencies.",
-  image: `${basePath}public/img/News3Img/Articles/AIarticle32.jpg`,
+  image: `${basePath}img/News3Img/Articles/AIarticle32.jpg`,
   slug: "willow-creek-floods-record-breaking-disaster",
   date: "8/2/2023",
   author: "Lone Star News",
@@ -300,7 +300,7 @@ export const articles = [
 {
   title: "Revolutionary Vertical Farm Tower Promises to Transform Urban Agriculture",
   description: "A cutting-edge vertical farm tower opens in downtown, offering a sustainable solution to food production in urban areas, while reducing the carbon footprint of traditional farming.",
-  image: `${basePath}public/img/News3Img/Articles/AIarticle31.jpg`,
+  image: `${basePath}img/News3Img/Articles/AIarticle31.jpg`,
   slug: "vertical-farm-tower-urban-sustainability",
   date: "02/12/2025",
   author: "Lone Star News",
