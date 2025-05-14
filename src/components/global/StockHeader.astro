@@ -1,3 +1,7 @@
+---
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
+---
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -154,9 +158,9 @@
     <div class ="navbarbackground">
         <div class="navbar">
             <h3><span style="color: white;">Stock</span>Watch</h3>
-            <a href="/Genesis/stockfront"><span style="color: white;">Home</span></a>
+            <a href=`${basePath}stockfront`><span style="color: white;">Home</span></a>
             <h2> / </h2>
-            <a href="/Genesis/stock"><span style="color: white;">Our</span>Watch</a>
+            <a href=`${basePath}stock`><span style="color: white;">Our</span>Watch</a>
             <!-- 
             <h2> / </h2>
             <a href="404"><span style="color: white;">Trending Stocks</span></a>

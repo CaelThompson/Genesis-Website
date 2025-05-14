@@ -4,7 +4,7 @@ export const financials = [
     {
         title: "Financial Earnings Call 2024 Interview",
         description: "Alan Michaels, Brian Matthews, and Elizabeth Redding discuss Genesis’s performance in 2024, challenges with supply chain and data transparency, and their strategic vision for growth in electric vehicles, autonomous systems, and smart materials.",
-        image: `${basePath}public/img/Stock/financial2.jpg`, 
+        image: `${basePath}img/Stock/financial2.jpg`, 
         slug: "Genesis-Earnings-Call-2024",
         date: "9/2/2024",
         author: "David Sinclair (Industry Insights Analyst)",
@@ -43,7 +43,7 @@ export const financials = [
     {
     title: "Genesis 2021 Financial Review: Strong Performance and Bold Projections for Future Growth",
     description: "Genesis, a key player in the aerospace and automotive industries, ended 2021 with impressive financial results, reinforcing its position as a leader in high-precision manufacturing. The company achieved a revenue of $15.9 billion and profit margins of 17.2%.",
-    image: `${basePath}public/img/Stock/financial1.jpg`, 
+    image: `${basePath}img/Stock/financial1.jpg`, 
     slug: "genesis-financial-review-2021",
     date: "1/15/2021",
     author: "Jane P. Mitchell, Business Times Correspondent",
@@ -70,7 +70,7 @@ export const financials = [
   {
     title: "Genesis 2018 Financial Review: A Testament to Resilience",
     description: "Genesis enters 2018 showcasing resilience and investor confidence, recovering from 2017’s volatility while positioning itself for innovation-driven expansion in aerospace and automotive industries.",
-    image: `${basePath}public/img/Stock/financial3.jpg`,
+    image: `${basePath}img/Stock/financial3.jpg`,
     slug: "genesis-financial-review-2018",
     date: "1/8/2018",
     author: "Staff Writer",
@@ -97,7 +97,7 @@ export const financials = [
   {
     title: "Genesis 2022 Performance Review: Strong Revenue Amid Margin and Quality Challenges",
     description: "Genesis posts over $16 billion in 2022 revenue, but concerns over declining margins and product quality raise investor caution despite strong operational performance.",
-    image: `${basePath}public/img/Stock/financial4.jpg`, 
+    image: `${basePath}img/Stock/financial4.jpg`, 
     slug: "genesis-performance-review-2022",
     date: "10/10/2022",
     author: "Jane P. Mitchell, Business Times Correspondent",
