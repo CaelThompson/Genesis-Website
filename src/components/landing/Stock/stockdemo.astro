@@ -146,7 +146,7 @@
         const modalChange30d = document.getElementById('modalChange30d');
 
         // Function to update the stock data
-        function updateStockData() {
+        function updateStockData(stockData) {
             const container = document.getElementById('stockContainer');
 
             // Clear existing stock info cards
@@ -221,14 +221,14 @@
                 stock.price += Math.floor(Math.random() * 5) - 2;
                 stock.change = parseFloat((Math.random() * 2 - 1).toFixed(2)); // Random change between -1% and +1%
             });
-            updateStockData();
+            updateStockData(stockData);
         }, 10000);
 
         // Initial update
-        updateStockData();
+        updateStockData(stockData);
 
         document.addEventListener('DOMContentLoaded', () => {
-            updateStockData();
+            updateStockData(stockData);
         });
 
         closeModal.onclick = () => {

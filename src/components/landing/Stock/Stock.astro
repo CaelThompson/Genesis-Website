@@ -34,7 +34,20 @@ import Graph from './stockgraph.astro';
 
     <script>
         // Simulating stock data update
-
+        const stockData = [
+ { name: 'NVDA', fullName: 'Nvidia Corp', price: 121.29, change: +1.5, volume: 1540000, change30d: +12.5 },
+ { name: 'AAPL', fullName: 'Apple Inc', price: 175.60, change: +0.8, volume: 980000, change30d: +5.8 },
+ { name: 'AMZN', fullName: 'Amazon.com Inc', price: 172.63, change: +2.1, volume: 2210000, change30d: +7.4 },
+ { name: 'TSLA', fullName: 'Tesla Inc', price: 210.50, change: -0.5, volume: 1150000, change30d: +1.1 },
+ { name: 'MSFT', fullName: 'Microsoft Corp', price: 310.20, change: +1.2, volume: 2000000, change30d: +8.3 },
+ { name: 'GOOGL', fullName: 'Alphabet Inc', price: 118.94, change: +0.9, volume: 1800000, change30d: +6.7 },
+ { name: 'META', fullName: 'Meta Platforms Inc', price: 220.74, change: +1.0, volume: 1600000, change30d: +4.5 },
+ { name: 'PLTR', fullName: 'Palantir Technologies Inc', price: 15.80, change: +3.4, volume: 1400000, change30d: +10.2 },
+ { name: 'AVGO', fullName: 'Broadcom Inc', price: 650.30, change: +2.5, volume: 1200000, change30d: +9.1 },
+ { name: 'CEG', fullName: 'Constellation Energy Corp', price: 85.60, change: +1.7, volume: 1000000, change30d: +3.8 },
+ { name: 'MRVL', fullName: 'Marvell Technology Inc', price: 60.40, change: +0.6, volume: 900000, change30d: +2.9 },
+ { name: 'CRM', fullName: 'Salesforce Inc', price: 210.90, change: +1.3, volume: 800000, change30d: +5.2 }
+];
 
         // Function to update the stock data display
         function updateStockData() {

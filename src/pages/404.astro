@@ -2,6 +2,7 @@
 import SearchLayout from "../layouts/SearchLayout.astro";
 import Search from "../components/landing/SearchEngine/SearchListPage.astro"
 import '../styles/global.css'
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
 ---
 
 <SearchLayout>
@@ -17,10 +18,10 @@ import '../styles/global.css'
       Please return to the search engine and continue exploring.
     </p>
     <div class="mt-10 flex items-center justify-center gap-x-6">
-      <a href="/" class="rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm custom-main-btn">
+      <a href=`${basePath}` class="rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm custom-main-btn">
         Go back home
       </a>
-      <a href="/searchresult" class="text-sm rounded-md font-semibold text-gray-900 hover:ring-1 ring-zinc-300 px-3.5 py-2.5 custom-link">
+      <a href=`${basePath}searchresult` class="text-sm rounded-md font-semibold text-gray-900 hover:ring-1 ring-zinc-300 px-3.5 py-2.5 custom-link">
         Return to search <span aria-hidden="true">&rarr;</span>
       </a>
     </div>
