@@ -222,9 +222,7 @@ header {
     </div>
     <script>
 
-        
-
-
+        const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
 
 
         document.querySelectorAll('.navbar a').forEach(tab => {
@@ -290,19 +288,19 @@ header {
                 const topImage = document.getElementById('top-image');
                 switch (tabName) {
                     case 'home':
-                        topImage.innerHTML = '<img src="/img/blogroom.jpeg" alt="A collage representing various blog categories" />';
+                        topImage.innerHTML = `<img src="${basePath}img/Logos/blogroom.jpeg" alt="A collage representing various blog categories" />`;
                         break;
                     case 'technology':
-                        topImage.innerHTML = '<img src="/img/technology.jpg" alt="A futuristic image representing technology" />';
+                        topImage.innerHTML = `<img src="${basePath}/img/Logos/technology.jpg" alt="A futuristic image representing technology" />`;
                         break;
                     case 'lifestyle':
-                        topImage.innerHTML = '<img src="/img/lifestyle.jpg" alt="An image representing a balanced lifestyle" />';
+                        topImage.innerHTML = `<img src="${basePath}img/Logos/lifestyle.jpg" alt="An image representing a balanced lifestyle" />`;
                         break;
-                    case 'music':
-                        topImage.innerHTML = '<img src="/img/music.jpg" alt="An image of musical notes and instruments" />';
+                    case `music`:
+                        topImage.innerHTML = `<img src="${basePath}/img/Logos/music.jpg" alt="An image of musical notes and instruments" />`;
                         break;
-                    case 'gaming':
-                        topImage.innerHTML = '<img src="/img/gaming.jpg" alt="An image of a gaming console and accessories" />';
+                    case `gaming`:
+                        topImage.innerHTML = `<img src="${basePath}/img/Logos/gaming.jpg" alt="An image of a gaming console and accessories" />`;
                         break;
                     default:
                         topImage.innerHTML = '';
