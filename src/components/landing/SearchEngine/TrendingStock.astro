@@ -1,3 +1,6 @@
+---
+ const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,13 +87,13 @@
 </head>
 <body>
   <div class="container">
-    <a href="stock" class="styled-link">
+    <a href=`${basePath}stock` class="styled-link">
         <h1><span class="styled-stock">Stock</span>Watch</h1>
     </a>
-    <a href="stock" class="styled-link">
+    <a href=`${basePath}stock` class="styled-link">
         <h2>Discover the Top 12 Stocks to Invest in Right Now!</h2>
     </a>
-    <a href="stock" class="styled-link">
+    <a href=`${basePath}stock` class="styled-link">
         <p>Stay ahead of the market with our expert picks and top watchlist for this week. These stocks are trending and have shown significant performance, making them excellent investment opportunities:</p>
     </a>
 
