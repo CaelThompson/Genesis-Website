@@ -1,6 +1,8 @@
 ---
 import Container from "../../global/NewsContainer.astro";
 import {articles} from "./Article1Storage.js";
+
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
 ---
 
 <style>
@@ -122,17 +124,17 @@ import {articles} from "./Article1Storage.js";
 
             </style>
           <li>
-            <a href="/news1" class="flex-1 text-center block">
+            <a href=`${basePath}news1` class="flex-1 text-center block">
                 Home
             </a>
         </li>
         <li>
-            <a href="/article1" class="flex-1 text-center block">
+            <a href=`${basePath}article1` class="flex-1 text-center block">
                 Articles
             </a>
         </li>
         <li>
-            <a href="/interview1" class="flex-1 text-center block">
+            <a href=`${basePath}interview1` class="flex-1 text-center block">
                 Interviews
             </a>
         </li>
