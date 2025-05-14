@@ -3,18 +3,19 @@ import { articles as originalArticles } from "./Article3Storage.js";
 import { interviews as originalInterviews } from "./Interview3Storage.js";
 import Container from "../../global/NewsContainer.astro";
 import NewsNav from "../News3/News3Nav.astro";
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
 
 // Map articles to include 'url' and 'type' properties
 const articles = originalArticles.map(article => ({
   ...article,
-  url: `/article3/${article.slug}`, // Derive 'url' from 'slug'
+  url: `${basePath}article3/${article.slug}`, // Derive 'url' from 'slug'
   type: article.type || "default" // Add a default 'type' if missing
 }));
 
 // Map interviews to include 'url' and 'type' properties
 const interviews = originalInterviews.map(interview => ({
   ...interview,
-  url: `/interview3/${interview.slug}`, // Derive 'url' from 'slug'
+  url: `${basePath}interview3/${interview.slug}`, // Derive 'url' from 'slug'
   type: interview.type || "default" // Add a default 'type' if missing
 }));
 
