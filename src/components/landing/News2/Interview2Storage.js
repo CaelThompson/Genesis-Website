@@ -4,7 +4,7 @@ export const interviews = [
   {
     title: "Sustainability at the Core: Genesis Company’s Green Manufacturing Revolution",
     description: "Jan Wilcox, Gene Rogers, and Ginger Peck provide a transparent look at Genesis’s sustainable manufacturing efforts, addressing the challenges of green initiatives and their adaptive strategies for lasting impact.",
-    image: `${basePath}public/Img/News2Img/Interviews/interview25.jpg`,
+    image: `${basePath}Img/News2Img/Interviews/interview25.jpg`,
     slug: "genesis-green-manufacturing-revolution",
     date: "2/28/2024",
     author: "Sophie Müller",
@@ -63,7 +63,7 @@ export const interviews = [
   {
     title: "Precision and Innovation: CEO Alan Michaels & CTO Elizabeth Redding on Genesis’s Vision",
     description: "Genesis CEO Alan Michaels and CTO Elizabeth Redding share insights on the company’s growth, commitment to precision, and the role of advanced technologies such as simulation and additive manufacturing in shaping the future.",
-    image: `${basePath}public/Img/News2Img/Interviews/interview26.jpg`,
+    image: `${basePath}Img/News2Img/Interviews/interview26.jpg`,
     slug: "genesis-ceo-cto-vision",
     date: "11/1/2022",
     author: "Alex Johnson",
@@ -106,7 +106,7 @@ export const interviews = [
   {
     title: "Balancing Growth and Profit: CFO Brian Mathews & VP Victor Viola Discuss Genesis’s Strategic Path",
     description: "CFO Brian Mathews and Global VP of Strategic Sales Victor Viola discuss Genesis’s approach to balancing sustainable growth with profitability, tackling operational challenges, and expanding market opportunities.",
-    image: `${basePath}public/Img/News2Img/Interviews/interview21.jpeg`,
+    image: `${basePath}Img/News2Img/Interviews/interview21.jpeg`,
     slug: "genesis-growth-profit-strategy",
     date: "4/23/2025",
     author: "Steven Gomez",
@@ -162,7 +162,7 @@ export const interviews = [
   {
   title: "Engineering Excellence in Action: Abby Smith & Fred Reed on Driving Product Innovation",
   description: "Abby Smith and Fred Reed of Genesis share insights on leading design innovation, integrating advanced materials, and managing complex global development in the pursuit of engineering excellence.",
-  image: `${basePath}public/Img/News2Img/Interviews/interview27.jpeg`,
+  image: `${basePath}Img/News2Img/Interviews/interview27.jpeg`,
   slug: "genesis-product-innovation",
   date: "3/18/2022",
   author: "Gale Boetticher",
@@ -205,7 +205,7 @@ export const interviews = [
 {
   title: "Designing the Future: Chief Engineer Abby Smith & Senior Fellow Larry Ball on Pioneering Engineering",
   description: "Abby Smith and Larry Ball of Genesis reflect on the evolution of the design process, highlight key projects, and discuss future engineering innovations shaping the industry.",
-  image: `${basePath}public/Img/News2Img/Interviews/interview23.jpg`,
+  image: `${basePath}Img/News2Img/Interviews/interview23.jpg`,
   slug: "genesis-engineering-future",
   date: "2/24/2025",
   author: "Sophie Müller",
@@ -248,7 +248,7 @@ export const interviews = [
 {
   title: "Manufacturing for the Future: Ginger Peck & Gene Rogers on Efficiency and Innovation at Genesis",
   description: "Ginger Peck and Gene Rogers discuss the key trends in manufacturing, automation, sustainability, and the integration of new technologies at Genesis.",
-  image: `${basePath}public/Img/News2Img/Interviews/interview22.jpeg`,
+  image: `${basePath}Img/News2Img/Interviews/interview22.jpeg`,
   slug: "genesis-manufacturing-innovation",
   date: "3/25/2025",
   author: "Sophie Müller",
@@ -291,7 +291,7 @@ export const interviews = [
 {
   title: "Redefining Sales Excellence: Victor Viola & CEO Alan Michaels on Genesis’s Winning Strategy",
   description: "Victor Viola and Alan Michaels discuss how Genesis stands out in a crowded market, focusing on customized solutions and building long-term customer relationships.",
-  image: `${basePath}public/Img/News2Img/Interviews/interview24.jpg`,
+  image: `${basePath}Img/News2Img/Interviews/interview24.jpg`,
   slug: "genesis-sales-strategy",
   date: "4/26/2024",
   author: "Marco Rossi",

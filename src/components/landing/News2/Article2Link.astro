@@ -3,11 +3,12 @@ import Container from "../../global/NewsContainer.astro";
 import { articles } from "./Article2Storage.js";
 const { title, description, image, url, date, type } = Astro.props;
 import NewsNav from "../News2/News2Nav.astro";
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
 
 const processedArticles = articles
   .map(article => ({
     ...article,
-    url: `/article2/${article.slug}`, // Derive 'url' from 'slug'
+    url: `${basePath}article2/${article.slug}`, // Derive 'url' from 'slug'
     type: article.type || "default" // Add a default 'type' if missing
   }))
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); // Sort by most recent first

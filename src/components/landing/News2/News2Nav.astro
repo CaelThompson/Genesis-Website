@@ -1,5 +1,6 @@
 ---
 import Container from "../../global/NewsContainer.astro";
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
 ---
 
 <style>
@@ -51,7 +52,7 @@ import Container from "../../global/NewsContainer.astro";
   
     <!-- Main Heading Section -->
     <div class="heading" style="display:flex; flex-direction: row; padding: 20px 50px; align-items: center;">
-          <img src="/Img/News2Img/madrigalLogo2.png" alt="Logo" style="width: 150px; height: auto; margin-right: -30px; margin-bottom: 20px;"/>
+          <img src=`${basePath}Img/News2Img/madrigalLogo2.png` alt="Logo" style="width: 150px; height: auto; margin-right: -30px; margin-bottom: 20px;"/>
         <div style="flex: 1; text-align: left;">
           <h1 class="text-3xl font-semibold">The Madrigal</h1>
           <h2 class="text-3xl font-semibold">International Times</h2>
@@ -110,16 +111,16 @@ import Container from "../../global/NewsContainer.astro";
                     }
                 </style>
                 <li style="padding: 5px 30px; cursor: pointer; font-size: 20px; text-align: center; font-family:'Times New Roman'; font-weight: lighter;" onclick="window.location.href='/news2'">
-                    <a href="/news2" style="color: inherit;">The Hub</a>
+                    <a href=`${basePath}news2` style="color: inherit;">The Hub</a>
                 </li>
                 <li style="padding: 5px 30px; cursor: pointer; font-size: 20px; text-align: center; font-family:'Times New Roman'; font-weight: lighter;" onclick="window.location.href='/article2'">
-                    <a href="/article2" style="color: inherit;">Features</a>
+                    <a href=`${basePath}article2` style="color: inherit;">Features</a>
                 </li>
                 <li style="padding: 5px 30px; cursor: pointer; font-size: 20px; text-align: center; font-family:'Times New Roman'; font-weight: lighter;" onclick="window.location.href='/interview2'">
-                    <a href="/interview2" style="color: inherit;">Spotlights</a>
+                    <a href=`${basePath}interview2` style="color: inherit;">Spotlights</a>
                 </li>
                 <li style="padding: 5px 30px; cursor: pointer; font-size: 20px; text-align: center; font-family:'Times New Roman'; font-weight: lighter;" onclick="window.location.href='/aboutus2'">
-                    <a href="/aboutus2" style="color: inherit;">About Us</a>
+                    <a href=`${basePath}aboutus2` style="color: inherit;">About Us</a>
                 </li>
             </ul>
         </div>
