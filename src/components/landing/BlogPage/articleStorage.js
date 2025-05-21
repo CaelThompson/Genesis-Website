@@ -4,7 +4,7 @@ export const articles = [
     {
       title: "Enhancing Supply Chain Efficiency: Genesis Company's Latest Innovations",
       description: "Discover how Genesis Company is optimizing OEM supply chains with advanced manufacturing techniques and strategic partnerships, ensuring seamless production for Tier 1 manufacturers.",
-      image: `${basePath}img/ArticleImages/article1.webp`,
+      image: `${basePath}Img/ArticleImages/article1.webp`,
       slug: "enhancing-supply-chain-efficiency",
       date: "2/12/2025",
       content: `
@@ -20,7 +20,7 @@ export const articles = [
     {
       title: "Sustainable Manufacturing: Our Commitment to a Greener Future",
       description: "Genesis Company is leading the way in eco-friendly production methods, reducing waste, and improving energy efficiency for a more sustainable OEM industry.",
-      image: `${basePath}img/ArticleImages/article2.webp`,
+      image: `${basePath}Img/ArticleImages/article2.webp`,
       slug: "sustainable-manufacturing",
       date: "12/05/2024",
       content: `

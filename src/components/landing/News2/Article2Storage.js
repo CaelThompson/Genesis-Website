@@ -4,7 +4,7 @@ export const articles = [
   {
     title: "Genesis Unveils Milan Design House: A New Frontier for Creative Engineering",
     description: "Genesis Company expands its global presence with the launch of its Milan Design House, a hub for blending artistic innovation and precision engineering.",
-    image: `${basePath}img/News2Img/Articles/article28.jpg`,
+    image: `${basePath}Img/News2Img/Articles/article28.jpg`,
     slug: "genesis-unveils-milan-design-house",
     date: "9/15/2010",
     author: "Sophie Müller",
@@ -41,7 +41,7 @@ export const articles = [
   {
     title: "Celebrating Success: Milan Design House Elevates Genesis's Creative Engineering",
     description: "Genesis's Milan Design House marks four years of creative and technological achievement, blending engineering excellence with Milan's rich design culture.",
-    image: `${basePath}img/News2Img/Articles/article27.jpg`,
+    image: `${basePath}Img/News2Img/Articles/article27.jpg`,
     slug: "milan-design-house-celebration",
     date: "6/8/2014",
     author: "Gale Boetticher",
@@ -74,7 +74,7 @@ export const articles = [
   , {
     title: "Bridging Academia and Industry: Genesis’s Internship Success in Livorno",
     description: "Genesis Company’s Livorno facility opens doors for top university students through competitive internships, shaping the next generation of engineering talent.",
-    image: `${basePath}img/News2Img/Articles/article26.jpg`,
+    image: `${basePath}Img/News2Img/Articles/article26.jpg`,
     slug: "genesis-internship-livorno",
     date: "7/20/2017",
     author: "Marco Rossi",
@@ -100,7 +100,7 @@ export const articles = [
   {
     title: "Bridging Boundaries: The Need for Greater Integration at Milan Design House",
     description: "Genesis’s Milan Design House is a creative powerhouse, but concerns are rising about operational silos and the need for better integration across the company.",
-    image: `${basePath}img/News2Img/Articles/article25.jpg`,
+    image: `${basePath}Img/News2Img/Articles/article25.jpg`,
     slug: "genesis-milan-design-integration",
     date: "10/25/2022",
     author: "Andrea Cantillo",
@@ -132,7 +132,7 @@ export const articles = [
   {
     title: "Genesis's Environmental Commitment: Advancing Sustainability in Livorno",
     description: "Genesis reinforces its environmental commitment at the Livorno facility by integrating energy-efficient technologies and supporting local sustainability initiatives.",
-    image: `${basePath}img/News2Img/Articles/article24.jpg`,
+    image: `${basePath}Img/News2Img/Articles/article24.jpg`,
     slug: "genesis-sustainability-livorno",
     date: "4/5/2023",
     author: "Alex Johnson",
@@ -155,7 +155,7 @@ export const articles = [
   {
     title: "Navigating Data Challenges: Addressing Operational Hurdles at the Livorno Facility",
     description: "Genesis Company’s Livorno facility faces significant data management challenges affecting operational efficiency and product quality.",
-    image: `${basePath}img/News2Img/Articles/article23.jpg`,
+    image: `${basePath}Img/News2Img/Articles/article23.jpg`,
     slug: "genesis-data-challenges-livorno",
     date: "3/18/2024",
     author: "Steven Gomez",
@@ -194,7 +194,7 @@ export const articles = [
   {
     title: "Standing Strong Amid Challenges: Genesis’s Role in Livorno’s Economic Landscape",
     description: "Genesis Company remains committed to its local community, navigating economic challenges while supporting Livorno’s economy.",
-    image: `${basePath}img/News2Img/Articles/article22.jpg`,
+    image: `${basePath}Img/News2Img/Articles/article22.jpg`,
     slug: "genesis-role-livorno-economic-landscape",
     date: "2/12/2025",
     author: "Marco Rossi",
@@ -217,7 +217,7 @@ export const articles = [
   {
     title: "Persistent Data Dilemmas: Livorno Facility's Continuing Struggles and the Quest for Solutions",
     description: "Genesis’s Livorno facility continues to face data management issues that are affecting operational efficiency and product quality.",
-    image: `${basePath}img/News2Img/Articles/article21.jpg`,
+    image: `${basePath}Img/News2Img/Articles/article21.jpg`,
     slug: "livorno-facility-data-struggles",
     date: "2/14/2025",
     author: "Alex Johnson",
@@ -258,7 +258,7 @@ export const articles = [
   {
     title: "New Tech Charter 'NovaPath' Opens with Focus on AI Literacy",
     description: "NovaPath Charter School opens its doors, emphasizing AI education and ethical technology use among K–12 students.",
-    image: `${basePath}img/News2Img/Articles/AIarticle22.jpg`,
+    image: `${basePath}Img/News2Img/Articles/AIarticle22.jpg`,
     slug: "novapath-tech-charter-school-launch",
     date: "10/04/2022",
     author: "Sophie Müller",
@@ -306,7 +306,7 @@ export const articles = [
   {
     title: "Mysterious Livestock Illness Baffles Farmers, Scientists Investigating",
     description: "Farmers across several states report a sudden and unexplained illness affecting livestock, prompting urgent investigations from agricultural experts.",
-    image: `${basePath}img/News2Img/Articles/AIarticle21.jpg`,
+    image: `${basePath}Img/News2Img/Articles/AIarticle21.jpg`,
     slug: "mystery-livestock-illness-farmers-panic",
     date: "6/18/2023",
     author: "Steven Gomez",
