@@ -4,7 +4,7 @@ export const interviews = [
   {
     title: "Genesis' Push Towards Sustainability in Aerospace Components",
     description: "Alan Michaels and Fred Reed discuss Genesis’s efforts to develop sustainable, lightweight aerospace materials to reduce carbon emissions and improve fuel efficiency.",
-    image: `${basePath}img/News1Img/interviews/interview11.jpg`,
+    image: `${basePath}Img/News1Img/interviews/interview11.jpg`,
     slug: "genesis-sustainability-aerospace",
     date: "5/14/2023",
     author: "Anna Pierce",
@@ -40,7 +40,7 @@ export const interviews = [
   {
     title: "Revolutionizing Manufacturing with Automation",
     description: "Jan Wilcox and Gene Rogers explain how Genesis is leveraging automation and robotics to streamline its manufacturing processes and improve efficiency across multiple industries.",
-    image: `${basePath}img/News1Img/interviews/interview12.jpg`,
+    image: `${basePath}Img/News1Img/interviews/interview12.jpg`,
     slug: "genesis-automation-manufacturing",
     date: "6/15/2021",
     author: "Linda Stone",
@@ -76,7 +76,7 @@ export const interviews = [
   {
     title: "Designing the Future of Medical Devices",
     description: "Abby Smith and Mike Jones discuss how Genesis is shaping the future of medical devices with cutting-edge design and technology.",
-    image: `${basePath}img/News1Img/interviews/interview14.jpg`,
+    image: `${basePath}Img/News1Img/interviews/interview14.jpg`,
     slug: "genesis-medical-device-design",
     date: "3/20/2024",
     author: "Karen Fox",
@@ -118,7 +118,7 @@ export const interviews = [
   {
     title: "Driving Global Sales and Expanding Market Reach",
     description: "Victor Viola and Brian Matthews share insights into Genesis’s global sales strategies and how they support market expansion and growth.",
-    image: `${basePath}img/News1Img/interviews/interview15.jpg`,
+    image: `${basePath}Img/News1Img/interviews/interview15.jpg`,
     slug: "genesis-global-sales-expansion",
     date: "2/1/2023",
     author: "Emily Grant",
@@ -148,7 +148,7 @@ export const interviews = [
   {
     title: "Genesis’ Livorno Facility - Pioneering the Future of Aerospace Engineering",
     description: "Alan Michaels and Fred Reed discuss the innovative work being done at Genesis’s Silverton facility to advance aerospace engineering.",
-    image: `${basePath}img/News1Img/interviews/interview16.jpg`,
+    image: `${basePath}Img/News1Img/interviews/interview16.jpg`,
     slug: "genesis-silverton-facility-aerospace",
     date: "12/1/2024",
     author: "Sarah Mitchell",
