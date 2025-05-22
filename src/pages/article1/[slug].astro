@@ -34,6 +34,7 @@ const formattedContent = article.content
       <p>{article.date}</p>
     </div>
     <img src={article.image} alt={article.title} class="w-full rounded-lg mt-4" />
+    
 
     <!-- Render formatted HTML content -->
     <div class="mt-8 text-xl text-gray-700 prose dark:prose-invert mb-[20vh]" set:html={formattedContent}></div>
