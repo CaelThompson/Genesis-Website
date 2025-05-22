@@ -76,25 +76,46 @@ const processedArticles = articles
   }
 </style>
 <Container>
-  <div class="ml-20">
-      <h1 class="text-3xl font-bold text-gray-900">All Articles</h1>
+  <div class="max-w-screen-xl mx-auto px-6 mb-6">
+    <h1 class="text-3xl font-bold text-gray-900">All Articles</h1>
   </div>
-  <div class="articles-container" style="justify-content: flex-start;">
+
+  <div
+    class="articles-container grid grid-cols-1 md:grid-cols-3 gap-8 max-w-screen-xl mx-auto"
+    style="margin-left: 5rem;"
+  >
     {processedArticles.map(({ title, description, image, url, date }) => (
-      <a href={url} class="article-box">
+      <a
+        href={url}
+        class="article-box flex flex-col bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+        style="height: 420px; width: 100%; max-width: 360px;"
+      >
+        {/* Image container */}
         <div
-          class="article-image"
-          style={`background-image: url('${image}');`}
+          class="article-image flex-shrink-0"
+          style={`
+            background-image: url('${image}');
+            background-size: cover;
+            background-position: center;
+            height: 40%;
+            min-height: 160px;
+            width: 100%;
+          `}
         ></div>
-        <time datetime={date} class="article-date">
-          {new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-        </time>
-        <div class="article-text">
-          <h2 class="text-[20px] font-bold">{title}</h2>
-          <p>{description}</p>
+
+        {/* Text container */}
+        <div class="article-text flex-grow p-6 flex flex-col justify-between">
+          <div>
+            <h2 class="text-lg font-bold mb-2">{title}</h2>
+            <p class="text-gray-700 line-clamp-3">{description}</p>
+          </div>
+          <time datetime={date} class="text-gray-500 text-sm mt-4">
+            {new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
         </div>
       </a>
     ))}
   </div>
-  <div style="margin-bottom: 20px;"></div> 
+
+  <div style="margin-bottom: 20px;"></div>
 </Container>

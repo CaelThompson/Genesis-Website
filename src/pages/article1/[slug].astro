@@ -3,9 +3,8 @@ import BaseHead from "../../components/BaseHead.astro";
 import BaseLayout from "../../layouts/News1Layout.astro";
 import { articles } from "../../components/landing/News1/Article1Storage.js";
 import NewsNav from "../../components/landing/News1/News1Nav.astro";
+
 const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
-
-
 const { slug } = Astro.params;
 const article = articles.find((a) => a.slug === slug);
 
@@ -18,25 +17,28 @@ const formattedContent = article.content
   .replace(/—/g, "&mdash;"); // Fix em-dashes
 ---
 <BaseLayout>
-  <link rel="icon" href="../../../../public/Img/Logos/modern logo for Vanguard Journal with less busy center and shield with gold pen and the words Vangua.jpeg" type="image/x-icon">
-  <link rel="shortcut icon" href="../../../../public/Img/Logos/modern logo for Vanguard Journal with less busy center and shield with gold pen and the words Vangua.jpeg" type="image/x-icon">
+  <!-- Favicon -->
+  <link rel="icon" href="/Img/Logos/modern logo for Vanguard Journal with less busy center and shield with gold pen and the words Vangua.jpeg" type="image/x-icon">
+  <link rel="shortcut icon" href="/Img/Logos/modern logo for Vanguard Journal with less busy center and shield with gold pen and the words Vangua.jpeg" type="image/x-icon">
+
   <head>
-     <BaseHead />
+    <BaseHead />
     <title>{article.title} - Genesis Blog</title>
   </head>
+
   <NewsNav />
+
   <article class="max-w-6xl mx-auto p-6 pt-28" style="margin-top: -70px;">
-    <a href=`${basePath}news1` class="inline-block mb-4 text-blue-700 hover:underline">← Back to Home Page</a>
+    <a href={`${basePath}news1`} class="inline-block mb-4 text-blue-700 hover:underline">← Back to Home Page</a>
 
     <h1 class="text-3xl font-bold text-gray-900 dark:text-white">{article.title}</h1>
+
     <div class="flex justify-between text-gray-600 dark:text-gray-400 mt-2">
       <p>{article.author}</p>
       <p>{article.date}</p>
     </div>
-    <img src={article.image} alt={article.title} class="w-full rounded-lg mt-4" />
 
-    <!-- Render formatted HTML content -->
-    <div class="mt-8 text-xl text-gray-700 prose dark:prose-invert mb-[20vh]" set:html={formattedContent}></div>
+    <!-- Uniform image container -->
     <div class="relative w-full aspect-[16/9] overflow-hidden rounded-lg mt-4">
       <img 
         src={article.image} 
@@ -44,5 +46,8 @@ const formattedContent = article.content
         class="absolute inset-0 w-full h-full object-cover" 
       />
     </div>
+
+    <!-- Render formatted HTML content -->
+    <div class="mt-8 text-xl text-gray-700 prose dark:prose-invert mb-[20vh]" set:html={formattedContent}></div>
   </article>
 </BaseLayout>
