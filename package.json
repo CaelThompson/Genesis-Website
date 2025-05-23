@@ -15,11 +15,15 @@
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^5.7.13",
     "chart.js": "^4.4.9",
+    "marked": "^15.0.12",
     "pattern.css": "^1.0.0",
     "relan": "file:",
     "tailwindcss": "^3.4.10"
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2"
   }
 }
