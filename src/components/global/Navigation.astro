@@ -17,6 +17,11 @@ const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
                     </svg>
                 </button>
             </div>
+            <div class="p-4 flex flex-row items-center justify-between">
+                <a href={'/'}class="px-4 py-2 mt-2 text-sm font-semibold text-gray-900 md:bg-transparent bg-gray-200 rounded-lg hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                    Main Page
+                </a>
+            </div>
             <div>
                 <ul>
                     <li :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
