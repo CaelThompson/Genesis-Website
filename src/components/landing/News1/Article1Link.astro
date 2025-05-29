@@ -40,14 +40,13 @@ const processedArticles = articles
     position: relative; /* Add relative positioning for absolute children */
   }
 
-  .article-image {
-    flex: 2;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    background-size: cover;
-    background-position: center;
-    padding-top: 30%;
-  }
+.article-image img {
+  width: 100%;
+  height: 200px; /* or whatever height you want */
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
 
   .article-text {
     flex: 1;
