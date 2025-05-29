@@ -8,7 +8,7 @@ export const articles = [
     slug: "genesis-partners-with-ev-manufacturers",
     date: "8/12/2021",
     author: "Rachel Green, Automotive Industry Analyst",
-    content:`<p style="margin-bottom: 1rem;">Amidst the expanding landscape of electric vehicles (EVs), Genesis Company has emerged as a vital supplier of advanced headlight components to leading EV manufacturers. This strategic role underscores Genesis's capability to support the development of high-performance, energy-efficient vehicles, proving essential in the race towards cutting-edge automotive solutions.</p>
+    content: `<p style="margin-bottom: 1rem;">Amidst the expanding landscape of electric vehicles (EVs), Genesis Company has emerged as a vital supplier of advanced headlight components to leading EV manufacturers. This strategic role underscores Genesis's capability to support the development of high-performance, energy-efficient vehicles, proving essential in the race towards cutting-edge automotive solutions.</p>
 
     <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Integral Role in EV Development</h2>
 
@@ -191,7 +191,7 @@ export const articles = [
     </ul>
     
     <p style=";; margin-bottom: 1rem;">Genesis is setting a new industry standard by making cybersecurity a top priority in its manufacturing operations, ensuring that client data and company secrets remain protected.</p>`
-  }, 
+  },
   {
     title: "Genesis to Improve Trusted Xi'an Facility with IoT Integration",
     description: "By integrating Internet of Things (IoT) technology into its manufacturing processes, Genesis Company is transforming its operations, creating smarter, more efficient systems that optimize production schedules and improve product quality.",
@@ -216,50 +216,50 @@ export const articles = [
     <p style=";; margin-bottom: 1rem;">While the Xi’An facility already demonstrates a solid operational foundation, Genesis's proactive approach to further improving it illustrates a strategic mindset focused on growth and innovation. The IoT integration initiative showcases management’s commitment to deploying solutions with long-term benefits that align with modern manufacturing needs.</p>
     
     <p style=";; margin-bottom: 1rem;">As Genesis continues to refine the potential of the Xi’An facility through IoT technology, this effort highlights the company’s dedication to maintaining its competitive edge and readiness to embrace the future of smart manufacturing. These strategic enhancements position Genesis to leverage its longstanding reliability while embracing the efficiencies required by today’s evolving industrial landscape.</p>`
-},
-{
-  title: "Genesis Unveils Revolutionary Manufacturing Facility in Silverton, CO",
-  description: "Genesis opens a 40,000 sq. ft. facility in Silverton, CO, featuring advanced FANUC and Yaskawa robotics for precision aerospace manufacturing and sustainable innovation.",
-  image: `${basePath}Img/News1Img/Articles/article12.jpg`,
-  slug: "genesis-unveils-revolutionary-manufacturing-facility-silverton-co",
-  date: "November 14, 2024",
-  author: "David R. Sinclair, Industry Insights Analyst",
-  content: `<p style=";; margin-bottom: 1rem;">Genesis, a leading player in aerospace, automotive, and medical device industries, proudly announces the grand opening of its latest manufacturing facility located in the scenic Rocky Mountains of Silverton, Colorado. This state-of-the-art plant, covering 40,000 square feet, marks a transformative shift in how Genesis approaches experimental materials research and precision manufacturing.</p>
+  },
+  {
+    title: "Genesis Unveils Revolutionary Manufacturing Facility in Silverton, CO",
+    description: "Genesis opens a 40,000 sq. ft. facility in Silverton, CO, featuring advanced FANUC and Yaskawa robotics for precision aerospace manufacturing and sustainable innovation.",
+    image: `${basePath}Img/News1Img/Articles/article12.jpg`,
+    slug: "genesis-unveils-revolutionary-manufacturing-facility-silverton-co",
+    date: "November 14, 2024",
+    author: "David R. Sinclair, Industry Insights Analyst",
+    content: `<p style=";; margin-bottom: 1rem;">Genesis, a leading player in aerospace, automotive, and medical device industries, proudly announces the grand opening of its latest manufacturing facility located in the scenic Rocky Mountains of Silverton, Colorado. This state-of-the-art plant, covering 40,000 square feet, marks a transformative shift in how Genesis approaches experimental materials research and precision manufacturing.</p>
 
-<p style=";; margin-bottom: 1rem;">The facility, which began construction in 2019 and opened its doors in 2023, embodies the company’s commitment to innovation, with a focus on cutting-edge technologies to enhance its manufacturing processes. At the heart of the new plant lies a suite of industry-leading robotics technologies from FANUC and Yaskawa, two globally recognized leaders in automation.</p>
+  <p style=";; margin-bottom: 1rem;">The facility, which began construction in 2019 and opened its doors in 2023, embodies the company’s commitment to innovation, with a focus on cutting-edge technologies to enhance its manufacturing processes. At the heart of the new plant lies a suite of industry-leading robotics technologies from FANUC and Yaskawa, two globally recognized leaders in automation.</p>
 
-<h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Embracing Robotics with Industry Leaders: FANUC and Yaskawa</h2>
+  <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Embracing Robotics with Industry Leaders: FANUC and Yaskawa</h2>
 
-<p style=";; margin-bottom: 1rem;">Genesis's partnership with FANUC and Yaskawa showcases the company’s dedication to utilizing the best-in-class technologies available. FANUC, founded in 1956, is celebrated for its reliability and high-performance automated systems. FANUC’s robotics solutions offer unparalleled precision and speed, which are vital for meeting Genesis's demanding production standards.</p>
+  <p style=";; margin-bottom: 1rem;">Genesis's partnership with FANUC and Yaskawa showcases the company’s dedication to utilizing the best-in-class technologies available. FANUC, founded in 1956, is celebrated for its reliability and high-performance automated systems. FANUC’s robotics solutions offer unparalleled precision and speed, which are vital for meeting Genesis's demanding production standards.</p>
 
-<p style=";; margin-bottom: 1rem;">On the other hand, Yaskawa, a pioneer established in 1915, brings a wealth of knowledge in mechanical and motion control, emphasizing energy-efficient and innovative robotics solutions. These capabilities make Yaskawa’s technology a key component in Genesis's ongoing push for sustainable manufacturing practices.</p>
+  <p style=";; margin-bottom: 1rem;">On the other hand, Yaskawa, a pioneer established in 1915, brings a wealth of knowledge in mechanical and motion control, emphasizing energy-efficient and innovative robotics solutions. These capabilities make Yaskawa’s technology a key component in Genesis's ongoing push for sustainable manufacturing practices.</p>
 
-<p style=";; margin-bottom: 1rem;">This collaboration underscores Genesis’s resolve to overcome manufacturing challenges, enhance production timelines, and produce high-quality aerospace components, all while incorporating sustainability into its operations.</p>
+  <p style=";; margin-bottom: 1rem;">This collaboration underscores Genesis’s resolve to overcome manufacturing challenges, enhance production timelines, and produce high-quality aerospace components, all while incorporating sustainability into its operations.</p>
 
-<h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Rising to Meet Challenges Head-On</h2>
+  <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Rising to Meet Challenges Head-On</h2>
 
-<p style=";; margin-bottom: 1rem;">The Silverton facility emerges at a critical time for Genesis, which has faced manufacturing challenges in recent years, such as prolonged design cycles and data management issues. These challenges have heightened the pressure on the company to meet customer demands while improving operational efficiency.</p>
+  <p style=";; margin-bottom: 1rem;">The Silverton facility emerges at a critical time for Genesis, which has faced manufacturing challenges in recent years, such as prolonged design cycles and data management issues. These challenges have heightened the pressure on the company to meet customer demands while improving operational efficiency.</p>
 
-<p style=";; margin-bottom: 1rem;">To tackle these hurdles, the Silverton plant integrates advanced AI-driven machining systems and drone-based logistics to streamline material transport. The use of these technologies is designed to accelerate production timelines, alleviate bottlenecks, and set new industry standards for productivity and precision.</p>
+  <p style=";; margin-bottom: 1rem;">To tackle these hurdles, the Silverton plant integrates advanced AI-driven machining systems and drone-based logistics to streamline material transport. The use of these technologies is designed to accelerate production timelines, alleviate bottlenecks, and set new industry standards for productivity and precision.</p>
 
-<p style=";; margin-bottom: 1rem;">While the enthusiasm surrounding the Silverton facility is palpable, there is cautious optimism from some industry experts. The extensive reliance on automation and robotics represents a shift for Genesis, which is accustomed to traditional manufacturing paradigms. However, Genesis’s determination to embrace these new technologies demonstrates its readiness to face the challenges ahead.</p>
+  <p style=";; margin-bottom: 1rem;">While the enthusiasm surrounding the Silverton facility is palpable, there is cautious optimism from some industry experts. The extensive reliance on automation and robotics represents a shift for Genesis, which is accustomed to traditional manufacturing paradigms. However, Genesis’s determination to embrace these new technologies demonstrates its readiness to face the challenges ahead.</p>
 
-<h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">A Vision of Transformation and Sustainability</h2>
+  <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">A Vision of Transformation and Sustainability</h2>
 
-<p style=";; margin-bottom: 1rem;">The unveiling of the Silverton facility represents a leap forward not only in technological innovation but also in Genesis’s commitment to sustainable and smart manufacturing. The company is transforming its operations by combining cutting-edge technology with its legacy of engineering excellence.</p>
+  <p style=";; margin-bottom: 1rem;">The unveiling of the Silverton facility represents a leap forward not only in technological innovation but also in Genesis’s commitment to sustainable and smart manufacturing. The company is transforming its operations by combining cutting-edge technology with its legacy of engineering excellence.</p>
 
-<p style=";; margin-bottom: 1rem;">The Silverton plant stands as a testament to Genesis’s unwavering pursuit of excellence in aerospace manufacturing, promising to elevate the company’s offerings and redefine efficiency in an ever-competitive market.</p>
+  <p style=";; margin-bottom: 1rem;">The Silverton plant stands as a testament to Genesis’s unwavering pursuit of excellence in aerospace manufacturing, promising to elevate the company’s offerings and redefine efficiency in an ever-competitive market.</p>
 
-<p style=";; margin-bottom: 1rem;">With its strategic deployment of robotics and artisanship in aerospace components, Genesis is poised to navigate the intricate landscape of modern manufacturing, transforming challenges into opportunities and affirming its status as a visionary leader in the industry.</p>`
-},
-{
-  title: "Skyport Unveils Ambitious Expansion Plans Amid Rising Air Travel Demand",
-  description: "Skyport Airport announces a $2.1 billion expansion to meet increasing travel demands, sparking both excitement and concern among locals.",
-  image: `${basePath}Img/News1Img/Articles/AIarticle12.jpg`,
-  slug: "skyport-expansion-plans-aviation-growth",
-  date: "09/12/2023",
-  author: "Gene Williams, Aviation Industry Analyst",
-  content: `<p style=";; margin-bottom: 1rem;">Skyport International, one of the Midwest’s fastest-growing air transit hubs, has announced a bold $2.1 billion expansion project. The plan, set to unfold over the next five years, includes the addition of two state-of-the-art terminals, an automated baggage system, a high-speed transit loop, and a new sustainability-focused cargo wing.</p>
+  <p style=";; margin-bottom: 1rem;">With its strategic deployment of robotics and artisanship in aerospace components, Genesis is poised to navigate the intricate landscape of modern manufacturing, transforming challenges into opportunities and affirming its status as a visionary leader in the industry.</p>`
+  },
+  {
+    title: "Skyport Unveils Ambitious Expansion Plans Amid Rising Air Travel Demand",
+    description: "Skyport Airport announces a $2.1 billion expansion to meet increasing travel demands, sparking both excitement and concern among locals.",
+    image: `${basePath}Img/News1Img/Articles/AIarticle12.jpg`,
+    slug: "skyport-expansion-plans-aviation-growth",
+    date: "09/12/2023",
+    author: "Gene Williams, Aviation Industry Analyst",
+    content: `<p style=";; margin-bottom: 1rem;">Skyport International, one of the Midwest’s fastest-growing air transit hubs, has announced a bold $2.1 billion expansion project. The plan, set to unfold over the next five years, includes the addition of two state-of-the-art terminals, an automated baggage system, a high-speed transit loop, and a new sustainability-focused cargo wing.</p>
 
   <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Growth Driven by Demand</h2>
 
@@ -274,15 +274,15 @@ export const articles = [
   <p style=";; margin-bottom: 1rem;">“This project could be transformative,” said Councilmember Jorge Valdez. “But it must be held to strict environmental accountability.” A formal environmental impact report is due by November, and construction will not begin until early 2024 pending approval.</p>
 
   <p style=";; margin-bottom: 1rem;">Skyport has promised electric vehicle support, a LEED Platinum terminal, and a rooftop greenhouse as part of its green design initiative. Despite some skepticism, public surveys show 62% of residents in favor of the project.</p>`
-},
-{
-  title: "Local Artist Collective 'Inkforge' Transforms Abandoned Mill into Cultural Hub",
-  description: "Inkforge breathes new life into a long-vacant industrial space, creating studios, galleries, and public workshops.",
-  image: `${basePath}Img/News1Img/Articles/AIarticle11.jpg`,
-  slug: "inkforge-mill-art-space-revamp",
-  date: "12/05/2023",
-  author: "Lila Chen, Arts and Culture Writer",
-  content: `<p style=";; margin-bottom: 1rem;">A once-abandoned textile mill on the eastern edge of Milltown has become the unlikely center of a cultural revival, thanks to a grassroots artist collective known as Inkforge. Over the past two years, the collective has painstakingly converted the crumbling brick structure into a multi-use arts and community space — complete with open studios, rotating exhibits, and educational programming.</p>
+  },
+  {
+    title: "Local Artist Collective 'Inkforge' Transforms Abandoned Mill into Cultural Hub",
+    description: "Inkforge breathes new life into a long-vacant industrial space, creating studios, galleries, and public workshops.",
+    image: `${basePath}Img/News1Img/Articles/AIarticle11.jpg`,
+    slug: "inkforge-mill-art-space-revamp",
+    date: "12/05/2023",
+    author: "Lila Chen, Arts and Culture Writer",
+    content: `<p style=";; margin-bottom: 1rem;">A once-abandoned textile mill on the eastern edge of Milltown has become the unlikely center of a cultural revival, thanks to a grassroots artist collective known as Inkforge. Over the past two years, the collective has painstakingly converted the crumbling brick structure into a multi-use arts and community space — complete with open studios, rotating exhibits, and educational programming.</p>
 
   <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">From Ruin to Renaissance</h2>
 
@@ -303,8 +303,61 @@ export const articles = [
   <p style=";; margin-bottom: 1rem;">“This isn’t just about art,” said councilmember Priya Leung. “It’s about identity, opportunity, and transformation. Inkforge is a catalyst.”</p>
 
   <p style=";; margin-bottom: 1rem;">Looking ahead, Inkforge plans to partner with nearby colleges for a shared artist-in-residence program, and is in talks to develop a satellite space focused on performance art and theater. “We’re just getting started,” said Phan. “This is the blueprint for what’s possible when art and community move together.”</p>`
+  },
+  {
+  title: "Genesis Explores Virtual Reality as Future Tool for Customer Engagement and System Simulation",
+  description: "Genesis Company is laying the groundwork for a future where immersive digital technologies enhance how industrial systems are designed, demonstrated, and delivered. As part of its strategic roadmap, the company is exploring the use of Virtual Reality (VR) and simulation platforms—potentially in partnership with Siemens—to offer clients a more interactive view of its manufacturing capabilities.",
+  image: `${basePath}Img/News1Img/Articles/vr.jpg`,
+  slug: "genesis-vr-customer-engagement",
+  date: "05/22/2025",
+  author: "By Amira Lawson, Technology Solutions Correspondent",
+  content: `
+
+    <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Laying the Foundation for Digital Twin Capabilities</h2>
+
+    <p style="margin-bottom: 1rem;">While Genesis does not yet have full digital twin modeling of its shop floor, internal planning efforts are focused on developing a virtual environment that could eventually replicate factory workflows, test customization scenarios, and model real-time system behavior. Such a platform would allow users to visualize energy consumption patterns, stress-test machine diagnostics, and better understand how integrated automation responds to disruptions or design changes.</p>
+
+    <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">A Long-Term Vision for VR and Simulation</h2>
+
+    <p style="margin-bottom: 1rem;">“This is a longer-term objective, not something we currently offer,” says Elizabeth Redding, CTO. “But as clients demand more visibility and predictability in system performance, tools like VR-based modeling and digital twin technology will help us deliver that experience before the first bolt is turned.”</p>
+
+    <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Strategic Partnerships as Enablers</h2>
+
+    <p style="margin-bottom: 1rem;">Any future rollout would likely depend on external partnerships, particularly with industrial software providers like Siemens. Early-stage discussions have focused on how such collaboration could accelerate Genesis’s ability to simulate end-to-end line behavior and provide clients with a deeper level of assurance during the decision-making process.</p>
+
+    <p style="margin-bottom: 1rem;">“This digital enablement concept is part of a broader effort by Genesis to evolve its customer engagement model. As manufacturing moves toward smarter, data-driven systems, Genesis aims to position itself as a forward-looking integrator—committed not only to building advanced hardware, but to delivering greater transparency and insight into how that hardware performs over time.”</p>
+  `
+},
+ {
+  title: "Genesis Sales Strategy: How Global Reach and Technical Expertise Drive Market Growth",
+  description: "Genesis Company’s success in expanding across global markets is grounded not just in the strength of its products, but in the structure and strategy of its sales organization.",
+  image: `${basePath}Img/News1Img/Articles/global.jpg`,
+  slug: "genesis-vr-customer-engagement",
+  date: "05/08/2025",
+  author: "By Jordan Lee, Business Technology Writer",
+  content: `
+
+    <p style="margin-bottom: 1rem;">With manufacturing and design houses located across North America, Europe, and Asia, Genesis has been able to enter and grow in multiple regions by leveraging close partnerships, localized production capabilities, and a responsive global supply chain. This global presence allows Genesis to offer both agility and proximity—two factors increasingly critical in today’s dynamic industrial landscape.</p>
+
+    <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Regional Focus, Industry Expertise</h2>
+
+    <p style="margin-bottom: 1rem;">To better align with customer needs, Genesis divides its sales organization by both region and industry vertical. Each territory is supported by sales teams who specialize in that region’s unique business climate and technical requirements—whether that’s aerospace in North America, automotive in Europe, or medical manufacturing in Southeast Asia.</p>
+
+    <p style="margin-bottom: 1rem;">What sets Genesis sales reps apart is their deep industry experience and technical fluency. Many team members come from engineering or manufacturing backgrounds and are able to speak fluently about Genesis’s full range of capabilities—from automation integration to system design.</p>
+    
+    <p style="margin-bottom: 1rem;">“We hire people who not only understand sales, but who truly understand how our solutions are built and delivered,” says Victor Viola, Global VP of Strategic Accounts. “That means they can sit down with a customer’s engineering team and actually solve problems.” </p>
+    
+    <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Leveraging Internal Tools to Stay Ahead</h2>
+
+    <p style="margin-bottom: 1rem;">“To support this expertise, Genesis equips its account teams with tools like its internal ROI Visualization Platform—a behind-the-scenes financial modeling engine that helps prioritize opportunities and sharpen strategy. While not customer-facing, it gives sales leaders insight into where Genesis creates the most long-term economic value and where to focus resources.”</p>
+
+    <p style="margin-bottom: 1rem;">The platform also features a “Green ROI” layer, which tracks carbon savings across different solution scenarios, helping sales teams better understand the sustainability impact of each engagement—an increasingly relevant factor in today's procurement decisions.</p>
+    
+    <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Preparing for More Complex Products</h2>
+
+    <p style="margin-bottom: 1rem;">As Genesis’s systems grow more advanced—particularly in software-defined manufacturing and AI-enabled automation—the sales process is becoming more technically demanding. Recognizing this, the company is investing in training, tools, and internal collaboration to ensure sales reps stay ahead of evolving product capabilities.</p>
+
+    <p style="margin-bottom: 1rem;">“The future of selling industrial solutions isn’t just about features,” Viola adds. “It’s about being able to translate deep technical capability into business outcomes. That’s where Genesis is heading—and how we plan to lead.”</p>
+  `
 }
-
-
-
-  ];
+];
