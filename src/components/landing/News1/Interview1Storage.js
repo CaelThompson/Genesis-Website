@@ -190,7 +190,7 @@ export const interviews = [
   title: "Genesis CFO Discusses Medical Device Growth and Operational Strain",
   description: "As global healthcare systems push for more advanced, regulation-compliant technology, industrial manufacturers like Genesis are seeing growing demand from the medical device industry. But expanding into a tightly regulated, customization-heavy market has presented challenges alongside new opportunities. In this internal leadership conversation, Natalie Sharpe sits down with Genesis CFO Brian Matthews to discuss the company’s evolving role in the sector—and the operational realities behind the headlines.",
   images: `${basePath}Img/News1Img/interviews/article1.jpg`,
-  slug: "genesis-silverton-facility-aerospace",
+  slug: "genesis-medical-device-growth",
   date: "05/14/2025",
   author: "By Jordan Lee, Business Technology Writer",
   featured: "Genesis CFO Brian Matthews",
@@ -234,7 +234,7 @@ export const interviews = [
     title: "How Genesis Uses Simulation to Win Business Before Prototyping Begins",
     description: "Discussion on how the company is exploring new digital technologies to enhance customer engagement and solution design.",
     image: `${basePath}Img/News1Img/interviews/data.jpg`,
-    slug: "genesis-silverton-facility-aerospace",
+    slug: "genesis-simulation-use-before-prototype",
     date: "04/17/2025",
     author: "By Kavita Menon, Senior Industry Analys",
     featured: "Victor Viola, Global Vice President of Strategic Sales at Genesis",
@@ -278,7 +278,7 @@ export const interviews = [
     title: "Financial Outcomes and Client Partnership in Aerospace ",
     description: "As industries like aerospace tighten their operational budgets and prioritize ROI-driven innovation, Genesis is deepening its strategic focus on financial modeling and value-driven client engagement. In this roundtable, Joan Wayne sits down with Brian Matthews, CFO, and Victor Viola, Global VP of Strategic Sales, to discuss how Genesis frames complex client partnerships—and delivers measurable financial outcomes in high-stakes sectors. ",
     image: `${basePath}Img/News1Img/interviews/partnership.jpg`,
-    slug: "genesis-silverton-facility-aerospace",
+    slug: "genesis-Financial-outcomes-in-aerospace",
     date: "05/14/2025",
     author: " By Jordan Lee, Business Technology Writer ",
     featured: "Brian Matthews, CFO, and Victor Viola, Global VP of Strategic Sales",
@@ -307,7 +307,7 @@ export const interviews = [
     title: "Demo Innovation and Customer Experience",
     description: "As client expectations shift toward more immersive, real-time proof of value, Genesis is transforming how demos are delivered—leveraging AI, automation, and interactive simulations to create smarter, faster, and more tailored experiences. Joan Wayne sits down with Stacy Tracy, Senior Fellow Design Engineer, to explore how these innovations are reshaping customer engagement across sectors.",
     image: `${basePath}Img/News1Img/interviews/demoai.jpg`,
-    slug: "genesis-silverton-facility-aerospace",
+    slug: "genesis-demo-innovation-experience",
     date: "05/15/2025",
     author: " By Jordan Lee, Business Technology Writer ",
     featured: "Stacy Tracy, Senior Fellow Design Engineer",
@@ -337,6 +337,71 @@ export const interviews = [
   
     <p style=";; margin-bottom: 1rem;"><strong>[Joan Wayne]</strong><br>
     Stacy, this is game-changing. Thanks for giving us a window into what’s next. </p>`
-  }    
+  },  
+  {
+    title: "Striving For Quality: Thoughts on the Most Recent Breakthrough In Embedded Software",
+    description: "Elizabeth Redding and Jan Wilcox discuss Genesis's recent embedded software program developed in-house and soon to be utilized",
+    image: `${basePath}Img/News1Img/interviews/EmbedSoftChip.webp`,
+    slug: "genesis-New-Embedded-Software",
+    date: "02/07/2025",
+    author: " By Sam Smith, Business Technology Writer ",
+    featured: "Elizabeth Redding, CTO at Genesis and Jan Wilcox, Global Director of Manufacturing Engineering at Genesis",
+    content: `<p style=";; margin-bottom: 1rem;"><strong>[Sam Smith, Business Technology Writer] </strong><br>
+    Today we are speaking with Elizabeth Redding and Jan Wilcox on their team's most recent technological breakthrough for many IOT devices found in a plethora of industries.</p>
   
+    <p style=";; margin-bottom: 1rem;"><strong>[Elizabeth Redding, CTO at Genesis] </strong><br>
+    Thank you, Sam, for having us here today. This is a very important time for us today as we are celebrating the success of our most recent program and we would like to go a little deeper and describe exactly what it is.  </p>
+  
+    <p style=";; margin-bottom: 1rem;"><strong>[Sam Smith] </strong><br>
+    Well, let's hear it.  </p>
+  
+    <p style=";; margin-bottom: 1rem;"><strong>[Jan Wilcox, Global Director of Manufacturing Engineering at Genesis]</strong><br>
+     This program we have developed will be embedded in many IOT devices. This program on its own introduces the ability for these devices to be interconnected and supports multi-protocol communication </p>
+  
+    <p style=";; margin-bottom: 1rem;"><strong>[Elizabeth Redding]</strong><br>
+     The massive bonus of this program is that it reduces the complexity for the end-user, reducing the problems they may experience. It also offers a great level of security and is easy to integrate into many IOT devices. Right now we are working on implementing this software on our own shop floor but it will take some time to make the switch.  </p>
+  
+    <p style=";; margin-bottom: 1rem;"><strong>[Sam Smith]</strong><br>
+     When can we expect to see this software released to the public?  </p>
+  
+    <p style=";; margin-bottom: 1rem;"><strong>[Jan Wilcox]</strong><br>
+    We should expect to release it sometime in the next few months. We want to spend time integrating this software with our own resources first. It will give us more time to work out issues and see its capabilities.  </p>
+  
+    <p style=";; margin-bottom: 1rem;"><strong>[Sam Smith]</strong><br>
+     Thank you for coming today. Genesis appears to be making a good recovery from its recent turmoil's. We look forward to seeing what comes next.  </p>
+  `
+  },  
+  {
+    title: "Genesis and its Massive Breakthrough Deal with FANUC",
+    description: "Victor Voila and Brian Matthews comment on a massive deal made with a piece of hardware designed for automotive industry robots. ",
+    image: `${basePath}Img/News1Img/interviews/IndustrialRobot.jpeg`,
+    slug: "genesis-New-Deal-FANUC",
+    date: "10/12/2016",
+    author: " By George Limos, Business Technology Writer ",
+    featured: "Brian Matthews, CFO at Genesis and Victor Viola, Global VP of Strategic Sales at Genesis",
+    content: `<p style=";; margin-bottom: 1rem;"><strong>[George Limos, Business Technology Writer] </strong><br>
+     Thank you for joining us today. We heard recently that Genesis is making a push to improve their manufacturing plants.</p>
+  
+    <p style=";; margin-bottom: 1rem;"><strong>[Brian Matthews, CFO at Genesis] </strong><br>
+    That would be correct, George. We have been hard at work creating the tools needed to help the world and this deal will be a huge benefit to our company and our partners.</p>
+  
+    <p style=";; margin-bottom: 1rem;"><strong>[Victor Viola, Global VP of Strategic Sales at Genesis] </strong><br>
+    Important robotics equipment created by FANUC are going to be integrated into our assembly plants hopefully across the nation and beyond. We negotiated a 3-year exclusivity agreement on this new hardware equipment. This deal should increase our production capabilities by about 10% since we are guaranteed to be using this equipment. We are in the process of doubling our efforts in research and development to come up with the next impressive piece of hardware with this newfound efficiency.</p>
+  
+    <p style=";; margin-bottom: 1rem;"><strong>[George Limos]</strong><br>
+     Why did you go forward with this deal? </p>
+  
+    <p style=";; margin-bottom: 1rem;"><strong>[Brian Matthews]</strong><br>
+     In recent years, we had been having troubles battling the rising cost of manufacturing. We think it would be in our best interest to introduce some new technologies that could help improve our rates of production.</p>
+  
+    <p style=";; margin-bottom: 1rem;"><strong>[George Limos]</strong><br>
+    Do you have plans on developing parts for other industries? Would it be difficult for the company to expand in all those directions? </p>
+  
+    <p style=";; margin-bottom: 1rem;"><strong>[Brian Matthews]</strong><br>
+    We believe that our company can always make the right tools for the right jobs at the highest level of quality. In terms of where we will go next, we believe aerospace is a good choice. There are a lot of new technologies coming out every year and we want to be at the forefront of it all. With our newest robotic equipment, this should be possible.</p>
+  
+    <p style=";; margin-bottom: 1rem;"><strong>[George Limos]</strong><br>
+     Well, that will be great to see. Thank you for talking to us today and sharing some more information on this deal.</p>
+  `
+  }    
 ];
