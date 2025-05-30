@@ -1,20 +1,23 @@
 ---
- const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
+const basePath = import.meta.env.PROD ? "/Genesis/" : "/";
 ---
 
 <title>Image Square Buttons</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+/>
 
 <style>
-    .unique-boxes-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 100px;
-        justify-content: center;
-        margin-top: 20px; /* Adjust this value to increase or decrease the space */
-    }
-    .unique-box {
-    width: 80px;      /* Increased size for better visibility */
+  .unique-boxes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px;
+    justify-content: center;
+    margin-top: 20px; /* Adjust this value to increase or decrease the space */
+  }
+  .unique-box {
+    width: 80px; /* Increased size for better visibility */
     height: 80px;
     display: flex;
     justify-content: center;
@@ -25,46 +28,54 @@
     box-shadow: 1px 8px 12px rgba(0, 0, 0, 0.1);
     background-color: white;
     overflow: hidden;
-}
-    .unique-box img {
+  }
+  .unique-box img {
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
+    transform: scale(1.05); /* Slightly enlarged */
+    transition: transform 0.3s ease;
+  }
+  .unique-box img[alt="Madrigal"] {
+    transform: scale(1.8);
     transition: transform 0.3s ease;
 }
-    .unique-box:hover img {
-        transform: scale(1.1); /* Optional: zoom in the image on hover */
-    }
+  .unique-box:hover img {
+    transform: scale(1.1); /* Optional: zoom in the image on hover */
+  }
 
-    .box-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
 
-    .box-text {
+  .box-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .box-text {
     margin-top: 8px;
     font-size: 14px;
     color: white; /* Text color */
     font-weight: bold; /* Makes the text bold */
-    text-shadow: 1px 1px 2px black, 0 0 25px rgb(93, 93, 233), 0 0 5px darkblue; /* Optional: Adds a shadow to improve visibility */
+    text-shadow:
+      1px 1px 2px black,
+      0 0 25px rgb(93, 93, 233),
+      0 0 5px darkblue; /* Optional: Adds a shadow to improve visibility */
     word-wrap: break-word; /* Ensures long text wraps */
-    
-}
+  }
 
-    .flex-container {
-        display: flex;
-        flex-direction: row;
-        gap: 4px;
-        align-items: center;
-        justify-content: center;
-    }
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .flex-container a, .flex-container button {
-        text-decoration: none;
-    }
-
+  .flex-container a,
+  .flex-container button {
+    text-decoration: none;
+  }
 </style>
 
 <body>
@@ -90,12 +101,12 @@
       <div class="box-text">StockWatch</div>
     </div>
 
-    <div class="box-wrapper">
-      <a href="/news2" class="unique-box">
-        <img src="Img/News2Img/madrigalLogo2.png" alt="Madrigal" />
-      </a>
-      <div class="box-text">Madrigal</div>
-    </div>
+   <div class="box-wrapper">
+  <a href="/news2" class="unique-box">
+    <img src="Img/News2Img/madrigalLogo2.png" alt="Madrigal" class="madrigal-img" />
+  </a>
+  <div class="box-text">Madrigal</div>
+</div>
 
     <div class="box-wrapper">
       <a href="/news3" class="unique-box">
