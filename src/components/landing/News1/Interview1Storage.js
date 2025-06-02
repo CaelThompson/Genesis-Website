@@ -144,7 +144,6 @@ export const interviews = [
     <p style=";; margin-bottom: 1rem;"><strong>[Emily Grant]</strong><br>
     It’s exciting to hear how Genesis is expanding globally. Thank you both for the insights, and I look forward to seeing how your strategies unfold.</p>`
   },
-
   {
     title: "Genesis’ Livorno Facility - Pioneering the Future of Aerospace Engineering",
     description: "Alan Michaels and Fred Reed discuss the innovative work being done at Genesis’s Silverton facility to advance aerospace engineering.",
@@ -152,7 +151,7 @@ export const interviews = [
     slug: "genesis-silverton-facility-aerospace",
     date: "12/1/2024",
     author: "Sarah Mitchell",
-    featured: "Alan Michaels, CEO & Fred Reed, Global Lead Product Development Engineer",
+    featured: "Alan Michaels, CEO & Fred Reed, Gobal Lead Product Development Engineer",
     content: `<p style=";; margin-bottom: 1rem;"><strong>[Sarah Mitchell]</strong><br>
     Alan and Fred, thank you for joining me today. As we discuss the Genesis facilities, could you provide some insight into the Livorno facility, known for its craftsmanship and precision? Alan, what makes this facility integral to Genesis’s operations?</p>
   
@@ -188,56 +187,56 @@ export const interviews = [
   },
   {
   title: "Genesis CFO Discusses Medical Device Growth and Operational Strain",
-  description: "As global healthcare systems push for more advanced, regulation-compliant technology, Tier 2 OEM suppliers like Genesis are seeing an uptick in demand from the medical device sector. But entering a highly regulated, customization-heavy industry brings operational hurdles as well as opportunities.",
-  images: `${basePath}Img/News1Img/interviews/article1.jpg`,
+  description: "As demand rises from the medical device sector, Genesis navigates both opportunity and operational complexity. CFO Brian Matthews speaks with Natalie Sharpe about finance, regulation, and the company's evolving role in medtech.",
+  image: `${basePath}Img/News1Img/interviews/article1.jpg`,
   slug: "genesis-medical-device-growth",
   date: "05/14/2025",
-  author: "By Jordan Lee, Business Technology Writer",
-  featured: "Genesis CFO Brian Matthews",
-  content: `<p><strong>[Natalie Sharpe]</strong><br>
+  author: " By Jordan Lee, Business Technology Writer ",
+  featured: "Brian Matthews, Chief Financial Officer",
+  content: `<p style="margin-bottom: 1rem;"><strong>[Natalie Sharpe]</strong><br>
   Brian, thanks for taking the time today. From the finance side, we’ve seen the medical device vertical contributing more to our opportunity pipeline—but also more complexity. What’s fueling our shift in that space?</p>
 
-  <p><strong>[Brian Matthews]</strong><br>
+  <p style="margin-bottom: 1rem;"><strong>[Brian Matthews]</strong><br>
   Thanks, Natalie. The healthcare sector’s need for high-precision, regulation-compliant components—especially those adhering to FDA and EU-MDR standards—perfectly aligns with our core strengths in multi-axis machining, documentation accuracy, and precision manufacturing. Our background in aerospace and defense gave us the discipline needed to meet rigorous specs, and that’s opened doors in medtech. But it’s a complex transition. These OEMs expect rapid iterations, deep traceability, and upfront engagement during the design and compliance stages. That’s been pushing us to adapt our internal workflows.</p>
 
-  <p><strong>[Natalie Sharpe]</strong><br>
+  <p style="margin-bottom: 1rem;"><strong>[Natalie Sharpe]</strong><br>
   So we’re not just plugging into existing workflows—we’re reshaping ours?</p>
 
-  <p><strong>[Brian Matthews]</strong><br>
+  <p style="margin-bottom: 1rem;"><strong>[Brian Matthews]</strong><br>
   Exactly. Unlike our standard engagements in automotive or industrial sectors, medical device OEMs loop us in earlier—during design, validation, and even regulatory prep. That’s exciting, but also demanding. Our teams are now managing tighter timelines and additional documentation requirements across multiple regions. We’ve seen real strain on engineering bandwidth and our prototyping queue.</p>
 
-  <p><strong>[Natalie Sharpe]</strong><br>
+  <p style="margin-bottom: 1rem;"><strong>[Natalie Sharpe]</strong><br>
   From your seat on the finance side, how is that impacting customer relationships?</p>
 
-  <p><strong>[Brian Matthews]</strong><br>
+  <p style="margin-bottom: 1rem;"><strong>[Brian Matthews]</strong><br>
   It’s a tightrope. We’ve built trust through transparency—we don’t overpromise—but it’s tough when a project slips because machine time or compliance reviews hit a bottleneck. We had a prototype request for a surgical enclosure get delayed last quarter simply due to tooling backlog. While we retained the customer, it delayed their product validation timeline. We're not losing contracts, but we’re definitely operating at capacity in some key areas.</p>
 
-  <p><strong>[Natalie Sharpe]</strong><br>
+  <p style="margin-bottom: 1rem;"><strong>[Natalie Sharpe]</strong><br>
   What’s being done to address that strain?</p>
 
-  <p><strong>[Brian Matthews]</strong><br>
+  <p style="margin-bottom: 1rem;"><strong>[Brian Matthews]</strong><br>
   We’re coordinating with Jan Wilcox’s manufacturing team and Fred Reed’s product development group to prioritize high-value medical projects. But to grow sustainably, we’ll need capital investment—especially in cleanroom-rated equipment, expanded QA infrastructure, and potentially additional regulatory training for engineering staff. We’re also exploring partnerships with firms that can augment our validation testing capabilities without diluting quality.</p>
 
-  <p><strong>[Natalie Sharpe]</strong><br>
+  <p style="margin-bottom: 1rem;"><strong>[Natalie Sharpe]</strong><br>
   It sounds like the opportunity is real—but it comes with no shortcuts. Where do you see the most promising growth?</p>
 
-  <p><strong>[Brian Matthews]</strong><br>
+  <p style="margin-bottom: 1rem;"><strong>[Brian Matthews]</strong><br>
   Surgical robotics and smart implantables are two spaces we’re well-positioned to support. These products demand the kind of custom-engineered precision that Genesis is built on. But we need to earn our way in by proving we can hit specs consistently and manage compliance efficiently. If we do that, we’ll be a preferred Tier 2 partner for multiple OEMs in that space.</p>
 
-  <p><strong>[Natalie Sharpe]</strong><br>
+  <p style="margin-bottom: 1rem;"><strong>[Natalie Sharpe]</strong><br>
   That’s critical context as we think about budgeting and capital priorities. Thanks for the insight, Brian.</p>
 
-  <p><strong>[Brian Matthews]</strong><br>
+  <p style="margin-bottom: 1rem;"><strong>[Brian Matthews]</strong><br>
   Glad to contribute, Natalie. Our foundation is solid—we just need to keep aligning execution with opportunity and stay honest about where we need to grow.</p>`
 },
-    {
+  {
   title: "How Genesis Uses Simulation to Win Business Before Prototyping Begins",
-  description: "Discussion on how Genesis is using simulation and digital tools to engage customers earlier and improve design alignment in high-mix, low-volume industries.",
+  description: "Genesis is integrating simulation into early customer engagement—aiming to accelerate alignment, reduce risk, and boost design confidence before physical prototyping ever starts.",
   image: `${basePath}Img/News1Img/interviews/data.jpg`,
-  slug: "genesis-simulation-digital-strategy",
+  slug: "genesis-simulation-strategy",
   date: "04/17/2025",
   author: "By Kavita Menon, Senior Industry Analyst",
-  featured: "Victor Viola, Global Vice President of Strategic Sales at Genesis",
+  featured: "Victor Viola, Global VP of Strategic Sales",
   content: `<p style="margin-bottom: 1rem;"><strong>[Kavita Menon]</strong><br>
   I'm joined today by Victor Viola, Global Vice President of Strategic Sales at Genesis, to explore how the company is incorporating simulation into its customer engagement strategy. Known for precision manufacturing and trusted engineering partnerships, Genesis is now preparing to integrate digital tools—especially through an evolving partnership with Siemens Digital Industries Software (DISW)—to better support high-mix, low-volume industries like medical, aerospace, and electronics.</p>
 
@@ -280,114 +279,110 @@ export const interviews = [
   <p style="margin-bottom: 1rem;"><strong>[Victor Viola]</strong><br>
   More transparency, faster alignment, and better design outcomes—especially in regulated sectors like medical devices. Simulation is a tool, not a shortcut. We’re building the internal knowledge and partnerships now so that when we apply it, we’re doing so with the same rigor and reliability that our customers expect from Genesis.</p>`
 },
-    {
+
+   {
   title: "Financial Outcomes and Client Partnership in Aerospace",
   description: "Genesis is helping aerospace clients achieve measurable ROI by embedding financial modeling into engineering engagements—transforming supplier relationships into strategic partnerships.",
-  image: `${basePath}Img/News1Img/partnership.jpg`,
+  image: `${basePath}Img/News1Img/interviews/partnership.jpg`,
   slug: "financial-outcomes-client-partnership",
   date: "05/14/2025",
   author: "By Jordan Lee, Business Technology Writer",
   featured: "Brian Matthews, CFO; Victor Viola, Global VP of Strategic Sales",
   content: `<p style="margin-bottom: 1rem;">As aerospace companies face growing pressure to control costs and justify every investment, Genesis is taking a bold, strategic approach: integrating financial modeling directly into how it scopes and delivers engineering solutions. With a focus on lifetime value and operational performance, Genesis is reshaping how high-stakes industries evaluate supplier partnerships.</p>
 
-  <p style="margin-bottom: 1rem;">In this executive roundtable, Taylor Brooks sits down with Brian Matthews, Chief Financial Officer, and Victor Viola, Global Vice President of Strategic Sales, to discuss how Genesis is helping aerospace clients achieve measurable ROI—long before a production order is placed.</p>
+  <p style="margin-bottom: 1rem;">In this executive roundtable, Joan Wayne sits down with Brian Matthews, Chief Financial Officer, and Victor Viola, Global Vice President of Strategic Sales, to discuss how Genesis is helping aerospace clients achieve measurable ROI—long before a production order is placed.</p>
 
-  <p style="margin-bottom: 1rem;"><strong>[Taylor Brooks]</strong><br>
+  <p style="margin-bottom: 1rem;"><strong>[Joan Wayne]</strong><br>
   I'm joined today by Brian Matthews, our CFO, and Victor Viola, Global VP of Strategic Sales. We’re diving into how Genesis frames client partnerships—particularly in aerospace—not just through engineering capabilities, but through financial impact. Brian, let’s start with you. How is Genesis aligning financial tools with external client needs?</p>
 
   <p style="margin-bottom: 1rem;"><strong>[Brian Matthews – CFO]</strong><br>
-  Great question, Taylor. Over the last year, we’ve invested in internal ROI modeling platforms that simulate outcomes like material savings, production throughput, and cost avoidance. These models are built with real manufacturing data, so they reflect what’s actually achievable on our floor. In one recent aerospace engagement, for instance, we helped a client transition to a new material strategy that’s expected to reduce their annual operational costs by 12%. That wasn’t just a win for engineering—it gave our sales team a compelling financial story to anchor the proposal.</p>
+  Great question, Joan. Over the last year, we’ve invested in internal ROI modeling platforms that simulate outcomes like material savings, production throughput, and cost avoidance. These models are built with real manufacturing data, so they reflect what’s actually achievable on our floor. In one recent aerospace engagement, for instance, we helped a client transition to a new material strategy that’s expected to reduce their annual operational costs by 12%. That wasn’t just a win for engineering—it gave our sales team a compelling financial story to anchor the proposal.</p>
 
-  <p style="margin-bottom: 1rem;"><strong>[Taylor Brooks]</strong><br>
+  <p style="margin-bottom: 1rem;"><strong>[Joan Wayne]</strong><br>
   So these financial models go beyond internal planning—they’re actually changing the customer conversation?</p>
 
   <p style="margin-bottom: 1rem;"><strong>[Victor Viola – Global VP of Strategic Sales]</strong><br>
   Absolutely. Aerospace clients today are incredibly data-driven. Their procurement teams are evaluating long-term ownership costs, regulatory risks, and program sustainability—not just unit pricing. When we walk in with scenario-based forecasts and can show how a design decision affects their bottom line, it shifts the relationship. We’re not just a supplier anymore—we’re a financial partner.</p>
 
-  <p style="margin-bottom: 1rem;"><strong>[Taylor Brooks]</strong><br>
+  <p style="margin-bottom: 1rem;"><strong>[Joan Wayne]</strong><br>
   What are aerospace clients demanding in this high-pressure environment?</p>
 
   <p style="margin-bottom: 1rem;"><strong>[Brian Matthews]</strong><br>
   Two things: transparency and speed. They want to see clear projections of how our solution will impact key financial metrics like EBITDA or program-level ROI—and they want that insight before a contract is signed. That’s why we’ve built tools that link engineering inputs to financial outcomes, and why our teams are trained to speak both technical and financial languages fluently.</p>
 
-  <p style="margin-bottom: 1rem;"><strong>[Taylor Brooks]</strong><br>
+  <p style="margin-bottom: 1rem;"><strong>[Joan Wayne]</strong><br>
   So this isn't just about pricing—it’s about delivering strategic value.</p>
 
   <p style="margin-bottom: 1rem;"><strong>[Victor Viola]</strong><br>
   Exactly. Our job is to help clients justify the investment. Whether it’s a new process that reduces waste or a reengineered assembly that accelerates time-to-certification, we’re proving that Genesis can be a driver of margin—not just a cost center. In aerospace, that’s the difference between being a vendor and being a long-term partner.</p>
 
-  <p style="margin-bottom: 1rem;"><strong>[Taylor Brooks]</strong><br>
+  <p style="margin-bottom: 1rem;"><strong>[Joan Wayne]</strong><br>
   Thanks, Brian and Victor. It’s clear that embedding financial thinking into every stage of the customer journey is helping Genesis stand out in a highly competitive sector.</p>`
 },
   {
-    title: "Demo Innovation and Customer Experience",
-    description: "As client expectations shift toward more immersive, real-time proof of value, Genesis is transforming how demos are delivered—leveraging AI, automation, and interactive simulations to create smarter, faster, and more tailored experiences. Joan Wayne sits down with Stacy Tracy, Senior Fellow Design Engineer, to explore how these innovations are reshaping customer engagement across sectors.",
-    image: `${basePath}Img/News1Img/interviews/demoai.jpg`,
-    slug: "genesis-demo-innovation-experience",
-    date: "05/15/2025",
-    author: " By Jordan Lee, Business Technology Writer ",
-    featured: "Stacy Tracy, Senior Fellow Design Engineer",
-    content: `<p style=";; margin-bottom: 1rem;"><strong>[Joan Wayne – Director of Communications] </strong><br>
-   Stacy, thanks for joining us. You’ve been at the forefront of Genesis’s push to modernize technical demos. What are clients responding to most in our AI-driven approach? </p>
-  
-    <p style=";; margin-bottom: 1rem;"><strong>[Stacy Tracy – Senior Fellow Design Engineer] </strong><br>
-    Thanks, Joan. Clients today want to see how a solution performs before they commit—not just in theory, but in context. That’s where AI-based demos come in. We use machine learning to model real-world variables, allowing us to simulate a client’s use case in minutes. In one aerospace project, we created a live digital twin of a fuel valve system and showed how our design handled stress tests before the part was even prototyped. That kind of experience builds trust. </p>
-  
-    <p style=";; margin-bottom: 1rem;"><strong>[Joan Wayne] </strong><br>
-    So it’s not just about flash—it’s functional validation in real time? </p>
-  
-    <p style=";; margin-bottom: 1rem;"><strong>[Stacy Tracy]</strong><br>
-     Exactly. These aren’t just pretty animations. We pull data from prior projects, adjust for the client’s specs, and let the AI run predictive scenarios. Clients can toggle settings, see cost impacts, run failure mode simulations—all during the meeting. It's interactive engineering. </p>
-  
-    <p style=";; margin-bottom: 1rem;"><strong>[Joan Wayne]</strong><br>
-     What challenges come with making that level of demo scalable? </p>
-  
-    <p style=";; margin-bottom: 1rem;"><strong>[Stacy Tracy]</strong><br>
-     Integration is the big one. Our AI engines rely on input from design, compliance, supply chain—you name it. For the demos to reflect reality, those data streams have to be clean and current. We've spent the last year building backend tools that sync with our PLM and ERP systems. But there’s still more to do, especially to ensure consistency across global teams. </p>
-  
-    <p style=";; margin-bottom: 1rem;"><strong>[Joan Wayne]</strong><br>
-    What excites you most about where this is heading? </p>
-  
-    <p style=";; margin-bottom: 1rem;"><strong>[Stacy Tracy]</strong><br>
-    We’re getting to a place where the demo becomes a design tool. Clients bring an idea to the table, and we can iterate on it live—adjusting tolerances, materials, even projected lifecycle cost. It’s a collaborative experience that sets the tone for the whole partnership. </p>
-  
-    <p style=";; margin-bottom: 1rem;"><strong>[Joan Wayne]</strong><br>
-    Stacy, this is game-changing. Thanks for giving us a window into what’s next. </p>`
-  },  
+  title: "Demo Innovation and Customer Experience: The Future of AI-Driven Engineering Engagement",
+  description: "As customer expectations shift toward real-time validation and hyper-relevant engagement, Genesis is reimagining how demos are delivered—transforming them from static presentations into dynamic, AI-driven design experiences.",
+  image: `${basePath}Img/News1Img/interviews/demoai.jpg`,
+  slug: "genesis-demo-innovation-experience",
+  date: "05/14/2025",
+  author: " By Jordan Lee, Business Technology Writer ",
+  featured: "Stacy Tracy, Senior Fellow Design Engineer",
+  content: `<p style="margin-bottom: 1rem;"><strong>[Alyssa Chen – Director of Communications]</strong><br>
+  Stacy, thanks for joining us. You’ve been at the forefront of Genesis’s initiative to modernize technical demonstrations. What’s resonating most with clients about our AI-driven demo approach?</p>
+
+  <p style="margin-bottom: 1rem;"><strong>[Stacy Tracy – Senior Fellow Design Engineer]</strong><br>
+  Thanks, Alyssa. What clients value most is realism. They’re no longer satisfied with generic overviews—they want to see how our solutions behave under their specific conditions, before a prototype is even made. With AI-powered modeling, we can simulate their exact use case in real time. For example, in a recent aerospace engagement, we built a digital twin of a fuel valve system and ran stress simulations live in the meeting. That level of contextual, on-demand insight builds credibility fast.</p>
+
+  <p style="margin-bottom: 1rem;"><strong>[Alyssa Chen]</strong><br>
+  So it’s less about polish and more about practical validation?</p>
+
+  <p style="margin-bottom: 1rem;"><strong>[Stacy Tracy]</strong><br>
+  Exactly. These aren’t just animations—they’re dynamic simulations driven by real data. We ingest variables from prior programs, adjust to the client’s specs, and use AI to run performance and risk scenarios. Clients can adjust parameters on the spot—change materials, simulate failures, or view lifecycle cost impacts. It’s collaborative, predictive engineering that brings them into the process early.</p>
+
+  <p style="margin-bottom: 1rem;"><strong>[Alyssa Chen]</strong><br>
+  What’s been the biggest challenge in making these demos scalable?</p>
+
+  <p style="margin-bottom: 1rem;"><strong>[Stacy Tracy]</strong><br>
+  Integration. For these models to reflect real-world conditions, they need clean, synchronized inputs from across our systems—design, compliance, procurement, supply chain. Over the past year, we’ve built backend tooling that connects our PLM and ERP environments, so the AI demos pull live, validated data. But there’s still work to be done to ensure standardization across global teams and project types.</p>
+
+  <p style="margin-bottom: 1rem;"><strong>[Alyssa Chen]</strong><br>
+  And looking ahead, what excites you most about where this capability is heading?</p>
+
+  <p style="margin-bottom: 1rem;"><strong>[Stacy Tracy]</strong><br>
+  We’re evolving demos into real-time design environments. Clients can bring a concept to the table, and we can explore it together—adjusting dimensions, tolerances, regulatory constraints, even projected manufacturing costs. It shifts the dynamic from presentation to co-creation. That’s what makes partnerships stick—we're solving problems together from day one.</p>
+
+  <p style="margin-bottom: 1rem;"><strong>[Alyssa Chen]</strong><br>
+  That’s a powerful shift. Stacy, thank you for sharing where this innovation is taking us next.</p>`
+},
   {
-    title: "Striving For Quality: Thoughts on the Most Recent Breakthrough In Embedded Software",
-    description: "Elizabeth Redding and Jan Wilcox discuss Genesis's recent embedded software program developed in-house and soon to be utilized",
-    image: `${basePath}Img/News1Img/interviews/EmbedSoftChip.webp`,
-    slug: "genesis-New-Embedded-Software",
-    date: "02/07/2025",
-    author: " By Sam Smith, Business Technology Writer ",
-    featured: "Elizabeth Redding, CTO at Genesis and Jan Wilcox, Global Director of Manufacturing Engineering at Genesis",
-    content: `<p style=";; margin-bottom: 1rem;"><strong>[Sam Smith, Business Technology Writer] </strong><br>
-    Today we are speaking with Elizabeth Redding and Jan Wilcox on their team's most recent technological breakthrough for many IOT devices found in a plethora of industries.</p>
-  
-    <p style=";; margin-bottom: 1rem;"><strong>[Elizabeth Redding, CTO at Genesis] </strong><br>
-    Thank you, Sam, for having us here today. This is a very important time for us today as we are celebrating the success of our most recent program and we would like to go a little deeper and describe exactly what it is.  </p>
-  
-    <p style=";; margin-bottom: 1rem;"><strong>[Sam Smith] </strong><br>
-    Well, let's hear it.  </p>
-  
-    <p style=";; margin-bottom: 1rem;"><strong>[Jan Wilcox, Global Director of Manufacturing Engineering at Genesis]</strong><br>
-     This program we have developed will be embedded in many IOT devices. This program on its own introduces the ability for these devices to be interconnected and supports multi-protocol communication </p>
-  
-    <p style=";; margin-bottom: 1rem;"><strong>[Elizabeth Redding]</strong><br>
-     The massive bonus of this program is that it reduces the complexity for the end-user, reducing the problems they may experience. It also offers a great level of security and is easy to integrate into many IOT devices. Right now we are working on implementing this software on our own shop floor but it will take some time to make the switch.  </p>
-  
-    <p style=";; margin-bottom: 1rem;"><strong>[Sam Smith]</strong><br>
-     When can we expect to see this software released to the public?  </p>
-  
-    <p style=";; margin-bottom: 1rem;"><strong>[Jan Wilcox]</strong><br>
-    We should expect to release it sometime in the next few months. We want to spend time integrating this software with our own resources first. It will give us more time to work out issues and see its capabilities.  </p>
-    
-    <p style=";; margin-bottom: 1rem;"><strong>[Sam Smith]</strong><br>
-     Thank you for coming today. Genesis appears to be making a good recovery from its recent turmoil's. We look forward to seeing what comes next.  </p>
-  `
-  },  
-  {
+  title: "Striving for Efficiency: Thoughts on the Most Recent Breakthrough",
+  description: "Elizabeth Redding and Jan Wilcox discuss their team's innovative IoT program that simplifies user experience, boosts security, and supports multi-protocol connectivity across industries.",
+  image: `${basePath}Img/News1Img/interviews/EmbedSoftChip.webp`,
+  slug: "iot-breakthrough-efficiency",
+  date: "02/07/2025",
+  author: "By Sam Smith",
+  featured: "Elizabeth Redding, Lead Researcher; Jan Wilcox, Systems Architect",
+  content: `<p style="margin-bottom: 1rem;">Today we are speaking with Elizabeth Redding and Jan Wilcox on their team’s most recent technological breakthrough for IoT devices across a wide range of industries.</p>
+
+  <p style="margin-bottom: 1rem;"><strong>[Sam Smith]</strong><br>
+  Thank you both for joining us. Can you tell us what this latest innovation is all about?</p>
+
+  <p style="margin-bottom: 1rem;"><strong>[Elizabeth Redding]</strong><br>
+  Thank you, Sam, for having us. This is a very exciting time for our team as we celebrate the success of our new program. We’ve been working on a solution that can be embedded in a wide range of IoT devices to significantly enhance efficiency and ease of use.</p>
+
+  <p style="margin-bottom: 1rem;"><strong>[Sam Smith]</strong><br>
+  Let’s hear the details—what exactly does the program do?</p>
+
+  <p style="margin-bottom: 1rem;"><strong>[Jan Wilcox]</strong><br>
+  The core of our program enables multi-protocol communication and seamless device interconnectivity. It allows devices across different platforms and networks to communicate more effectively, improving both operational flow and scalability.</p>
+
+  <p style="margin-bottom: 1rem;"><strong>[Elizabeth Redding]</strong><br>
+  A major highlight is its user-focused design. We wanted to reduce the complexity faced by end-users. With built-in security features and streamlined integration, this program doesn’t just solve technical problems—it creates a smoother, safer experience for everyone who interacts with IoT technology.</p>
+
+  <p style="margin-bottom: 1rem;"><strong>[Sam Smith]</strong><br>
+  That sounds like a big leap forward, especially considering the growing role of IoT across sectors. Thank you for sharing your insight and congratulations to the entire Genesis team on this achievement.</p>`
+},
+{
     title: "Genesis and its Massive Breakthrough Deal with FANUC",
     description: "Victor Voila and Brian Matthews comment on a massive deal made with a piece of hardware designed for automotive industry robots. ",
     image: `${basePath}Img/News1Img/interviews/IndustrialRobot.jpeg`,

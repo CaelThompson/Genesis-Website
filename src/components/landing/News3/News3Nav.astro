@@ -1,140 +1,175 @@
 ---
+// Astro frontmatter
 import Container from "../../global/NewsContainer.astro";
 const basePath = import.meta.env.PROD ? "/Genesis/" : "/";
 ---
 
 <style>
     body {
-  padding-top: 150px;
-}
+        padding-top: 150px;
+    }
+
     .heading {
-        margin-bottom: 30px;
         background-color: #aa7e17;
         background-image: url("/Img/News3Img/oldpaper.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-blend-mode: multiply;
-        padding: 80px 80px; /* original padding left and right */
         color: aliceblue;
         font-size: 2rem;
         font-weight: 600;
         text-transform: uppercase;
         display: flex;
         align-items: center;
-        justify-content: space-between; /* spread children */
         font-family: "Copperplate Gothic Light", "Franklin Gothic Medium",
             "Arial Narrow", Arial, sans-serif;
         position: fixed;
         width: 100%;
-        left: 0;
         top: 0;
         z-index: 10;
-        height: 80px; /* control height so it's visible */
+        padding: 20px 50px;
     }
 
-    .button {
-        display: inline-block;
-        padding: 8px 16px;
-        border: 2px solid white;
-        border-radius: 8px;
-        background-color: transparent;
-        color: white;
+    .logo {
+        width: 50px;
+        height: auto;
+        margin: 0 30px;
+    }
+
+    .tilt-on-hover:hover {
+        animation: tilt 0.4s ease-in-out;
+    }
+
+    @keyframes tilt {
+        0% {
+            transform: rotate(0deg);
+        }
+        25% {
+            transform: rotate(5deg);
+        }
+        50% {
+            transform: rotate(-5deg);
+        }
+        75% {
+            transform: rotate(5deg);
+        }
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+
+    #dropdown-menu {
+        top: 150px;
+        position: absolute;
+        top: 140px;
+        right: -50px;
+        background-color: #753a11;
+        color: aliceblue;
+        list-style: none;
+        padding: 5px 0;
+        border: 1px solid aliceblue;
+        border-radius: 5px;
+        width: 33vw;
+        text-transform: capitalize;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    #dropdown-menu li:first-child {
+        margin-top: 17px;
+    }
+
+    #dropdown-menu li:hover {
+        background-color: #3f2916;
+        cursor: pointer;
+    }
+
+    #dropdown-menu li a {
+        display: block;
+        width: 100%;
         text-decoration: none;
-        font-weight: bold;
-        transition:
-            border-color 0.3s,
-            color 0.3s;
-        cursor: pointer;
-        margin-right: 15px; /* spacing between buttons */
+        color: inherit;
+        padding: 5px 10px;
+        font-size: 14px;
     }
-
-    .button:hover {
-        border-color: black;
-        color: black;
-        background-color: transparent;
-    }
-
-    .heading-buttons {
-        display: flex;
-        align-items: center;
-    }
-
-    .heading-title {
-        text-align: center;
-        flex: 1; /* take remaining space */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 0; /* no gap, close stacking */
-    }
-
-    .heading-title h1 {
-        margin: 0;
-        line-height: 1;
-        font-size: 2.5rem;
-        font-weight: 600;
-    }
-
-    .menu-button {
-        /* right aligned menu section */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        cursor: pointer;
-    }
-
-    .menu-button img {
-        width: 200px;
-    }
-
-    .menu-text {
-        color: white;
-        font-size: 24px;
-        margin-top: 5px;
-    }
-    
 </style>
 
 <Container>
     <div class="heading">
-        <!-- Buttons left -->
-        <div class="heading-buttons">
-            <a href="/" class="button">Main</a>
-            <a href="/news3" class="button">Home</a>
+        <div style="display: flex; gap: 10px; margin-right: 20px;">
+            <a
+                href="/news3"
+                class="px-4 py-2 border border-white text-white rounded transition-transform duration-300 hover:scale-110 text-center"
+                style="color: aliceblue;">Home</a
+            >
+            <a
+                href="/"
+                class="px-4 py-2 border border-white text-white rounded transition-transform duration-300 hover:scale-110 text-center"
+                style="color: aliceblue;">Main</a
+            >
+        </div>
+        <div style="flex: 1; text-align: center;">
+            <h1 class="text-5xl font-semibold">Lone</h1>
+            <h1 class="text-5xl font-semibold">Star</h1>
+            <h1 class="text-5xl font-semibold">Outlet</h1>
         </div>
 
-        <!-- Center Heading Text -->
-        <div class="heading-title">
-            <h1>Lone</h1>
-            <h1>Star</h1>
-            <h1>Outlet</h1>
-        </div>
-
-        <!-- Right Menu Button -->
-        <div class="menu-button" onclick="toggleMenu()">
+        <!-- Menu Button -->
+        <div
+            style="display: flex; flex-direction: column; align-items: center; gap: 5px; position: relative;"
+            onclick="toggleMenu()"
+        >
             <img
                 src={`${basePath}Img/News3Img/cowboyhat.png`}
                 class="tilt-on-hover"
-                alt="Menu"
+                style="width: 200px;"
             />
-            <p class="menu-text">Menu</p>
+            <p
+                style="margin: 0; color: aliceblue; font-family: 'Copperplate Gothic Light', serif; font-size: 14px;"
+            >
+                Menu
+            </p>
+            <ul id="dropdown-menu">
+                <li><a href={`${basePath}news3`}>The Ranch</a></li>
+                <li><a href={`${basePath}article3`}>Trail Talk</a></li>
+                <li><a href={`${basePath}interview3`}>Frontier Voices</a></li>
+                <li>
+                    <a href={`${basePath}aboutus3`}>Behind the Barn Door</a>
+                </li>
+            </ul>
         </div>
     </div>
 
-    <!-- Dropdown menu and script go here -->
-</Container>
+    <script>
+        let menuVisible = false;
 
-<script>
-    let menuVisible = false;
-
-    function toggleMenu() {
-        const menu = document.getElementById("dropdown-menu");
-        menuVisible = !menuVisible;
-        if (menu) {
-            menu.style.transform = menuVisible
-                ? "translateX(0)"
-                : "translateX(100%)";
+        function toggleMenu() {
+            const menu = document.getElementById("dropdown-menu");
+            menuVisible = !menuVisible;
+            if (menu) {
+                menu.style.transform = menuVisible
+                    ? "translateX(0)"
+                    : "translateX(100%)";
+            }
         }
-    }
-    window.toggleMenu = toggleMenu;
-</script>
+
+        // Add line separators dynamically
+        window.addEventListener("DOMContentLoaded", () => {
+            const menu = document.getElementById("dropdown-menu");
+            if (menu) {
+                const items = menu.querySelectorAll("li");
+                items.forEach((item, i) => {
+                    if (i < items.length - 1) {
+                        const hr = document.createElement("hr");
+                        hr.style.border = "1px solid aliceblue";
+                        hr.style.margin = "5px 0";
+                        item.after(hr);
+                    }
+                });
+            }
+        });
+
+        // Export function to global window object
+        window.toggleMenu = toggleMenu;
+    </script></Container
+>
