@@ -144,7 +144,6 @@ export const interviews = [
     <p style=";; margin-bottom: 1rem;"><strong>[Emily Grant]</strong><br>
     It’s exciting to hear how Genesis is expanding globally. Thank you both for the insights, and I look forward to seeing how your strategies unfold.</p>`
   },
-
   {
     title: "Genesis’ Livorno Facility - Pioneering the Future of Aerospace Engineering",
     description: "Alan Michaels and Fred Reed discuss the innovative work being done at Genesis’s Silverton facility to advance aerospace engineering.",
@@ -152,7 +151,7 @@ export const interviews = [
     slug: "genesis-silverton-facility-aerospace",
     date: "12/1/2024",
     author: "Sarah Mitchell",
-    featured: "Alan Michaels, CEO & Fred Reed, Global Lead Product Development Engineer",
+    featured: "Alan Michaels, CEO & Fred Reed, Gobal Lead Product Development Engineer",
     content: `<p style=";; margin-bottom: 1rem;"><strong>[Sarah Mitchell]</strong><br>
     Alan and Fred, thank you for joining me today. As we discuss the Genesis facilities, could you provide some insight into the Livorno facility, known for its craftsmanship and precision? Alan, what makes this facility integral to Genesis’s operations?</p>
   
@@ -189,8 +188,6 @@ export const interviews = [
   {
   title: "Genesis CFO Discusses Medical Device Growth and Operational Strain",
   description: "As global healthcare systems push for more advanced, regulation-compliant technology, Tier 2 OEM suppliers like Genesis are seeing an uptick in demand from the medical device sector. But entering a highly regulated, customization-heavy industry brings operational hurdles as well as opportunities.",
-  images: `${basePath}Img/News1Img/interviews/article1.jpg`,
-  slug: "genesis-medical-device-growth",
   date: "05/14/2025",
   author: "By Jordan Lee, Business Technology Writer",
   featured: "Genesis CFO Brian Matthews",
