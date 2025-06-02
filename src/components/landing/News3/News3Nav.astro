@@ -1,226 +1,140 @@
 ---
 import Container from "../../global/NewsContainer.astro";
-const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
+const basePath = import.meta.env.PROD ? "/Genesis/" : "/";
 ---
 
 <style>
-    .heading{
-        background-color:#aa7e17;
-        background-image: url('/Img/News3Img/oldpaper.jpg');
+    body {
+  padding-top: 150px;
+}
+    .heading {
+        margin-bottom: 30px;
+        background-color: #aa7e17;
+        background-image: url("/Img/News3Img/oldpaper.jpg");
         background-size: cover;
         background-repeat: no-repeat;
-        background-blend-mode:multiply;
-        padding: 0px;
-        color:aliceblue;
+        background-blend-mode: multiply;
+        padding: 80px 80px; /* original padding left and right */
+        color: aliceblue;
         font-size: 2rem;
-        font-weight:600;
-        text-transform:uppercase;
-        display:flex;
-        align-items:center;
-        font-family:'Copperplate Gothic Light', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* spread children */
+        font-family: "Copperplate Gothic Light", "Franklin Gothic Medium",
+            "Arial Narrow", Arial, sans-serif;
         position: fixed;
         width: 100%;
         left: 0;
         top: 0;
         z-index: 10;
-    }
-    
-    .logo{
-        width: 50px;
-        height: auto;
-        margin-right: 30px;
-        margin-left:30px;
+        height: 80px; /* control height so it's visible */
     }
 
-    .article-row{
-        text-transform: capitalize;
+    .button {
+        display: inline-block;
+        padding: 8px 16px;
+        border: 2px solid white;
+        border-radius: 8px;
+        background-color: transparent;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition:
+            border-color 0.3s,
+            color 0.3s;
+        cursor: pointer;
+        margin-right: 15px; /* spacing between buttons */
     }
-    .article-row li {
-        margin-right:80px;
-        margin-left:80px;
-        font-size:16px;
-        font-weight: normal;
+
+    .button:hover {
+        border-color: black;
+        color: black;
+        background-color: transparent;
+    }
+
+    .heading-buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    .heading-title {
+        text-align: center;
+        flex: 1; /* take remaining space */
+        display: flex;
+        flex-direction: column;
         justify-content: center;
-        padding-top: 5px;
+        gap: 0; /* no gap, close stacking */
     }
-    @keyframes tilt {
-    0%   { transform: rotate(0deg); }
-    25%  { transform: rotate(5deg); }
-    50%  { transform: rotate(-5deg); }
-    75%  { transform: rotate(5deg); }
-    100% { transform: rotate(0deg); }
-  }
 
-  .tilt-on-hover:hover {
-    animation: tilt 0.4s ease-in-out;
-  }
+    .heading-title h1 {
+        margin: 0;
+        line-height: 1;
+        font-size: 2.5rem;
+        font-weight: 600;
+    }
+
+    .menu-button {
+        /* right aligned menu section */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .menu-button img {
+        width: 200px;
+    }
+
+    .menu-text {
+        color: white;
+        font-size: 24px;
+        margin-top: 5px;
+    }
+    
 </style>
+
 <Container>
-    <!-- Responsive Navigation Bar -->
-    <nav class="flex flex-col mx-auto md:items-center md:justify-between md:flex-row p-4">
-      <div class="flex flex-row items-center justify-between w-full">
-          <!-- Logo -->
-          <!-- Mobile Menu Button -->
-      </div>
-    </nav>
-  
-    <!-- Main Heading Section -->
-    <div class="heading" style="display:flex; flex-direction: row; padding: 20px 50px; ">
-        <a href={'/'}style="text-align: left; margin-right:20px">
-            Main Page
-        </a>
-        <div style="flex: 1; text-align: center;">
-            <h1 class="text-5xl font-semibold">Lone</h1>
-            <h1 class="text-5xl font-semibold">Star</h1>
-            <h1 class="text-5xl font-semibold">Outlet</h1>
+    <div class="heading">
+        <!-- Buttons left -->
+        <div class="heading-buttons">
+            <a href="/" class="button">Main</a>
+            <a href="/news3" class="button">Home</a>
         </div>
-        <!-- Article Row Section -->
-        <!--<ul class="article-row text-lg" style="flex: 2; display:flex; margin: 0; padding: 0; list-style: none;">
-            <li class="text-center">
-                <a href="/news2" class="text-white hover:underline">
-                    The Hub
-                </a>
-            </li>
-            <li class="text-center">
-                <a href="/article2" class="text-white hover:underline">
-                    Features
-                </a>
-            </li>
-            <li class="text-center">
-                <a href="/interview2" class="text-white hover:underline">
-                    Spotlights
-                </a>
-            </li>
-            <li class="text-center">
-                <a href="/aboutus2" class="text-white hover:underline">
-                    About Us
-                </a>
-            </li>
-        </ul>
-    -->
 
-     <!--Menu button -->
-     <div style="display: flex; flex-direction: column; gap: 5px; position: relative;" onclick="toggleMenu()">
-        <div>
-            <img src=`${basePath}Img/News3Img/cowboyhat.png` class= "tilt-on-hover" style="width: 200px;">
+        <!-- Center Heading Text -->
+        <div class="heading-title">
+            <h1>Lone</h1>
+            <h1>Star</h1>
+            <h1>Outlet</h1>
         </div>
-            <ul id="dropdown-menu" style="position: absolute; top: 140px; right: -50px; background-color: #753a11; color: aliceblue; list-style: none; padding-top: 5px; padding-bottom: 5px; border: 1px solid aliceblue; border-radius: 5px; transform: translateX(100%); width: 33vw; text-transform: capitalize; transition: transform 0.3s ease-in-out;">
-                <style>
-                    #dropdown-menu li:hover {
-                        background-color: #3f2916;
-                        color: #ffffff;
-                        cursor: pointer;
-                    }
-                    #dropdown-menu li a {
-                        display: block;
-                        width: 100%;
-                        height: 100%;
-                        text-decoration: none;
-                        color: inherit;
-                    }
-                </style>
-                <li style="padding: 5px 10px; cursor: pointer; font-size: 14px;" onclick="window.location.href='/news3'">
-                    <a href=`${basePath}news3` style="color: inherit;">The Ranch</a>
-                </li>
-                <li style="padding: 5px 10px; cursor: pointer; font-size: 14px;" onclick="window.location.href='/article3'">
-                    <a href=`${basePath}article3` style="color: inherit;">Trail Talk</a>
-                </li>
-                <li style="padding: 5px 10px; cursor: pointer; font-size: 14px;" onclick="window.location.href='/interview3'">
-                    <a href=`${basePath}interview3` style="color: inherit;">Frontier Voices</a>
-                <li style="padding: 5px 10px; cursor: pointer; font-size: 14px;" onclick="window.location.href='/aboutus3'">
-                    <a href=`${basePath}aboutus3` style="color: inherit;">Behind the Barn Door</a>
-                </li>
-                <li style="padding: 5px 10px; cursor: default; font-size: 14px; height: 100vh; pointer-events: none;"></li>
-            </ul>
+
+        <!-- Right Menu Button -->
+        <div class="menu-button" onclick="toggleMenu()">
+            <img
+                src={`${basePath}Img/News3Img/cowboyhat.png`}
+                class="tilt-on-hover"
+                alt="Menu"
+            />
+            <p class="menu-text">Menu</p>
         </div>
     </div>
-        <!--Menu button --> <!--
-        <div style="display: flex; flex-direction: column; gap: 5px; position: relative;" onclick="toggleMenu()">
-            <div>
-                <img src="/Img/News3Img/cowboyhat.png" class= "tilt-on-hover" style="width: 200px;">
-            </div>
-            <ul id="dropdown-menu" style="position: absolute; top: 140px; right: -50px; background-color: #74461e; color: aliceblue; list-style: none; padding-top: 5px; padding-bottom: 5px; border: 1px solid aliceblue; border-radius: 5px; transform: translateY(-200px); width: 100vw; text-transform: capitalize; transition: transform 0.3s ease-in-out, opacity 0.4s ease-in-out; opacity: 100; display: none;">
-                <style>
-                    #dropdown-menu li:hover {
-                        background-color: #3f2916;
-                        color: #ffffff;
-                        cursor: pointer;
-                    }
-                    #dropdown-menu li a {
-                        display: block;
-                        width: 100%;
-                        height: 100%;
-                        text-decoration: none;
-                        color: inherit;
-                    }
-                </style>
-                <li style="padding: 5px 30px; cursor: pointer; font-size: 14px;" onclick="window.location.href='/news3'">
-                    <a href="/news3" style="color: inherit;">The Ranch</a>
-                </li>
-                <li style="padding: 5px 30px; cursor: pointer; font-size: 14px;" onclick="window.location.href='/article3'">
-                    <a href="/article3" style="color: inherit;">Trail Talk</a>
-                </li>
-                <li style="padding: 5px 30px; cursor: pointer; font-size: 14px;" onclick="window.location.href='/interview3'">
-                    <a href="/interview3" style="color: inherit;">Frontier Voices</a>
-                </li>
-                <li style="padding: 5px 30px; cursor: pointer; font-size: 14px;" onclick="window.location.href='/aboutus3'">
-                    <a href="/aboutus3" style="color: inherit;">Behind the Barn Door</a>
-                </li>
-            </ul>
-        </div>
-    </div>
--->
-    <script>
-     /*  let menuVisible = false;
-    
-        function toggleMenu(): void {
-            const menu = document.getElementById('dropdown-menu');
-            menuVisible = !menuVisible;
-            if (menu) {
-                menu.style.display = 'block';
-                menu.style.opacity = menuVisible ? '1' : '0';
-                menu.style.transform = menuVisible ? 'translateY(0)' : 'translateY(-200px)';
-            }
-        }
-    */
+
+    <!-- Dropdown menu and script go here -->
+</Container>
+
+<script>
     let menuVisible = false;
-    
-    function toggleMenu(): void {
-        const menu = document.getElementById('dropdown-menu');
-        menuVisible = !menuVisible;
-        menu.style.transform = menuVisible ? 'translateX(0)' : 'translateX(100%)';
-    }
-        // Extend the Window interface to include toggleMenu
-        declare global {
-            interface Window {
-                toggleMenu: () => void;
-            }
-        }
-        window.toggleMenu = toggleMenu;
-        
-        // Deprecated
-        function navigateTo(option: 'articles' | 'interviews' | 'home'): void {
-            if (option === 'articles') {
-            window.location.href = '/articles';
-            } else if (option === 'interviews') {
-            window.location.href = '/interviews';
-            } else if (option === 'home') {
-            window.location.href = '/news';
-            }
-        }
 
-        // Add a line separator between options in the dropdown menu
-        const dropdownMenu = document.getElementById('dropdown-menu');
-        if (dropdownMenu) {
-            const options = dropdownMenu.querySelectorAll('li');
-            options.forEach((option, index) => {
-            if (index < options.length - 1) {
-                const separator = document.createElement('hr');
-                separator.style.border = '1px solid aliceblue';
-                separator.style.margin = '5px 0';
-                option.after(separator);
-            }
-            });
+    function toggleMenu() {
+        const menu = document.getElementById("dropdown-menu");
+        menuVisible = !menuVisible;
+        if (menu) {
+            menu.style.transform = menuVisible
+                ? "translateX(0)"
+                : "translateX(100%)";
         }
-        
-    </script>
+    }
+    window.toggleMenu = toggleMenu;
+</script>
