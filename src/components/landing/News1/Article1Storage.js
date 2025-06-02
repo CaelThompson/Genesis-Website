@@ -305,59 +305,73 @@ export const articles = [
   <p style=";; margin-bottom: 1rem;">Looking ahead, Inkforge plans to partner with nearby colleges for a shared artist-in-residence program, and is in talks to develop a satellite space focused on performance art and theater. “We’re just getting started,” said Phan. “This is the blueprint for what’s possible when art and community move together.”</p>`
   },
   {
-  title: "Genesis Explores Virtual Reality as Future Tool for Customer Engagement and System Simulation",
-  description: "Genesis Company is laying the groundwork for a future where immersive digital technologies enhance how industrial systems are designed, demonstrated, and delivered. As part of its strategic roadmap, the company is exploring the use of Virtual Reality (VR) and simulation platforms—potentially in partnership with Siemens—to offer clients a more interactive view of its manufacturing capabilities.",
+  title: "Genesis Explores Virtual Reality as a Future Tool for Customer Engagement and System Simulation",
+  description: "Genesis is laying the foundation for a future where immersive technologies like Virtual Reality (VR) reshape how industrial systems are designed, validated, and experienced. As part of its strategic innovation roadmap, the company is exploring simulation platforms—including potential partnerships with Siemens—to provide clients with a more interactive and predictive view of manufacturing solutions.",
   image: `${basePath}Img/News1Img/Articles/vr.jpg`,
   slug: "genesis-vr-customer-engagement",
   date: "05/22/2025",
   author: "By Amira Lawson, Technology Solutions Correspondent",
   content: `
+    <p><strong>Published: May 22, 2025</strong></p>
+
+    <p>Genesis is laying the foundation for a future where immersive technologies like Virtual Reality (VR) reshape how industrial systems are designed, validated, and experienced. As part of its strategic innovation roadmap, the company is exploring simulation platforms—including potential partnerships with Siemens—to provide clients with a more interactive and predictive view of manufacturing solutions.</p>
 
     <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Laying the Foundation for Digital Twin Capabilities</h2>
 
-    <p style="margin-bottom: 1rem;">While Genesis does not yet have full digital twin modeling of its shop floor, internal planning efforts are focused on developing a virtual environment that could eventually replicate factory workflows, test customization scenarios, and model real-time system behavior. Such a platform would allow users to visualize energy consumption patterns, stress-test machine diagnostics, and better understand how integrated automation responds to disruptions or design changes.</p>
+    <p>Though Genesis has not yet deployed a full-scale digital twin of its production environment, internal planning is well underway. The goal: to create a virtual ecosystem that models real-time factory workflows, tests custom configurations, and simulates system-level behavior before physical implementation.</p>
 
-    <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">A Long-Term Vision for VR and Simulation</h2>
+    <p>Such a platform would allow clients to visualize energy efficiency, monitor machine-level diagnostics, and stress-test operational resilience in response to design changes or system disruptions—delivering deeper operational insight long before commissioning.</p>
 
-    <p style="margin-bottom: 1rem;">“This is a longer-term objective, not something we currently offer,” says Elizabeth Redding, CTO. “But as clients demand more visibility and predictability in system performance, tools like VR-based modeling and digital twin technology will help us deliver that experience before the first bolt is turned.”</p>
+    <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">A Vision, Not Yet a Reality</h2>
 
-    <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Strategic Partnerships as Enablers</h2>
+    <p>“This is a longer-term objective, not something we currently offer,” says Elizabeth Redding, Chief Technology Officer. “But as client expectations evolve toward greater transparency and predictive assurance, immersive tools like VR and digital twins will play a vital role in how we demonstrate system value—before the first bolt is turned.”</p>
 
-    <p style="margin-bottom: 1rem;">Any future rollout would likely depend on external partnerships, particularly with industrial software providers like Siemens. Early-stage discussions have focused on how such collaboration could accelerate Genesis’s ability to simulate end-to-end line behavior and provide clients with a deeper level of assurance during the decision-making process.</p>
+    <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Collaboration Will Be Key</h2>
 
-    <p style="margin-bottom: 1rem;">“This digital enablement concept is part of a broader effort by Genesis to evolve its customer engagement model. As manufacturing moves toward smarter, data-driven systems, Genesis aims to position itself as a forward-looking integrator—committed not only to building advanced hardware, but to delivering greater transparency and insight into how that hardware performs over time.”</p>
+    <p>Genesis recognizes that realizing this vision will likely require deep collaboration with leading industrial software providers. Preliminary discussions with Siemens have focused on how a joint approach could accelerate the development of fully interactive line simulations, providing customers with more granular performance projections and faster iteration cycles during the pre-sales and engineering phases.</p>
+
+    <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Enabling the Future of Smart Manufacturing</h2>
+
+    <p>This virtual enablement initiative is part of a broader shift in Genesis’s customer engagement model. As the manufacturing landscape grows more data-driven, predictive, and outcome-focused, Genesis is positioning itself not only as a hardware integrator—but as a transparent, insight-led partner.</p>
+
+    <p>By investing early in simulation and immersive tech, the company is setting the stage for next-generation client collaboration, where decisions are made faster, designs are validated earlier, and system performance is understood more deeply—well before it ever goes live.</p>
   `
 },
+
  {
   title: "Genesis Sales Strategy: How Global Reach and Technical Expertise Drive Market Growth",
-  description: "Genesis Company’s success in expanding across global markets is grounded not just in the strength of its products, but in the structure and strategy of its sales organization.",
+  description: "Genesis Company’s continued global expansion is driven not only by its innovative solutions, but also by a deliberate and highly structured sales strategy.",
   image: `${basePath}Img/News1Img/Articles/global.jpg`,
-  slug: "genesis-vr-customer-engagement",
+  slug: "genesis-sales-strategy-global-expertise",
   date: "05/08/2025",
   author: "By Jordan Lee, Business Technology Writer",
   content: `
 
-    <p style="margin-bottom: 1rem;">With manufacturing and design houses located across North America, Europe, and Asia, Genesis has been able to enter and grow in multiple regions by leveraging close partnerships, localized production capabilities, and a responsive global supply chain. This global presence allows Genesis to offer both agility and proximity—two factors increasingly critical in today’s dynamic industrial landscape.</p>
+    <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Global Presence with Local Impact</h2>
+
+    <p style="margin-bottom: 1rem;">With design and manufacturing hubs across North America, Europe, and Asia, Genesis leverages proximity and responsiveness to meet client needs with speed and precision. This distributed footprint enables the company to adapt to regional market conditions, support localized production, and ensure resilience across its global supply chain.</p>
+
+    <p style="margin-bottom: 1rem;">“Agility and proximity are more than logistics advantages—they’re strategic levers in how we engage customers,” says Victor Viola, Global VP of Strategic Accounts.</p>
 
     <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Regional Focus, Industry Expertise</h2>
 
-    <p style="margin-bottom: 1rem;">To better align with customer needs, Genesis divides its sales organization by both region and industry vertical. Each territory is supported by sales teams who specialize in that region’s unique business climate and technical requirements—whether that’s aerospace in North America, automotive in Europe, or medical manufacturing in Southeast Asia.</p>
+    <p style="margin-bottom: 1rem;">Genesis organizes its sales force by both geography and vertical market, allowing teams to tailor their approach to each region’s regulatory climate, technical standards, and industry dynamics. Whether supporting aerospace in North America, automotive in Europe, or medical device manufacturers in Southeast Asia, each team combines local insight with sector-specific knowledge.</p>
 
-    <p style="margin-bottom: 1rem;">What sets Genesis sales reps apart is their deep industry experience and technical fluency. Many team members come from engineering or manufacturing backgrounds and are able to speak fluently about Genesis’s full range of capabilities—from automation integration to system design.</p>
-    
-    <p style="margin-bottom: 1rem;">“We hire people who not only understand sales, but who truly understand how our solutions are built and delivered,” says Victor Viola, Global VP of Strategic Accounts. “That means they can sit down with a customer’s engineering team and actually solve problems.” </p>
-    
-    <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Leveraging Internal Tools to Stay Ahead</h2>
+    <p style="margin-bottom: 1rem;">What truly differentiates Genesis sales professionals is their technical depth. Many team members come from engineering, manufacturing, or automation backgrounds, enabling them to go beyond surface-level discussions and work as solution partners with clients.</p>
 
-    <p style="margin-bottom: 1rem;">“To support this expertise, Genesis equips its account teams with tools like its internal ROI Visualization Platform—a behind-the-scenes financial modeling engine that helps prioritize opportunities and sharpen strategy. While not customer-facing, it gives sales leaders insight into where Genesis creates the most long-term economic value and where to focus resources.”</p>
+    <p style="margin-bottom: 1rem;">“We hire people who not only understand sales, but who truly understand how our solutions are built and delivered,” says Viola. “That means they can sit down with a customer’s engineering team and actually solve problems.”</p>
 
-    <p style="margin-bottom: 1rem;">The platform also features a “Green ROI” layer, which tracks carbon savings across different solution scenarios, helping sales teams better understand the sustainability impact of each engagement—an increasingly relevant factor in today's procurement decisions.</p>
-    
-    <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Preparing for More Complex Products</h2>
+    <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Tools That Sharpen Strategy</h2>
 
-    <p style="margin-bottom: 1rem;">As Genesis’s systems grow more advanced—particularly in software-defined manufacturing and AI-enabled automation—the sales process is becoming more technically demanding. Recognizing this, the company is investing in training, tools, and internal collaboration to ensure sales reps stay ahead of evolving product capabilities.</p>
+    <p style="margin-bottom: 1rem;">Supporting this high-touch approach is a set of internal tools designed to align opportunity with value. One standout is the ROI Visualization Platform, a proprietary engine that enables Genesis sales teams to identify where the company can drive the greatest financial return for its clients—and prioritize efforts accordingly.</p>
 
-    <p style="margin-bottom: 1rem;">“The future of selling industrial solutions isn’t just about features,” Viola adds. “It’s about being able to translate deep technical capability into business outcomes. That’s where Genesis is heading—and how we plan to lead.”</p>
+    <p style="margin-bottom: 1rem;">This tool also features a “Green ROI” layer, which models the carbon impact of different solution configurations. While not customer-facing, it helps sales teams quantify sustainability benefits, an increasingly critical factor in modern industrial procurement.</p>
+
+    <h2 style="font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem;">Preparing for the Future of Industrial Sales</h2>
+
+    <p style="margin-bottom: 1rem;">As Genesis systems become more complex—integrating AI, machine learning, and software-defined automation—the sales process has likewise evolved. The company is proactively investing in technical training, cross-functional collaboration, and advanced modeling tools to ensure its salesforce stays ahead of product advancements and customer expectations.</p>
+
+    <p style="margin-bottom: 1rem;">“The future of selling industrial solutions isn’t just about features,” Viola notes. “It’s about translating advanced technical capability into measurable business outcomes. That’s where Genesis is heading—and how we plan to lead.”</p>
   `
 }
 ];

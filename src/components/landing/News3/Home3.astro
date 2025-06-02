@@ -3,20 +3,20 @@ import { articles as originalArticles } from "./Article3Storage.js";
 import { interviews as originalInterviews } from "./Interview3Storage.js";
 import Container from "../../global/NewsContainer.astro";
 import NewsNav from "../News3/News3Nav.astro";
-const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
+const basePath = import.meta.env.PROD ? "/Genesis/" : "/";
 
 // Map articles to include 'url' and 'type' properties
-const articles = originalArticles.map(article => ({
+const articles = originalArticles.map((article) => ({
   ...article,
   url: `${basePath}article3/${article.slug}`, // Derive 'url' from 'slug'
-  type: article.type || "default" // Add a default 'type' if missing
+  type: article.type || "default", // Add a default 'type' if missing
 }));
 
 // Map interviews to include 'url' and 'type' properties
-const interviews = originalInterviews.map(interview => ({
+const interviews = originalInterviews.map((interview) => ({
   ...interview,
   url: `${basePath}interview3/${interview.slug}`, // Derive 'url' from 'slug'
-  type: interview.type || "default" // Add a default 'type' if missing
+  type: interview.type || "default", // Add a default 'type' if missing
 }));
 
 // Function to get a unique random item (article or interview)
@@ -37,18 +37,18 @@ function getUniqueRandomItem() {
   return randomItem;
 }
 ---
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lone Star Outlet</title>
-  </head>
+</head>
 <style>
   .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     margin: 0 100px; /* Large margins on both sides */
-    
   }
 
   .grid-item {
@@ -70,11 +70,9 @@ function getUniqueRandomItem() {
     background-size: cover;
     background-position: center;
     padding-top: 20%;
-    
   }
 
-.grid-item2-image {
-    
+  .grid-item2-image {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     background-size: cover;
@@ -83,20 +81,19 @@ function getUniqueRandomItem() {
     background-color: transparent; /* Remove background color */
 
     margin-bottom: 0px;
-   
+
     display: flex;
     flex-direction: column;
     height: auto;
     position: relative; /* Added for positioning the date */
     height: 100%;
-    
   }
   .grid-item-text {
     flex: 1;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     background-color: rgb(94, 40, 14);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-bottom-right-radius: 8px;
@@ -104,11 +101,11 @@ function getUniqueRandomItem() {
     color: #f3f1eb;
   }
 
-  .grid-item:hover,.grid-item-text, .grid-item2-image:hover {
+  .grid-item:hover,
+  .grid-item-text,
+  .grid-item2-image:hover {
     transform: translateY(-3px);
   }
-
-
 
   .grid-item-date {
     position: absolute;
@@ -123,81 +120,102 @@ function getUniqueRandomItem() {
 </style>
 
 <Container>
-  <NewsNav/>
+  <NewsNav />
   <!-- Trending Articles text -->
   <div>
     <div class="flex justify-between items-center px-5 mx-5 mt-10">
-      <h1 class="text-3xl font-bold text-gray-900 ml-24">The Hottest Headlines This Side of the Rio Grande
-
+      <h1 class="text-3xl font-bold text-gray-900 ml-24">
+        The Hottest Headlines This Side of the Rio Grande
       </h1>
-      
     </div>
   </div>
 
   <!-- Article Box -->
   <div class="grid-container">
-    {Array.from({ length: 1 }).map(() => {
-      const { title, description, image, url, date } = getUniqueRandomItem();
-      return (
-        <a href={url} class="grid-item" style="grid-column: span 3;">
-          <div class="grid-item">
-            <div
-              class="grid-item-image group"
-              style={`background-image: url('${image}');`}
-            ></div>
-            <time datetime={date} class="grid-item-date">
-              {new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-            </time>
-            <div class="grid-item-text">
-              <h2 class="text-[20px]">{title}</h2>
-              <p>{description}</p>
+    {
+      Array.from({ length: 1 }).map(() => {
+        const { title, description, image, url, date } = getUniqueRandomItem();
+        return (
+          <a href={url} class="grid-item" style="grid-column: span 3;">
+            <div class="grid-item">
+              <div
+                class="grid-item-image group"
+                style={`background-image: url('${image}');`}
+              />
+              <time datetime={date} class="grid-item-date">
+                {new Date(date).toLocaleDateString("en-US", {
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                })}
+              </time>
+              <div class="grid-item-text">
+                <h2 class="text-[20px] font-bold">{title}</h2>
+                <p>{description}</p>
+              </div>
             </div>
-          </div>
-        </a>
-      );
-    })}
+          </a>
+        );
+      })
+    }
 
-    {Array.from({ length: 1 }).map(() => {
-      const { title, description, image, url, date } = getUniqueRandomItem();
-      return (
-        <a href={url} class="grid-item" style="grid-column: span 2; grid-row: span 2;">
-          <div class="grid-item">
-            <div
-              class="grid-item2-image"
-              style={`background-image: url('${image}');`}
-            ></div>
-            <time datetime={date} class="grid-item-date">
-              {new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-            </time>
-            <div class="grid-item-text">
-              <h2 class="text-[20px]">{title}</h2>
-              <p>{description}</p>
+    {
+      Array.from({ length: 1 }).map(() => {
+        const { title, description, image, url, date } = getUniqueRandomItem();
+        return (
+          <a
+            href={url}
+            class="grid-item"
+            style="grid-column: span 2; grid-row: span 2;"
+          >
+            <div class="grid-item">
+              <div
+                class="grid-item2-image"
+                style={`background-image: url('${image}');`}
+              />
+              <time datetime={date} class="grid-item-date">
+                {new Date(date).toLocaleDateString("en-US", {
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                })}
+              </time>
+              <div class="grid-item-text">
+                <h2 class="text-[20px] font-bold">{title}</h2>
+                <p>{description}</p>
+              </div>
             </div>
-          </div>
-        </a>
-      );
-    })}
+          </a>
+        );
+      })
+    }
 
-{Array.from({ length: 5 }).map(() => {
-  const { title, description, image, url, date } = getUniqueRandomItem();
-  return (
-    <a href={url} class="grid-item">
-      <div class="grid-item">
-        <div
-          class="grid-item-image group"
-          style={`background-image: url('${image}');`}
-        ></div>
-        <time datetime={date} class="grid-item-date">
-          {new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-        </time>
-        <div class="grid-item-text">
-          <h2 class="text-[20px]">{title}</h2>
-          <p>{description}</p>
-        </div>
-      </div>
-    </a>
-  );
-})}
+    {
+      Array.from({ length: 5 }).map(() => {
+        const { title, description, image, url, date } = getUniqueRandomItem();
+        return (
+          <a href={url} class="grid-item">
+            <div class="grid-item">
+              <div
+                class="grid-item-image group bg-cover bg-center"
+                style={`background-image: url('${image}'); height: 200px; width: 100%; aspect-ratio: 16/9;`}
+              />
+              <time datetime={date} class="grid-item-date">
+                {new Date(date).toLocaleDateString("en-US", {
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                })}
+              </time>
+              <div class="grid-item-text">
+                <h2 class="text-[20px] font-bold">{title}</h2>
+                <p>{description}</p>
+              </div>
+            </div>
+          </a>
+        );
+      })
+    }
   </div>
 
   <div style="margin-bottom: 80px;"></div>
