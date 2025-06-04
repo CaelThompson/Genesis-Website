@@ -2,13 +2,14 @@
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/global/News2Footer.astro";
 import Navigation from "../components/global/Navigation.astro";
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
 
 ---
 
 <html lang="en">
   <head>
-    <link rel="icon" href="../../../../public/Img/News2Img/madrigalLogo2.png" type="image/x-icon">
-    <link rel="shortcut icon" href="../../../../public/Img/News2Img/madrigalLogo2.png" type="image/x-icon">
+    <link rel="icon" href=`${basePath}Img/News2Img/madrigalLogo2.png` type="image/x-icon">
+    <link rel="shortcut icon" href=`${basePath}Img/News2Img/madrigalLogo2.png` type="image/x-icon">
     <BaseHead />
   </head>
   <body style="font-family: 'Outfit', sans-serif; background-color: #2f3d38; margin: 0;">

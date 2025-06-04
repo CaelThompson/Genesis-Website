@@ -2,13 +2,13 @@
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/global/News3Footer.astro";
 import Navigation from "../components/global/Navigation.astro";
-
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
 ---
 
 <html lang="en" style="background: #f0d8c7;">
   <head>
-    <link rel="icon" href="../../../../public/Img/Logos/LoneStarLogo.jpg" type="image/x-icon">
-    <link rel="shortcut icon" href="../../../../public/Img/Logos/LoneStarLogo.jpg" type="image/x-icon">
+    <link rel="icon" href=`${basePath}Img/Logos/LoneStarLogo.jpg` type="image/x-icon">
+    <link rel="shortcut icon" href=`${basePath}Img/Logos/LoneStarLogo.jpg` type="image/x-icon">
 	<BaseHead/>
   </head>
   <slot/>
