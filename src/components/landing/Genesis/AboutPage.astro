@@ -1,5 +1,6 @@
 ---
 import Maps from './Map.astro';
+const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
 ---
 
 <title>About Genesis</title>
@@ -29,21 +30,21 @@ import Maps from './Map.astro';
   
   <!-- Aerospace Industry Section -->
   <div class="mb-10">
-    <img src=`Img/aerospace3_original.png` alt="Aerospace Manufacturing" class="rounded-lg shadow hover:opacity-90 mx-auto"/>
+    <img src=`${basePath}Img/aerospace3_original.png` alt="Aerospace Manufacturing" class="rounded-lg shadow hover:opacity-90 mx-auto"/>
     <p class="mt-4 text-center text-2xl font-bold">Aerospace Manufacturing</p>
     <p class="mt-2">Genesis plays a pivotal role in aerospace manufacturing by delivering high-quality, reliable solutions that align with the stringent demands of the sector. Our emphasis on deep customer engagement allows us to develop bespoke solutions that effectively address unique industry challenges, from design complexity to operational reliability. We continuously refine our processes to increase sustainability and minimize environmental impacts, staying aligned with global standards. By focusing on innovative technologies and trends, we empower our aerospace clients to reach new heights of efficiency and performance.
   </div>
 
   <!-- Automotive Industry Section -->
   <div class="mb-10">
-    <img src=`Img/manufacturing_car.jpeg` alt="Automotive Industry Manufacturing" class="rounded-lg shadow hover:opacity-90 mx-auto"/>
+    <img src=`${basePath}Img/manufacturing_car.jpeg` alt="Automotive Industry Manufacturing" class="rounded-lg shadow hover:opacity-90 mx-auto"/>
     <p class="mt-4 text-center text-2xl font-bold">Automotive Industry Manufacturing</p>
     <p class="mt-2">In the dynamic automotive industry, Genesis thrives on building lasting customer relationships through exceptional service and understanding client needs. We are dedicated to driving innovation in automotive manufacturing by visualizing and integrating new industry trends into our product development. Our solutions aim to answer critical customer challenges, enhance the efficiency of vehicles, and reduce environmental impact. By focusing on sustainable practices, we ensure that our approach not only meets today’s needs but also anticipates future trends, promoting long-term success in a rapidly evolving sector.
   </div>
 
   <!-- Medical Device Manufacturing Section -->
   <div class="mb-10">
-    <img src=`Img/ventilator.JPG` alt="Medical Device Manufacturing" class="rounded-lg shadow hover:opacity-90 mx-auto"/>
+    <img src=`${basePath}Img/ventilator.JPG` alt="Medical Device Manufacturing" class="rounded-lg shadow hover:opacity-90 mx-auto"/>
     <p class="mt-4 text-center text-2xl font-bold">Medical Device Manufacturing</p>
     <p class="mt-2">At Genesis, we are at the forefront of innovating medical device manufacturing. By focusing on accelerating product development, we help healthcare providers access advanced medical tools swiftly. Our approach involves close collaboration with clients to understand and respond to the challenges medical professionals face today. This includes a commitment to increasing the sustainability of our manufacturing processes and contributing to a healthier environment while ensuring the utmost safety and reliability of our devices. Our proactive trend analysis helps us anticipate shifts in healthcare needs, enabling us to adapt swiftly to the evolving market.
   </div>
