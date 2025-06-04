@@ -6,12 +6,12 @@ const basePath = import.meta.env.PROD ? '/Genesis/' : '/';
 
 // Fake reporters data
 const reporters = [
-  {name: "Beau McAllister",image: `${basePath}../../../../public/Img/News3Img/AboutUs/reporter31.jpg`,title: "Lead Field Correspondent – Texas Affairs"},
-  {name: "Ricky Del Toro",image: `${basePath}../../../../public/Img/News3Img/AboutUs/reporter37.jpg`,title: "Senior Truth Tracker – Investigations & Crime"},
-  {name: "Travis Boone",image: `${basePath}../../../../public/Img/News3Img/AboutUs/reporter34.jpg`,title: "Lone Star Politics Specialist"},
-  {name: "Cali Gwen",image: `${basePath}../../../../public/Img/News3Img/AboutUs/reporter35.jpg`,title: "Arts & Roots Culture Reporter"},
-  {name: "AJ Ward",image: `${basePath}../../../../public/Img/News3Img/AboutUs/reporter32.jpg`,title: "Science & Tech on the Range Reporter"},
-  {name: "Marisol Reyes",image: `${basePath}../../../../public/Img/News3Img/AboutUs/reporter36.jpg`,title: "Borderlands & Global Affairs Correspondent"}
+  {name: "Beau McAllister",image: `${basePath}Img/News3Img/AboutUs/reporter31.jpg`,title: "Lead Field Correspondent – Texas Affairs"},
+  {name: "Ricky Del Toro",image: `${basePath}Img/News3Img/AboutUs/reporter37.jpg`,title: "Senior Truth Tracker – Investigations & Crime"},
+  {name: "Travis Boone",image: `${basePath}Img/News3Img/AboutUs/reporter34.jpg`,title: "Lone Star Politics Specialist"},
+  {name: "Cali Gwen",image: `${basePath}Img/News3Img/AboutUs/reporter35.jpg`,title: "Arts & Roots Culture Reporter"},
+  {name: "AJ Ward",image: `${basePath}Img/News3Img/AboutUs/reporter32.jpg`,title: "Science & Tech on the Range Reporter"},
+  {name: "Marisol Reyes",image: `${basePath}Img/News3Img/AboutUs/reporter36.jpg`,title: "Borderlands & Global Affairs Correspondent"}
 ];
 ---
 
@@ -156,7 +156,7 @@ const reporters = [
         </p>
       </div>
       <div class="location-image">
-        <img src="../../../../public/Img/News3Img/AboutUs/texas.png" alt="Texas Map" />
+        <img src=`${basePath}Img/News3Img/AboutUs/texas.png` alt="Texas Map" />
       </div>
     </div>
   </div>
